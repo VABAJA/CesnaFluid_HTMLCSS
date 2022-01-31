@@ -177,22 +177,22 @@
                 <h5 class="title">Agregar Nuevo Vehículo</h5>
               </div>
               <div class="card-body">
-                <form>
+                <form action="../scripts/vehiculos_req.php" method="post">
                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Placas</label>
-                        <input type="number" class="form-control" placeholder="Ej: 0001">
+                        <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>PIN RFID</label>
-                        <input type="string" class="form-control" placeholder="Ej: 0000">
+                        <input type="number" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
                       </div>
                     </div>
                   </div>
-                  <div class="row">
+<!--                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Nombre del Contacto</label>
@@ -211,32 +211,33 @@
                         <input type="string" class="form-control" placeholder="jorge@email.com">
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Dirección</label>
-                        <input type="text" class="form-control" placeholder="Ej:Calle, Colonia">
+                        <label>Kilometros</label>
+                        <input type="number" class="form-control" placeholder="Ej:135000" name="kilometros" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Teléfono</label>
-                        <input type="number" class="form-control" placeholder="Ej: 8115028945">
+                        <label>Volúmen en L</label>
+                        <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Ciudad</label>
-                        <input type="text" class="form-control" placeholder="Ej: Monterrey">
+                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
                       </div>
                     </div>
                   </div>
+                  <div class="card-footer">
+                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                      name="ingresarVehiculo">Agregar
+                      Vehículo</button>
+                  </div>
                 </form>
-              </div>
-              <div class="card-footer">
-                <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue">Agregar
-                  Vehículo</button>
               </div>
             </div>
           </div>

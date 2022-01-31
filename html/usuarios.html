@@ -177,18 +177,18 @@
                 <h5 class="title">Agregar Nuevo Usuario</h5>
               </div>
               <div class="card-body">
-                <form>
+                <form action="../scripts/usuarios_reg.php" method="post">
                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>ID del Usuario</label>
-                        <input type="number" class="form-control" placeholder="Ej: 0001">
+                        <input type="number" class="form-control" placeholder="Ej: 0001" name="usuario" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>PIN RFID</label>
-                        <input type="string" class="form-control" placeholder="Ej: 0000">
+                        <input type="string" class="form-control" placeholder="Ej: 0000" name="usuariopin" required>
                       </div>
                     </div>
                   </div>
@@ -196,7 +196,7 @@
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Nombre del Contacto</label>
-                        <input type="text" class="form-control" placeholder="Ej: Jorge Barrera">
+                        <input type="text" class="form-control" placeholder="Ej: Jorge Barrera" name="nomusuario" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -228,12 +228,12 @@
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Ciudad</label>
-                        <input type="text" class="form-control" placeholder="Ej: Monterrey">
+                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
                       </div>
                     </div>
                   </div>
                   <div class="card-footer">
-                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue">Agregar Usuario</button>
+                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarUsuario">Agregar Usuario</button>
                   </div>
                 </form>
               </div>
