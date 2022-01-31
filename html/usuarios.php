@@ -1,3 +1,16 @@
+<?php
+//varaible de conexión
+  $conectar=mysqli_connect('localhost', 'root', '123456', 'tramex1');
+
+  //verificación de conexión
+  if(mysqli_connect_errno ($conectar)) {
+      echo "Conexión Fallida".mysqli_connect_error();
+  }
+
+
+  $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -252,44 +265,33 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table tablesorter " id="">
-                    <thead class=" text-primary">
+                  <table class="table tablesorter" >
+                  <!--class="table tablesorter"  -->
+                    <thead class="text-primary">
                       <tr>
-                        <th class="text-center">
-                          ID Del Usuario
-                        </th class="text-center">
-                        <th class="text-center">
-                          PIN RFID
-                        </th>
-                        <th class="text-center">
-                          Empresa
-                        </th>
-                        <th class="text-center">
-                          Nombre del Contacto
-                        </th>
-                        <th class="text-center">
-                          Teléfono
-                        </th>
+                        <th>ID. Del Usuario</th>
+                        <th>PINRFID</th>
+                        <th>Nombre del Contacto</th>
+                        <th>Locación</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="text-center">
-                          0001
-                        </td>
-                        <td class="text-center">
-                          0001
-                        </td>
-                        <td class="text-center">
-                          VABAJA
-                        </td>
-                        <td class="text-center">
-                          Jorge Barrera
-                        </td>
-                        <td class="text-center">
-                          +52811508945
-                        </td>
-                      </tr>
+                      <?php
+                      
+
+                      while($fila = mysqli_fetch_array ($resultado)): ?>
+
+                        
+                        <tr>
+                          <td class="text-center"><?php echo $fila['usuario']; ?></td>
+                          <td class="text-center"><?php echo $fila['usuariopin']; ?></td>
+                          <td class="text-center"><?php echo $fila['nomusuario']; ?></td>
+                          <td class="text-center"><?php echo $fila['locacion']; ?></td>
+
+                        </tr>
+                      
+                      <?php endwhile; ?>
 
                     </tbody>
                   </table>
