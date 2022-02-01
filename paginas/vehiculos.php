@@ -1,3 +1,15 @@
+<?php
+//varaible de conexión
+  $conectar=mysqli_connect('localhost', 'root', '123456', 'tramex1');
+
+  //verificación de conexión
+  if(mysqli_connect_errno ($conectar)) {
+      echo "Conexión Fallida".mysqli_connect_error();
+  }
+
+
+  $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,59 +33,65 @@
 </head>
 
 <body class="">
-  <div class="wrapper">
+<div class="wrapper">
     <div class="sidebar">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
     -->
       <div class="sidebar-wrapper">
         <div class="logo">
-          <a href="../dashboard.html" class="simple-text logo-mini">
+          <a href="./dashboard.php" class="simple-text logo-mini">
             <img src="../assets/img/icon.ico" alt="icon">
           </a>
-          <a href="javascript:void(0)" class="simple-text logo-normal">
+          <a href="#" class="simple-text logo-normal">
             Cesna Fluid
           </a>
         </div>
         <ul class="nav">
-          <li class="active ">
-            <a href="../dashboard.html">
+          <li>
+            <a href="./dashboard.php">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./usuarios.html">
-              <i class="tim-icons icon-single-02"></i>
-              <p>Usuarios</p>
+            <a href="./clientes.php">
+              <i class="tim-icons icon-badge"></i>
+              <p>Clientes</p>
             </a>
           </li>
           <li>
-            <a href="./dispositivos.html">
+          <a href="./usuarios.php">
+            <i class="tim-icons icon-single-02"></i>
+            <p>Usuarios</p>
+          </a>
+          </li>
+          <li>
+            <a href="./dispositivos.php">
               <i class="tim-icons icon-tablet-2"></i>
               <p>Dispositivos</p>
             </a>
           </li>
           <li>
-            <a href="./vehiculos.html">
+            <a href="./vehiculos.php">
               <i class="tim-icons icon-bus-front-12"></i>
               <p>Vehículos</p>
             </a>
           </li>
           <li>
-            <a href="./contenedores.html">
+            <a href="./contenedores.php">
               <i class="tim-icons icon-app"></i>
               <p>Contentedores</p>
             </a>
           </li>
           <li>
-            <a href="./reportes.html">
+            <a href="./reportes.php">
               <i class="tim-icons icon-notes"></i>
               <p>Reportes</p>
             </a>
           </li>
           <li>
-            <a href="./regulaciones.html">
+            <a href="./regulaciones.php">
               <i class="tim-icons icon-chart-bar-32"></i>
               <p>Regulaciones</p>
             </a>
@@ -94,7 +112,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="javascript:void(0)">Vehículos</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -262,37 +280,41 @@
                           ID Del vehículo
                         </th>
                         <th class="text-center">
-                          PIN RFID
+                          Ciudad
                         </th>
                         <th class="text-center">
                           Empresa
                         </th>
                         <th class="text-center">
-                          Nombre del Contacto
+                          Volúmen
                         </th>
                         <th class="text-center">
-                          Teléfono
+                          Kilometros
+                        </th>
+                        <th class="text-center">
+                          Volúmen Acumulado
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="text-center">
-                          0001
-                        </td>
-                        <td class="text-center">
-                          0001
-                        </td>
-                        <td class="text-center">
-                          VABAJA
-                        </td>
-                        <td class="text-center">
-                          Jorge Barrera
-                        </td>
-                        <td class="text-center">
-                          +52811508945
-                        </td>
-                      </tr>
+
+                    <?php
+                      
+
+                      while($fila = mysqli_fetch_array ($resultado)): ?>
+
+                        
+                        <tr>
+                          <td class="text-center"><?php echo $fila['vehiculo']; ?></td>
+                          <td class="text-center"><?php echo $fila['vehiculopin']; ?></td>
+                          <td class="text-center"><?php echo $fila['locacion']; ?></td>
+                          <td class="text-center"><?php echo $fila['volumen']; ?></td>
+                          <td class="text-center"><?php echo $fila['kilometros']; ?></td>
+                          <td class="text-center"><?php echo $fila['vacum']; ?></td>
+
+                        </tr>
+                      
+                      <?php endwhile; ?>
 
                     </tbody>
                   </table>

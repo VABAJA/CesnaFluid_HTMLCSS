@@ -24,56 +24,62 @@
     <div class="wrapper">
         <div class="sidebar">
             <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-    -->
+            Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+        -->
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="../dashboard.html" class="simple-text logo-mini">
+                    <a href="./dashboard.php" class="simple-text logo-mini">
                         <img src="../assets/img/icon.ico" alt="icon">
                     </a>
-                    <a href="javascript:void(0)" class="simple-text logo-normal">
+                    <a href="#" class="simple-text logo-normal">
                         Cesna Fluid
                     </a>
                 </div>
                 <ul class="nav">
-                    <li class="active ">
-                        <a href="../dashboard.html">
+                    <li>
+                        <a href="./dashboard.php">
                             <i class="tim-icons icon-chart-pie-36"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./usuarios.html">
+                        <a href="./clientes.php">
+                            <i class="tim-icons icon-badge"></i>
+                            <p>Clientes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./usuarios.php">
                             <i class="tim-icons icon-single-02"></i>
                             <p>Usuarios</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./dispositivos.html">
+                        <a href="./dispositivos.php">
                             <i class="tim-icons icon-tablet-2"></i>
                             <p>Dispositivos</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./vehiculos.html">
+                        <a href="./vehiculos.php">
                             <i class="tim-icons icon-bus-front-12"></i>
                             <p>Vehículos</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./contenedores.html">
+                        <a href="./contenedores.php">
                             <i class="tim-icons icon-app"></i>
                             <p>Contentedores</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./reportes.html">
+                        <a href="./reportes.php">
                             <i class="tim-icons icon-notes"></i>
                             <p>Reportes</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./regulaciones.html">
+                        <a href="./regulaciones.php">
                             <i class="tim-icons icon-chart-bar-32"></i>
                             <p>Regulaciones</p>
                         </a>
@@ -94,10 +100,9 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+                        <a class="navbar-brand" href="javascript:void(0)">Reportes</a>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -125,14 +130,11 @@
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You
                                             have 5 more
                                             tasks</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)"
-                                            class="nav-item dropdown-item">Your friend Michael
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael
                                             is in town</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)"
-                                            class="nav-item dropdown-item">Another
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another
                                             notification</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)"
-                                            class="nav-item dropdown-item">Another one</a></li>
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown nav-item">
@@ -148,12 +150,10 @@
                                 <ul class="dropdown-menu dropdown-navbar">
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Mi
                                             Perfil</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)"
-                                            class="nav-item dropdown-item">Configuración</a>
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="nav-link"><a href="javascript:void(0)"
-                                            class="nav-item dropdown-item">Cerrar Sesión</a>
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Cerrar Sesión</a>
                                     </li>
                                 </ul>
                             </li>
@@ -162,8 +162,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog"
-                aria-labelledby="searchModal" aria-hidden="true">
+            <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -512,8 +511,8 @@
     <!-- Black Dashboard DEMO methods, don't include it in your project! -->
     <script src="../assets/demo/demo.js"></script>
     <script>
-        $(document).ready(function () {
-            $().ready(function () {
+        $(document).ready(function() {
+            $().ready(function() {
                 $sidebar = $('.sidebar');
                 $navbar = $('.navbar');
                 $main_panel = $('.main-panel');
@@ -530,7 +529,7 @@
 
 
 
-                $('.fixed-plugin a').click(function (event) {
+                $('.fixed-plugin a').click(function(event) {
                     if ($(this).hasClass('switch-trigger')) {
                         if (event.stopPropagation) {
                             event.stopPropagation();
@@ -540,7 +539,7 @@
                     }
                 });
 
-                $('.fixed-plugin .background-color span').click(function () {
+                $('.fixed-plugin .background-color span').click(function() {
                     $(this).siblings().removeClass('active');
                     $(this).addClass('active');
 
@@ -563,7 +562,7 @@
                     }
                 });
 
-                $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+                $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
                     var $btn = $(this);
 
                     if (sidebar_mini_active == true) {
@@ -577,23 +576,23 @@
                     }
 
                     // we simulate the window Resize so the charts will get updated in realtime.
-                    var simulateWindowResize = setInterval(function () {
+                    var simulateWindowResize = setInterval(function() {
                         window.dispatchEvent(new Event('resize'));
                     }, 180);
 
                     // we stop the simulation of Window Resize after the animations are completed
-                    setTimeout(function () {
+                    setTimeout(function() {
                         clearInterval(simulateWindowResize);
                     }, 1000);
                 });
 
-                $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
+                $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
                     var $btn = $(this);
 
                     if (white_color == true) {
 
                         $('body').addClass('change-background');
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $('body').removeClass('change-background');
                             $('body').removeClass('white-content');
                         }, 900);
@@ -601,7 +600,7 @@
                     } else {
 
                         $('body').addClass('change-background');
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $('body').removeClass('change-background');
                             $('body').addClass('white-content');
                         }, 900);
@@ -612,18 +611,18 @@
 
                 });
 
-                $('.light-badge').click(function () {
+                $('.light-badge').click(function() {
                     $('body').addClass('white-content');
                 });
 
-                $('.dark-badge').click(function () {
+                $('.dark-badge').click(function() {
                     $('body').removeClass('white-content');
                 });
             });
         });
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Javascript method's body can be found in assets/js/demos.js
             demo.initDashboardPageCharts();
 

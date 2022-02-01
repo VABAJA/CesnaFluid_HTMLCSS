@@ -34,11 +34,11 @@ if(isset($_POST["ingresarUsuario"]))
     
     
     if (mysqli_query($conexion, $registroUsuarios)) {
-        echo "<script> alert ('Usuario registrado');window.location='../html/usuarios.html'</script>";
+        echo "<script> alert ('Usuario registrado con éxito');window.location='../paginas/usuarios.php'</script>";
         } else {
         echo "Error";
         }
-        echo "<script> alert ('Error de registro');window.location='../html/usuarios.html'</script>";
+        echo "<script> alert ('Error de registro');window.location='../paginas/usuarios.php'</script>";
 
 }
 

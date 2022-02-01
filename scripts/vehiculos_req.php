@@ -38,11 +38,11 @@ if(isset($_POST["ingresarVehiculo"]))
     
     
     if (mysqli_query($conexion, $registroVehiculos)) {
-        echo "<script> alert ('Vehículo registrado');window.location='../html/vehiculos.html'</script>";
+        echo "<script> alert ('Vehículo registrado con éxito');window.location='../paginas/vehiculos.php'</script>";
         } else {
         echo "Error";
         }
-        echo "<script> alert ('Error de registro');window.location='../html/vehiculos.html'</script>";
+        echo "<script> alert ('Error de registro');window.location='../paginas/vehiculos.php'</script>";
 
 }
 

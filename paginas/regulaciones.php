@@ -28,52 +28,58 @@
     -->
       <div class="sidebar-wrapper">
         <div class="logo">
-          <a href="../dashboard.html" class="simple-text logo-mini">
+          <a href="./dashboard.php" class="simple-text logo-mini">
             <img src="../assets/img/icon.ico" alt="icon">
           </a>
-          <a href="javascript:void(0)" class="simple-text logo-normal">
+          <a href="#" class="simple-text logo-normal">
             Cesna Fluid
           </a>
         </div>
         <ul class="nav">
-          <li class="active ">
-            <a href="../dashboard.html">
+          <li>
+            <a href="./dashboard.php">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./usuarios.html">
-              <i class="tim-icons icon-single-02"></i>
-              <p>Usuarios</p>
+            <a href="./clientes.php">
+              <i class="tim-icons icon-badge"></i>
+              <p>Clientes</p>
             </a>
           </li>
           <li>
-            <a href="./dispositivos.html">
+          <a href="./usuarios.php">
+            <i class="tim-icons icon-single-02"></i>
+            <p>Usuarios</p>
+          </a>
+          </li>
+          <li>
+            <a href="./dispositivos.php">
               <i class="tim-icons icon-tablet-2"></i>
               <p>Dispositivos</p>
             </a>
           </li>
           <li>
-            <a href="./vehiculos.html">
+            <a href="./vehiculos.php">
               <i class="tim-icons icon-bus-front-12"></i>
               <p>Vehículos</p>
             </a>
           </li>
           <li>
-            <a href="./contenedores.html">
+            <a href="./contenedores.php">
               <i class="tim-icons icon-app"></i>
               <p>Contentedores</p>
             </a>
           </li>
           <li>
-            <a href="./reportes.html">
+            <a href="./reportes.php">
               <i class="tim-icons icon-notes"></i>
               <p>Reportes</p>
             </a>
           </li>
           <li>
-            <a href="./regulaciones.html">
+            <a href="./regulaciones.php">
               <i class="tim-icons icon-chart-bar-32"></i>
               <p>Regulaciones</p>
             </a>
@@ -94,7 +100,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="javascript:void(0)">Regulaciones</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -172,22 +178,22 @@
       <footer class="footer">
         <div class="container-fluid">
           <!-- <ul class="nav">
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Creative Tim
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                About Us
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Blog
-              </a>
-            </li>
-          </ul> -->
+                  <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link">
+                      Creative Tim
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link">
+                      About Us
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link">
+                      Blog
+                    </a>
+                  </li>
+                </ul> -->
           <div class="copyright">
             ©
             <script>
