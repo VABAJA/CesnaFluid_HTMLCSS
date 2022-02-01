@@ -262,12 +262,12 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                       </div>
                     </div>
                   </div>
-              </div>
-              <div class="card-footer">
-                <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarCliente">Agregar Cliente</button>
+                  <div class="card-footer">
+                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarCliente">Agregar Cliente</button>
+                  </div>
+                </form>
               </div>
             </div>
-            </form>
           </div>
         </div>
 

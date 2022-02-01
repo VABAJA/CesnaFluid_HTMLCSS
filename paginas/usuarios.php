@@ -250,15 +250,23 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- TABLAS -->
-      <div class="content">
-        <div class="row">
+        
+        <!-- TABLAS -->
+        <div class="content">
+          <div class="row">
           <div class="col-md-12">
-            <div class="card card-plain">
+            <div class="card card-plain card-tasks">
               <div class="card-header">
                 <h4 class="card-title">Usuarios</h4>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                    <i class="tim-icons icon-settings-gear-63"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#pablo">Editar</a>
+                    <a class="dropdown-item" href="#pablo">Eliminar</a>
+                  </div>
+                </div>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -273,7 +281,6 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                         <th class="text-center">Locación</th>
                         <th class="text-center">Fecha de Registro</th>
 
-
                       </tr>
                     </thead>
                     <tbody>
@@ -281,7 +288,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
 
 
                       while ($fila = mysqli_fetch_array($resultado)) : ?>
-
+                        
                         <tr>
                           <td>
                             <div class="form-check">
@@ -310,20 +317,21 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
 
                     </tbody>
                   </table>
-
+                  
                 </div>
               </div>
             </div>
           </div>
+        </div>
           <div class="col-md-12">
             <div class="card  card-plain">
-
+              
               <!-- FOOTER -->
               <footer class="footer">
                 <div class="container-fluid">
                   <!-- <ul class="nav">
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
+                    <li class="nav-item">
+                      <a href="javascript:void(0)" class="nav-link">
                 Creative Tim
               </a>
             </li>

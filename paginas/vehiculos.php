@@ -190,7 +190,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Placas</label>
+                        <label>ID. Del Vehículo</label>
                         <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
                       </div>
                     </div>
@@ -200,27 +200,13 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                         <input type="number" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
                       </div>
                     </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Ciudad</label>
+                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="vehiculopin" required>
+                      </div>
+                    </div>
                   </div>
-                  <!--                   <div class="row">
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Nombre del Contacto</label>
-                        <input type="text" class="form-control" placeholder="Ej: Jorge Barrera">
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Nombre de la Empresa</label>
-                        <input type="text" class="form-control" placeholder="Ej: Tramex">
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Dirección Email</label>
-                        <input type="string" class="form-control" placeholder="jorge@email.com">
-                      </div>
-                    </div>
-                  </div> -->
                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
@@ -236,8 +222,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Ciudad</label>
-                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
+                        <label for="exampleInputEmail1">Volúmen Acumulado</label>
+                        <input type="number" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
                       </div>
                     </div>
                   </div>
@@ -249,65 +235,79 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
               </div>
             </div>
           </div>
-
         </div>
-      </div>
 
-      <!-- TABLAS -->
-      <div class="content">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card ">
-              <div class="card-header">
-                <h4 class="card-title">Vehículos</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table tablesorter " id="">
-                    <thead class=" text-primary">
-                      <tr>
-                        <th class="text-center">
-                          ID Del vehículo
-                        </th>
-                        <th class="text-center">
-                          Ciudad
-                        </th>
-                        <th class="text-center">
-                          Empresa
-                        </th>
-                        <th class="text-center">
-                          Volúmen
-                        </th>
-                        <th class="text-center">
-                          Kilometros
-                        </th>
-                        <th class="text-center">
-                          Volúmen Acumulado
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
+        <!-- TABLAS -->
+        <div class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card card-plain card-tasks">
+                <div class="card-header">
+                  <h4 class="card-title">Vehículos</h4>
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                      <i class="tim-icons icon-settings-gear-63"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#pablo">Editar</a>
+                      <a class="dropdown-item" href="#pablo">Eliminar</a>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table tablesorter">
+                        <!--class="table tablesorter"  -->
+                        <thead class="text-primary">
+                          <tr>
+                            <th></th>
+                            <th class="text-center">ID. Del Vehículo</th>
+                            <th class="text-center">RFID del Vechículo</th>
+                            <th class="text-center">Ciudad</th>
+                            <th class="text-center">Empresa</th>
+                            <th class="text-center">Volúmen</th>
+                            <th class="text-center">Kilometros</th>
+                            <th class="text-center">Volúmen Acumulado</th>
 
-                      <?php
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
 
 
-                      while ($fila = mysqli_fetch_array($resultado)) : ?>
+                          while ($fila = mysqli_fetch_array($resultado)) : ?>
 
+                            <tr>
+                              <td>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign">
+                                      <span class="check"></span>
+                                    </span>
+                                  </label>
+                                </div>
+                              </td>
+                              <td class="text-center"><?php echo $fila['vehiculo']; ?></td>
+                              <td class="text-center"><?php echo $fila['vehiculopin']; ?></td>
+                              <td class="text-center"><?php echo $fila['locacion']; ?></td>
+                              <td class="text-center"><?php echo $fila['volumen']; ?></td>
+                              <td class="text-center"><?php echo $fila['kilometros']; ?></td>
+                              <td class="text-center"><?php echo $fila['vacum']; ?></td>
 
-                        <tr>
-                          <td class="text-center"><?php echo $fila['vehiculo']; ?></td>
-                          <td class="text-center"><?php echo $fila['vehiculopin']; ?></td>
-                          <td class="text-center"><?php echo $fila['locacion']; ?></td>
-                          <td class="text-center"><?php echo $fila['volumen']; ?></td>
-                          <td class="text-center"><?php echo $fila['kilometros']; ?></td>
-                          <td class="text-center"><?php echo $fila['vacum']; ?></td>
+                              <td class="td-actions text-right">
+                                <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                                  <i class="tim-icons icon-pencil"></i>
+                                </button>
+                              </td>
+                            </tr>
 
-                        </tr>
+                          <?php endwhile; ?>
 
-                      <?php endwhile; ?>
+                        </tbody>
+                      </table>
 
-                    </tbody>
-                  </table>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -319,29 +319,28 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
               <footer class="footer">
                 <div class="container-fluid">
                   <!-- <ul class="nav">
-                                    <li class="nav-item">
-                                      <a href="javascript:void(0)" class="nav-link">
-                                        Creative Tim
-                                      </a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a href="javascript:void(0)" class="nav-link">
-                                        About Us
-                                      </a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a href="javascript:void(0)" class="nav-link">
-                                        Blog
-                                      </a>
-                                    </li>
-                                  </ul> -->
+            <li class="nav-item">
+              <a href="javascript:void(0)" class="nav-link">
+                Creative Tim
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="javascript:void(0)" class="nav-link">
+                About Us
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="javascript:void(0)" class="nav-link">
+                Blog
+              </a>
+            </li>
+          </ul> -->
                   <div class="copyright">
                     ©
                     <script>
                       document.write(new Date().getFullYear())
                     </script> by
-                    <a href="javascript:void(0)" target="_blank">VABAJA </a>listen, learn, improve &
-                    repeat.
+                    <a href="javascript:void(0)" target="_blank">VABAJA </a>listen, learn, improve & repeat.
                   </div>
                 </div>
               </footer>
