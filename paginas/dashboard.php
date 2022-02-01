@@ -67,7 +67,7 @@
             </a>
           </li>
           <li>
-            <a href="./vehiculos.php">
+            <a href="./tickets.php">
               <i class="tim-icons icon-paper"></i>
               <p>Tickets</p>
             </a>

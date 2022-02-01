@@ -55,15 +55,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./dispositivos.php">
-                            <i class="tim-icons icon-tablet-2"></i>
-                            <p>Dispositivos</p>
-                        </a>
-                    </li>
-                    <li>
                         <a href="./vehiculos.php">
                             <i class="tim-icons icon-bus-front-12"></i>
                             <p>Vehículos</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./tickets.php">
+                            <i class="tim-icons icon-paper"></i>
+                            <p>Tickets</p>
                         </a>
                     </li>
                     <li>
@@ -78,13 +78,6 @@
                             <p>Reportes</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="./regulaciones.php">
-                            <i class="tim-icons icon-chart-bar-32"></i>
-                            <p>Regulaciones</p>
-                        </a>
-                    </li>
-
                 </ul>
             </div>
         </div>

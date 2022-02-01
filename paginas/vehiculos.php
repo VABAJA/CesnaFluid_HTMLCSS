@@ -1,14 +1,14 @@
 <?php
 //varaible de conexión
-  $conectar=mysqli_connect('localhost', 'root', '123456', 'tramex1');
+$conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
 
-  //verificación de conexión
-  if(mysqli_connect_errno ($conectar)) {
-      echo "Conexión Fallida".mysqli_connect_error();
-  }
+//verificación de conexión
+if (mysqli_connect_errno($conectar)) {
+  echo "Conexión Fallida" . mysqli_connect_error();
+}
 
 
-  $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
+$resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,7 @@
 </head>
 
 <body class="">
-<div class="wrapper">
+  <div class="wrapper">
     <div class="sidebar">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
@@ -61,21 +61,21 @@
             </a>
           </li>
           <li>
-          <a href="./usuarios.php">
-            <i class="tim-icons icon-single-02"></i>
-            <p>Usuarios</p>
-          </a>
-          </li>
-          <li>
-            <a href="./dispositivos.php">
-              <i class="tim-icons icon-tablet-2"></i>
-              <p>Dispositivos</p>
+            <a href="./usuarios.php">
+              <i class="tim-icons icon-single-02"></i>
+              <p>Usuarios</p>
             </a>
           </li>
           <li>
             <a href="./vehiculos.php">
               <i class="tim-icons icon-bus-front-12"></i>
               <p>Vehículos</p>
+            </a>
+          </li>
+          <li>
+            <a href="./tickets.php">
+              <i class="tim-icons icon-paper"></i>
+              <p>Tickets</p>
             </a>
           </li>
           <li>
@@ -90,13 +90,6 @@
               <p>Reportes</p>
             </a>
           </li>
-          <li>
-            <a href="./regulaciones.php">
-              <i class="tim-icons icon-chart-bar-32"></i>
-              <p>Regulaciones</p>
-            </a>
-          </li>
-
         </ul>
       </div>
     </div>
@@ -114,8 +107,7 @@
             </div>
             <a class="navbar-brand" href="javascript:void(0)">Vehículos</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-            aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -172,8 +164,7 @@
           </div>
         </div>
       </nav>
-      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"
-        aria-hidden="true">
+      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -210,7 +201,7 @@
                       </div>
                     </div>
                   </div>
-<!--                   <div class="row">
+                  <!--                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Nombre del Contacto</label>
@@ -251,8 +242,7 @@
                     </div>
                   </div>
                   <div class="card-footer">
-                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                      name="ingresarVehiculo">Agregar
+                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarVehiculo">Agregar
                       Vehículo</button>
                   </div>
                 </form>
@@ -298,12 +288,12 @@
                     </thead>
                     <tbody>
 
-                    <?php
-                      
+                      <?php
 
-                      while($fila = mysqli_fetch_array ($resultado)): ?>
 
-                        
+                      while ($fila = mysqli_fetch_array($resultado)) : ?>
+
+
                         <tr>
                           <td class="text-center"><?php echo $fila['vehiculo']; ?></td>
                           <td class="text-center"><?php echo $fila['vehiculopin']; ?></td>
@@ -313,7 +303,7 @@
                           <td class="text-center"><?php echo $fila['vacum']; ?></td>
 
                         </tr>
-                      
+
                       <?php endwhile; ?>
 
                     </tbody>
@@ -401,8 +391,8 @@
         <!-- Black Dashboard DEMO methods, don't include it in your project! -->
         <script src="../assets/demo/demo.js"></script>
         <script>
-          $(document).ready(function () {
-            $().ready(function () {
+          $(document).ready(function() {
+            $().ready(function() {
               $sidebar = $('.sidebar');
               $navbar = $('.navbar');
               $main_panel = $('.main-panel');
@@ -419,7 +409,7 @@
 
 
 
-              $('.fixed-plugin a').click(function (event) {
+              $('.fixed-plugin a').click(function(event) {
                 if ($(this).hasClass('switch-trigger')) {
                   if (event.stopPropagation) {
                     event.stopPropagation();
@@ -429,7 +419,7 @@
                 }
               });
 
-              $('.fixed-plugin .background-color span').click(function () {
+              $('.fixed-plugin .background-color span').click(function() {
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
 
@@ -452,7 +442,7 @@
                 }
               });
 
-              $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+              $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
                 var $btn = $(this);
 
                 if (sidebar_mini_active == true) {
@@ -466,23 +456,23 @@
                 }
 
                 // we simulate the window Resize so the charts will get updated in realtime.
-                var simulateWindowResize = setInterval(function () {
+                var simulateWindowResize = setInterval(function() {
                   window.dispatchEvent(new Event('resize'));
                 }, 180);
 
                 // we stop the simulation of Window Resize after the animations are completed
-                setTimeout(function () {
+                setTimeout(function() {
                   clearInterval(simulateWindowResize);
                 }, 1000);
               });
 
-              $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
+              $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
                 var $btn = $(this);
 
                 if (white_color == true) {
 
                   $('body').addClass('change-background');
-                  setTimeout(function () {
+                  setTimeout(function() {
                     $('body').removeClass('change-background');
                     $('body').removeClass('white-content');
                   }, 900);
@@ -490,7 +480,7 @@
                 } else {
 
                   $('body').addClass('change-background');
-                  setTimeout(function () {
+                  setTimeout(function() {
                     $('body').removeClass('change-background');
                     $('body').addClass('white-content');
                   }, 900);
@@ -501,11 +491,11 @@
 
               });
 
-              $('.light-badge').click(function () {
+              $('.light-badge').click(function() {
                 $('body').addClass('white-content');
               });
 
-              $('.dark-badge').click(function () {
+              $('.dark-badge').click(function() {
                 $('body').removeClass('white-content');
               });
             });
