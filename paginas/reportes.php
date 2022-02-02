@@ -55,6 +55,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="./dispositivos.php">
+                            <i class="tim-icons icon-tablet-2"></i>
+                            <p>Dispositivos</p>
+                        </a>
+                    </li>
+                    <li>
                         <a href="./vehiculos.php">
                             <i class="tim-icons icon-bus-front-12"></i>
                             <p>Vehículos</p>
@@ -78,6 +84,8 @@
                             <p>Reportes</p>
                         </a>
                     </li>
+
+
                 </ul>
             </div>
         </div>

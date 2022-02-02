@@ -68,6 +68,12 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
             </a>
           </li>
           <li>
+            <a href="./dispositivos.php">
+              <i class="tim-icons icon-tablet-2"></i>
+              <p>Dispositivos</p>
+            </a>
+          </li>
+          <li>
             <a href="./vehiculos.php">
               <i class="tim-icons icon-bus-front-12"></i>
               <p>Vehículos</p>
@@ -91,6 +97,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
               <p>Reportes</p>
             </a>
           </li>
+
+
         </ul>
       </div>
     </div>
@@ -178,7 +186,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
         </div>
       </div>
       <!-- End Navbar -->
-      <!-- Agregar Nuevo Usuario -->
+      <!-- Agregar Nuevo Cliente -->
       <div class="content">
         <div class="row">
           <div class="col-12">
@@ -204,7 +212,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Nombre de la Empresa</label>
-                        <input type="text" class="form-control" placeholder="Ej: Tramex" name="nomempresa" required>
+                        <input type="text" class="form-control" placeholder="Ej: Tramex" name="nomempresa">
                       </div>
                     </div>
                   </div>
@@ -212,27 +220,27 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Dirección</label>
-                        <input type="text" class="form-control" placeholder="Ej:Calle, Colonia" name="direccion" required>
+                        <input type="string" class="form-control" placeholder="Ej:Calle, Colonia" name="direccion">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label for="email">Dirección Email</label>
+                        <label>Dirección Email</label>
                         <input type="string" class="form-control" placeholder="jorge@email.com" name="email" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Teléfono</label>
-                        <input type="number" class="form-control" placeholder="Ej: 8115028945" name="telefono" required>
+                        <input type="number" class="form-control" placeholder="Ej: 8115028945" name="telefono">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label for="locacion">Ciudad</label>
-                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
+                        <label>Ciudad</label>
+                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion" >
                       </div>
                     </div>
                   </div>
@@ -258,7 +266,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label>Kilometros</label>
-                        <input type="number" class="form-control" placeholder="Ej: 0000" name="km" required>
+                        <input type="number" class="form-control" placeholder="Ej: 10000" name="km" required>
                       </div>
                     </div>
                   </div>

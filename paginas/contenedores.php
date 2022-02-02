@@ -55,6 +55,12 @@
             </a>
           </li>
           <li>
+            <a href="./dispositivos.php">
+              <i class="tim-icons icon-tablet-2"></i>
+              <p>Dispositivos</p>
+            </a>
+          </li>
+          <li>
             <a href="./vehiculos.php">
               <i class="tim-icons icon-bus-front-12"></i>
               <p>Vehículos</p>
@@ -165,26 +171,26 @@
         </div>
       </div>
       <!-- End Navbar -->
-
+      <!--footer  -->
       <footer class="footer">
         <div class="container-fluid">
           <!-- <ul class="nav">
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Creative Tim
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                About Us
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Blog
-              </a>
-            </li>
-          </ul> -->
+                        <li class="nav-item">
+                          <a href="javascript:void(0)" class="nav-link">
+                            Creative Tim
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="javascript:void(0)" class="nav-link">
+                            About Us
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="javascript:void(0)" class="nav-link">
+                            Blog
+                          </a>
+                        </li>
+                      </ul> -->
           <div class="copyright">
             ©
             <script>

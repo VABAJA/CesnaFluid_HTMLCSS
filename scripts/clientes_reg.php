@@ -37,8 +37,8 @@ mysqli_set_charset($conexion,"utf8");
 if(isset($_POST["ingresarCliente"]))
 {
    
-    $registroClientes="INSERT INTO registro (usuario, nomusuario, nomempresa, direccion, email, telefono, locacion, vehiculo, litros, km)"
-    ."VALUES('".$usuario."','".$nomusuario."','".$nomempresa."','".$direccion."''".$email."','".$telefono."','".$locacion."','".$vehiculo."','".$litros."','".$km."')";  
+    $registroClientes="INSERT INTO registro (usuario, nomusuario, nomempresa, direccion, email, telefono, locacion, vehiculo, litros, ticket, km)"
+    ."VALUES('".$usuario."','".$nomusuario."','".$nomempresa."','".$direccion."','".$email."','".$telefono."','".$locacion."','".$vehiculo."','".$litros."','".$ticket."','".$km."')";  
     
     
     if (mysqli_query($conexion, $registroClientes)) {

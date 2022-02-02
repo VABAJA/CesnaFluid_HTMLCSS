@@ -23,70 +23,71 @@
 <body class="">
     <div class="wrapper">
         <div class="sidebar">
-          <!--
+            <!--
             Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
         -->
-          <div class="sidebar-wrapper">
-            <div class="logo">
-              <a href="./dashboard.php" class="simple-text logo-mini">
-                <img src="../assets/img/icon.ico" alt="icon">
-              </a>
-              <a href="#" class="simple-text logo-normal">
-                Cesna Fluid
-              </a>
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="./dashboard.php" class="simple-text logo-mini">
+                        <img src="../assets/img/icon.ico" alt="icon">
+                    </a>
+                    <a href="#" class="simple-text logo-normal">
+                        Cesna Fluid
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a href="./dashboard.php">
+                            <i class="tim-icons icon-chart-pie-36"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./clientes.php">
+                            <i class="tim-icons icon-badge"></i>
+                            <p>Clientes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./usuarios.php">
+                            <i class="tim-icons icon-single-02"></i>
+                            <p>Usuarios</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./dispositivos.php">
+                            <i class="tim-icons icon-tablet-2"></i>
+                            <p>Dispositivos</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./vehiculos.php">
+                            <i class="tim-icons icon-bus-front-12"></i>
+                            <p>Vehículos</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./tickets.php">
+                            <i class="tim-icons icon-paper"></i>
+                            <p>Tickets</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./contenedores.php">
+                            <i class="tim-icons icon-app"></i>
+                            <p>Contentedores</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./reportes.php">
+                            <i class="tim-icons icon-notes"></i>
+                            <p>Reportes</p>
+                        </a>
+                    </li>
+
+
+                </ul>
             </div>
-            <ul class="nav">
-              <li>
-                <a href="./dashboard.php">
-                  <i class="tim-icons icon-chart-pie-36"></i>
-                  <p>Dashboard</p>
-                </a>
-              </li>
-              <li>
-                  <a href="./clientes.php">
-                      <i class="tim-icons icon-badge"></i>
-                      <p>Clientes</p>
-                </a>
-              </li>
-              <li>
-              <a href="./usuarios.php">
-                <i class="tim-icons icon-single-02"></i>
-                <p>Usuarios</p>
-              </a>
-              </li>
-              <li>
-                <a href="./dispositivos.php">
-                  <i class="tim-icons icon-tablet-2"></i>
-                  <p>Dispositivos</p>
-                </a>
-              </li>
-              <li>
-                <a href="./vehiculos.php">
-                  <i class="tim-icons icon-bus-front-12"></i>
-                  <p>Vehículos</p>
-                </a>
-              </li>
-              <li>
-                <a href="./contenedores.php">
-                  <i class="tim-icons icon-app"></i>
-                  <p>Contentedores</p>
-                </a>
-              </li>
-              <li>
-                <a href="./reportes.php">
-                  <i class="tim-icons icon-notes"></i>
-                  <p>Reportes</p>
-                </a>
-              </li>
-              <li>
-                <a href="./regulaciones.php">
-                  <i class="tim-icons icon-chart-bar-32"></i>
-                  <p>Regulaciones</p>
-                </a>
-              </li>
-    
-            </ul>
-          </div>
         </div>
         <div class="main-panel">
             <!-- Navbar -->
@@ -102,8 +103,7 @@
                         </div>
                         <a class="navbar-brand" href="javascript:void(0)">Dispositivos</a>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -131,14 +131,11 @@
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You
                                             have 5 more
                                             tasks</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)"
-                                            class="nav-item dropdown-item">Your friend Michael
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael
                                             is in town</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)"
-                                            class="nav-item dropdown-item">Another
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another
                                             notification</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)"
-                                            class="nav-item dropdown-item">Another one</a></li>
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown nav-item">
@@ -154,12 +151,10 @@
                                 <ul class="dropdown-menu dropdown-navbar">
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Mi
                                             Perfil</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)"
-                                            class="nav-item dropdown-item">Configuración</a>
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="nav-link"><a href="javascript:void(0)"
-                                            class="nav-item dropdown-item">Cerrar Sesión</a>
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Cerrar Sesión</a>
                                     </li>
                                 </ul>
                             </li>
@@ -168,8 +163,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog"
-                aria-labelledby="searchModal" aria-hidden="true">
+            <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -184,142 +178,14 @@
 
             <!-- Agregar Nuevo Dispositivo -->
             <div class="content">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="title">Agregar Nuevo Dispositivo</h5>
-                            </div>
-                            <div class="card-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>ID del Dispositivo</label>
-                                                <input type="number" class="form-control" placeholder="Ej: 0001">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>PIN RFID</label>
-                                                <input type="string" class="form-control" placeholder="Ej: 0000">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Nombre del Contacto</label>
-                                                <input type="text" class="form-control" placeholder="Ej: Jorge Barrera">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Nombre de la Empresa</label>
-                                                <input type="text" class="form-control" placeholder="Ej: Tramex">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Dirección Email</label>
-                                                <input type="string" class="form-control" placeholder="jorge@email.com">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Dirección</label>
-                                                <input type="text" class="form-control" placeholder="Ej:Calle, Colonia">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Teléfono</label>
-                                                <input type="number" class="form-control" placeholder="Ej: 8115028945">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Ciudad</label>
-                                                <input type="text" class="form-control" placeholder="Ej: Monterrey">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="card-footer">
-                                <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue">Agregar
-                                    Dispositivo</button>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
 
-            <!-- TABLAS -->
-            <div class="content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card ">
-                            <div class="card-header">
-                                <h4 class="card-title"> Dispositivos</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table tablesorter " id="">
-                                        <thead class=" text-primary">
-                                            <tr>
-                                                <th class="text-center">
-                                                    ID Del dispositivo
-                                                </th>
-                                                <th class="text-center">
-                                                    PIN RFID
-                                                </th>
-                                                <th class="text-center">
-                                                    Empresa
-                                                </th>
-                                                <th class="text-center">
-                                                    Nombre del Contacto
-                                                </th>
-                                                <th class="text-center">
-                                                    Teléfono
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-center">
-                                                    0001
-                                                </td>
-                                                <td class="text-center">
-                                                    0001
-                                                </td>
-                                                <td class="text-center">
-                                                    VABAJA
-                                                </td>
-                                                <td class="text-center">
-                                                    Jorge Barrera
-                                                </td>
-                                                <td class="text-center">
-                                                    +52811508945
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- FOOTER -->
-                    <div class="col-md-12">
-                        <div class="card  card-plain">
-                            <footer class="footer">
-                                <div class="container-fluid">
-                                    <!-- <ul class="nav">
+                <!-- FOOTER -->
+                <div class="col-md-12">
+                    <div class="card  card-plain">
+                        <footer class="footer">
+                            <div class="container-fluid">
+                                <!-- <ul class="nav">
                     <li class="nav-item">
                       <a href="javascript:void(0)" class="nav-link">
                         Creative Tim
@@ -336,180 +202,180 @@
                       </a>
                     </li>
                   </ul> -->
-                                    <div class="copyright">
-                                        ©
-                                        <script>
-                                            document.write(new Date().getFullYear())
-                                        </script> by
-                                        <a href="javascript:void(0)" target="_blank">VABAJA </a>listen, learn, improve &
-                                        repeat.
-                                    </div>
+                                <div class="copyright">
+                                    ©
+                                    <script>
+                                        document.write(new Date().getFullYear())
+                                    </script> by
+                                    <a href="javascript:void(0)" target="_blank">VABAJA </a>listen, learn, improve &
+                                    repeat.
                                 </div>
-                            </footer>
-                        </div>
-                    </div>
-                    <div class="fixed-plugin">
-                        <div class="dropdown show-dropdown">
-                            <a href="#" data-toggle="dropdown">
-                                <i class="fa fa-cog fa-2x"> </i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header-title"> Colores de Interfaz</li>
-                                <li class="adjustments-line">
-                                    <a href="javascript:void(0)" class="switch-trigger background-color">
-                                        <div class="badge-colors text-center">
-                                            <span class="badge filter badge-primary active" data-color="primary"></span>
-                                            <span class="badge filter badge-info" data-color="blue"></span>
-                                            <span class="badge filter badge-success" data-color="green"></span>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </a>
-                                </li>
-                                <li class="adjustments-line text-center color-change">
-                                    <span class="color-label">Modo Claro</span>
-                                    <span class="badge light-badge mr-2"></span>
-                                    <span class="badge dark-badge ml-2"></span>
-                                    <span class="color-label">Modo Obscuro</span>
-                                </li>
-                            </ul>
-                        </div>
+                            </div>
+                        </footer>
                     </div>
                 </div>
-                <!--   Core JS Files   -->
-                <script src="../assets/js/core/jquery.min.js"></script>
-                <script src="../assets/js/core/popper.min.js"></script>
-                <script src="../assets/js/core/bootstrap.min.js"></script>
-                <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-                <!--  Google Maps Plugin    -->
-                <!-- Place this tag in your head or just before your close body tag. -->
-                <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-                <!-- Chart JS -->
-                <script src="../assets/js/plugins/chartjs.min.js"></script>
-                <!--  Notifications Plugin    -->
-                <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-                <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-                <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
-                <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-                <script src="../assets/demo/demo.js"></script>
-                <script>
-                    $(document).ready(function () {
-                        $().ready(function () {
-                            $sidebar = $('.sidebar');
-                            $navbar = $('.navbar');
-                            $main_panel = $('.main-panel');
+                <div class="fixed-plugin">
+                    <div class="dropdown show-dropdown">
+                        <a href="#" data-toggle="dropdown">
+                            <i class="fa fa-cog fa-2x"> </i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header-title"> Colores de Interfaz</li>
+                            <li class="adjustments-line">
+                                <a href="javascript:void(0)" class="switch-trigger background-color">
+                                    <div class="badge-colors text-center">
+                                        <span class="badge filter badge-primary active" data-color="primary"></span>
+                                        <span class="badge filter badge-info" data-color="blue"></span>
+                                        <span class="badge filter badge-success" data-color="green"></span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li class="adjustments-line text-center color-change">
+                                <span class="color-label">Modo Claro</span>
+                                <span class="badge light-badge mr-2"></span>
+                                <span class="badge dark-badge ml-2"></span>
+                                <span class="color-label">Modo Obscuro</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--   Core JS Files   -->
+            <script src="../assets/js/core/jquery.min.js"></script>
+            <script src="../assets/js/core/popper.min.js"></script>
+            <script src="../assets/js/core/bootstrap.min.js"></script>
+            <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+            <!--  Google Maps Plugin    -->
+            <!-- Place this tag in your head or just before your close body tag. -->
+            <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+            <!-- Chart JS -->
+            <script src="../assets/js/plugins/chartjs.min.js"></script>
+            <!--  Notifications Plugin    -->
+            <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+            <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+            <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
+            <!-- Black Dashboard DEMO methods, don't include it in your project! -->
+            <script src="../assets/demo/demo.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $().ready(function() {
+                        $sidebar = $('.sidebar');
+                        $navbar = $('.navbar');
+                        $main_panel = $('.main-panel');
 
-                            $full_page = $('.full-page');
+                        $full_page = $('.full-page');
 
-                            $sidebar_responsive = $('body > .navbar-collapse');
-                            sidebar_mini_active = true;
-                            white_color = false;
+                        $sidebar_responsive = $('body > .navbar-collapse');
+                        sidebar_mini_active = true;
+                        white_color = false;
 
-                            window_width = $(window).width();
+                        window_width = $(window).width();
 
-                            fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+                        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
 
 
-                            $('.fixed-plugin a').click(function (event) {
-                                if ($(this).hasClass('switch-trigger')) {
-                                    if (event.stopPropagation) {
-                                        event.stopPropagation();
-                                    } else if (window.event) {
-                                        window.event.cancelBubble = true;
-                                    }
+                        $('.fixed-plugin a').click(function(event) {
+                            if ($(this).hasClass('switch-trigger')) {
+                                if (event.stopPropagation) {
+                                    event.stopPropagation();
+                                } else if (window.event) {
+                                    window.event.cancelBubble = true;
                                 }
-                            });
+                            }
+                        });
 
-                            $('.fixed-plugin .background-color span').click(function () {
-                                $(this).siblings().removeClass('active');
-                                $(this).addClass('active');
+                        $('.fixed-plugin .background-color span').click(function() {
+                            $(this).siblings().removeClass('active');
+                            $(this).addClass('active');
 
-                                var new_color = $(this).data('color');
+                            var new_color = $(this).data('color');
 
-                                if ($sidebar.length != 0) {
-                                    $sidebar.attr('data', new_color);
-                                }
+                            if ($sidebar.length != 0) {
+                                $sidebar.attr('data', new_color);
+                            }
 
-                                if ($main_panel.length != 0) {
-                                    $main_panel.attr('data', new_color);
-                                }
+                            if ($main_panel.length != 0) {
+                                $main_panel.attr('data', new_color);
+                            }
 
-                                if ($full_page.length != 0) {
-                                    $full_page.attr('filter-color', new_color);
-                                }
+                            if ($full_page.length != 0) {
+                                $full_page.attr('filter-color', new_color);
+                            }
 
-                                if ($sidebar_responsive.length != 0) {
-                                    $sidebar_responsive.attr('data', new_color);
-                                }
-                            });
+                            if ($sidebar_responsive.length != 0) {
+                                $sidebar_responsive.attr('data', new_color);
+                            }
+                        });
 
-                            $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
-                                var $btn = $(this);
+                        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+                            var $btn = $(this);
 
-                                if (sidebar_mini_active == true) {
-                                    $('body').removeClass('sidebar-mini');
-                                    sidebar_mini_active = false;
-                                    blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
-                                } else {
-                                    $('body').addClass('sidebar-mini');
-                                    sidebar_mini_active = true;
-                                    blackDashboard.showSidebarMessage('Sidebar mini activated...');
-                                }
+                            if (sidebar_mini_active == true) {
+                                $('body').removeClass('sidebar-mini');
+                                sidebar_mini_active = false;
+                                blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+                            } else {
+                                $('body').addClass('sidebar-mini');
+                                sidebar_mini_active = true;
+                                blackDashboard.showSidebarMessage('Sidebar mini activated...');
+                            }
 
-                                // we simulate the window Resize so the charts will get updated in realtime.
-                                var simulateWindowResize = setInterval(function () {
-                                    window.dispatchEvent(new Event('resize'));
-                                }, 180);
+                            // we simulate the window Resize so the charts will get updated in realtime.
+                            var simulateWindowResize = setInterval(function() {
+                                window.dispatchEvent(new Event('resize'));
+                            }, 180);
 
-                                // we stop the simulation of Window Resize after the animations are completed
-                                setTimeout(function () {
-                                    clearInterval(simulateWindowResize);
-                                }, 1000);
-                            });
+                            // we stop the simulation of Window Resize after the animations are completed
+                            setTimeout(function() {
+                                clearInterval(simulateWindowResize);
+                            }, 1000);
+                        });
 
-                            $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
-                                var $btn = $(this);
+                        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+                            var $btn = $(this);
 
-                                if (white_color == true) {
+                            if (white_color == true) {
 
-                                    $('body').addClass('change-background');
-                                    setTimeout(function () {
-                                        $('body').removeClass('change-background');
-                                        $('body').removeClass('white-content');
-                                    }, 900);
-                                    white_color = false;
-                                } else {
+                                $('body').addClass('change-background');
+                                setTimeout(function() {
+                                    $('body').removeClass('change-background');
+                                    $('body').removeClass('white-content');
+                                }, 900);
+                                white_color = false;
+                            } else {
 
-                                    $('body').addClass('change-background');
-                                    setTimeout(function () {
-                                        $('body').removeClass('change-background');
-                                        $('body').addClass('white-content');
-                                    }, 900);
+                                $('body').addClass('change-background');
+                                setTimeout(function() {
+                                    $('body').removeClass('change-background');
+                                    $('body').addClass('white-content');
+                                }, 900);
 
-                                    white_color = true;
-                                }
+                                white_color = true;
+                            }
 
 
-                            });
+                        });
 
-                            $('.light-badge').click(function () {
-                                $('body').addClass('white-content');
-                            });
+                        $('.light-badge').click(function() {
+                            $('body').addClass('white-content');
+                        });
 
-                            $('.dark-badge').click(function () {
-                                $('body').removeClass('white-content');
-                            });
+                        $('.dark-badge').click(function() {
+                            $('body').removeClass('white-content');
                         });
                     });
-                </script>
-                <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-                <script>
-                    window.TrackJS &&
-                        TrackJS.install({
-                            token: "ee6fab19c5a04ac1a32a645abde4613a",
-                            application: "black-dashboard-free"
-                        });
-                </script>
+                });
+            </script>
+            <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+            <script>
+                window.TrackJS &&
+                    TrackJS.install({
+                        token: "ee6fab19c5a04ac1a32a645abde4613a",
+                        application: "black-dashboard-free"
+                    });
+            </script>
 </body>
 
 </html>

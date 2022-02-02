@@ -67,6 +67,12 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
             </a>
           </li>
           <li>
+            <a href="./dispositivos.php">
+              <i class="tim-icons icon-tablet-2"></i>
+              <p>Dispositivos</p>
+            </a>
+          </li>
+          <li>
             <a href="./vehiculos.php">
               <i class="tim-icons icon-bus-front-12"></i>
               <p>Vehículos</p>
@@ -90,6 +96,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
               <p>Reportes</p>
             </a>
           </li>
+
+
         </ul>
       </div>
     </div>
@@ -203,7 +211,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Ciudad</label>
-                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="vehiculopin" required>
+                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
                       </div>
                     </div>
                   </div>
@@ -211,7 +219,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Kilometros</label>
-                        <input type="number" class="form-control" placeholder="Ej:135000" name="kilometros" required>
+                        <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -222,8 +230,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Volúmen Acumulado</label>
-                        <input type="number" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
+                        <label for="exampleInputEmail1">Volúmen Acumulado en L</label>
+                        <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
                       </div>
                     </div>
                   </div>
