@@ -9,12 +9,12 @@ $host_sql="localhost";
 
 
 
-$usuario=$_POST['vehiculo'];
-$usuariopin=$_POST['vehiculopin'];
+$vehiculo=$_POST['vehiculo'];
+$vehiculopin=$_POST['vehiculopin'];
 $locacion=$_POST['locacion'];
-$usuario=$_POST['kilometros'];
-$usuariopin=$_POST['volumen'];
-$locacion=$_POST['vacum'];
+$kilometros=$_POST['kilometros'];
+$volumen=$_POST['volumen'];
+$vacum=$_POST['vacum'];
 
 
 

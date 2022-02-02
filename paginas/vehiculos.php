@@ -205,7 +205,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>PIN RFID</label>
-                        <input type="number" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
+                        <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -269,9 +269,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                           <tr>
                             <th></th>
                             <th class="text-center">ID. Del Vehículo</th>
-                            <th class="text-center">RFID del Vechículo</th>
+                            <th class="text-center">RFID del Vehículo</th>
                             <th class="text-center">Ciudad</th>
-                            <th class="text-center">Empresa</th>
                             <th class="text-center">Volúmen</th>
                             <th class="text-center">Kilometros</th>
                             <th class="text-center">Volúmen Acumulado</th>
