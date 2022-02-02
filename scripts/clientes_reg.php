@@ -52,9 +52,3 @@ if(isset($_POST["ingresarCliente"]))
 
 
 //$querty=mysqli_query($conexion,$querty);
-
-
-
-
-
-?>

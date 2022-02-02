@@ -344,7 +344,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                 <script>
                   document.write(new Date().getFullYear())
                 </script> by
-                <a href="javascript:void(0)" target="_blank">VABAJA </a>listen, learn, improve & repeat.
+                <a href="https://www.vabaja.com.mx" target="_blank">VABAJA </a>listen, learn, improve & repeat.
               </div>
             </div>
           </footer>
