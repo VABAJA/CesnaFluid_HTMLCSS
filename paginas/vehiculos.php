@@ -211,7 +211,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Ciudad</label>
-                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
+                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
                       </div>
                     </div>
                   </div>
@@ -230,7 +230,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Volúmen Acumulado en L</label>
+                        <label>Volúmen Acumulado en L</label>
                         <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
                       </div>
                     </div>
