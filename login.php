@@ -1,3 +1,54 @@
+<?php
+session_start();
+require_once('./scripts/config.php');
+ 
+if(isset($_POST['submit']))
+{
+	if(isset($_POST['email'],$_POST['password']) && !empty($_POST['email']) && !empty($_POST['password']))
+	{
+		$email = trim($_POST['email']);
+		$password = trim($_POST['password']);
+ 
+		if(filter_var($email, FILTER_VALIDATE_EMAIL))
+		{
+			$sql = "select * from users where email = :email ";
+			$handle = $pdo->prepare($sql);
+			$params = ['email'=>$email];
+			$handle->execute($params);
+			if($handle->rowCount() > 0)
+			{
+				$getRow = $handle->fetch(PDO::FETCH_ASSOC);
+				if(password_verify($password, $getRow['password']))
+				{
+					unset($getRow['password']);
+					$_SESSION = $getRow;
+					header('location:dashboard.php');
+					exit();
+				}
+				else
+				{
+					$errors[] = "Error en  Email o Password";
+				}
+			}
+			else
+			{
+				$errors[] = "Error Email o Password";
+			}
+			
+		}
+		else
+		{
+			$errors[] = "Email no valido";	
+		}
+ 
+	}
+	else
+	{
+		$errors[] = "Email y Password son requeridos";	
+	}
+ 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,17 +84,24 @@
 
 
                     </div>
+                    <?php
+    if (isset($errors) && count($errors) > 0) {
+        foreach ($errors as $error_msg) {
+            echo '<div class="alert alert-danger">' . $error_msg . '</div>';
+        }
+    }
+?>
                     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <div class=" row justify-content-center">
                             <div class="col-md-3">
                                 <label for="form-control" class="text-white form-label">Email</label>
-                                <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="nombre@usuario.com">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="nombre@usuario.com">
                             </div>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-3">
                                 <label for="form-control" class="text-white form-label">Contraseña</label>
-                                <input type="password" class="form-control" name="password" id="exampleFormControlInput1" placeholder="Contraseña">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
                             </div>
                         </div>
                         <div class="row justify-content-center">
@@ -55,7 +113,7 @@
                         <div class="btn pull-right">
                           
                                 
-                                <a href="./admin.html" target="_blank">Acceso Administrador</a>
+                                <a href="./admin.php" target="_blank">Acceso Administrador</a>
                                 
                             
                     
