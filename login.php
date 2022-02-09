@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
  
 		if(filter_var($email, FILTER_VALIDATE_EMAIL))
 		{
-			$sql = "select * from users where email = :email ";
+			$sql = "select * from loginusuarios where email = :email ";
 			$handle = $pdo->prepare($sql);
 			$params = ['email'=>$email];
 			$handle->execute($params);
@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
 				{
 					unset($getRow['password']);
 					$_SESSION = $getRow;
-					header('location:dashboard.php');
+					header('location:./paginas/dashboard.php');
 					exit();
 				}
 				else
@@ -67,8 +67,7 @@ if(isset($_POST['submit']))
         <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
         <!-- CSS Files -->
         <link href="./assets/css/black-dashboard.css" rel="stylesheet" />
-        <!-- CSS Just for demo purpose, don't include it in your project -->
-        <link href="./assets/demo/demo.css" rel="stylesheet" />
+
     </head>
     <main>
         <section>
@@ -84,39 +83,37 @@ if(isset($_POST['submit']))
 
 
                     </div>
-                    <?php
-    if (isset($errors) && count($errors) > 0) {
-        foreach ($errors as $error_msg) {
-            echo '<div class="alert alert-danger">' . $error_msg . '</div>';
-        }
-    }
-?>
+                <?php
+                    if (isset($errors) && count($errors) > 0) {foreach ($errors as $error_msg) {echo '<div class="alert alert-danger">' . $error_msg . '</div>';
+                        }
+                    }
+                ?>
+
                     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                        <div class=" row justify-content-center">
+                        <div class="row justify-content-center">
                             <div class="col-md-3">
-                                <label for="form-control" class="text-white form-label">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="nombre@usuario.com">
+                                <label for="inputEmailAddress" class="text-white form-label">Email</label>
+                                <input type="email" class="form-control" name="email" id="inputEmailAddress"
+                                    placeholder="nombre@usuario.com">
                             </div>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-3">
-                                <label for="form-control" class="text-white form-label">Contraseña</label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+                                <label for="inputPassword" class="text-white form-label">Contraseña</label>
+                                <input type="password" class="form-control" name="password" id="inputPassword"
+                                    placeholder="Contraseña">
                             </div>
                         </div>
                         <div class="row justify-content-center">
 
-                            <base-button native-type="submit" type="success" class="btn btn-blue" size="col-md-3">
+                            <div type="success" native-type="submit" class="btn btn-blue" size="col-md-3">
                                 Iniciar Sesión
-                            </base-button>
+                        </div>
                         </div>
                         <div class="btn pull-right">
-                          
-                                
-                                <a href="./admin.php" target="_blank">Acceso Administrador</a>
-                                
-                            
-                    
+
+                            <a href="./admin.php" target="_blank">Acceso Administrador</a>
+
                         </div>
 
                     </form>
