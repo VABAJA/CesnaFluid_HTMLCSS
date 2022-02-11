@@ -115,7 +115,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
             </div>
             <a class="navbar-brand" href="javascript:void(0)">Vehículos</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -172,7 +173,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
           </div>
         </div>
       </nav>
-      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -187,8 +189,12 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
       <!-- End Navbar -->
       <!-- Agregar Nuevo Vehículo -->
       <div class="content">
+        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
+          aria-controls="collapse">
+          Agregar Nuevo Vehículo
+        </button>
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 collapse" id="collapse">
             <div class="card">
               <div class="card-header">
                 <h5 class="title">Agregar Nuevo Vehículo</h5>
@@ -236,7 +242,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                     </div>
                   </div>
                   <div class="card-footer">
-                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarVehiculo">Agregar
+                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                      name="ingresarVehiculo">Agregar
                       Vehículo</button>
                   </div>
                 </form>
@@ -283,30 +290,31 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
 
                           while ($fila = mysqli_fetch_array($resultado)) : ?>
 
-                            <tr>
-                              <td>
-                                <div class="form-check">
-                                  <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-sign">
-                                      <span class="check"></span>
-                                    </span>
-                                  </label>
-                                </div>
-                              </td>
-                              <td class="text-center"><?php echo $fila['vehiculo']; ?></td>
-                              <td class="text-center"><?php echo $fila['vehiculopin']; ?></td>
-                              <td class="text-center"><?php echo $fila['locacion']; ?></td>
-                              <td class="text-center"><?php echo $fila['volumen']; ?></td>
-                              <td class="text-center"><?php echo $fila['kilometros']; ?></td>
-                              <td class="text-center"><?php echo $fila['vacum']; ?></td>
+                          <tr>
+                            <td>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" value="">
+                                  <span class="form-check-sign">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                            </td>
+                            <td class="text-center"><?php echo $fila['vehiculo']; ?></td>
+                            <td class="text-center"><?php echo $fila['vehiculopin']; ?></td>
+                            <td class="text-center"><?php echo $fila['locacion']; ?></td>
+                            <td class="text-center"><?php echo $fila['volumen']; ?></td>
+                            <td class="text-center"><?php echo $fila['kilometros']; ?></td>
+                            <td class="text-center"><?php echo $fila['vacum']; ?></td>
 
-                              <td class="td-actions text-right">
-                                <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                                  <i class="tim-icons icon-pencil"></i>
-                                </button>
-                              </td>
-                            </tr>
+                            <td class="td-actions text-right">
+                              <button type="button" rel="tooltip" title="" class="btn btn-link"
+                                data-original-title="Edit Task">
+                                <i class="tim-icons icon-pencil"></i>
+                              </button>
+                            </td>
+                          </tr>
 
                           <?php endwhile; ?>
 
@@ -397,8 +405,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
         <!-- Black Dashboard DEMO methods, don't include it in your project! -->
         <script src="../assets/demo/demo.js"></script>
         <script>
-          $(document).ready(function() {
-            $().ready(function() {
+          $(document).ready(function () {
+            $().ready(function () {
               $sidebar = $('.sidebar');
               $navbar = $('.navbar');
               $main_panel = $('.main-panel');
@@ -415,7 +423,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
 
 
 
-              $('.fixed-plugin a').click(function(event) {
+              $('.fixed-plugin a').click(function (event) {
                 if ($(this).hasClass('switch-trigger')) {
                   if (event.stopPropagation) {
                     event.stopPropagation();
@@ -425,7 +433,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                 }
               });
 
-              $('.fixed-plugin .background-color span').click(function() {
+              $('.fixed-plugin .background-color span').click(function () {
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
 
@@ -448,7 +456,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                 }
               });
 
-              $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+              $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
                 var $btn = $(this);
 
                 if (sidebar_mini_active == true) {
@@ -462,23 +470,23 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                 }
 
                 // we simulate the window Resize so the charts will get updated in realtime.
-                var simulateWindowResize = setInterval(function() {
+                var simulateWindowResize = setInterval(function () {
                   window.dispatchEvent(new Event('resize'));
                 }, 180);
 
                 // we stop the simulation of Window Resize after the animations are completed
-                setTimeout(function() {
+                setTimeout(function () {
                   clearInterval(simulateWindowResize);
                 }, 1000);
               });
 
-              $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+              $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
                 var $btn = $(this);
 
                 if (white_color == true) {
 
                   $('body').addClass('change-background');
-                  setTimeout(function() {
+                  setTimeout(function () {
                     $('body').removeClass('change-background');
                     $('body').removeClass('white-content');
                   }, 900);
@@ -486,7 +494,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                 } else {
 
                   $('body').addClass('change-background');
-                  setTimeout(function() {
+                  setTimeout(function () {
                     $('body').removeClass('change-background');
                     $('body').addClass('white-content');
                   }, 900);
@@ -497,11 +505,11 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
 
               });
 
-              $('.light-badge').click(function() {
+              $('.light-badge').click(function () {
                 $('body').addClass('white-content');
               });
 
-              $('.dark-badge').click(function() {
+              $('.dark-badge').click(function () {
                 $('body').removeClass('white-content');
               });
             });
