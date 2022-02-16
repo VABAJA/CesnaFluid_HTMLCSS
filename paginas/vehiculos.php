@@ -324,6 +324,9 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                   </div>
                 </div>
 
+                <!-- Fin de Tabla Vehículo -->
+                <!-- Formulario de editar vehículo -->
+
                 <div class="content">
                   <div class="row">
                     <div class="col-12 collapse" id="collapseEdit">
@@ -388,14 +391,148 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                     </div>
                   </div>
                 </div>
+                <!-- Termina formulario Editar Vehículo -->
+
+                <!-- Tabla de horarios para vehículo -->
+
+                <div class="content">
+                  <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#horarios"
+                    aria-expanded="false" aria-controls="horarios">
+                    Horarios
+                  </button>
+                  <div class="row">
+                    <div class="col-12 collapse" id="horarios">
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="card card-plain card-tasks">
+                            <div class="card-header">
+                              <h4 class="card-title">Clientes</h4>
+                              <div class="dropdown">
+                                <button type="button" class="btn btn-link dropdown-toggle btn-icon"
+                                  data-toggle="dropdown">
+                                  <i class="tim-icons icon-settings-gear-63"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                  <a class="dropdown-item" href="#pablo">Eliminar</a>
+                                </div>
+                              </div>
+
+                              <div class="card-body">
+                                <div class="table-responsive">
+                                  <table class="table tablesorter">
+                                    <thead class="text-primary">
+                                      <tr>
+                                        <th class="text-center">ID. Del Vehículo</th>
+                                        <th class="text-center">Lunes</th>
+                                        <th class="text-center">Martes</th>
+                                        <th class="text-center">Miércoles</th>
+                                        <th class="text-center">Jueves</th>
+                                        <th class="text-center">Viernes</th>
+                                        <th class="text-center">Sábado</th>
+                                        <th class="text-center">Domingo</th>
+
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="text-center">
+                                          123ABC
+                                        </td>
+                                        <td class="text-center">
+                                          <div class="form-check">
+                                            <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                              <span class="form-check-sign">
+                                                <span class="check"></span>
+                                              </span>
+                                            </label>
+                                          </div>
+                                        </td>
+                                        <td class="text-center">
+                                          <div class="form-check">
+                                            <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                              <span class="form-check-sign">
+                                                <span class="check"></span>
+                                              </span>
+                                            </label>
+                                          </div>
+                                        </td>
+                                        <td class="text-center">
+                                          <div class="form-check">
+                                            <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                              <span class="form-check-sign">
+                                                <span class="check"></span>
+                                              </span>
+                                            </label>
+                                          </div>
+                                        </td>
+                                        <td class="text-center">
+                                          <div class="form-check">
+                                            <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                              <span class="form-check-sign">
+                                                <span class="check"></span>
+                                              </span>
+                                            </label>
+                                          </div>
+                                        </td>
+                                        <td class="text-center">
+                                          <div class="form-check">
+                                            <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                              <span class="form-check-sign">
+                                                <span class="check"></span>
+                                              </span>
+                                            </label>
+                                          </div>
+                                        </td>
+                                        <td class="text-center">
+                                          <div class="form-check">
+                                            <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                              <span class="form-check-sign">
+                                                <span class="check"></span>
+                                              </span>
+                                            </label>
+                                          </div>
+                                        </td>
+                                        <td class="text-center">
+                                          <div class="form-check">
+                                            <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                              <span class="form-check-sign">
+                                                <span class="check"></span>
+                                              </span>
+                                            </label>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Termina tabla de horarios para Vehículos -->
+
+
               </div>
             </div>
           </div>
         </div>
 
         <!-- FOOTER -->
-        
-          <!-- <div class="row">
+
+        <!-- <div class="row">
             <div class="col-md-12">
               <div class="card card-plain">
                 <footer class="footer">
