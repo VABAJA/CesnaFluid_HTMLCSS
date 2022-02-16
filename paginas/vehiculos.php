@@ -123,12 +123,6 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
           </button>
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
-              <!-- <li class="search-bar input-group">
-                  <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
-                    class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li> -->
               <li class="dropdown nav-item">
                 <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="notification d-none d-lg-block d-xl-block"></div>
@@ -189,8 +183,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
         </div>
       </div>
       <!-- End Navbar -->
-      <!-- Agregar Nuevo Vehículo -->
       <div class="content">
+        <!-- Agregar Nuevo Vehículo -->
         <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
           aria-controls="collapse">
           Agregar Nuevo Vehículo
@@ -253,6 +247,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
             </div>
           </div>
         </div>
+        <!--Termina form para agregar Nuevo Vehículo -->
 
         <!-- TABLA Vehiculo -->
         <div class="row">
@@ -268,271 +263,331 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                     <a class="dropdown-item" href="#pablo">Eliminar</a>
                   </div>
                 </div>
+              </div>
 
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table tablesorter">
-                      <thead class="text-primary">
-                        <tr>
-                          <th></th>
-                          <th class="text-center">ID. Del Vehículo</th>
-                          <th class="text-center">RFID del Vehículo</th>
-                          <th class="text-center">Ciudad</th>
-                          <th class="text-center">Volúmen</th>
-                          <th class="text-center">Kilometros</th>
-                          <th class="text-center">Volúmen Acumulado</th>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table tablesorter">
+                    <thead class="text-primary">
+                      <tr>
+                        <th></th>
+                        <th class="text-center">ID. Del Vehículo</th>
+                        <th class="text-center">RFID del Vehículo</th>
+                        <th class="text-center">Ciudad</th>
+                        <th class="text-center">Volúmen</th>
+                        <th class="text-center">Kilometros</th>
+                        <th class="text-center">Volúmen Acumulado</th>
 
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
 
 
                           while ($fila = mysqli_fetch_array($resultado)) : ?>
 
-                        <tr>
-                          <td>
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <span class="form-check-sign">
-                                  <span class="check"></span>
-                                </span>
-                              </label>
-                            </div>
-                          </td>
-                          <td class="text-center"><?php echo $fila['vehiculo']; ?></td>
-                          <td class="text-center"><?php echo $fila['vehiculopin']; ?></td>
-                          <td class="text-center"><?php echo $fila['locacion']; ?></td>
-                          <td class="text-center"><?php echo $fila['volumen']; ?></td>
-                          <td class="text-center"><?php echo $fila['kilometros']; ?></td>
-                          <td class="text-center"><?php echo $fila['vacum']; ?></td>
-
-                          <td class="td-actions text-right">
-                            <button type="button" rel="tooltip" title="" class="btn btn-link"
-                              data-original-title="Edit Task" data-toggle="collapse" data-target="#collapseEdit"
-                              aria-expanded="false" aria-controls="collapseEdit">
-                              <i class="tim-icons icon-pencil"></i>
-                            </button>
-                          </td>
-                        </tr>
-
-                        <?php endwhile; ?>
-
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <!-- Fin de Tabla Vehículo -->
-                <!-- Formulario de editar vehículo -->
-
-                <div class="content">
-                  <div class="row">
-                    <div class="col-12 collapse" id="collapseEdit">
-                      <div class="card">
-                        <div class="card-header">
-                          <h5 class="title">Editar Vehículo</h5>
-                        </div>
-                        <div class="card-body">
-                          <form action="../scripts/vehiculos_req.php" method="post">
-                            <div class="row">
-                              <div class="col-sm-4">
-                                <div class="form-group">
-                                  <label>ID. Del Vehículo</label>
-                                  <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo"
-                                    required>
-                                </div>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="form-group">
-                                  <label>PIN RFID</label>
-                                  <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin"
-                                    required>
-                                </div>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="form-group">
-                                  <label>Ciudad</label>
-                                  <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-sm-4">
-                                <div class="form-group">
-                                  <label>Kilometros</label>
-                                  <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
-                                    required>
-                                </div>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="form-group">
-                                  <label>Volúmen en L</label>
-                                  <input type="number" class="form-control" placeholder="Ej: 900" name="volumen"
-                                    required>
-                                </div>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="form-group">
-                                  <label>Volúmen Acumulado en L</label>
-                                  <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum"
-                                    required>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="card-footer">
-                              <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                                name="editarVehiculo">Editar Vehículo</button>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Termina formulario Editar Vehículo -->
-
-                <!-- Tabla de horarios para vehículo -->
-
-                <div class="content">
-                  <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#horarios"
-                    aria-expanded="false" aria-controls="horarios">
-                    Horarios
-                  </button>
-                  <div class="row">
-                    <div class="col-12 collapse" id="horarios">
-
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="card card-plain card-tasks">
-                            <div class="card-header">
-                              <h4 class="card-title">Clientes</h4>
-                              <div class="dropdown">
-                                <button type="button" class="btn btn-link dropdown-toggle btn-icon"
-                                  data-toggle="dropdown">
-                                  <i class="tim-icons icon-settings-gear-63"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                  <a class="dropdown-item" href="#pablo">Eliminar</a>
-                                </div>
-                              </div>
-
-                              <div class="card-body">
-                                <div class="table-responsive">
-                                  <table class="table tablesorter">
-                                    <thead class="text-primary">
-                                      <tr>
-                                        <th class="text-center">ID. Del Vehículo</th>
-                                        <th class="text-center">Lunes</th>
-                                        <th class="text-center">Martes</th>
-                                        <th class="text-center">Miércoles</th>
-                                        <th class="text-center">Jueves</th>
-                                        <th class="text-center">Viernes</th>
-                                        <th class="text-center">Sábado</th>
-                                        <th class="text-center">Domingo</th>
-
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td class="text-center">
-                                          123ABC
-                                        </td>
-                                        <td class="text-center">
-                                          <div class="form-check">
-                                            <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                                              <span class="form-check-sign">
-                                                <span class="check"></span>
-                                              </span>
-                                            </label>
-                                          </div>
-                                        </td>
-                                        <td class="text-center">
-                                          <div class="form-check">
-                                            <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                                              <span class="form-check-sign">
-                                                <span class="check"></span>
-                                              </span>
-                                            </label>
-                                          </div>
-                                        </td>
-                                        <td class="text-center">
-                                          <div class="form-check">
-                                            <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                                              <span class="form-check-sign">
-                                                <span class="check"></span>
-                                              </span>
-                                            </label>
-                                          </div>
-                                        </td>
-                                        <td class="text-center">
-                                          <div class="form-check">
-                                            <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                                              <span class="form-check-sign">
-                                                <span class="check"></span>
-                                              </span>
-                                            </label>
-                                          </div>
-                                        </td>
-                                        <td class="text-center">
-                                          <div class="form-check">
-                                            <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                                              <span class="form-check-sign">
-                                                <span class="check"></span>
-                                              </span>
-                                            </label>
-                                          </div>
-                                        </td>
-                                        <td class="text-center">
-                                          <div class="form-check">
-                                            <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                                              <span class="form-check-sign">
-                                                <span class="check"></span>
-                                              </span>
-                                            </label>
-                                          </div>
-                                        </td>
-                                        <td class="text-center">
-                                          <div class="form-check">
-                                            <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                                              <span class="form-check-sign">
-                                                <span class="check"></span>
-                                              </span>
-                                            </label>
-                                          </div>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                            </div>
+                      <tr>
+                        <td>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                        </td>
+                        <td class="text-center"><?php echo $fila['vehiculo']; ?></td>
+                        <td class="text-center"><?php echo $fila['vehiculopin']; ?></td>
+                        <td class="text-center"><?php echo $fila['locacion']; ?></td>
+                        <td class="text-center"><?php echo $fila['volumen']; ?></td>
+                        <td class="text-center"><?php echo $fila['kilometros']; ?></td>
+                        <td class="text-center"><?php echo $fila['vacum']; ?></td>
+
+                        <td class="td-actions text-right">
+                          <button type="button" rel="tooltip" title="" class="btn btn-link collapsed"
+                            data-original-title="Edit Task" data-toggle="collapse" data-target="#accordion"
+                            aria-expanded="false" aria-controls="accordion">
+                            <i class="tim-icons icon-pencil"></i>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <?php endwhile; ?>
+
+                    </tbody>
+                  </table>
                 </div>
-
-                <!-- Termina tabla de horarios para Vehículos -->
-
-
               </div>
             </div>
           </div>
         </div>
 
-        <!-- FOOTER -->
 
-        <!-- <div class="row">
+        <!-- Fin de Tabla Vehículo -->
+        <!-- Formulario de editar vehículo -->
+
+        <div id="accordion">
+
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  Información Básica del Vehículo
+                </button>
+              </h5>
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <!-- <div class="col-12 collapse" id="collapseEdit"> -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="title">Editar Vehículo</h5>
+                      </div>
+                      <div class="card-body">
+                        <form action="../scripts/vehiculos_req.php" method="post">
+                          <div class="row">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label>ID. Del Vehículo</label>
+                                <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo"
+                                  required>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label>PIN RFID</label>
+                                <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin"
+                                  required>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label>Ciudad</label>
+                                <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label>Kilometros</label>
+                                <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
+                                  required>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label>Volúmen en L</label>
+                                <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label>Volúmen Acumulado en L</label>
+                                <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-footer">
+                            <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                              name="editarVehiculo">Guardar</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
+                  Collapsible Group Item #2
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                  aria-expanded="false" aria-controls="collapseThree">
+                  Collapsible Group Item #3
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                3
+                wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                laborum
+                eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
+                nulla
+                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                beer
+                farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Termina formulario Editar Vehículo -->
+
+        <!-- Tabla de horarios para vehículo -->
+
+        <div class="content">
+          <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#horarios"
+            aria-expanded="false" aria-controls="horarios">
+            Horarios
+          </button>
+          <div class="row">
+            <div class="col-12 collapse" id="horarios">
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card card-plain card-tasks">
+                    <div class="card-header">
+                      <h4 class="card-title">Clientes</h4>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                          <i class="tim-icons icon-settings-gear-63"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" href="#pablo">Eliminar</a>
+                        </div>
+                      </div>
+
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table tablesorter">
+                            <thead class="text-primary">
+                              <tr>
+                                <th class="text-center">ID. Del Vehículo</th>
+                                <th class="text-center">Lunes</th>
+                                <th class="text-center">Martes</th>
+                                <th class="text-center">Miércoles</th>
+                                <th class="text-center">Jueves</th>
+                                <th class="text-center">Viernes</th>
+                                <th class="text-center">Sábado</th>
+                                <th class="text-center">Domingo</th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-center">
+                                  123ABC
+                                </td>
+                                <td class="text-center">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                      <span class="form-check-sign">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </td>
+                                <td class="text-center">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                      <span class="form-check-sign">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </td>
+                                <td class="text-center">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                      <span class="form-check-sign">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </td>
+                                <td class="text-center">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                      <span class="form-check-sign">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </td>
+                                <td class="text-center">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                      <span class="form-check-sign">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </td>
+                                <td class="text-center">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                      <span class="form-check-sign">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </td>
+                                <td class="text-center">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="VariablebackEnd">
+                                      <span class="form-check-sign">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Termina tabla de horarios para Vehículos -->
+
+
+      </div>
+
+      <!-- FOOTER -->
+
+      <!-- <div class="row">
             <div class="col-md-12">
               <div class="card card-plain">
                 <footer class="footer">
@@ -549,172 +604,172 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
               </div>
             </div>
           </div> -->
-      </div>
     </div>
+  </div>
 
 
-    <div class="fixed-plugin">
-      <div class="dropdown show-dropdown">
-        <a href="#" data-toggle="dropdown">
-          <i class="fa fa-cog fa-2x"> </i>
-        </a>
-        <ul class="dropdown-menu">
-          <li class="header-title"> Colores de Interfaz</li>
-          <li class="adjustments-line">
-            <a href="javascript:void(0)" class="switch-trigger background-color">
-              <div class="badge-colors text-center">
-                <span class="badge filter badge-primary active" data-color="primary"></span>
-                <span class="badge filter badge-info" data-color="blue"></span>
-                <span class="badge filter badge-success" data-color="green"></span>
-              </div>
-              <div class="clearfix"></div>
-            </a>
-          </li>
-          <li class="adjustments-line text-center color-change">
-            <span class="color-label">Modo Claro</span>
-            <span class="badge light-badge mr-2"></span>
-            <span class="badge dark-badge ml-2"></span>
-            <span class="color-label">Modo Obscuro</span>
-          </li>
-        </ul>
-      </div>
+  <div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+      <a href="#" data-toggle="dropdown">
+        <i class="fa fa-cog fa-2x"> </i>
+      </a>
+      <ul class="dropdown-menu">
+        <li class="header-title"> Colores de Interfaz</li>
+        <li class="adjustments-line">
+          <a href="javascript:void(0)" class="switch-trigger background-color">
+            <div class="badge-colors text-center">
+              <span class="badge filter badge-primary active" data-color="primary"></span>
+              <span class="badge filter badge-info" data-color="blue"></span>
+              <span class="badge filter badge-success" data-color="green"></span>
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+        <li class="adjustments-line text-center color-change">
+          <span class="color-label">Modo Claro</span>
+          <span class="badge light-badge mr-2"></span>
+          <span class="badge dark-badge ml-2"></span>
+          <span class="color-label">Modo Obscuro</span>
+        </li>
+      </ul>
     </div>
+  </div>
 
-    <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Chart JS -->
-    <script src="../assets/js/plugins/chartjs.min.js"></script>
-    <!--  Notifications Plugin    -->
-    <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-    <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
-    <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-    <script src="../assets/demo/demo.js"></script>
-    <script>
-      $(document).ready(function () {
-        $().ready(function () {
-          $sidebar = $('.sidebar');
-          $navbar = $('.navbar');
-          $main_panel = $('.main-panel');
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
+  <!-- Black Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
+  <script>
+    $(document).ready(function () {
+      $().ready(function () {
+        $sidebar = $('.sidebar');
+        $navbar = $('.navbar');
+        $main_panel = $('.main-panel');
 
-          $full_page = $('.full-page');
+        $full_page = $('.full-page');
 
-          $sidebar_responsive = $('body > .navbar-collapse');
-          sidebar_mini_active = true;
-          white_color = false;
+        $sidebar_responsive = $('body > .navbar-collapse');
+        sidebar_mini_active = true;
+        white_color = false;
 
-          window_width = $(window).width();
+        window_width = $(window).width();
 
-          fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
 
 
-          $('.fixed-plugin a').click(function (event) {
-            if ($(this).hasClass('switch-trigger')) {
-              if (event.stopPropagation) {
-                event.stopPropagation();
-              } else if (window.event) {
-                window.event.cancelBubble = true;
-              }
+        $('.fixed-plugin a').click(function (event) {
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
             }
-          });
+          }
+        });
 
-          $('.fixed-plugin .background-color span').click(function () {
-            $(this).siblings().removeClass('active');
-            $(this).addClass('active');
+        $('.fixed-plugin .background-color span').click(function () {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
 
-            var new_color = $(this).data('color');
+          var new_color = $(this).data('color');
 
-            if ($sidebar.length != 0) {
-              $sidebar.attr('data', new_color);
-            }
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data', new_color);
+          }
 
-            if ($main_panel.length != 0) {
-              $main_panel.attr('data', new_color);
-            }
+          if ($main_panel.length != 0) {
+            $main_panel.attr('data', new_color);
+          }
 
-            if ($full_page.length != 0) {
-              $full_page.attr('filter-color', new_color);
-            }
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
 
-            if ($sidebar_responsive.length != 0) {
-              $sidebar_responsive.attr('data', new_color);
-            }
-          });
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data', new_color);
+          }
+        });
 
-          $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
-            var $btn = $(this);
+        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+          var $btn = $(this);
 
-            if (sidebar_mini_active == true) {
-              $('body').removeClass('sidebar-mini');
-              sidebar_mini_active = false;
-              blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
-            } else {
-              $('body').addClass('sidebar-mini');
-              sidebar_mini_active = true;
-              blackDashboard.showSidebarMessage('Sidebar mini activated...');
-            }
+          if (sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            sidebar_mini_active = false;
+            blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+          } else {
+            $('body').addClass('sidebar-mini');
+            sidebar_mini_active = true;
+            blackDashboard.showSidebarMessage('Sidebar mini activated...');
+          }
 
-            // we simulate the window Resize so the charts will get updated in realtime.
-            var simulateWindowResize = setInterval(function () {
-              window.dispatchEvent(new Event('resize'));
-            }, 180);
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function () {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
 
-            // we stop the simulation of Window Resize after the animations are completed
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function () {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+        });
+
+        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
+          var $btn = $(this);
+
+          if (white_color == true) {
+
+            $('body').addClass('change-background');
             setTimeout(function () {
-              clearInterval(simulateWindowResize);
-            }, 1000);
-          });
+              $('body').removeClass('change-background');
+              $('body').removeClass('white-content');
+            }, 900);
+            white_color = false;
+          } else {
 
-          $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
-            var $btn = $(this);
+            $('body').addClass('change-background');
+            setTimeout(function () {
+              $('body').removeClass('change-background');
+              $('body').addClass('white-content');
+            }, 900);
 
-            if (white_color == true) {
-
-              $('body').addClass('change-background');
-              setTimeout(function () {
-                $('body').removeClass('change-background');
-                $('body').removeClass('white-content');
-              }, 900);
-              white_color = false;
-            } else {
-
-              $('body').addClass('change-background');
-              setTimeout(function () {
-                $('body').removeClass('change-background');
-                $('body').addClass('white-content');
-              }, 900);
-
-              white_color = true;
-            }
+            white_color = true;
+          }
 
 
-          });
+        });
 
-          $('.light-badge').click(function () {
-            $('body').addClass('white-content');
-          });
+        $('.light-badge').click(function () {
+          $('body').addClass('white-content');
+        });
 
-          $('.dark-badge').click(function () {
-            $('body').removeClass('white-content');
-          });
+        $('.dark-badge').click(function () {
+          $('body').removeClass('white-content');
         });
       });
-    </script>
-    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-    <script>
-      window.TrackJS &&
-        TrackJS.install({
-          token: "ee6fab19c5a04ac1a32a645abde4613a",
-          application: "black-dashboard-free"
-        });
-    </script>
+    });
+  </script>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS &&
+      TrackJS.install({
+        token: "ee6fab19c5a04ac1a32a645abde4613a",
+        application: "black-dashboard-free"
+      });
+  </script>
 </body>
 
 </html>
