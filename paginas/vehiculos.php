@@ -305,7 +305,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                         <td class="text-center"><?php echo $fila['vacum']; ?></td>
 
                         <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title="" class="btn btn-link collapsed"
+                          <button type="button" rel="tooltip" title="" role="button" class="btn btn-link collapsed"
                             data-original-title="Edit Task" data-toggle="collapse" data-target="#accordion"
                             aria-expanded="false" aria-controls="accordion">
                             <i class="tim-icons icon-pencil"></i>
@@ -322,8 +322,6 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
             </div>
           </div>
         </div>
-
-
         <!-- Fin de Tabla Vehículo -->
         <!-- Formulario de editar vehículo -->
 
@@ -337,67 +335,57 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                   Información Básica del Vehículo
                 </button>
               </h5>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                   <div class="row">
-                    <!-- <div class="col-12 collapse" id="collapseEdit"> -->
-                    <div class="card">
-                      <div class="card-header">
-                        <h5 class="title">Editar Vehículo</h5>
+                    <h5 class="title">Editar Vehículo</h5>
+                  </div>
+                  <form action="../scripts/vehiculos_req.php" method="post">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label>ID. Del Vehículo</label>
+                          <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
+                        </div>
                       </div>
-                      <div class="card-body">
-                        <form action="../scripts/vehiculos_req.php" method="post">
-                          <div class="row">
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label>ID. Del Vehículo</label>
-                                <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo"
-                                  required>
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label>PIN RFID</label>
-                                <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin"
-                                  required>
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label>Ciudad</label>
-                                <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label>Kilometros</label>
-                                <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
-                                  required>
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label>Volúmen en L</label>
-                                <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
-                              </div>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                <label>Volúmen Acumulado en L</label>
-                                <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card-footer">
-                            <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                              name="editarVehiculo">Guardar</button>
-                          </div>
-                        </form>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label>PIN RFID</label>
+                          <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label>Ciudad</label>
+                          <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                        </div>
                       </div>
                     </div>
-                  </div>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label>Kilometros</label>
+                          <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label>Volúmen en L</label>
+                          <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label>Volúmen Acumulado en L</label>
+                          <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                        name="editarVehiculo">Guardar</button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
