@@ -22,7 +22,7 @@
 
 <body class="">
   <div class="wrapper">
-    <div class="sidebar">
+    <div class="sidebar" data="blue">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
     -->
@@ -54,12 +54,12 @@
               <p>Usuarios</p>
             </a>
           </li>
-          <!--           <li>
+          <li>
             <a href="./dispositivos.php">
               <i class="tim-icons icon-tablet-2"></i>
               <p>Dispositivos</p>
             </a>
-          </li> -->
+          </li>
           <li>
             <a href="./vehiculos.php">
               <i class="tim-icons icon-bus-front-12"></i>
@@ -84,16 +84,10 @@
               <p>Reportes</p>
             </a>
           </li>
-          <!--           <li>
-            <a href="./regulaciones.php">
-              <i class="tim-icons icon-chart-bar-32"></i>
-              <p>Regulaciones</p>
-            </a>
-          </li> -->
         </ul>
       </div>
     </div>
-    <div class="main-panel">
+    <div class="main-panel" data="blue">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
         <div class="container-fluid">
@@ -203,10 +197,18 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="text-center"><?php echo $fila['No.Cliente']; ?></td>
-                          <td class="text-center"><?php echo $fila['Contacto']; ?></td>
-                          <td class="text-center"><?php echo $fila['Telefono']; ?></td>
-                          <td class="text-center"><?php echo $fila['Correo']; ?></td>
+                          <td class="text-center">
+                            <?php echo $fila['No.Cliente']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['Contacto']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['Telefono']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['Correo']; ?>
+                          </td>
                         </tr>
                       </tbody>
 
@@ -263,10 +265,18 @@
                           </label>
                         </div>
                       </td>
-                      <td class="text-center"><?php echo $fila['usuarios']; ?></td>
-                      <td class="text-center"><?php echo $fila['dispositivos']; ?></td>
-                      <td class="text-center"><?php echo $fila['vehiculos']; ?></td>
-                      <td class="text-center"><?php echo $fila['tickets']; ?></td>
+                      <td class="text-center">
+                        <?php echo $fila['usuarios']; ?>
+                      </td>
+                      <td class="text-center">
+                        <?php echo $fila['dispositivos']; ?>
+                      </td>
+                      <td class="text-center">
+                        <?php echo $fila['vehiculos']; ?>
+                      </td>
+                      <td class="text-center">
+                        <?php echo $fila['tickets']; ?>
+                      </td>
                       <td class="td-actions text-right">
                         <button type="button" rel="tooltip" title="" class="btn btn-link"
                           data-original-title="Edit Task">
@@ -280,8 +290,7 @@
             </div>
           </div>
         </div>
-
-
+        <!-- Termina tabla Clientes -->
 
         <div class="row">
           <div class="card card-tasks card-plain">
@@ -508,7 +517,7 @@
 
     });
   </script>
-<!--   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <!--   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
     window.TrackJS &&
       TrackJS.install({
