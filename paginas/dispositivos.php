@@ -226,114 +226,8 @@
                     </div>
                 </div>
                 <!-- Termina Buscar Cliente -->
-
-                <!-- TABLA Dispositivos -->
-
-                <div class="row">
-                    <div class="col-md-12">
-          
-                      <div class="card-plain">
-          
-                        <div class="card-header">
-                          <h4 class="title">Dispositivos</h4>
-                        </div>
-                        <div class="card-body">
-                          <div class="table-responsive">
-                            <table class="table tablesorter">
-                              <thead class="text-primary">
-                                <tr>
-                                  <th>
-                                    <div class="form-check">
-                                      <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="">
-                                        <span class="form-check-sign">
-                                          <span class="check"></span>
-                                        </span>
-                                      </label>
-                                    </div>
-                                  </th>
-                                  <th class="text-center">ID. Del Dispositivo</th>
-                                  <th class="text-center">RFID del Dispositivo</th>
-                                  <th class="text-center">Ciudad</th>
-                                  <th class="text-center">Volúmen</th>
-                                  <th class="text-center">Kilometros</th>
-                                  <th class="text-center">Volúmen Acumulado</th>
-                                  <th class="text-center"></th>
-                                  <th class="text-center">
-                                    <div class="dropdown">
-                                      <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                                        <i class="tim-icons icon-settings-gear-63"></i>
-                                      </button>
-                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#pablo">Eliminar</a>
-                                      </div>
-                                    </div>
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <?php
-                                    while ($fila = mysqli_fetch_array($resultado)) : ?>
-                                <tr>
-                                  <td>
-                                    <div class="form-check">
-                                      <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="">
-                                        <span class="form-check-sign">
-                                          <span class="check"></span>
-                                        </span>
-                                      </label>
-                                    </div>
-                                  </td>
-                                  <td class="text-center">
-                                    <?php echo $fila['vehiculo']; ?>
-                                  </td>
-                                  <td class="text-center">
-                                    <?php echo $fila['vehiculopin']; ?>
-                                  </td>
-                                  <td class="text-center">
-                                    <?php echo $fila['locacion']; ?>
-                                  </td>
-                                  <td class="text-center">
-                                    <?php echo $fila['volumen']; ?>
-                                  </td>
-                                  <td class="text-center">
-                                    <?php echo $fila['kilometros']; ?>
-                                  </td>
-                                  <td class="text-center">
-                                    <?php echo $fila['vacum']; ?>
-                                  </td>
-          
-                                  <td class="text-center">
-                                    <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse"
-                                      data-target="#accordion" aria-expanded="false" aria-controls="accordion">
-                                      <i class="tim-icons icon-pencil"></i>
-          
-                                    </button>
-                                  </td>
-                                  <td class="text-center">
-                                    <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle=""
-                                      data-target="#" aria-expanded="false" aria-controls="">
-                                      <i class="tim-icons icon-simple-remove"></i>
-                                    </button>
-                                  </td>
-                                  <?php endwhile; ?>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-          
-                  <!-- Fin de Tabla Dispositivo -->
-
                 <!-- Agregar Nuevo Dispositivo -->
-                <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapse"
-                    aria-expanded="false" aria-controls="collapse">
-                    Agregar Nuevo Dispositivo
-                </button>
+
                 <div class="row">
                     <div class="col-12 collapse" id="collapse">
                         <div class="card">
@@ -341,7 +235,7 @@
                                 <h5 class="title">Agregar Nuevo Dispositivo</h5>
                             </div>
                             <div class="card-body">
-                                <form action="../scripts/vehiculos_req.php" method="post">
+                                <form action="" method="post">
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
@@ -365,24 +259,119 @@
 
                 <!--Termina form para agregar Nuevo Vehículo -->
 
+                <!-- TABLA Dispositivos -->
 
-                <!-- FOOTER -->
-                <!-- <div class="col-md-12">
-                    <div class="card  card-plain">
-                        <footer class="footer">
-                            <div class="container-fluid">
-                                <div class="copyright">
-                                    ©
-                                    <script>
-                                        document.write(new Date().getFullYear())
-                                    </script> by
-                                    <a href="javascript:void(0)" target="_blank">VABAJA </a>listen, learn, improve &
-                                    repeat.
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="card-plain">
+
+                            <div class="card-header">
+                                <h4 class="title">Dispositivos</h4>
+                                <button class="btn pull-right btn-info" type="button" data-toggle="collapse"
+                                    data-target="#collapse" aria-expanded="false" aria-controls="collapse">
+                                    Agregar Nuevo Dispositivo
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table tablesorter">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" value="">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </th>
+                                                <th class="text-center">ID. Del Dispositivo</th>
+                                                <th class="text-center">RFID del Dispositivo</th>
+                                                <th class="text-center">Ciudad</th>
+                                                <th class="text-center">Volúmen</th>
+                                                <th class="text-center">Kilometros</th>
+                                                <th class="text-center">Volúmen Acumulado</th>
+                                                <th class="text-center"></th>
+                                                <th class="text-center">
+                                                    <div class="dropdown">
+                                                        <button type="button"
+                                                            class="btn btn-link dropdown-toggle btn-icon"
+                                                            data-toggle="dropdown">
+                                                            <i class="tim-icons icon-settings-gear-63"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right"
+                                                            aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item" href="#pablo">Eliminar</a>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" value="">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    12234
+                                                </td>
+                                                <td class="text-center">
+                                                    12345
+                                                </td>
+                                                <td class="text-center">
+                                                    Monterrey
+                                                </td>
+                                                <td class="text-center">
+                                                    1245 L
+                                                </td>
+                                                <td class="text-center">
+                                                    123456 km
+                                                </td>
+                                                <td class="text-center">
+                                                    1234455 L
+                                                </td>
+
+                                                <td class="text-center">
+                                                    <button class="btn btn-link" type="button" title="Editar Vehículo"
+                                                        data-toggle="collapse" data-target="#accordion"
+                                                        aria-expanded="false" aria-controls="accordion">
+                                                        <i class="tim-icons icon-pencil"></i>
+
+                                                    </button>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" title="Eliminar Vehículo" class="btn btn-link"
+                                                        data-toggle="" data-target="#" aria-expanded="false"
+                                                        aria-controls="">
+                                                        <i class="tim-icons icon-simple-remove"></i>
+                                                    </button>
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                        </footer>
+                        </div>
                     </div>
-                </div> -->
+                </div>
+
+                <!-- Fin de Tabla Dispositivo -->
+
+
+
+                <!-- Selector de Colores -->
                 <div class="fixed-plugin">
                     <div class="dropdown show-dropdown">
                         <a href="#" data-toggle="dropdown">
@@ -409,7 +398,9 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Termina selector de colores -->
             </div>
+            <!-- Termina main content -->
             <!--   Core JS Files   -->
             <script src="../assets/js/core/jquery.min.js"></script>
             <script src="../assets/js/core/popper.min.js"></script>
