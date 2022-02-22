@@ -35,10 +35,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
 
 <body class="">
   <div class="wrapper">
-    <div class="sidebar">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-    -->
+    <div class="sidebar" data="blue">
       <div class="sidebar-wrapper">
         <div class="logo">
           <a href="./dashboard.php" class="simple-text logo-mini">
@@ -100,7 +97,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
         </ul>
       </div>
     </div>
-    <div class="main-panel">
+    <!-- Empieza Main Content -->
+    <div class="main-panel" data="blue">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
         <div class="container-fluid">
@@ -180,12 +178,63 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
         </div>
       </div>
       <!-- End Navbar -->
-      <!-- Agregar Nuevo Cliente -->
       <div class="content">
-        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
-          aria-controls="collapse">
-          Agregar Nuevo Cliente
-        </button>
+        <!-- Tabla "Busca Clientes" -->
+        <div class="card">
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label for="inputEmail4">Nombre del Cliente</label>
+                  <input type="string" class="form-control" id="nomCliente" placeholder="Ej. TRAMEX">
+                </div>
+                <div class="col-md-8">
+                  <div class="table-responsive">
+                    <table class="table tablesorter">
+                      <thead class="text-primary">
+                        <tr>
+                          <th class="text-center">No. Cliente</th>
+                          <th class="text-center">Contacto</th>
+                          <th class="text-center">Teléfono</th>
+                          <th class="text-center">Correo</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <span class="form-check-sign">
+                                  <span class="check"></span>
+                                </span>
+                              </label>
+                            </div>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['No.Cliente']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['Contacto']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['Telefono']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['Correo']; ?>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-info">Buscar Cliente</button>
+            </form>
+          </div>
+        </div>
+        <!-- Termina Buscar Cliente -->
+        <!-- Agregar Nuevo Cliente -->
         <div class="row">
           <div class="col-12 collapse" id="collapse">
             <div class="card">
@@ -278,31 +327,32 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
             </div>
           </div>
         </div>
-
-
-
-
+        <!-- Termina formulario cliente -->
         <!-- TABLA Clientes-->
         <div class="row">
           <div class="col-md-12">
-            <div class="card card-plain card-tasks">
+            <div class="card-plain">
               <div class="card-header">
                 <h4 class="card-title">Clientes</h4>
-                <div class="dropdown">
-                  <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                    <i class="tim-icons icon-settings-gear-63"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#pablo">Eliminar</a>
-                  </div>
-                </div>
-
+                <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse"
+                  aria-expanded="false" aria-controls="collapse">
+                  Agregar Nuevo Cliente
+                </button>
                 <div class="card-body">
                   <div class="table-responsive">
                     <table class="table tablesorter">
                       <thead class="text-primary">
                         <tr>
-                          <th></th>
+                          <th>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <span class="form-check-sign">
+                                  <span class="check"></span>
+                                </span>
+                              </label>
+                            </div>
+                          </th>
                           <th class="text-center">No. De Cliente</th>
                           <th class="text-center">Usuario</th>
                           <th class="text-center">Empresa</th>
@@ -314,15 +364,23 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                           <th class="text-center">Litros</th>
                           <th class="text-center">Ticket</th>
                           <th class="text-center">Kilometros</th>
-
+                          <th class="text-center"></th>
+                          <th class="text-center">
+                            <div class="dropdown">
+                              <button type="button" class="btn btn-link dropdown-toggle btn-icon"
+                                data-toggle="dropdown">
+                                <i class="tim-icons icon-settings-gear-63"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#pablo">Eliminar</a>
+                              </div>
+                            </div>
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php
-
-
-                            while ($fila = mysqli_fetch_array($resultado)) : ?>
-
+                          while ($fila = mysqli_fetch_array($resultado)) : ?>
                         <tr>
                           <td>
                             <div class="form-check">
@@ -334,23 +392,49 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                               </label>
                             </div>
                           </td>
-                          <td class="text-center"><?php echo $fila['usuario']; ?></td>
-                          <td class="text-center"><?php echo $fila['nomusuario']; ?></td>
-                          <td class="text-center"><?php echo $fila['nomempresa']; ?></td>
-                          <td class="text-center"><?php echo $fila['direccion']; ?></td>
-                          <td class="text-center"><?php echo $fila['email']; ?></td>
-                          <td class="text-center"><?php echo $fila['telefono']; ?></td>
-                          <td class="text-center"><?php echo $fila['locacion']; ?></td>
-                          <td class="text-center"><?php echo $fila['vehiculo']; ?></td>
-                          <td class="text-center"><?php echo $fila['litros']; ?></td>
-                          <td class="text-center"><?php echo $fila['ticket']; ?></td>
-                          <td class="text-center"><?php echo $fila['km']; ?></td>
-
-                          <td class="td-actions text-right">
-                            <button type="button" rel="tooltip" title="" class="btn btn-link"
-                              data-original-title="Edit Task" data-toggle="collapse" data-target="#collapseEdit"
-                              aria-expanded="false" aria-controls="collapseEdit">
+                          <td class="text-center">
+                            <?php echo $fila['usuario']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['nomusuario']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['nomempresa']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['direccion']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['email']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['telefono']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['locacion']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['vehiculo']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['litros']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['ticket']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['km']; ?>
+                          </td>
+                          <td class="text-center">
+                            <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse"
+                              data-target="#accordion" aria-expanded="false" aria-controls="accordion">
                               <i class="tim-icons icon-pencil"></i>
+                            </button>
+                          </td>
+                          <td class="text-center">
+                            <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle=""
+                              data-target="#" aria-expanded="false" aria-controls="">
+                              <i class="tim-icons icon-simple-remove"></i>
                             </button>
                           </td>
                         </tr>
@@ -361,7 +445,6 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                     </table>
                   </div>
                 </div>
-
                 <div class="row">
                   <div class="col-12 collapse" id="collapseEdit">
                     <div class="card">
@@ -462,60 +545,268 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
             </div>
           </div>
         </div>
-
         <!--FIN DE TABLA Clientes  -->
+        <!-- Formulario de editar Cliente -->
+        <div class="row">
+          <div class="col-12 collapse" id="accordion">
+            <div class="card card-plain">
+              <div class="card-header">
+                <h5 class="title">Editar Cliente</h5>
+              </div>
 
-
-
-        <!-- FOOTER -->
-        <!-- <div class="row">
-          <div class="col-md-12">
-            <div class="card  card-plain">
-
-              <footer class="footer">
-                <div class="container-fluid">
-
-                  <div class="copyright">
-                    ©
-                    <script>
-                      document.write(new Date().getFullYear())
-                    </script> by
-                    <a href="javascript:void(0)" target="_blank">VABAJA </a>listen, learn, improve & repeat.
+              <div class="card-body">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        Información Básica
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      <form action="../scripts/vehiculos_req.php" method="post">
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>ID. Del Cliente</label>
+                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="ClienteId"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Usuario Principal</label>
+                              <input type="string" class="form-control" placeholder="Ej: 0000" name="principalId"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Nombre de la Empresa</label>
+                              <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                              <label>Dirección</label>
+                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
+                                required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Dirección Email</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Teléfono</label>
+                              <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Ciudad</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label>Vehículo</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label>Litros</label>
+                              <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label>Ticket</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label>Kilometros</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="card-footer">
+                      <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                        name="editarVehiculo">Guardar</button>
+                    </div>
+                    </form>
                   </div>
                 </div>
-              </footer>
+              </div>
+
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                      aria-expanded="false" aria-controls="collapseTwo">
+                      Productos
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                    <form action="" method="post">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>% Biocarburo</label>
+                            <input type="number" class="form-control" placeholder="Ej. 30" name="biocarb" required>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Propietario nombre fiscal</label>
+                            <input type="string" class="form-control" placeholder="Ej. TRAMEX" name="propFiscal"
+                              required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Litros depósito</label>
+                            <input type="number" class="form-control" placeholder="Ej. 13530" name="ltsdeposito"
+                              required>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Producto</label>
+                            <input type="string" class="form-control" placeholder="Ej. Diesel" name="producto" required>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="card-footer">
+                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                      name="editarProducto">Guardar</button>
+                  </div>
+                  </form>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                      aria-expanded="false" aria-controls="collapseThree">
+                      Límites
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body">
+
+                    <form action="" method="post">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label>ID. Del Vehículo</label>
+                            <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label>PIN RFID</label>
+                            <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin"
+                              required>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label>Ciudad</label>
+                            <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label>Kilometros</label>
+                            <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
+                              required>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label>Volúmen en L</label>
+                            <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label>Volúmen Acumulado en L</label>
+                            <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                          name="editarVehiculo">Guardar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
+      <!-- Termina formulario Editar Vehículo -->
     </div>
+    <!-- Termina main content -->
+  </div>
 
-    <div class="fixed-plugin">
-      <div class="dropdown show-dropdown">
-        <a href="#" data-toggle="dropdown">
-          <i class="fa fa-cog fa-2x"> </i>
-        </a>
-        <ul class="dropdown-menu">
-          <li class="header-title"> Colores de Interfaz</li>
-          <li class="adjustments-line">
-            <a href="javascript:void(0)" class="switch-trigger background-color">
-              <div class="badge-colors text-center">
-                <span class="badge filter badge-primary active" data-color="primary"></span>
-                <span class="badge filter badge-info" data-color="blue"></span>
-                <span class="badge filter badge-success" data-color="green"></span>
-              </div>
-              <div class="clearfix"></div>
-            </a>
-          </li>
-          <li class="adjustments-line text-center color-change">
-            <span class="color-label">Modo Claro</span>
-            <span class="badge light-badge mr-2"></span>
-            <span class="badge dark-badge ml-2"></span>
-            <span class="color-label">Modo Obscuro</span>
-          </li>
-        </ul>
-      </div>
+  <!-- Selector de Color -->
+  <div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+      <a href="#" data-toggle="dropdown">
+        <i class="fa fa-cog fa-2x"> </i>
+      </a>
+      <ul class="dropdown-menu">
+        <li class="header-title"> Colores de Interfaz</li>
+        <li class="adjustments-line">
+          <a href="javascript:void(0)" class="switch-trigger background-color">
+            <div class="badge-colors text-center">
+              <span class="badge filter badge-primary" data-color="primary"></span>
+              <span class="badge filter badge-info active" data-color="blue"></span>
+              <span class="badge filter badge-success" data-color="green"></span>
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+        <li class="adjustments-line text-center color-change">
+          <span class="color-label">Modo Claro</span>
+          <span class="badge light-badge mr-2"></span>
+          <span class="badge dark-badge ml-2"></span>
+          <span class="color-label">Modo Obscuro</span>
+        </li>
+      </ul>
     </div>
+  </div>
+
+  <!-- Termina selector de color -->
   </div>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
@@ -531,8 +822,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
   <script src="../assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
-  <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
+
   <script>
     $(document).ready(function () {
       $().ready(function () {

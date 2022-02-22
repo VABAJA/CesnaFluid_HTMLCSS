@@ -23,9 +23,7 @@
 <body class="">
   <div class="wrapper">
     <div class="sidebar" data="blue">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-    -->
+
       <div class="sidebar-wrapper">
         <div class="logo">
           <a href="./dashboard.php" class="simple-text logo-mini">
@@ -173,9 +171,11 @@
         </div>
       </div>
       <!-- End Navbar -->
-
-      <!-- Busca Clientes -->
+      <!-- Empieza main content -->
       <div class="content">
+
+        <!-- Busca Clientes -->
+
         <div class="card">
           <div class="card-body">
             <form>
@@ -226,7 +226,7 @@
         <!-- Tabla Clientes -->
 
         <div class="row">
-          <div class="card card-tasks card-plain">
+          <div class="card card-plain">
             <div class="card-header">
               <h4 class="title d-inline">Clientes</h4>
               <div class="dropdown">
@@ -291,9 +291,9 @@
           </div>
         </div>
         <!-- Termina tabla Clientes -->
-
+        <!-- Lista de Tareas -->
         <div class="row">
-          <div class="card card-tasks card-plain">
+          <div class="card card-plain">
             <div class="card-header">
               <h6 class="title d-inline">Tareas</h6>
               <div class="dropdown">
@@ -343,7 +343,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Termina Lista de Tareas -->
         <footer class="footer">
           <div class="container-fluid">
             <div class="copyright">
@@ -358,6 +358,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Selector de colores -->
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
@@ -384,6 +386,8 @@
       </ul>
     </div>
   </div>
+
+  <!-- Termina selecto de colores -->
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
