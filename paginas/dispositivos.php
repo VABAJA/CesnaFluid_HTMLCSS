@@ -22,7 +22,7 @@
 
 <body class="">
     <div class="wrapper">
-        <div class="sidebar">
+        <div class="sidebar" data="blue">
             <!--
             Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
         -->
@@ -84,12 +84,10 @@
                             <p>Reportes</p>
                         </a>
                     </li>
-
-
                 </ul>
             </div>
         </div>
-        <div class="main-panel">
+        <div class="main-panel" data="blue">
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
                 <div class="container-fluid">
@@ -103,19 +101,15 @@
                         </div>
                         <a class="navbar-brand" href="javascript:void(0)">Dispositivos</a>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navigation">
                         <ul class="navbar-nav ml-auto">
-                            <!-- <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
-                    class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li> -->
+
                             <li class="dropdown nav-item">
                                 <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <div class="notification d-none d-lg-block d-xl-block"></div>
@@ -131,11 +125,14 @@
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You
                                             have 5 more
                                             tasks</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael
+                                    <li class="nav-link"><a href="javascript:void(0)"
+                                            class="nav-item dropdown-item">Your friend Michael
                                             is in town</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another
+                                    <li class="nav-link"><a href="javascript:void(0)"
+                                            class="nav-item dropdown-item">Another
                                             notification</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
+                                    <li class="nav-link"><a href="javascript:void(0)"
+                                            class="nav-item dropdown-item">Another one</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown nav-item">
@@ -151,10 +148,12 @@
                                 <ul class="dropdown-menu dropdown-navbar">
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Mi
                                             Perfil</a></li>
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
+                                    <li class="nav-link"><a href="javascript:void(0)"
+                                            class="nav-item dropdown-item">Configuración</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Cerrar Sesión</a>
+                                    <li class="nav-link"><a href="javascript:void(0)"
+                                            class="nav-item dropdown-item">Cerrar Sesión</a>
                                     </li>
                                 </ul>
                             </li>
@@ -163,7 +162,8 @@
                     </div>
                 </div>
             </nav>
-            <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+            <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog"
+                aria-labelledby="searchModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -179,29 +179,198 @@
             <!-- Agregar Nuevo Dispositivo -->
             <div class="content">
 
+                <!-- Tabla "Busca Clientes" -->
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputEmail4">Nombre del Cliente</label>
+                                    <input type="string" class="form-control" id="nomCliente" placeholder="Ej. TRAMEX">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="table-responsive">
+                                        <table class="table tablesorter">
+                                            <thead class="text-primary">
+                                                <tr>
+                                                    <th class="text-center">No. Cliente</th>
+                                                    <th class="text-center">Contacto</th>
+                                                    <th class="text-center">Teléfono</th>
+                                                    <th class="text-center">Correo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['No.Cliente']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['Contacto']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['Telefono']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['Correo']; ?>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-info">Buscar Cliente</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Termina Buscar Cliente -->
+
+                <!-- TABLA Dispositivos -->
+
+                <div class="row">
+                    <div class="col-md-12">
+          
+                      <div class="card-plain">
+          
+                        <div class="card-header">
+                          <h4 class="title">Dispositivos</h4>
+                        </div>
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table tablesorter">
+                              <thead class="text-primary">
+                                <tr>
+                                  <th>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="">
+                                        <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </th>
+                                  <th class="text-center">ID. Del Dispositivo</th>
+                                  <th class="text-center">RFID del Dispositivo</th>
+                                  <th class="text-center">Ciudad</th>
+                                  <th class="text-center">Volúmen</th>
+                                  <th class="text-center">Kilometros</th>
+                                  <th class="text-center">Volúmen Acumulado</th>
+                                  <th class="text-center"></th>
+                                  <th class="text-center">
+                                    <div class="dropdown">
+                                      <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                                        <i class="tim-icons icon-settings-gear-63"></i>
+                                      </button>
+                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#pablo">Eliminar</a>
+                                      </div>
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <?php
+                                    while ($fila = mysqli_fetch_array($resultado)) : ?>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="">
+                                        <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td class="text-center">
+                                    <?php echo $fila['vehiculo']; ?>
+                                  </td>
+                                  <td class="text-center">
+                                    <?php echo $fila['vehiculopin']; ?>
+                                  </td>
+                                  <td class="text-center">
+                                    <?php echo $fila['locacion']; ?>
+                                  </td>
+                                  <td class="text-center">
+                                    <?php echo $fila['volumen']; ?>
+                                  </td>
+                                  <td class="text-center">
+                                    <?php echo $fila['kilometros']; ?>
+                                  </td>
+                                  <td class="text-center">
+                                    <?php echo $fila['vacum']; ?>
+                                  </td>
+          
+                                  <td class="text-center">
+                                    <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse"
+                                      data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                                      <i class="tim-icons icon-pencil"></i>
+          
+                                    </button>
+                                  </td>
+                                  <td class="text-center">
+                                    <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle=""
+                                      data-target="#" aria-expanded="false" aria-controls="">
+                                      <i class="tim-icons icon-simple-remove"></i>
+                                    </button>
+                                  </td>
+                                  <?php endwhile; ?>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <!-- Fin de Tabla Dispositivo -->
+
+                <!-- Agregar Nuevo Dispositivo -->
+                <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapse"
+                    aria-expanded="false" aria-controls="collapse">
+                    Agregar Nuevo Dispositivo
+                </button>
+                <div class="row">
+                    <div class="col-12 collapse" id="collapse">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="title">Agregar Nuevo Dispositivo</h5>
+                            </div>
+                            <div class="card-body">
+                                <form action="../scripts/vehiculos_req.php" method="post">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>ID. Del Dispositivo</label>
+                                                <input type="string" class="form-control" placeholder="Ej: ABC123"
+                                                    name="vehiculo" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>PIN RFID</label>
+                                                <input type="string" class="form-control" placeholder="Ej: 0000"
+                                                    name="vehiculopin" required>
+                                            </div>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Termina form para agregar Nuevo Vehículo -->
+
 
                 <!-- FOOTER -->
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                     <div class="card  card-plain">
                         <footer class="footer">
                             <div class="container-fluid">
-                                <!-- <ul class="nav">
-                    <li class="nav-item">
-                      <a href="javascript:void(0)" class="nav-link">
-                        Creative Tim
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="javascript:void(0)" class="nav-link">
-                        About Us
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="javascript:void(0)" class="nav-link">
-                        Blog
-                      </a>
-                    </li>
-                  </ul> -->
                                 <div class="copyright">
                                     ©
                                     <script>
@@ -213,7 +382,7 @@
                             </div>
                         </footer>
                     </div>
-                </div>
+                </div> -->
                 <div class="fixed-plugin">
                     <div class="dropdown show-dropdown">
                         <a href="#" data-toggle="dropdown">
@@ -224,8 +393,8 @@
                             <li class="adjustments-line">
                                 <a href="javascript:void(0)" class="switch-trigger background-color">
                                     <div class="badge-colors text-center">
-                                        <span class="badge filter badge-primary active" data-color="primary"></span>
-                                        <span class="badge filter badge-info" data-color="blue"></span>
+                                        <span class="badge filter badge-primary" data-color="primary"></span>
+                                        <span class="badge filter badge-info active" data-color="blue"></span>
                                         <span class="badge filter badge-success" data-color="green"></span>
                                     </div>
                                     <div class="clearfix"></div>
@@ -258,8 +427,8 @@
             <!-- Black Dashboard DEMO methods, don't include it in your project! -->
             <script src="../assets/demo/demo.js"></script>
             <script>
-                $(document).ready(function() {
-                    $().ready(function() {
+                $(document).ready(function () {
+                    $().ready(function () {
                         $sidebar = $('.sidebar');
                         $navbar = $('.navbar');
                         $main_panel = $('.main-panel');
@@ -276,7 +445,7 @@
 
 
 
-                        $('.fixed-plugin a').click(function(event) {
+                        $('.fixed-plugin a').click(function (event) {
                             if ($(this).hasClass('switch-trigger')) {
                                 if (event.stopPropagation) {
                                     event.stopPropagation();
@@ -286,7 +455,7 @@
                             }
                         });
 
-                        $('.fixed-plugin .background-color span').click(function() {
+                        $('.fixed-plugin .background-color span').click(function () {
                             $(this).siblings().removeClass('active');
                             $(this).addClass('active');
 
@@ -309,7 +478,7 @@
                             }
                         });
 
-                        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+                        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
                             var $btn = $(this);
 
                             if (sidebar_mini_active == true) {
@@ -323,23 +492,23 @@
                             }
 
                             // we simulate the window Resize so the charts will get updated in realtime.
-                            var simulateWindowResize = setInterval(function() {
+                            var simulateWindowResize = setInterval(function () {
                                 window.dispatchEvent(new Event('resize'));
                             }, 180);
 
                             // we stop the simulation of Window Resize after the animations are completed
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 clearInterval(simulateWindowResize);
                             }, 1000);
                         });
 
-                        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+                        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
                             var $btn = $(this);
 
                             if (white_color == true) {
 
                                 $('body').addClass('change-background');
-                                setTimeout(function() {
+                                setTimeout(function () {
                                     $('body').removeClass('change-background');
                                     $('body').removeClass('white-content');
                                 }, 900);
@@ -347,7 +516,7 @@
                             } else {
 
                                 $('body').addClass('change-background');
-                                setTimeout(function() {
+                                setTimeout(function () {
                                     $('body').removeClass('change-background');
                                     $('body').addClass('white-content');
                                 }, 900);
@@ -358,11 +527,11 @@
 
                         });
 
-                        $('.light-badge').click(function() {
+                        $('.light-badge').click(function () {
                             $('body').addClass('white-content');
                         });
 
-                        $('.dark-badge').click(function() {
+                        $('.dark-badge').click(function () {
                             $('body').removeClass('white-content');
                         });
                     });

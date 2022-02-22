@@ -230,72 +230,6 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
           </div>
         </div>
         <!-- Termina Buscar Cliente -->
-        
-        <!-- Agregar Nuevo Vehículo -->
-        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
-          aria-controls="collapse">
-          Agregar Nuevo Vehículo
-        </button>
-        <div class="row">
-          <div class="col-12 collapse" id="collapse">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="title">Agregar Nuevo Vehículo</h5>
-              </div>
-              <div class="card-body">
-                <form action="../scripts/vehiculos_req.php" method="post">
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>ID. Del Vehículo</label>
-                        <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>PIN RFID</label>
-                        <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Ciudad</label>
-                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Kilometros</label>
-                        <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Volúmen en L</label>
-                        <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Volúmen Acumulado en L</label>
-                        <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-footer">
-                    <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarVehiculo">Agregar
-                      Vehículo</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--Termina form para agregar Nuevo Vehículo -->
-
         <!-- TABLA Vehiculo -->
 
         <div class="row">
@@ -305,6 +239,10 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
 
               <div class="card-header">
                 <h4 class="title">Vehículos</h4>
+                <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse"
+                  aria-expanded="false" aria-controls="collapse">
+                  Agregar Nuevo Vehículo
+                </button>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -342,7 +280,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                     </thead>
                     <tbody>
                       <?php
-                          while ($fila = mysqli_fetch_array($resultado)) : ?>
+                                  while ($fila = mysqli_fetch_array($resultado)) : ?>
                       <tr>
                         <td>
                           <div class="form-check">
@@ -396,8 +334,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
           </div>
         </div>
 
-
         <!-- Fin de Tabla Vehículo -->
+
         <!-- Formulario de editar vehículo -->
 
         <div class="row">
@@ -535,7 +473,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                   </div>
                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div class="card-body">
-                      
+
                       <form action="" method="post">
                         <div class="row">
                           <div class="col-sm-4">
@@ -594,11 +532,73 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
         </div>
         <!-- Termina formulario Editar Vehículo -->
 
+        <!-- Agregar Nuevo Vehículo -->
+        <div class="row">
+
+          <div class="col-12 collapse" id="collapse">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="title">Agregar Nuevo Vehículo</h5>
+              </div>
+              <div class="card-body">
+                <form action="../scripts/vehiculos_req.php" method="post">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>ID. Del Vehículo</label>
+                        <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>PIN RFID</label>
+                        <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Ciudad</label>
+                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Kilometros</label>
+                        <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Volúmen en L</label>
+                        <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Volúmen Acumulado en L</label>
+                        <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarVehiculo">Agregar
+                      Vehículo</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Termina form para agregar Nuevo Vehículo -->
         <!-- Tabla de horarios para vehículo -->
         <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#horarios" aria-expanded="false"
           aria-controls="horarios">
           Horarios
         </button>
+
         <div class="row">
           <div class="col-12 collapse" id="horarios">
 
@@ -709,10 +709,11 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
             </div>
           </div>
         </div>
-        <!-- Termina tabla de horarios para Vehículos -->
       </div>
-      <!--Termina Main Content-->
+      <!-- Termina tabla de horarios para Vehículos -->
+
     </div>
+      <!--Termina Main Content-->
 
     <!-- Selector de colores-->
     <div class="fixed-plugin">
