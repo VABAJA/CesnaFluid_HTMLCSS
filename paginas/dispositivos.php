@@ -613,8 +613,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- Termina formulario Editar dispositivo -->
             </div>
-            <!-- Termina formulario Editar dispositivo -->
 
 
             <!-- Selector de Colores -->

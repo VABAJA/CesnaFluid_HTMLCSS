@@ -226,18 +226,10 @@
         <!-- Tabla Clientes -->
 
         <div class="row">
-          <div class="card card-plain">
+          <div class="card-plain">
             <div class="card-header">
               <h4 class="title d-inline">Clientes</h4>
-              <div class="dropdown">
-                <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                  <i class="tim-icons icon-settings-gear-63"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#pablo">Editar</a>
-                  <a class="dropdown-item" href="#pablo">Eliminar</a>
-                </div>
-              </div>
+
             </div>
             <div class="card-body ">
               <div class="table-full-width table-responsive">
@@ -246,11 +238,31 @@
                   <thead class="text-primary">
                     <th></th>
                     <tr>
-                      <th></th>
+                      <th>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </th>
                       <th class="text-center">Usuarios</th>
                       <th class="text-center">Dispositivos</th>
                       <th class="text-center">Vehículos</th>
                       <th class="text-center">Tickets</th>
+                      <th></th>
+                      <th>
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                            <i class="tim-icons icon-settings-gear-63"></i>
+                          </button>
+                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#pablo">Eliminar</a>
+                          </div>
+                        </div>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -278,8 +290,8 @@
                         <?php echo $fila['tickets']; ?>
                       </td>
                       <td class="td-actions text-right">
-                        <button type="button" rel="tooltip" title="" class="btn btn-link"
-                          data-original-title="Edit Task">
+                        <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse"
+                          data-target="#accordion" aria-expanded="false" aria-controls="accordion">
                           <i class="tim-icons icon-pencil"></i>
                         </button>
                       </td>
@@ -291,36 +303,273 @@
           </div>
         </div>
         <!-- Termina tabla Clientes -->
+        <!-- Formulario de editar Cliente -->
+        <div class="row">
+          <div class="col-12 collapse" id="accordion">
+            <div class="card card-plain">
+
+              <div class="card-header">
+                <h5 class="title">Editar CLiente</h5>
+              </div>
+
+              <div class="card-body">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        Información Básica
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      <form action="../scripts/vehiculos_req.php" method="post">
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>ID. Del Cliente</label>
+                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="ClienteId"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Usuario Principal</label>
+                              <input type="string" class="form-control" placeholder="Ej: 0000" name="principalId"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Nombre de la Empresa</label>
+                              <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                              <label>Dirección</label>
+                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
+                                required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Dirección Email</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Teléfono</label>
+                              <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Ciudad</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label>Vehículo</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label>Litros</label>
+                              <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label>Ticket</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label>Kilometros</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="card-footer">
+                      <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                        name="editarVehiculo">Guardar</button>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                        Productos
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                      <form action="" method="post">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>% Biocarburo</label>
+                              <input type="number" class="form-control" placeholder="Ej. 30" name="biocarb" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Propietario nombre fiscal</label>
+                              <input type="string" class="form-control" placeholder="Ej. TRAMEX" name="propFiscal"
+                                required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Litros depósito</label>
+                              <input type="number" class="form-control" placeholder="Ej. 13530" name="ltsdeposito"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Producto</label>
+                              <input type="string" class="form-control" placeholder="Ej. Diesel" name="producto"
+                                required>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                      <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                        name="editarProducto">Guardar</button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                        Límites
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+
+                      <form action="" method="post">
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>ID. Del Vehículo</label>
+                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>PIN RFID</label>
+                              <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Ciudad</label>
+                              <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Kilometros</label>
+                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Volúmen en L</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Volúmen Acumulado en L</label>
+                              <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                            name="editarVehiculo">Guardar</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Termina formulario Editar dispositivo -->
         <!-- Lista de Tareas -->
         <div class="row">
           <div class="card card-plain">
             <div class="card-header">
               <h6 class="title d-inline">Tareas</h6>
-              <div class="dropdown">
-                <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                  <i class="tim-icons icon-settings-gear-63"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#pablo">Editar</a>
-                  <a class="dropdown-item" href="#pablo">Eliminar</a>
-                </div>
-              </div>
             </div>
             <div class="card-body ">
               <div class="table-full-width table-responsive">
                 <table class="table">
                   <thead>
-                    <th class="td-actions">
-                      <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                        <i class="tim-icons icon-pencil"></i>
-                      </button>
+                    <th class="text-center">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
                     </th>
                     <th class="text-center">Fecha de Inicio</th>
+                    <th class="text-center">Fecha de Termino</th>
                     <th class="text-center">Descripción</th>
+                    <th>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                          <i class="tim-icons icon-settings-gear-63"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" href="#pablo">Eliminar</a>
+                        </div>
+                      </div>
+                    </th>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>
+                      <td class="text-center">
                         <div class="form-check">
                           <label class="form-check-label">
                             <input class="form-check-input" type="checkbox" value="">
@@ -334,7 +583,15 @@
                         <p class="title text-center">11-02-2022</p>
                       </td>
                       <td>
-                        <p class="title text-center">Descripción de la tarea 1</p>
+                        <p class="title text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                          explicabo sit ipsa est, repudiandae modi cupiditate eligendi architecto adipisci labore
+                          quisquam aspernatur, deleniti reprehenderit, quis a laborum. Hic, maiores nostrum?</p>
+                      </td>
+                      <td class="td-actions text-left">
+                        <button class="btn btn-link" type="button" title="Editar Tarea" data-toggle="collapse"
+                          data-target="#editTask" aria-expanded="false" aria-controls="editTask">
+                          <i class="tim-icons icon-pencil"></i>
+                        </button>
                       </td>
                     </tr>
                   </tbody>
@@ -344,6 +601,47 @@
           </div>
         </div>
         <!-- Termina Lista de Tareas -->
+        <!-- Editar tareas -->
+        <div class="row">
+          <div class="col-12 collapse" id="editTask">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="title">Editar Tarea</h5>
+              </div>
+              <div class="card-body">
+                <form action=".." method="post">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Fecha de Inicio</label>
+                        <input type="string" class="form-control" placeholder="Ej: 02-02-2022" name="fechaInicio" required>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Fecha de Termino</label>
+                        <input type="string" class="form-control" placeholder="Ej: 02-03-2022" name="FechaFin" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Descripción</label>
+                        <input type="string" class="form-control" placeholder="Descripción de la Tarea" name="task" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                      name="ingresarTarea">Guardar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Termina Editar tareas -->
         <footer class="footer">
           <div class="container-fluid">
             <div class="copyright">
