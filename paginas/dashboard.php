@@ -578,13 +578,38 @@
                         </button>
                       </td>
                       <td class="text-center">
-                      <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                        <i class="tim-icons icon-simple-remove"></i>
-                      </button>
+                        <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                          <i class="tim-icons icon-simple-remove"></i>
+                        </button>
                       </td>
                     </tr>
                   </tbody>
                 </table>
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Fecha de Inicio</label>
+                      <input type="date" class="form-control" name="startDate" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Fecha de Término</label>
+                      <input type="date" class="form-control" name="endDate" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Descripción</label>
+                      <input type="text" class="form-control" placeholder="Tarea..." name="task" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6-md pull-right">
+                  <button type="submit" class="btn btn-info">Agregar Tarea</button>
+                </div>
               </div>
             </div>
           </div>
