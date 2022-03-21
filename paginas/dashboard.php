@@ -172,11 +172,11 @@
 
         <div class="card">
           <div class="card-body">
-            <form>
+            <form method="get" action="../scripts/buscador.php">
               <div class="row">
                 <div class="form-group col-md-4">
                   <label for="inputEmail4">Nombre del Cliente</label>
-                  <input type="string" class="form-control" id="nomCliente" placeholder="Ej. TRAMEX">
+                  <input type="string" class="form-control" name="busqueda" placeholder="Ej. TRAMEX">
                 </div>
                 <div class="col-md-8">
                   <div class="table-responsive">
@@ -211,7 +211,7 @@
 
                 </div>
               </div>
-              <button type="submit" class="btn btn-info">Buscar Cliente</button>
+              <button type="submit" name="buscar" class="btn btn-info">Buscar Cliente</button>
             </form>
           </div>
         </div>
