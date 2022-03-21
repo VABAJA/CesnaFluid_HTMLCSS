@@ -426,13 +426,13 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                             <?php echo $fila['km']; ?>
                           </td>
                           <td class="text-center">
-                            <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse"
+                            <button class="btn btn-link" type="button" title="Editar Cliente" data-toggle="collapse"
                               data-target="#accordion" aria-expanded="false" aria-controls="accordion">
                               <i class="tim-icons icon-pencil"></i>
                             </button>
                           </td>
                           <td class="text-center">
-                            <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle=""
+                            <button type="button" title="Eliminar Cliente" class="btn btn-link" data-toggle=""
                               data-target="#" aria-expanded="false" aria-controls="">
                               <i class="tim-icons icon-simple-remove"></i>
                             </button>
@@ -653,119 +653,121 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                     </form>
                   </div>
                 </div>
-              </div>
 
-              <div class="card">
-                <div class="card-header" id="headingTwo">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                      aria-expanded="false" aria-controls="collapseTwo">
-                      Productos
-                    </button>
-                  </h5>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                  <div class="card-body">
-                    <form action="" method="post">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>% Biocarburo</label>
-                            <input type="number" class="form-control" placeholder="Ej. 30" name="biocarb" required>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>Propietario nombre fiscal</label>
-                            <input type="string" class="form-control" placeholder="Ej. TRAMEX" name="propFiscal"
-                              required>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>Litros depósito</label>
-                            <input type="number" class="form-control" placeholder="Ej. 13530" name="ltsdeposito"
-                              required>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>Producto</label>
-                            <input type="string" class="form-control" placeholder="Ej. Diesel" name="producto" required>
-                          </div>
-                        </div>
-                      </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                        Productos
+                      </button>
+                    </h5>
                   </div>
-                  <div class="card-footer">
-                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                      name="editarProducto">Guardar</button>
-                  </div>
-                  </form>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-header" id="headingThree">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                      aria-expanded="false" aria-controls="collapseThree">
-                      Límites
-                    </button>
-                  </h5>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                  <div class="card-body">
-
-                    <form action="" method="post">
-                      <div class="row">
-                        <div class="col-sm-4">
-                          <div class="form-group">
-                            <label>ID. Del Vehículo</label>
-                            <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                      <form action="" method="post">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>% Biocarburo</label>
+                              <input type="number" class="form-control" placeholder="Ej. 30" name="biocarb" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Propietario nombre fiscal</label>
+                              <input type="string" class="form-control" placeholder="Ej. TRAMEX" name="propFiscal"
+                                required>
+                            </div>
                           </div>
                         </div>
-                        <div class="col-sm-4">
-                          <div class="form-group">
-                            <label>PIN RFID</label>
-                            <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin"
-                              required>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Litros depósito</label>
+                              <input type="number" class="form-control" placeholder="Ej. 13530" name="ltsdeposito"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Producto</label>
+                              <input type="string" class="form-control" placeholder="Ej. Diesel" name="producto"
+                                required>
+                            </div>
                           </div>
                         </div>
-                        <div class="col-sm-4">
-                          <div class="form-group">
-                            <label>Ciudad</label>
-                            <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-4">
-                          <div class="form-group">
-                            <label>Kilometros</label>
-                            <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
-                              required>
-                          </div>
-                        </div>
-                        <div class="col-sm-4">
-                          <div class="form-group">
-                            <label>Volúmen en L</label>
-                            <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
-                          </div>
-                        </div>
-                        <div class="col-sm-4">
-                          <div class="form-group">
-                            <label>Volúmen Acumulado en L</label>
-                            <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card-footer">
-                        <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                          name="editarVehiculo">Guardar</button>
-                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                        name="editarProducto">Guardar</button>
+                    </div>
                     </form>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                        Límites
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+
+                      <form action="" method="post">
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>ID. Del Vehículo</label>
+                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>PIN RFID</label>
+                              <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Ciudad</label>
+                              <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Kilometros</label>
+                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
+                                required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Volúmen en L</label>
+                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Volúmen Acumulado en L</label>
+                              <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
+                            name="editarVehiculo">Guardar</button>
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -777,7 +779,6 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
     </div>
     <!-- Termina main content -->
   </div>
-
   <!-- Selector de Color -->
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">

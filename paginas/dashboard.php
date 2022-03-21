@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,8 +17,7 @@
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="../assets/css/black-dashboard.css" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
+
 </head>
 
 <body class="">
@@ -99,8 +99,7 @@
             </div>
             <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-            aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -157,8 +156,7 @@
           </div>
         </div>
       </nav>
-      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"
-        aria-hidden="true">
+      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -229,11 +227,9 @@
           <div class="card-plain">
             <div class="card-header">
               <h4 class="title d-inline">Clientes</h4>
-
             </div>
             <div class="card-body ">
               <div class="table-full-width table-responsive">
-
                 <table class="table tablesorter">
                   <thead class="text-primary">
                     <th></th>
@@ -290,8 +286,7 @@
                         <?php echo $fila['tickets']; ?>
                       </td>
                       <td class="td-actions text-right">
-                        <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse"
-                          data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                        <button class="btn btn-link" type="button" title="Editar Cliente" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
                           <i class="tim-icons icon-pencil"></i>
                         </button>
                       </td>
@@ -316,8 +311,7 @@
                 <div class="card">
                   <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
-                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                        aria-expanded="true" aria-controls="collapseOne">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         Información Básica
                       </button>
                     </h5>
@@ -329,15 +323,13 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>ID. Del Cliente</label>
-                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="ClienteId"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="ClienteId" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>Usuario Principal</label>
-                              <input type="string" class="form-control" placeholder="Ej: 0000" name="principalId"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej: 0000" name="principalId" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
@@ -351,8 +343,7 @@
                           <div class="col-sm-12">
                             <div class="form-group">
                               <label>Dirección</label>
-                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
-                                required>
+                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
                             </div>
                           </div>
                         </div>
@@ -405,8 +396,7 @@
                       </form>
                     </div>
                     <div class="card-footer">
-                      <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                        name="editarVehiculo">Guardar</button>
+                      <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
                     </div>
 
                   </div>
@@ -415,8 +405,7 @@
                 <div class="card">
                   <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="false" aria-controls="collapseTwo">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         Productos
                       </button>
                     </h5>
@@ -434,8 +423,7 @@
                           <div class="col-sm-6">
                             <div class="form-group">
                               <label>Propietario nombre fiscal</label>
-                              <input type="string" class="form-control" placeholder="Ej. TRAMEX" name="propFiscal"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej. TRAMEX" name="propFiscal" required>
                             </div>
                           </div>
                         </div>
@@ -443,22 +431,19 @@
                           <div class="col-sm-6">
                             <div class="form-group">
                               <label>Litros depósito</label>
-                              <input type="number" class="form-control" placeholder="Ej. 13530" name="ltsdeposito"
-                                required>
+                              <input type="number" class="form-control" placeholder="Ej. 13530" name="ltsdeposito" required>
                             </div>
                           </div>
                           <div class="col-sm-6">
                             <div class="form-group">
                               <label>Producto</label>
-                              <input type="string" class="form-control" placeholder="Ej. Diesel" name="producto"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej. Diesel" name="producto" required>
                             </div>
                           </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                      <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                        name="editarProducto">Guardar</button>
+                      <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarProducto">Guardar</button>
                     </div>
                     </form>
                   </div>
@@ -467,8 +452,7 @@
                 <div class="card">
                   <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                        aria-expanded="false" aria-controls="collapseThree">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         Límites
                       </button>
                     </h5>
@@ -481,15 +465,13 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>ID. Del Vehículo</label>
-                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>PIN RFID</label>
-                              <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
@@ -503,8 +485,7 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>Kilometros</label>
-                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
-                                required>
+                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
@@ -521,8 +502,7 @@
                           </div>
                         </div>
                         <div class="card-footer">
-                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                            name="editarVehiculo">Guardar</button>
+                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
                         </div>
                       </form>
                     </div>
@@ -588,8 +568,7 @@
                           quisquam aspernatur, deleniti reprehenderit, quis a laborum. Hic, maiores nostrum?</p>
                       </td>
                       <td class="td-actions text-left">
-                        <button class="btn btn-link" type="button" title="Editar Tarea" data-toggle="collapse"
-                          data-target="#editTask" aria-expanded="false" aria-controls="editTask">
+                        <button class="btn btn-link" type="button" title="Editar Tarea" data-toggle="collapse" data-target="#editTask" aria-expanded="false" aria-controls="editTask">
                           <i class="tim-icons icon-pencil"></i>
                         </button>
                       </td>
@@ -633,8 +612,7 @@
                     </div>
                   </div>
                   <div class="card-footer">
-                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                      name="ingresarTarea">Guardar</button>
+                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarTarea">Guardar</button>
                   </div>
                 </form>
               </div>
@@ -702,8 +680,8 @@
   <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
 
   <script>
-    $(document).ready(function () {
-      $().ready(function () {
+    $(document).ready(function() {
+      $().ready(function() {
         $sidebar = $('.sidebar');
         $navbar = $('.navbar');
         $main_panel = $('.main-panel');
@@ -720,7 +698,7 @@
 
 
 
-        $('.fixed-plugin a').click(function (event) {
+        $('.fixed-plugin a').click(function(event) {
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {
               event.stopPropagation();
@@ -730,7 +708,7 @@
           }
         });
 
-        $('.fixed-plugin .background-color span').click(function () {
+        $('.fixed-plugin .background-color span').click(function() {
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
 
@@ -753,7 +731,7 @@
           }
         });
 
-        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
           var $btn = $(this);
 
           if (sidebar_mini_active == true) {
@@ -767,23 +745,23 @@
           }
 
           // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function () {
+          var simulateWindowResize = setInterval(function() {
             window.dispatchEvent(new Event('resize'));
           }, 180);
 
           // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function () {
+          setTimeout(function() {
             clearInterval(simulateWindowResize);
           }, 1000);
         });
 
-        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
+        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
           var $btn = $(this);
 
           if (white_color == true) {
 
             $('body').addClass('change-background');
-            setTimeout(function () {
+            setTimeout(function() {
               $('body').removeClass('change-background');
               $('body').removeClass('white-content');
             }, 900);
@@ -791,7 +769,7 @@
           } else {
 
             $('body').addClass('change-background');
-            setTimeout(function () {
+            setTimeout(function() {
               $('body').removeClass('change-background');
               $('body').addClass('white-content');
             }, 900);
@@ -802,31 +780,23 @@
 
         });
 
-        $('.light-badge').click(function () {
+        $('.light-badge').click(function() {
           $('body').addClass('white-content');
         });
 
-        $('.dark-badge').click(function () {
+        $('.dark-badge').click(function() {
           $('body').removeClass('white-content');
         });
       });
     });
   </script>
   <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       demo.initDashboardPageCharts();
 
     });
   </script>
-  <!--   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <script>
-    window.TrackJS &&
-      TrackJS.install({
-        token: "ee6fab19c5a04ac1a32a645abde4613a",
-        application: "black-dashboard-free"
-      });
-  </script> -->
 
 </body>
 

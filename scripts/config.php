@@ -1,16 +1,12 @@
 <?php
-$dsn = 'mysql:dbname=tramex1;host=localhost';
-$user = 'root';
-$password = '123456';
+define('USER', 'root');
+define('PASSWORD', '123456');
+define('HOST', 'localhost');
+define('DATABASE', 'tramex1');
  
-try
-{
-	$pdo = new PDO($dsn,$user,$password);
-	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e)
-{
-	echo "PDO error".$e->getMessage();
-	die();
+try {
+    $connection = new PDO("mysql:host=".HOST.";dbname=".DATABASE, USER, PASSWORD);
+} catch (PDOException $e) {
+    exit("Error: " . $e->getMessage());
 }
 ?>
