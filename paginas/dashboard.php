@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +18,9 @@
   <link href="../assets/css/black-dashboard.css" rel="stylesheet" />
 
 </head>
+<!--
+        Para cambiar el color agregar "data=color" a los divs sidebar y main panel - JB
+    -->
 
 <body class="">
   <div class="wrapper">
@@ -106,12 +108,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
-              <!-- <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
-                    class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li> -->
               <li class="dropdown nav-item">
                 <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="notification d-none d-lg-block d-xl-block"></div>
@@ -224,11 +220,11 @@
         <!-- Tabla Clientes -->
 
         <div class="row">
-          <div class="card-plain">
+          <div class="col-12 card-plain">
             <div class="card-header">
               <h4 class="title d-inline">Clientes</h4>
             </div>
-            <div class="card-body ">
+            <div class="card-body">
               <div class="table-full-width table-responsive">
                 <table class="table tablesorter">
                   <thead class="text-primary">
@@ -248,8 +244,8 @@
                       <th class="text-center">Dispositivos</th>
                       <th class="text-center">Vehículos</th>
                       <th class="text-center">Tickets</th>
-                      <th></th>
-                      <th>
+                      <th class="text-center"></th>
+                      <th class="text-center">
                         <div class="dropdown">
                           <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                             <i class="tim-icons icon-settings-gear-63"></i>
@@ -288,6 +284,11 @@
                       <td class="td-actions text-right">
                         <button class="btn btn-link" type="button" title="Editar Cliente" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
                           <i class="tim-icons icon-pencil"></i>
+                        </button>
+                      </td>
+                      <td class="text-center">
+                        <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                          <i class="tim-icons icon-simple-remove"></i>
                         </button>
                       </td>
                     </tr>
@@ -536,6 +537,7 @@
                     <th class="text-center">Fecha de Inicio</th>
                     <th class="text-center">Fecha de Termino</th>
                     <th class="text-center">Descripción</th>
+                    <th class="text-center"></th>
                     <th>
                       <div class="dropdown">
                         <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
@@ -563,6 +565,9 @@
                         <p class="title text-center">11-02-2022</p>
                       </td>
                       <td>
+                        <p class="title text-center">11-03-2022</p>
+                      </td>
+                      <td>
                         <p class="title text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
                           explicabo sit ipsa est, repudiandae modi cupiditate eligendi architecto adipisci labore
                           quisquam aspernatur, deleniti reprehenderit, quis a laborum. Hic, maiores nostrum?</p>
@@ -571,6 +576,11 @@
                         <button class="btn btn-link" type="button" title="Editar Tarea" data-toggle="collapse" data-target="#editTask" aria-expanded="false" aria-controls="editTask">
                           <i class="tim-icons icon-pencil"></i>
                         </button>
+                      </td>
+                      <td class="text-center">
+                      <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                        <i class="tim-icons icon-simple-remove"></i>
+                      </button>
                       </td>
                     </tr>
                   </tbody>

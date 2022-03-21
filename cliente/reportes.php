@@ -16,8 +16,6 @@
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -37,12 +35,6 @@
                         <a href="./dashboard.php">
                             <i class="tim-icons icon-chart-pie-36"></i>
                             <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./clientes.php">
-                            <i class="tim-icons icon-badge"></i>
-                            <p>Clientes</p>
                         </a>
                     </li>
                     <li>
@@ -107,12 +99,6 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navigation">
                         <ul class="navbar-nav ml-auto">
-                            <!-- <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
-                    class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li> -->
                             <li class="dropdown nav-item">
                                 <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <div class="notification d-none d-lg-block d-xl-block"></div>
@@ -174,87 +160,50 @@
             </div>
             <!-- End Navbar -->
             <div class="content">
-                <!-- Tabla Clientes -->
-                <div class="row">
-                    <div class="col-12 card-plain">
-                        <div class="card-header">
-                            <h4 class="title d-inline">Clientes</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-full-width table-responsive">
-                                <table class="table tablesorter">
-                                    <thead class="text-primary">
-                                        <th></th>
-                                        <tr>
-                                            <th>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </th>
-                                            <th class="text-center">Usuarios</th>
-                                            <th class="text-center">Dispositivos</th>
-                                            <th class="text-center">Vehículos</th>
-                                            <th class="text-center">Tickets</th>
-                                            <th class="text-center"></th>
-                                            <th class="text-center">
-                                                <div class="dropdown">
-                                                    <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                                                        <i class="tim-icons icon-settings-gear-63"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                        <a class="dropdown-item" href="#pablo">Eliminar</a>
-                                                    </div>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <?php echo $fila['usuarios']; ?>
-                                            </td>
-                                            <td class="text-center">
-                                                <?php echo $fila['dispositivos']; ?>
-                                            </td>
-                                            <td class="text-center">
-                                                <?php echo $fila['vehiculos']; ?>
-                                            </td>
-                                            <td class="text-center">
-                                                <?php echo $fila['tickets']; ?>
-                                            </td>
-                                            <td class="td-actions text-right">
-                                                <button class="btn btn-link" type="button" title="Editar Cliente" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
-                                                    <i class="tim-icons icon-pencil"></i>
-                                                </button>
-                                            </td>
-                                            <td class="text-center">
-                                                <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                                                    <i class="tim-icons icon-simple-remove"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                <!-- Tabla "Información del Cliente" -->
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table tablesorter">
+                                            <thead class="text-primary">
+                                                <tr>
+                                                    <th class="text-center">Nombre del Cliente</th>
+                                                    <th class="text-center">No. Cliente</th>
+                                                    <th class="text-center">Contacto</th>
+                                                    <th class="text-center">Teléfono</th>
+                                                    <th class="text-center">Correo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['No.Cliente']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['Contacto']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['Telefono']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['Correo']; ?>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
+
+                        </form>
                     </div>
                 </div>
-                <!-- Termina tabla Clientes -->
+                <!-- Termina tabla "Información del cliente" -->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card ">
@@ -517,7 +466,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <div class="fixed-plugin">

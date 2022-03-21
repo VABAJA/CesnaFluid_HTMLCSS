@@ -1,33 +1,32 @@
 <?php
-
-include('./scripts/config.php');
+ 
+include('../scripts/config.php');
 session_start();
-
+ 
 if (isset($_POST['login'])) {
-
-    $username = $_POST['username'];
+ 
+    $email = $_POST['email'];
     $password = $_POST['password'];
-
-    $query = $connection->prepare("SELECT * FROM loginadmin WHERE USERNAME=:username");
-    $query->bindParam("username", $username, PDO::PARAM_STR);
+ 
+    $query = $connection->prepare("SELECT * FROM loginadmin WHERE EMAIL=:email");
+    $query->bindParam("email", $email, PDO::PARAM_STR);
     $query->execute();
-
+ 
     $result = $query->fetch(PDO::FETCH_ASSOC);
-
+ 
     if (!$result) {
-        echo '<p class="error">Username password combination is wrong!</p>';
+        echo '<h1 class="error">Correo o Contraeña incorrectos</h1>';
     } else {
+        
         if (password_verify($password, $result['PASSWORD'])) {
             $_SESSION['user_id'] = $result['ID'];
-            echo '<p class="success">Congratulations, you are logged in!</p>';
-            $_SESSION = $getRow;
-            header('location:./dashboard.php');
-            exit();
-        } else {
-            echo '<p class="error">Username password combination is wrong!</p>';
-        }
+        } 
+        header('location:./dashboard.php');
+        
     }
 }
+ 
+?>
 
 
 ?>

@@ -1,31 +1,64 @@
 <?php
- 
-include('../scripts/config.php');
-session_start();
- 
-if (isset($_POST['login'])) {
- 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
- 
-    $query = $connection->prepare("SELECT * FROM loginadmin WHERE EMAIL=:email");
-    $query->bindParam("email", $email, PDO::PARAM_STR);
-    $query->execute();
- 
-    $result = $query->fetch(PDO::FETCH_ASSOC);
- 
-    if (!$result) {
-        echo '<h1 class="error">Correo o Contraeña incorrectos</h1>';
-    } else {
-        
-        if (password_verify($password, $result['PASSWORD'])) {
-            $_SESSION['user_id'] = $result['ID'];
-        } 
-        header('location:./dashboard.php');
-        
+    include_once '../scripts/conexionDB.php';
+
+    // echo '<h1>exito</h1>';
+    
+    session_start();
+
+    if(isset($_GET['cerrar_sesion'])){
+        session_unset(); 
+
+        // destroy the session 
+        session_destroy(); 
     }
-}
- 
+    
+    if(isset($_SESSION['rol'])){
+        switch($_SESSION['rol']){
+            case 1:
+                header('location: ./dashboard.php');
+            break;
+
+            case 2:
+            header('location: ./dashboardCliente.php');
+            break;
+
+            default:
+        }
+    }
+
+    if(isset($_POST['username']) && isset($_POST['password'])){
+        $username = $_POST['usuario'];
+        $password = $_POST['clave'];
+
+        $db = new Database();
+        $query = $db->connect()->prepare('SELECT *FROM cuentas WHERE username = :usuario AND password = :clave');
+        $query->execute(['usario' => $username, 'clave' => $password]);
+
+        $row = $query->fetch(PDO::FETCH_NUM);
+        
+        if($row == true){
+            $rol = $row[3];
+            
+            $_SESSION['rol'] = $rol;
+            switch($rol){
+                case 1:
+                    header('location: ./dashboard.php');
+                break;
+
+                case 2:
+                header('location: colab.php');
+                break;
+
+                default:
+            }
+        }else{
+            // no existe el usuario
+            echo "Nombre de usuario o contraseña incorrecto";
+        }
+        
+
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,13 +97,13 @@ if (isset($_POST['login'])) {
                         <div class="row justify-content-center">
                             <div class="col-md-3">
                                 <label for="form-control" class="text-white form-label">Correo</label>
-                                <input type="email" class="form-control" placeholder="correo@dominio.com" name="email" value="" required>
+                                <input type="text" class="form-control" placeholder="usuario" name="usuario" value="" required>
                             </div>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-3">
                                 <label for="form-control" class="text-white form-label">Contraseña</label>
-                                <input type="password" class="form-control" placeholder="Contraseña" name="password" value="" required>
+                                <input type="password" class="form-control" placeholder="Contraseña" name="clave" value="" required>
                             </div>
                         </div>
                         <div class="row justify-content-center">

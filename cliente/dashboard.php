@@ -15,14 +15,14 @@
     <!-- Nucleo Icons -->
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/demo/demo.css" rel="stylesheet" />
+    <link href="../assets/css/black-dashboard.css" rel="stylesheet" />
+
 </head>
 
 <body class="">
     <div class="wrapper">
         <div class="sidebar" data="blue">
+
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="./dashboard.php" class="simple-text logo-mini">
@@ -37,12 +37,6 @@
                         <a href="./dashboard.php">
                             <i class="tim-icons icon-chart-pie-36"></i>
                             <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./clientes.php">
-                            <i class="tim-icons icon-badge"></i>
-                            <p>Clientes</p>
                         </a>
                     </li>
                     <li>
@@ -81,8 +75,6 @@
                             <p>Reportes</p>
                         </a>
                     </li>
-
-
                 </ul>
             </div>
         </div>
@@ -98,7 +90,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:void(0)">Contenedores</a>
+                        <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -107,12 +99,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navigation">
                         <ul class="navbar-nav ml-auto">
-                            <!-- <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
-                    class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li> -->
+
                             <li class="dropdown nav-item">
                                 <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <div class="notification d-none d-lg-block d-xl-block"></div>
@@ -122,11 +109,9 @@
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                                    <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded
-                                            to your email</a>
+                                    <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a>
                                     </li>
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You
-                                            have 5 more
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more
                                             tasks</a></li>
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael
                                             is in town</a></li>
@@ -146,8 +131,7 @@
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-navbar">
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Mi
-                                            Perfil</a></li>
+                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Mi Perfil</a></li>
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
@@ -173,49 +157,91 @@
                 </div>
             </div>
             <!-- End Navbar -->
+            <!-- Empieza main content -->
             <div class="content">
-                <!-- Tabla Clientes -->
+                <!-- Tabla "Información del Cliente" -->
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table tablesorter">
+                                            <thead class="text-primary">
+                                                <tr>
+                                                    <th class="text-center">Nombre del Cliente</th>
+                                                    <th class="text-center">No. Cliente</th>
+                                                    <th class="text-center">Contacto</th>
+                                                    <th class="text-center">Teléfono</th>
+                                                    <th class="text-center">Correo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['No.Cliente']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['Contacto']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['Telefono']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['Correo']; ?>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <!-- Termina tabla "Información del cliente" -->
+
+                <!-- Lista de Tareas -->
                 <div class="row">
-                    <div class="col-12 card-plain">
+                    <div class="card card-plain">
                         <div class="card-header">
-                            <h4 class="title d-inline">Clientes</h4>
+                            <h6 class="title d-inline">Tareas</h6>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body ">
                             <div class="table-full-width table-responsive">
-                                <table class="table tablesorter">
-                                    <thead class="text-primary">
-                                        <th></th>
-                                        <tr>
-                                            <th>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
+                                <table class="table">
+                                    <thead>
+                                        <th class="text-center">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </th>
+                                        <th class="text-center">Fecha de Inicio</th>
+                                        <th class="text-center">Fecha de Termino</th>
+                                        <th class="text-center">Descripción</th>
+                                        <th class="text-center"></th>
+                                        <th>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                                                    <i class="tim-icons icon-settings-gear-63"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#pablo">Eliminar</a>
                                                 </div>
-                                            </th>
-                                            <th class="text-center">Usuarios</th>
-                                            <th class="text-center">Dispositivos</th>
-                                            <th class="text-center">Vehículos</th>
-                                            <th class="text-center">Tickets</th>
-                                            <th class="text-center"></th>
-                                            <th class="text-center">
-                                                <div class="dropdown">
-                                                    <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                                                        <i class="tim-icons icon-settings-gear-63"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                        <a class="dropdown-item" href="#pablo">Eliminar</a>
-                                                    </div>
-                                                </div>
-                                            </th>
-                                        </tr>
+                                            </div>
+                                        </th>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>
+                                            <td class="text-center">
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="checkbox" value="">
@@ -225,20 +251,19 @@
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td class="text-center">
-                                                <?php echo $fila['usuarios']; ?>
+                                            <td>
+                                                <p class="title text-center">11-02-2022</p>
                                             </td>
-                                            <td class="text-center">
-                                                <?php echo $fila['dispositivos']; ?>
+                                            <td>
+                                                <p class="title text-center">11-03-2022</p>
                                             </td>
-                                            <td class="text-center">
-                                                <?php echo $fila['vehiculos']; ?>
+                                            <td>
+                                                <p class="title text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                                                    explicabo sit ipsa est, repudiandae modi cupiditate eligendi architecto adipisci labore
+                                                    quisquam aspernatur, deleniti reprehenderit, quis a laborum. Hic, maiores nostrum?</p>
                                             </td>
-                                            <td class="text-center">
-                                                <?php echo $fila['tickets']; ?>
-                                            </td>
-                                            <td class="td-actions text-right">
-                                                <button class="btn btn-link" type="button" title="Editar Cliente" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                                            <td class="td-actions text-left">
+                                                <button class="btn btn-link" type="button" title="Editar Tarea" data-toggle="collapse" data-target="#editTask" aria-expanded="false" aria-controls="editTask">
                                                     <i class="tim-icons icon-pencil"></i>
                                                 </button>
                                             </td>
@@ -254,12 +279,63 @@
                         </div>
                     </div>
                 </div>
-                <!-- Termina tabla Clientes -->
-                
+                <!-- Termina Lista de Tareas -->
+                <!-- Editar tareas -->
+                <div class="row">
+                    <div class="col-12 collapse" id="editTask">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="title">Editar Tarea</h5>
+                            </div>
+                            <div class="card-body">
+                                <form action=".." method="post">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Fecha de Inicio</label>
+                                                <input type="string" class="form-control" placeholder="Ej: 02-02-2022" name="fechaInicio" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Fecha de Termino</label>
+                                                <input type="string" class="form-control" placeholder="Ej: 02-03-2022" name="FechaFin" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Descripción</label>
+                                                <input type="string" class="form-control" placeholder="Descripción de la Tarea" name="task" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarTarea">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Termina Editar tareas -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="copyright">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> by
+                            <a href="javascript:void(0)" target="_blank">VABAJA </a>listen, learn, improve & repeat.
+                        </div>
+                    </div>
+                </footer>
             </div>
-
         </div>
     </div>
+
+    <!-- Selector de colores -->
     <div class="fixed-plugin">
         <div class="dropdown show-dropdown">
             <a href="#" data-toggle="dropdown">
@@ -286,6 +362,8 @@
             </ul>
         </div>
     </div>
+
+    <!-- Termina selecto de colores -->
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>
@@ -300,8 +378,7 @@
     <script src="../assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
-    <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-    <script src="../assets/demo/demo.js"></script>
+
     <script>
         $(document).ready(function() {
             $().ready(function() {
@@ -420,14 +497,7 @@
 
         });
     </script>
-    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-    <script>
-        window.TrackJS &&
-            TrackJS.install({
-                token: "ee6fab19c5a04ac1a32a645abde4613a",
-                application: "black-dashboard-free"
-            });
-    </script>
+
 </body>
 
 </html>

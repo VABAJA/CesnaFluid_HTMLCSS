@@ -1,3 +1,19 @@
+
+<?php
+
+session_start();
+
+if(!isset($_SESSION['rol'])){
+    header('location: login.php');
+}else{
+    if($_SESSION['rol'] != 2){
+        header('location: login.php');
+    }
+}
+
+
+?>
+
 <?php
 //varaible de conexión
 $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');

@@ -22,9 +22,7 @@
 <body class="">
     <div class="wrapper">
         <div class="sidebar" data="blue">
-            <!--
-            Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-        -->
+
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="./dashboard.php" class="simple-text logo-mini">
@@ -39,12 +37,6 @@
                         <a href="./dashboard.php">
                             <i class="tim-icons icon-chart-pie-36"></i>
                             <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./clientes.php">
-                            <i class="tim-icons icon-badge"></i>
-                            <p>Clientes</p>
                         </a>
                     </li>
                     <li>
@@ -171,20 +163,17 @@
             <!-- Agregar Nuevo Dispositivo -->
             <div class="content">
 
-                <!-- Tabla "Busca Clientes" -->
+                <!-- Tabla "Información del Cliente" -->
                 <div class="card">
                     <div class="card-body">
                         <form>
                             <div class="row">
-                                <div class="form-group col-md-4">
-                                    <label for="inputEmail4">Nombre del Cliente</label>
-                                    <input type="string" class="form-control" id="nomCliente" placeholder="Ej. TRAMEX">
-                                </div>
-                                <div class="col-md-8">
+                                <div class="col-md-12">
                                     <div class="table-responsive">
                                         <table class="table tablesorter">
                                             <thead class="text-primary">
                                                 <tr>
+                                                    <th class="text-center">Nombre del Cliente</th>
                                                     <th class="text-center">No. Cliente</th>
                                                     <th class="text-center">Contacto</th>
                                                     <th class="text-center">Teléfono</th>
@@ -213,11 +202,11 @@
 
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info">Buscar Cliente</button>
+
                         </form>
                     </div>
                 </div>
-                <!-- Termina Buscar Cliente -->
+                <!-- Termina tabla "Información del cliente" -->
                 <!-- Agregar Nuevo Dispositivo -->
 
                 <div class="row">

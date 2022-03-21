@@ -1,11 +1,10 @@
 <?php
 
-include('../scripts/config.php');
+include('../scripts/conexionAdmin.php');
 session_start();
 
 if (isset($_POST['register'])) {
 
-    // $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
@@ -19,18 +18,15 @@ if (isset($_POST['register'])) {
     }
 
     if ($query->rowCount() == 0) {
-        // USERNAME
         $query = $connection->prepare("INSERT INTO loginadmin(PASSWORD,EMAIL) VALUES (:password_hash,:email)");
-        // :username,
-        // $query->bindParam("username", $username, PDO::PARAM_STR);
         $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
         $query->bindParam("email", $email, PDO::PARAM_STR);
         $result = $query->execute();
 
         if ($result) {
-            echo '<p class="success">Your registration was successful!</p>';
+            echo '<p class="success">¡Se registró el administrador correctamente!</p>';
         } else {
-            echo '<p class="error">Something went wrong!</p>';
+            echo '<p class="error">¡Algo salió mal!</p>';
         }
     }
 }
@@ -74,19 +70,19 @@ if (isset($_POST['register'])) {
                         <input type="password" class="form-control" placeholder="Contraseña" name="password" value="" required>
                     </div>
                 </div>
-                <button type="submit" name="register" value="register">Register</button> 
+                <div class="row justify-content-center">
+
+                    <button native-type="submit" type="success" class="btn btn-blue" size="col-md-3" name="register" value="register">
+                        Iniciar Sesión
+                    </button>
+                </div>
             </form>
+            </div>
+            </div>
+            </div>
 
 
-            <!--  <div class="form-element">
-                <label>Email</label>
-                <input type="email" name="email" required />
-            </div>
-            <div class="form-element">
-                <label>Password</label>
-                <input type="password" name="password" required />
-            </div>
-            -->
+
         </section>
     </main>
 </body>

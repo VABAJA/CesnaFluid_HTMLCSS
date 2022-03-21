@@ -43,12 +43,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./clientes.php">
-                            <i class="tim-icons icon-badge"></i>
-                            <p>Clientes</p>
-                        </a>
-                    </li>
-                    <li>
                         <a href="./usuarios.php">
                             <i class="tim-icons icon-single-02"></i>
                             <p>Usuarios</p>
@@ -110,12 +104,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navigation">
                         <ul class="navbar-nav ml-auto">
-                            <!-- <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
-                    class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li> -->
+
                             <li class="dropdown nav-item">
                                 <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <div class="notification d-none d-lg-block d-xl-block"></div>
@@ -178,21 +167,17 @@
             <!-- End Navbar -->
             <div class="content">
 
-                <!-- Busca Clientes -->
-
+                <!-- Tabla "Información del Cliente" -->
                 <div class="card">
                     <div class="card-body">
                         <form>
                             <div class="row">
-                                <div class="form-group col-md-4">
-                                    <label for="inputEmail4">Nombre del Cliente</label>
-                                    <input type="string" class="form-control" id="nomCliente" placeholder="Ej. TRAMEX">
-                                </div>
-                                <div class="col-md-8">
+                                <div class="col-md-12">
                                     <div class="table-responsive">
                                         <table class="table tablesorter">
                                             <thead class="text-primary">
                                                 <tr>
+                                                    <th class="text-center">Nombre del Cliente</th>
                                                     <th class="text-center">No. Cliente</th>
                                                     <th class="text-center">Contacto</th>
                                                     <th class="text-center">Teléfono</th>
@@ -221,11 +206,12 @@
 
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info">Buscar Cliente</button>
+
                         </form>
                     </div>
                 </div>
-                <!-- Termina Buscar Cliente -->
+                <!-- Termina tabla "Información del cliente" -->
+
             </div>
         </div>
         <div class="fixed-plugin">
@@ -268,8 +254,7 @@
         <script src="../assets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
-        <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-        <script src="../assets/demo/demo.js"></script>
+
         <script>
             $(document).ready(function() {
                 $().ready(function() {
