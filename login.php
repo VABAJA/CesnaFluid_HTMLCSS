@@ -1,4 +1,63 @@
+<?php
+    include_once './scripts/database.php';
+    
+    session_start();
 
+    if(isset($_GET['cerrar_sesion'])){
+        session_unset(); 
+
+        // destroy the session 
+        session_destroy(); 
+    }
+    
+    if(isset($_SESSION['rol'])){
+        switch($_SESSION['rol']){
+            case 1:
+                header('location: ./dashboard.php');
+            break;
+
+            case 2:
+            header('location: ./cliente/dashboard.php');
+            break;
+
+            default:
+        }
+    }
+
+    if(isset($_POST['username']) && isset($_POST['password'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $db = new Database();
+        $query = $db->connect()->prepare('SELECT *FROM rolesdeusuario WHERE username = :username AND password = :password');
+        $query->execute(['username' => $username, 'password' => $password]);
+
+        $row = $query->fetch(PDO::FETCH_NUM);
+        
+        if($row == true){
+            $rol = $row[3];
+            
+            $_SESSION['rol'] = $rol;
+            switch($rol){
+                case 1:
+                    header('location: ./paginas/dashboard.php');
+                break;
+
+                case 2:
+                header('location: ./cliente/dashboard.php');
+                break;
+
+                default:
+            }
+        }else{
+            // no existe el usuario
+            echo "Nombre de usuario o contraseña incorrecto";
+        }
+        
+
+    }
+
+?>  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,11 +100,11 @@
                     }
                     ?>
 
-                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                    <form method="POST" action="">
                         <div class="row justify-content-center">
                             <div class="col-md-3">
-                                <label for="inputEmailAddress" class="text-white form-label">Email</label>
-                                <input type="email" class="form-control" name="email" id="inputEmailAddress" placeholder="nombre@usuario.com">
+                                <label for="form-control" class="text-white form-label">Nombre de Usuario</label>
+                                <input type="string" class="form-control" name="username" placeholder="usuario">
                             </div>
                         </div>
                         <div class="row justify-content-center">
@@ -63,7 +122,7 @@
                         </div>
                         <div class="btn pull-right">
 
-                            <a href="./paginas/admin.php" target="_blank">Acceso Administrador</a>
+                            <a href="./paginas/admin.php" target="_self">Acceso Administrador</a>
 
                         </div>
 

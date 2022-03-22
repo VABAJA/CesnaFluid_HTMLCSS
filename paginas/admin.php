@@ -1,65 +1,62 @@
 <?php
-    include_once '../scripts/conexionDB.php';
+include_once '../scripts/database.php';
 
-    // echo '<h1>exito</h1>';
-    
-    session_start();
+session_start();
 
-    if(isset($_GET['cerrar_sesion'])){
-        session_unset(); 
+if (isset($_GET['cerrar_sesion'])) {
+    session_unset();
 
-        // destroy the session 
-        session_destroy(); 
+    // destroy the session 
+    session_destroy();
+}
+
+if (isset($_SESSION['rol'])) {
+    switch ($_SESSION['rol']) {
+        case 1:
+            header('location: ./dashboard.php');
+            break;
+
+        case 2:
+            header('location: ../cliente/dashboard.php');
+            break;
+
+        default:
     }
-    
-    if(isset($_SESSION['rol'])){
-        switch($_SESSION['rol']){
+}
+
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $db = new Database();
+    $query = $db->connect()->prepare('SELECT *FROM rolesdeusuario WHERE username = :username AND password = :password');
+    $query->execute(['username' => $username, 'password' => $password]);
+
+    $row = $query->fetch(PDO::FETCH_NUM);
+
+    if ($row == true) {
+        $rol = $row[3];
+
+        $_SESSION['rol'] = $rol;
+        switch ($rol) {
             case 1:
                 header('location: ./dashboard.php');
-            break;
+                break;
 
             case 2:
-            header('location: ./dashboardCliente.php');
-            break;
+                header('location: ../cliente/dashboard.php');
+                break;
 
             default:
         }
+    } else {
+        // no existe el usuario
+        echo "Nombre de usuario o contraseña incorrecto";
     }
-
-    if(isset($_POST['username']) && isset($_POST['password'])){
-        $username = $_POST['usuario'];
-        $password = $_POST['clave'];
-
-        $db = new Database();
-        $query = $db->connect()->prepare('SELECT *FROM cuentas WHERE username = :usuario AND password = :clave');
-        $query->execute(['usario' => $username, 'clave' => $password]);
-
-        $row = $query->fetch(PDO::FETCH_NUM);
-        
-        if($row == true){
-            $rol = $row[3];
-            
-            $_SESSION['rol'] = $rol;
-            switch($rol){
-                case 1:
-                    header('location: ./dashboard.php');
-                break;
-
-                case 2:
-                header('location: colab.php');
-                break;
-
-                default:
-            }
-        }else{
-            // no existe el usuario
-            echo "Nombre de usuario o contraseña incorrecto";
-        }
-        
-
-    }
+}
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,23 +89,23 @@
                         <h1>Administrador</h1>
 
                     </div>
-                    <form name="signin-form" action="" method="post">
+                    <form action="#" method="POST">
 
                         <div class="row justify-content-center">
                             <div class="col-md-3">
-                                <label for="form-control" class="text-white form-label">Correo</label>
-                                <input type="text" class="form-control" placeholder="usuario" name="usuario" value="" required>
+                                <label for="form-control" class="text-white form-label">Nombre de Usuario</label>
+                                <input type="string" class="form-control" placeholder="usuario" name="username" value="" required>
                             </div>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-3">
                                 <label for="form-control" class="text-white form-label">Contraseña</label>
-                                <input type="password" class="form-control" placeholder="Contraseña" name="clave" value="" required>
+                                <input type="password" class="form-control" placeholder="Contraseña" name="password" value="" required>
                             </div>
                         </div>
                         <div class="row justify-content-center">
 
-                            <button native-type="submit" type="success" class="btn btn-blue" size="col-md-3" name="login" value="login">
+                            <button type="success" native-type="submit" class="btn btn-blue" size="col-md-3">
                                 Iniciar Sesión
                             </button>
                         </div>
@@ -117,8 +114,11 @@
 
                     <div class="pull-right">
                         <div class="link footer-link">
-                            <h6><a href="http://www.vabaja.com.mx">
+                            <h6>
+                                <a href="https://wa.me/+528115028945" target="_blank">
+
                                     ¿Necesitas ayuda? Contacta a VABAJA
+
                                 </a>
                             </h6>
                         </div>
