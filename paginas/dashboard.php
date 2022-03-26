@@ -157,7 +157,7 @@
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                   </li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Cerrar Sesión</a>
+                  <li class="nav-link"><a href="../scripts/logout.php" class="nav-item dropdown-item">Cerrar Sesión</a>
                   </li>
                 </ul>
               </li>
@@ -186,11 +186,11 @@
 
         <div class="card">
           <div class="card-body">
-            <form method="get" action="./scripts/buscador.php">
+            <form method="get" action="../scripts/buscador.php">
               <div class="row">
                 <div class="form-group col-md-4">
-                  <label for="inputEmail4">Nombre del Cliente</label>
-                  <input type="string" class="form-control" name="busqueda" placeholder="Ej. TRAMEX">
+                  <label>Nombre del Cliente</label>
+                  <input type="text" size="30" max-length="30" class="form-control" name="busqueda" placeholder="Ej. TRAMEX">
                 </div>
                 <div class="col-md-8">
                   <div class="table-responsive">
@@ -206,16 +206,12 @@
                       <tbody>
                         <tr>
                           <td class="text-center">
-                            <?php echo $fila['No.Cliente']; ?>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['Contacto']; ?>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['Telefono']; ?>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['Correo']; ?>
                           </td>
                         </tr>
                       </tbody>
