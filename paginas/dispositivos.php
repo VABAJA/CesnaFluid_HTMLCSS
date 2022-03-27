@@ -1,5 +1,5 @@
 <?php
-include ('../scripts/sesion.php');
+include('../scripts/sesion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -171,14 +171,13 @@ include ('../scripts/sesion.php');
                 </div>
             </div>
 
-            <!-- Agregar Nuevo Dispositivo -->
             <div class="content">
 
                 <!-- Busca Clientes -->
 
                 <div class="card">
                     <div class="card-body">
-                        <form method="POST" action="./dashboard.php">
+                        <form method="POST" action="./dispositivos.php">
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label>Nombre del Cliente</label>
@@ -199,23 +198,23 @@ include ('../scripts/sesion.php');
                                             <tbody>
                                                 <tr>
                                                     <?php
-                                                    include '../scripts/buscador.php';
-                                                    while ($row = mysqli_fetch_array($sql_query)) : ?>
+                                                    include('../scripts/buscador.php');
+                                                    while ($fila = mysqli_fetch_array($sql_query)) : ?>
 
                                                         <td class="text-center">
-                                                            <?php echo $row['nombreCliente']; ?>
+                                                            <?php echo $fila['nombreCliente']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $row['clienteId']; ?>
+                                                            <?php echo $fila['clienteId']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $row['contacto']; ?>
+                                                            <?php echo $fila['contacto']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $row['telefono']; ?>
+                                                            <?php echo $fila['telefono']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $row['correo']; ?>
+                                                            <?php echo $fila['correo']; ?>
                                                         </td>
                                                     <?php endwhile; ?>
                                                 </tr>
@@ -263,11 +262,13 @@ include ('../scripts/sesion.php');
 
                 <!--Termina form para agregar Nuevo Vehículo -->
 
-                <!-- TABLA Dispositivos -->
+                <!-- TABLA Dispositivo -->
 
                 <div class="row">
                     <div class="col-md-12">
+
                         <div class="card-plain">
+
                             <div class="card-header">
                                 <h4 class="title">Dispositivos</h4>
                                 <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
@@ -309,51 +310,52 @@ include ('../scripts/sesion.php');
                                             </tr>
                                         </thead>
                                         <tbody>
-<?php include ('../scripts/dispositivos_tabla.php');
-while ($fila = mysqli_fetch_array($resultado)) : ?>
-                                            <tr>
-                                                <td>
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="">
-                                                            <span class="form-check-sign">
-                                                                <span class="check"></span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                <?php echo $fila['deviceId']; ?>
-                                                </td>
-                                                <td class="text-center">
-                                                <?php echo $fila['vehiculo']; ?>
-                                                </td>
-                                                <td class="text-center">
-                                                    Monterrey
-                                                </td>
-                                                <td class="text-center">
-                                                    1245 L
-                                                </td>
-                                                <td class="text-center">
-                                                    123456 km
-                                                </td>
-                                                <td class="text-center">
-                                                    1234455 L
-                                                </td>
+                                            <?php
+                                            include('../scripts/dispositivos_tab.php');
+                                            while ($fila = mysqli_fetch_array($resultado)) : ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="">
+                                                                <span class="form-check-sign">
+                                                                    <span class="check"></span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['deviceId']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['rfId']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['locacion']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['volumen']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['km']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['vacum']; ?>
+                                                    </td>
 
-                                                <td class="text-center">
-                                                    <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
-                                                        <i class="tim-icons icon-pencil"></i>
+                                                    <td class="text-center">
+                                                        <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                                                            <i class="tim-icons icon-pencil"></i>
 
-                                                    </button>
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                                                        <i class="tim-icons icon-simple-remove"></i>
-                                                    </button>
-                                                </td>
-
-                                            </tr>
+                                                        </button>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                            <i class="tim-icons icon-simple-remove"></i>
+                                                        </button>
+                                                    </td>
+                                                <?php endwhile; ?>
+                                                </tr>
                                         </tbody>
                                     </table>
                                 </div>

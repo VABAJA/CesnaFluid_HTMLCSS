@@ -337,7 +337,7 @@ include ('../scripts/sesion.php');
                     </thead>
                     <tbody>
                       <?php
-                      include ('../scripts/vehiculos_tabla.php');
+                      include ('../scripts/vehiculos_tab.php');
                       while ($fila = mysqli_fetch_array($resultado)) : ?>
                         <tr>
                           <td>

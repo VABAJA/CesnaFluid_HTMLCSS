@@ -32,8 +32,6 @@ $resultado = mysqli_query($conectar, "SELECT * FROM clientes");
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -186,7 +184,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM clientes");
 
         <div class="card">
           <div class="card-body">
-            <form method="POST" action="./dashboard.php">
+            <form method="POST" action="./clientes.php">
               <div class="row">
                 <div class="form-group col-md-4">
                   <label>Nombre del Cliente</label>

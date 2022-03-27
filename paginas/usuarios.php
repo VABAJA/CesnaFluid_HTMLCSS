@@ -178,7 +178,7 @@ include ('../scripts/sesion.php');
 
         <div class="card">
           <div class="card-body">
-            <form method="POST" action="./dashboard.php">
+            <form method="POST" action="./usuarios.php">
               <div class="row">
                 <div class="form-group col-md-4">
                   <label>Nombre del Cliente</label>
@@ -200,22 +200,22 @@ include ('../scripts/sesion.php');
                         <tr>
                           <?php
                           include '../scripts/buscador.php';
-                          while ($row = mysqli_fetch_array($sql_query)) : ?>
+                          while ($fila = mysqli_fetch_array($sql_query)) : ?>
 
                             <td class="text-center">
-                              <?php echo $row['nombreCliente']; ?>
+                              <?php echo $fila['nombreCliente']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['clienteId']; ?>
+                              <?php echo $fila['clienteId']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['contacto']; ?>
+                              <?php echo $fila['contacto']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['telefono']; ?>
+                              <?php echo $fila['telefono']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['correo']; ?>
+                              <?php echo $fila['correo']; ?>
                             </td>
                           <?php endwhile; ?>
                         </tr>
@@ -352,7 +352,7 @@ include ('../scripts/sesion.php');
                         <tbody>
                           <?php
 
-
+                          include ('../scripts/usuarios_tab.php');
                           while ($fila = mysqli_fetch_array($resultado)) : ?>
 
                             <tr>
