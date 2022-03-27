@@ -1,16 +1,5 @@
 <?php
-
-    session_start();
-
-    if(!isset($_SESSION['rol'])){
-        header('location: ../login.php');
-    }else{
-        if($_SESSION['rol'] != 1){
-            header('location: ../login.php');
-        }
-    }
-
-
+include ('../scripts/sesion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +19,6 @@
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -165,7 +152,7 @@
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Cerrar Sesión</a>
+                                    <li class="nav-link"><a href="../scripts/logout.php" class="nav-item dropdown-item">Cerrar Sesión</a>
                                     </li>
                                 </ul>
                             </li>
@@ -188,6 +175,63 @@
             </div>
             <!-- End Navbar -->
             <div class="content">
+                        <!-- Busca Clientes -->
+
+        <div class="card">
+          <div class="card-body">
+            <form method="POST" action="./dashboard.php">
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label>Nombre del Cliente</label>
+                  <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
+                </div>
+                <div class="col-md-8">
+                  <div class="table-responsive">
+                    <table class="table tablesorter">
+                      <thead class="text-primary">
+                        <tr>
+                          <th class="text-center">Nombre del Cliente</th>
+                          <th class="text-center">No. Cliente</th>
+                          <th class="text-center">Contacto</th>
+                          <th class="text-center">Teléfono</th>
+                          <th class="text-center">Correo</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                      <?php
+                        include '../scripts/buscador.php';
+                        while ($row = mysqli_fetch_array($sql_query)) : ?>
+                          
+                          <td class="text-center">
+                            <?php echo $row['nombreCliente']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $row['clienteId']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $row['contacto']; ?>
+                          </td>
+                          <td class="text-center">
+                          <?php echo $row['telefono']; ?>
+                          </td>
+                          <td class="text-center">
+                          <?php echo $row['correo']; ?>
+                          </td>
+                          <?php endwhile; ?>
+                        </tr>
+                      </tbody>
+                      
+                    </table>
+                  </div>
+                  
+                </div>
+              </div>
+              <button type="submit" class="btn btn-info" >Buscar Cliente</button>
+            </form>
+          </div>
+        </div>
+        <!-- Termina Buscar Cliente -->
                 <!-- Tabla Clientes -->
                 <div class="row">
                     <div class="col-12 card-plain">
@@ -269,7 +313,7 @@
                     </div>
                 </div>
                 <!-- Termina tabla Clientes -->
-                
+
             </div>
 
         </div>

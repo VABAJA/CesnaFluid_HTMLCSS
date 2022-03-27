@@ -1,16 +1,5 @@
 <?php
-
-    session_start();
-
-    if(!isset($_SESSION['rol'])){
-        header('location: ../login.php');
-    }else{
-        if($_SESSION['rol'] != 1){
-            header('location: ../login.php');
-        }
-    }
-
-
+include ('../scripts/sesion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -168,7 +157,7 @@
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Cerrar Sesión</a>
+                                    <li class="nav-link"><a href="../scripts/logout.php" class="nav-item dropdown-item">Cerrar Sesión</a>
                                     </li>
                                 </ul>
                             </li>
@@ -196,17 +185,18 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <form>
+                        <form method="POST" action="./dashboard.php">
                             <div class="row">
                                 <div class="form-group col-md-4">
-                                    <label for="inputEmail4">Nombre del Cliente</label>
-                                    <input type="string" class="form-control" id="nomCliente" placeholder="Ej. TRAMEX">
+                                    <label>Nombre del Cliente</label>
+                                    <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="table-responsive">
                                         <table class="table tablesorter">
                                             <thead class="text-primary">
                                                 <tr>
+                                                    <th class="text-center">Nombre del Cliente</th>
                                                     <th class="text-center">No. Cliente</th>
                                                     <th class="text-center">Contacto</th>
                                                     <th class="text-center">Teléfono</th>
@@ -215,18 +205,26 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['No.Cliente']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['Contacto']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['Telefono']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['Correo']; ?>
-                                                    </td>
+                                                    <?php
+                                                    include '../scripts/buscador.php';
+                                                    while ($row = mysqli_fetch_array($sql_query)) : ?>
+
+                                                        <td class="text-center">
+                                                            <?php echo $row['nombreCliente']; ?>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <?php echo $row['clienteId']; ?>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <?php echo $row['contacto']; ?>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <?php echo $row['telefono']; ?>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <?php echo $row['correo']; ?>
+                                                        </td>
+                                                    <?php endwhile; ?>
                                                 </tr>
                                             </tbody>
 

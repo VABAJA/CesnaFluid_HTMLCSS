@@ -1,14 +1,14 @@
 <?php
 
-    session_start();
+session_start();
 
-    if(!isset($_SESSION['rol'])){
-        header('location: ../login.php');
-    }else{
-        if($_SESSION['rol'] != 2){
-            header('location: ../login.php');
-        }
-    }
+if (!isset($_SESSION['rol'])) {
+  header('location: ../login.php');
+} else {
+  if ($_SESSION['rol'] != 2) {
+    header('location: ../login.php');
+  }
+}
 
 
 ?>
@@ -121,8 +121,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
             </div>
             <a class="navbar-brand" href="javascript:void(0)">Usuarios</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-            aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -164,7 +163,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                   </li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Cerrar Sesión</a>
+                  <li class="nav-link"><a href="../scripts/logout.php" class="nav-item dropdown-item">Cerrar Sesión</a>
                   </li>
                 </ul>
               </li>
@@ -173,8 +172,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
           </div>
         </div>
       </nav>
-      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"
-        aria-hidden="true">
+      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -190,48 +188,48 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
       <div class="content">
         <!-- Tabla "Información del Cliente" -->
         <div class="card">
-                    <div class="card-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="table-responsive">
-                                        <table class="table tablesorter">
-                                            <thead class="text-primary">
-                                                <tr>
-                                                    <th class="text-center">Nombre del Cliente</th>
-                                                    <th class="text-center">No. Cliente</th>
-                                                    <th class="text-center">Contacto</th>
-                                                    <th class="text-center">Teléfono</th>
-                                                    <th class="text-center">Correo</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['No.Cliente']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['Contacto']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['Telefono']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['Correo']; ?>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table tablesorter">
+                      <thead class="text-primary">
+                        <tr>
+                          <th class="text-center">Nombre del Cliente</th>
+                          <th class="text-center">No. Cliente</th>
+                          <th class="text-center">Contacto</th>
+                          <th class="text-center">Teléfono</th>
+                          <th class="text-center">Correo</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="text-center">
+                            <?php echo $fila['No.Cliente']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['Contacto']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['Telefono']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['Correo']; ?>
+                          </td>
+                        </tr>
+                      </tbody>
 
-                                        </table>
-                                    </div>
+                    </table>
+                  </div>
 
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
                 </div>
-                <!-- Termina tabla "Información del cliente" -->
+              </div>
+
+            </form>
+          </div>
+        </div>
+        <!-- Termina tabla "Información del cliente" -->
 
         <!-- Agregar Nuevo Usuario -->
 
@@ -261,8 +259,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Nombre del Contacto</label>
-                        <input type="text" class="form-control" placeholder="Ej: Jorge Barrera" name="nomusuario"
-                          required>
+                        <input type="text" class="form-control" placeholder="Ej: Jorge Barrera" name="nomusuario" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -299,8 +296,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                     </div>
                   </div>
                   <div class="card-footer">
-                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                      name="ingresarUsuario">Agregar Usuario</button>
+                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarUsuario">Agregar Usuario</button>
                   </div>
                 </form>
               </div>
@@ -314,8 +310,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
             <div class="card-plain">
               <div class="card-header">
                 <h4 class="card-title">Usuarios</h4>
-                <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse"
-                  aria-expanded="false" aria-controls="collapse">
+                <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
                   Agregar Nuevo Usuario
                 </button>
                 <div class="card-body">
@@ -342,8 +337,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                             <th class="text-center"></th>
                             <th class="text-center">
                               <div class="dropdown">
-                                <button type="button" class="btn btn-link dropdown-toggle btn-icon"
-                                  data-toggle="dropdown">
+                                <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                                   <i class="tim-icons icon-settings-gear-63"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
@@ -360,47 +354,45 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
 
                           while ($fila = mysqli_fetch_array($resultado)) : ?>
 
-                          <tr>
-                            <td>
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" value="">
-                                  <span class="form-check-sign">
-                                    <span class="check"></span>
-                                  </span>
-                                </label>
-                              </div>
-                            </td>
-                            <td class="text-center">
-                              <?php echo $fila['usuario']; ?>
-                            </td>
-                            <td class="text-center">
-                              <?php echo $fila['usuariopin']; ?>
-                            </td>
-                            <td class="text-center">
-                              <?php echo $fila['nomusuario']; ?>
-                            </td>
-                            <td class="text-center">
-                              <?php echo $fila['locacion']; ?>
-                            </td>
-                            <td class="text-center">
-                              <?php echo $fila['fechareg']; ?>
-                            </td>
+                            <tr>
+                              <td>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign">
+                                      <span class="check"></span>
+                                    </span>
+                                  </label>
+                                </div>
+                              </td>
+                              <td class="text-center">
+                                <?php echo $fila['usuario']; ?>
+                              </td>
+                              <td class="text-center">
+                                <?php echo $fila['usuariopin']; ?>
+                              </td>
+                              <td class="text-center">
+                                <?php echo $fila['nomusuario']; ?>
+                              </td>
+                              <td class="text-center">
+                                <?php echo $fila['locacion']; ?>
+                              </td>
+                              <td class="text-center">
+                                <?php echo $fila['fechareg']; ?>
+                              </td>
 
-                            <td class="text-center">
-                              <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse"
-                                data-target="#accordion" aria-expanded="false" aria-controls="accordion">
-                                <i class="tim-icons icon-pencil"></i>
+                              <td class="text-center">
+                                <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                                  <i class="tim-icons icon-pencil"></i>
 
-                              </button>
-                            </td>
-                            <td class="text-center">
-                              <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle=""
-                                data-target="#" aria-expanded="false" aria-controls="">
-                                <i class="tim-icons icon-simple-remove"></i>
-                              </button>
-                            </td>
-                          </tr>
+                                </button>
+                              </td>
+                              <td class="text-center">
+                                <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                  <i class="tim-icons icon-simple-remove"></i>
+                                </button>
+                              </td>
+                            </tr>
 
                           <?php endwhile; ?>
 
@@ -429,8 +421,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>PIN RFID</label>
-                              <input type="string" class="form-control" placeholder="Ej: 0000" name="usuariopin"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej: 0000" name="usuariopin" required>
                             </div>
                           </div>
                         </div>
@@ -438,8 +429,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>Nombre del Contacto</label>
-                              <input type="text" class="form-control" placeholder="Ej: Jorge Barrera" name="nomusuario"
-                                required>
+                              <input type="text" class="form-control" placeholder="Ej: Jorge Barrera" name="nomusuario" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
@@ -471,14 +461,12 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label for="exampleInputEmail1">Ciudad</label>
-                              <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion"
-                                required>
+                              <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
                             </div>
                           </div>
                         </div>
                         <div class="card-footer">
-                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                            name="ingresarUsuario">Guardar</button>
+                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarUsuario">Guardar</button>
                         </div>
                       </form>
                     </div>
@@ -503,8 +491,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                 <div class="card">
                   <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
-                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                        aria-expanded="true" aria-controls="collapseOne">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         Información Básica
                       </button>
                     </h5>
@@ -516,15 +503,13 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>ID. Del Vehículo</label>
-                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>PIN RFID</label>
-                              <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
@@ -538,8 +523,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>Kilometros</label>
-                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
-                                required>
+                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
@@ -556,8 +540,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                           </div>
                         </div>
                         <div class="card-footer">
-                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                            name="editarVehiculo">Guardar</button>
+                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
                         </div>
                       </form>
                     </div>
@@ -567,8 +550,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                 <div class="card">
                   <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="false" aria-controls="collapseTwo">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         Productos
                       </button>
                     </h5>
@@ -586,8 +568,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                           <div class="col-sm-6">
                             <div class="form-group">
                               <label>Propietario nombre fiscal</label>
-                              <input type="string" class="form-control" placeholder="Ej. TRAMEX" name="propFiscal"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej. TRAMEX" name="propFiscal" required>
                             </div>
                           </div>
                         </div>
@@ -595,22 +576,19 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                           <div class="col-sm-6">
                             <div class="form-group">
                               <label>Litros depósito</label>
-                              <input type="number" class="form-control" placeholder="Ej. 13530" name="ltsdeposito"
-                                required>
+                              <input type="number" class="form-control" placeholder="Ej. 13530" name="ltsdeposito" required>
                             </div>
                           </div>
                           <div class="col-sm-6">
                             <div class="form-group">
                               <label>Producto</label>
-                              <input type="string" class="form-control" placeholder="Ej. Diesel" name="producto"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej. Diesel" name="producto" required>
                             </div>
                           </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                      <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                        name="editarProducto">Guardar</button>
+                      <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarProducto">Guardar</button>
                     </div>
                     </form>
                   </div>
@@ -619,8 +597,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                 <div class="card">
                   <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                        aria-expanded="false" aria-controls="collapseThree">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         Límites
                       </button>
                     </h5>
@@ -633,15 +610,13 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>ID. Del Vehículo</label>
-                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>PIN RFID</label>
-                              <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin"
-                                required>
+                              <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
@@ -655,8 +630,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>Kilometros</label>
-                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros"
-                                required>
+                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
@@ -673,8 +647,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
                           </div>
                         </div>
                         <div class="card-footer">
-                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue"
-                            name="editarVehiculo">Guardar</button>
+                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
                         </div>
                       </form>
                     </div>
@@ -737,8 +710,8 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
   <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
 
   <script>
-    $(document).ready(function () {
-      $().ready(function () {
+    $(document).ready(function() {
+      $().ready(function() {
         $sidebar = $('.sidebar');
         $navbar = $('.navbar');
         $main_panel = $('.main-panel');
@@ -755,7 +728,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
 
 
 
-        $('.fixed-plugin a').click(function (event) {
+        $('.fixed-plugin a').click(function(event) {
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {
               event.stopPropagation();
@@ -765,7 +738,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
           }
         });
 
-        $('.fixed-plugin .background-color span').click(function () {
+        $('.fixed-plugin .background-color span').click(function() {
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
 
@@ -788,7 +761,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
           }
         });
 
-        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
           var $btn = $(this);
 
           if (sidebar_mini_active == true) {
@@ -802,23 +775,23 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
           }
 
           // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function () {
+          var simulateWindowResize = setInterval(function() {
             window.dispatchEvent(new Event('resize'));
           }, 180);
 
           // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function () {
+          setTimeout(function() {
             clearInterval(simulateWindowResize);
           }, 1000);
         });
 
-        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
+        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
           var $btn = $(this);
 
           if (white_color == true) {
 
             $('body').addClass('change-background');
-            setTimeout(function () {
+            setTimeout(function() {
               $('body').removeClass('change-background');
               $('body').removeClass('white-content');
             }, 900);
@@ -826,7 +799,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
           } else {
 
             $('body').addClass('change-background');
-            setTimeout(function () {
+            setTimeout(function() {
               $('body').removeClass('change-background');
               $('body').addClass('white-content');
             }, 900);
@@ -837,11 +810,11 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
 
         });
 
-        $('.light-badge').click(function () {
+        $('.light-badge').click(function() {
           $('body').addClass('white-content');
         });
 
-        $('.dark-badge').click(function () {
+        $('.dark-badge').click(function() {
           $('body').removeClass('white-content');
         });
       });

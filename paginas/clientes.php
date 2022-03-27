@@ -1,18 +1,6 @@
 <?php
-
-    session_start();
-
-    if(!isset($_SESSION['rol'])){
-        header('location: ../login.php');
-    }else{
-        if($_SESSION['rol'] != 1){
-            header('location: ../login.php');
-        }
-    }
-
-
+include ('../scripts/sesion.php');
 ?>
-
 <?php
 //varaible de conexión
 $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
@@ -23,7 +11,7 @@ if (mysqli_connect_errno($conectar)) {
 }
 
 
-$resultado = mysqli_query($conectar, "SELECT * FROM registro");
+$resultado = mysqli_query($conectar, "SELECT * FROM clientes");
 ?>
 
 <!DOCTYPE html>
@@ -170,7 +158,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                   </li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Cerrar Sesión</a>
+                  <li class="nav-link"><a href="../scripts/logout.php" class="nav-item dropdown-item">Cerrar Sesión</a>
                   </li>
                 </ul>
               </li>
@@ -194,20 +182,22 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
       </div>
       <!-- End Navbar -->
       <div class="content">
-        <!-- Tabla "Busca Clientes" -->
+        <!-- Busca Clientes -->
+
         <div class="card">
           <div class="card-body">
-            <form>
+            <form method="POST" action="./dashboard.php">
               <div class="row">
                 <div class="form-group col-md-4">
-                  <label for="inputEmail4">Nombre del Cliente</label>
-                  <input type="string" class="form-control" id="nomCliente" placeholder="Ej. TRAMEX">
+                  <label>Nombre del Cliente</label>
+                  <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
                 </div>
                 <div class="col-md-8">
                   <div class="table-responsive">
                     <table class="table tablesorter">
                       <thead class="text-primary">
                         <tr>
+                          <th class="text-center">Nombre del Cliente</th>
                           <th class="text-center">No. Cliente</th>
                           <th class="text-center">Contacto</th>
                           <th class="text-center">Teléfono</th>
@@ -216,35 +206,35 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                       </thead>
                       <tbody>
                         <tr>
-                          <td>
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <span class="form-check-sign">
-                                  <span class="check"></span>
-                                </span>
-                              </label>
-                            </div>
+                      <?php
+                        include '../scripts/buscador.php';
+                        while ($row = mysqli_fetch_array($sql_query)) : ?>
+                          
+                          <td class="text-center">
+                            <?php echo $row['nombreCliente']; ?>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['No.Cliente']; ?>
+                            <?php echo $row['clienteId']; ?>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['Contacto']; ?>
+                            <?php echo $row['contacto']; ?>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['Telefono']; ?>
+                          <?php echo $row['telefono']; ?>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['Correo']; ?>
+                          <?php echo $row['correo']; ?>
                           </td>
+                          <?php endwhile; ?>
                         </tr>
                       </tbody>
+                      
                     </table>
                   </div>
+                  
                 </div>
               </div>
-              <button type="submit" class="btn btn-info">Buscar Cliente</button>
+              <button type="submit" class="btn btn-info" >Buscar Cliente</button>
             </form>
           </div>
         </div>
@@ -408,19 +398,19 @@ $resultado = mysqli_query($conectar, "SELECT * FROM registro");
                             </div>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['usuario']; ?>
+                            <?php echo $fila['clienteId']; ?>
                           </td>
                           <td class="text-center">
                             <?php echo $fila['nomusuario']; ?>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['nomempresa']; ?>
+                            <?php echo $fila['nombreCliente']; ?>
                           </td>
                           <td class="text-center">
                             <?php echo $fila['direccion']; ?>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['email']; ?>
+                            <?php echo $fila['correo']; ?>
                           </td>
                           <td class="text-center">
                             <?php echo $fila['telefono']; ?>

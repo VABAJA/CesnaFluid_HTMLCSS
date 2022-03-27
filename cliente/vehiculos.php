@@ -1,14 +1,14 @@
 <?php
 
-    session_start();
+session_start();
 
-    if(!isset($_SESSION['rol'])){
-        header('location: ../login.php');
-    }else{
-        if($_SESSION['rol'] != 2){
-            header('location: ../login.php');
-        }
-    }
+if (!isset($_SESSION['rol'])) {
+  header('location: ../login.php');
+} else {
+  if ($_SESSION['rol'] != 2) {
+    header('location: ../login.php');
+  }
+}
 
 
 ?>
@@ -166,7 +166,7 @@ $resultado = mysqli_query($conectar, "SELECT * FROM vehiculos");
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                   </li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Cerrar Sesión</a>
+                  <li class="nav-link"><a href="../scripts/logout.php" class="nav-item dropdown-item">Cerrar Sesión</a>
                   </li>
                 </ul>
               </li>
