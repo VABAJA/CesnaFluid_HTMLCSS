@@ -23,3 +23,6 @@ session_start();
     }
     // El siguiente key se crea cuando se inicia sesión
     $_SESSION["timeout"] = time();
+
+    
+  
