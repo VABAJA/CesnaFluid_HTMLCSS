@@ -8,7 +8,8 @@ if (isset($_SESSION['cliente'])) {
     $sql_query = mysqli_query($conectar,$SQL_READ);
     
 } else {
-    echo 'no hay sesion';
+    // echo 'no hay sesion';
+    // echo "Por favor, introduce el nombre de la empresa";
             unset($_SESSION['cliente']);
         
         } if(!isset($_POST['buscar'])) {
@@ -20,7 +21,7 @@ if (isset($_SESSION['cliente'])) {
                 $_SESSION['cliente'] = $_POST['buscar'];
                 unset($_SESSION['cliente']);
                 // echo $_SESSION['cliente'];
-                // echo "Por favor, introduce el nombre de la empresa";
+                echo "Por favor, introduce el nombre de la empresa";
                 
             } else {
                 $buscar = $_POST['buscar'];

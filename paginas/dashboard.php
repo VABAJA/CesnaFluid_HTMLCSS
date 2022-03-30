@@ -270,6 +270,9 @@ include ('../scripts/sesion.php');
                     </tr>
                   </thead>
                   <tbody>
+                  <?php
+                        include '../scripts/clientes_tab.php';
+                        while ($row = mysqli_fetch_array($sql_query)) : ?>
                     <tr>
                       <td>
                         <div class="form-check">

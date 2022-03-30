@@ -254,13 +254,17 @@ include('../scripts/sesion.php');
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="card-footer">
+                                        <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarDispositivo">Agregar
+                                            Dispositivo</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!--Termina form para agregar Nuevo Vehículo -->
+                <!--Termina form para agregar Nuevo Dispositivo -->
 
                 <!-- TABLA Dispositivo -->
 
@@ -344,13 +348,13 @@ include('../scripts/sesion.php');
                                                     </td>
 
                                                     <td class="text-center">
-                                                        <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                                                        <button class="btn btn-link" type="button" title="Editar Dispositivo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
                                                             <i class="tim-icons icon-pencil"></i>
 
                                                         </button>
                                                     </td>
                                                     <td class="text-center">
-                                                        <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                        <button type="button" title="Eliminar Dispositivo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
                                                             <i class="tim-icons icon-simple-remove"></i>
                                                         </button>
                                                     </td>
