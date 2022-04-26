@@ -174,7 +174,7 @@ include ('../scripts/sesion.php');
 
         <div class="card">
           <div class="card-body">
-            <form method="POST" action="./dashboard.php">
+            <form method="POST" action="./vehiculos.php">
               <div class="row">
                 <div class="form-group col-md-4">
                   <label>Nombre del Cliente</label>
@@ -261,7 +261,7 @@ include ('../scripts/sesion.php');
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Kilometros</label>
-                        <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
+                        <input type="number" class="form-control" placeholder="Ej: 135000" name="km" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -274,6 +274,12 @@ include ('../scripts/sesion.php');
                       <div class="form-group">
                         <label>Volúmen Acumulado en L</label>
                         <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>ID. Del Vehículo</label>
+                        <input type="string" class="form-control" placeholder="Ej: 1000" name="vehiculos_id" required>
                       </div>
                     </div>
                   </div>
@@ -322,6 +328,7 @@ include ('../scripts/sesion.php');
                         <th class="text-center">Volúmen</th>
                         <th class="text-center">Kilometros</th>
                         <th class="text-center">Volúmen Acumulado</th>
+                        <th class="text-center">ID. Del Vehículo</th>
                         <th class="text-center"></th>
                         <th class="text-center">
                           <div class="dropdown">
@@ -363,10 +370,13 @@ include ('../scripts/sesion.php');
                             <?php echo $fila['volumen']; ?>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['kilometros']; ?>
+                            <?php echo $fila['km']; ?>
                           </td>
                           <td class="text-center">
                             <?php echo $fila['vacum']; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $fila['vehiculos_id']; ?>
                           </td>
 
                           <td class="text-center">

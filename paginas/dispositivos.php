@@ -295,10 +295,7 @@ include('../scripts/sesion.php');
                                                     </div>
                                                 </th>
                                                 <th class="text-center">ID. Del Dispositivo</th>
-                                                <th class="text-center">RFID del Dispositivo</th>
                                                 <th class="text-center">Ciudad</th>
-                                                <th class="text-center">Volúmen</th>
-                                                <th class="text-center">Kilometros</th>
                                                 <th class="text-center">Volúmen Acumulado</th>
                                                 <th class="text-center"></th>
                                                 <th class="text-center">
@@ -329,19 +326,10 @@ include('../scripts/sesion.php');
                                                         </div>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['deviceId']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['rfId']; ?>
+                                                        <?php echo $fila['dispositivos_id']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['locacion']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['volumen']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['km']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['vacum']; ?>

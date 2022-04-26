@@ -179,7 +179,7 @@ include('../scripts/sesion.php');
 
                 <div class="card">
                     <div class="card-body">
-                        <form method="POST" action="./dashboard.php">
+                        <form method="POST" action="./contenedores.php">
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label>Nombre del Cliente</label>

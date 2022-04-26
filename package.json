@@ -1,7 +1,7 @@
 {
   "name": "CesnaFluid_webapp",
   "version": "1.0.0",
-  "description": "Versión html y css",
+  "description": "Dashboard de control para dispositivo contador de Diesel",
   "main": "index.html",
   "directories": {
     "example": "root"

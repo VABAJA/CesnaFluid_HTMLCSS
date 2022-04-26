@@ -12,7 +12,7 @@ $host_sql="localhost";
 $vehiculo=$_POST['vehiculo'];
 $vehiculopin=$_POST['vehiculopin'];
 $locacion=$_POST['locacion'];
-$kilometros=$_POST['kilometros'];
+$km=$_POST['km'];
 $volumen=$_POST['volumen'];
 $vacum=$_POST['vacum'];
 
@@ -36,8 +36,8 @@ mysqli_set_charset($conexion,"utf8");
 if(isset($_POST["ingresarVehiculo"]))
 {
    
-    $registroVehiculos="INSERT INTO vehiculos (vehiculo, vehiculopin, locacion, kilometros, volumen, vacum)"
-    ."VALUES('".$vehiculo."','".$vehiculopin."','".$locacion."','".$kilometros."','".$volumen."','".$vacum."')";  
+    $registroVehiculos="INSERT INTO vehiculos (vehiculo, vehiculopin, locacion, km, volumen, vacum)"
+    ."VALUES('".$vehiculo."','".$vehiculopin."','".$locacion."','".$km."','".$volumen."','".$vacum."')";  
     
     
     if (mysqli_query($conexion, $registroVehiculos)) {

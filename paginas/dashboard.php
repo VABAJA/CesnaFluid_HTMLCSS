@@ -271,8 +271,8 @@ include ('../scripts/sesion.php');
                   </thead>
                   <tbody>
                   <?php
-                        include '../scripts/clientes_tab.php';
-                        while ($row = mysqli_fetch_array($sql_query)) : ?>
+                          include '../scripts/clientes_tab.php';
+                          while ($fila = mysqli_fetch_array($sql_query)) : ?>
                     <tr>
                       <td>
                         <div class="form-check">
@@ -285,16 +285,16 @@ include ('../scripts/sesion.php');
                         </div>
                       </td>
                       <td class="text-center">
-                        <?php echo $fila['usuarios']; ?>
+                        <?php echo $fila['usuario']; ?>
                       </td>
                       <td class="text-center">
-                        <?php echo $fila['dispositivos']; ?>
+                        <?php echo $fila['id_dispositivos']; ?>
                       </td>
                       <td class="text-center">
-                        <?php echo $fila['vehiculos']; ?>
+                        <?php echo $fila['id_vehiculos']; ?>
                       </td>
                       <td class="text-center">
-                        <?php echo $fila['tickets']; ?>
+                        <?php echo $fila['id_tickets']; ?>
                       </td>
                       <td class="td-actions text-right">
                         <button class="btn btn-link" type="button" title="Editar Cliente" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
@@ -306,6 +306,7 @@ include ('../scripts/sesion.php');
                           <i class="tim-icons icon-simple-remove"></i>
                         </button>
                       </td>
+                      <?php endwhile; ?>
                     </tr>
                   </tbody>
                 </table>

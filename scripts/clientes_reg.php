@@ -9,17 +9,16 @@ $host_sql="localhost";
 
 
 
-$usuario=$_POST['usuario'];
-$nomusuario=$_POST['nomusuario'];
-$nomempresa=$_POST['nomempresa'];
-$direccion=$_POST['direccion'];
-$email=$_POST['email'];
+$nombreCliente=$_POST['nombreCliente'];
+$clienteId=$_POST['clienteId'];
+$contacto=$_POST['contacto'];
 $telefono=$_POST['telefono'];
-$locacion=$_POST['locacion'];
-$vehiculo=$_POST['vehiculo'];
-$litros=$_POST['litros'];
-$ticket=$_POST['ticket'];
-$km=$_POST['km'];
+$correo=$_POST['correo'];
+$id_dispositivos=$_POST['id_dispositivos'];
+$id_vehiculos=$_POST['id_vehiculos'];
+$id_contenedores=$_POST['id_contenedores'];
+$id_tickets=$_POST['id_tickets'];
+$id_usuarios=$_POST['id_usuarios'];
 
 
 
@@ -37,8 +36,8 @@ mysqli_set_charset($conexion,"utf8");
 if(isset($_POST["ingresarCliente"]))
 {
    
-    $registroClientes="INSERT INTO registro (usuario, nomusuario, nomempresa, direccion, email, telefono, locacion, vehiculo, litros, ticket, km)"
-    ."VALUES('".$usuario."','".$nomusuario."','".$nomempresa."','".$direccion."','".$email."','".$telefono."','".$locacion."','".$vehiculo."','".$litros."','".$ticket."','".$km."')";  
+    $registroClientes="INSERT INTO registro (nombreCliente, clienteId, contacto, telefono, correo, id_dispositivos, id_vehiculos, id_contenedores, id_tickets, id_usuarios)"
+    ."VALUES('".$nombreCliente."','".$clienteId."','".$contacto."','".$telefono."','".$correo."','".$id_dispositivos."','".$id_vehiculos."','".$id_contenedores."','".$id_tickets."','".$id_usuarios."')";  
     
     
     if (mysqli_query($conexion, $registroClientes)) {
