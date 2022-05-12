@@ -1,5 +1,5 @@
 <?php
-include ('../scripts/sesion.php');
+include('../scripts/sesion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -195,35 +195,35 @@ include ('../scripts/sesion.php');
                       </thead>
                       <tbody>
                         <tr>
-                      <?php
-                        include '../scripts/buscador.php';
-                        while ($row = mysqli_fetch_array($sql_query)) : ?>
-                          
-                          <td class="text-center">
-                            <?php echo $row['nombreCliente']; ?>
-                          </td>
-                          <td class="text-center">
-                            <?php echo $row['clienteId']; ?>
-                          </td>
-                          <td class="text-center">
-                            <?php echo $row['contacto']; ?>
-                          </td>
-                          <td class="text-center">
-                          <?php echo $row['telefono']; ?>
-                          </td>
-                          <td class="text-center">
-                          <?php echo $row['correo']; ?>
-                          </td>
+                          <?php
+                          include '../scripts/buscador.php';
+                          while ($row = mysqli_fetch_array($sql_query)) : ?>
+
+                            <td class="text-center">
+                              <?php echo $row['nombreCliente']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $row['clienteId']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $row['contacto']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $row['telefono']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $row['correo']; ?>
+                            </td>
                           <?php endwhile; ?>
                         </tr>
                       </tbody>
-                      
+
                     </table>
                   </div>
-                  
+
                 </div>
               </div>
-              <button type="submit" class="btn btn-info" >Buscar Cliente</button>
+              <button type="submit" class="btn btn-info">Buscar Cliente</button>
             </form>
           </div>
         </div>
@@ -252,6 +252,7 @@ include ('../scripts/sesion.php');
                           </label>
                         </div>
                       </th>
+                      <th class="text-center">Cliente</th>
                       <th class="text-center">Usuarios</th>
                       <th class="text-center">Dispositivos</th>
                       <th class="text-center">Vehículos</th>
@@ -270,44 +271,47 @@ include ('../scripts/sesion.php');
                     </tr>
                   </thead>
                   <tbody>
-                  <?php
-                          include '../scripts/clientes_tab.php';
-                          while ($fila = mysqli_fetch_array($sql_query)) : ?>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td class="text-center">
-                        <?php echo $fila['usuario']; ?>
-                      </td>
-                      <td class="text-center">
-                        <?php echo $fila['id_dispositivos']; ?>
-                      </td>
-                      <td class="text-center">
-                        <?php echo $fila['id_vehiculos']; ?>
-                      </td>
-                      <td class="text-center">
-                        <?php echo $fila['id_tickets']; ?>
-                      </td>
-                      <td class="td-actions text-right">
-                        <button class="btn btn-link" type="button" title="Editar Cliente" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
-                          <i class="tim-icons icon-pencil"></i>
-                        </button>
-                      </td>
-                      <td class="text-center">
-                        <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                          <i class="tim-icons icon-simple-remove"></i>
-                        </button>
-                      </td>
+                    <?php
+                    include '../scripts/dashboard.php';
+                    while ($fila = mysqli_fetch_array($resultado)) : ?>
+                      <tr>
+                        <td>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                        <td class="text-center">
+                          <?php echo $fila['nombreCliente']; ?>
+                        </td>
+                        <td class="text-center">
+                          <?php echo $fila['usuarios_id']; ?>
+                        </td>
+                        <td class="text-center">
+                          <?php echo $fila['dispositivos_id']; ?>
+                        </td>
+                        <td class="text-center">
+                          <?php echo $fila['vehiculos_id']; ?>
+                        </td>
+                        <td class="text-center">
+                          <?php echo $fila['tickets_id']; ?>
+                        </td>
+                        <td class="td-actions text-right">
+                          <button class="btn btn-link" type="button" title="Editar Cliente" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                            <i class="tim-icons icon-pencil"></i>
+                          </button>
+                        </td>
+                        <td class="text-center">
+                          <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                            <i class="tim-icons icon-simple-remove"></i>
+                          </button>
+                        </td>
                       <?php endwhile; ?>
-                    </tr>
+                      </tr>
                   </tbody>
                 </table>
               </div>

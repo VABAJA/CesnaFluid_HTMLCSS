@@ -381,7 +381,7 @@ include('../scripts/sesion.php');
                                                         </div>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['clienteId']; ?>
+                                                        <?php echo $fila['id_cliente']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreCliente']; ?>

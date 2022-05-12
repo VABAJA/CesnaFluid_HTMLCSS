@@ -431,118 +431,151 @@ include('../scripts/sesion.php');
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="card">
-                                    <div class="card-header" id="headingTwo">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                Productos
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                        <div class="card-body">
-                                            <form action="" method="post">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>% Biocarburo</label>
-                                                            <input type="number" class="form-control" placeholder="Ej. 30" name="biocarb" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Propietario nombre fiscal</label>
-                                                            <input type="string" class="form-control" placeholder="Ej. TRAMEX" name="propFiscal" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Litros depósito</label>
-                                                            <input type="number" class="form-control" placeholder="Ej. 13530" name="ltsdeposito" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Producto</label>
-                                                            <input type="string" class="form-control" placeholder="Ej. Diesel" name="producto" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarProducto">Guardar</button>
-                                        </div>
-                                        </form>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-header" id="headingThree">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                Límites
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                        <div class="card-body">
-
-                                            <form action="" method="post">
-                                                <div class="row">
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <label>ID. Del Vehículo</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <label>PIN RFID</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <label>Ciudad</label>
-                                                            <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <label>Kilometros</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <label>Volúmen en L</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <label>Volúmen Acumulado en L</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Termina formulario Editar Dispositivo -->
+
+                <!-- Configuración del Dispositivo -->
+                <div class="row">
+                    <div class="card card-plain">
+                        <div class="card-header">
+                            <h6 class="title d-inline">Configuración del Dispositivo</h6>
+                        </div>
+                        <div class="card-body ">
+                            <div class="table-full-width table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <th class="text-center"></th>
+                                        <th class="text-center">Usuario</th>
+                                        <th class="text-center">Pin del Usuario</th>
+                                        <th class="text-center">Vehículo</th>
+                                        <th class="text-center">Pin del Vehículo</th>
+                                        <th class="text-center">Kilometros</th>
+                                        <th class="text-center">Ticket</th>
+                                        <th class="text-center">Volúmen</th>
+                                        <th class="text-center">Impresora</th>
+                                        <th>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                                                    <i class="tim-icons icon-settings-gear-63"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#pablo">Eliminar</a>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <!-- <td class="text-center">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="">
+                                                        <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td> -->
+                                            <td class="text-center"></td>
+                                            <td class="text-center">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                    <?php echo $fila['usuario']; ?>
+                                                        <input class="form-check-input" type="checkbox" value="usuario">
+                                                        <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="pinusuario">
+                                                        <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="vehiculo">
+                                                        <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="pinvehiculo">
+                                                        <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="km">
+                                                        <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="ticket">
+                                                        <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="volumen">
+                                                        <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value="impresora">
+                                                        <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                    <i class="tim-icons icon-simple-remove"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Termina Configuración del Dispositivo -->
+
+
             </div>
 
 
