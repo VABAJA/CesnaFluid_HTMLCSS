@@ -175,7 +175,7 @@ include('../scripts/sesion.php');
             </div>
             <!-- End Navbar -->
             <div class="content">
-                <!-- Busca Clientes -->
+                <!-- Busca Contenedores -->
 
                 <div class="card">
                     <div class="card-body">
@@ -316,8 +316,8 @@ include('../scripts/sesion.php');
                                         </thead>
                                         <tbody>
                                             <?php
-                                            include('../scripts/contenedores_tab.php');
-                                            while ($fila = mysqli_fetch_array($resultado)) : ?>
+                                            include('../scripts/registro_tab.php');
+                                            while ($fila = mysqli_fetch_array($resultado_contenedores)) : ?>
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">

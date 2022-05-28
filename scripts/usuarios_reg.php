@@ -1,13 +1,8 @@
 <?php
-
-
 $host_sql="localhost";
             $user_sql="root";
             $pass_sql="123456";
             $db_sql="tramex1";
-
-
-
 
 $usuario=$_POST['usuario'];
 $usuariopin=$_POST['usuariopin'];
@@ -43,11 +38,6 @@ if(isset($_POST["ingresarUsuario"]))
 
 }
 
-
 //$querty=mysqli_query($conexion,$querty);
-
-
-
-
 
 ?>

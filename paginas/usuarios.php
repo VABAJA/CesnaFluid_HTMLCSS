@@ -1,5 +1,5 @@
 <?php
-include ('../scripts/sesion.php');
+include('../scripts/sesion.php');
 ?>
 
 <!DOCTYPE html>
@@ -241,7 +241,7 @@ include ('../scripts/sesion.php');
                 <h5 class="title">Agregar Nuevo Usuario</h5>
               </div>
               <div class="card-body">
-                <form action="../scripts/usuarios_reg.php" method="post">
+                <form action="../scripts/registro.php" method="post">
                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
@@ -332,7 +332,7 @@ include ('../scripts/sesion.php');
                             </th>
                             <th class="text-center">ID. Del Usuario</th>
                             <th class="text-center">PINRFID</th>
-                            <th class="text-center">Nombre del Contacto</th>
+                            <th class="text-center">Nombre de Usuario</th>
                             <th class="text-center">Locación</th>
                             <th class="text-center">Fecha de Registro</th>
                             <th class="text-center"></th>
@@ -352,8 +352,8 @@ include ('../scripts/sesion.php');
                         <tbody>
                           <?php
 
-                          include ('../scripts/usuarios_tab.php');
-                          while ($fila = mysqli_fetch_array($resultado)) : ?>
+                          include('../scripts/registro_tab.php');
+                          while ($fila = mysqli_fetch_array($resultado_usuarios)) : ?>
 
                             <tr>
                               <td>
@@ -389,8 +389,10 @@ include ('../scripts/sesion.php');
                                 </button>
                               </td>
                               <td class="text-center">
-                                <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                                  <i class="tim-icons icon-simple-remove"></i>
+                                <button type="button" title="Eliminar Usuario" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                  <a href="../scripts/elimina_elemento.php">
+                                    <i class="tim-icons icon-simple-remove"></i>
+                                  </a>
                                 </button>
                               </td>
                             </tr>

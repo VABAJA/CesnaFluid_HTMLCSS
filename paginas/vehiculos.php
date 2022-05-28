@@ -236,7 +236,7 @@ include ('../scripts/sesion.php');
                 <h5 class="title">Agregar Nuevo Vehículo</h5>
               </div>
               <div class="card-body">
-                <form action="../scripts/vehiculos_req.php" method="post">
+                <form action="../scripts/registro.php" method="post">
                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
@@ -276,12 +276,12 @@ include ('../scripts/sesion.php');
                         <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
                       </div>
                     </div>
-                    <div class="col-sm-4">
+                    <!-- <div class="col-sm-4">
                       <div class="form-group">
                         <label>ID. Del Vehículo</label>
                         <input type="string" class="form-control" placeholder="Ej: 1000" name="vehiculos_id" required>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="card-footer">
                     <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarVehiculo">Agregar
@@ -344,8 +344,8 @@ include ('../scripts/sesion.php');
                     </thead>
                     <tbody>
                       <?php
-                      include ('../scripts/vehiculos_tab.php');
-                      while ($fila = mysqli_fetch_array($resultado)) : ?>
+                      include ('../scripts/registro_tab.php');
+                      while ($fila = mysqli_fetch_array($resultado_vehiculos)) : ?>
                         <tr>
                           <td>
                             <div class="form-check">

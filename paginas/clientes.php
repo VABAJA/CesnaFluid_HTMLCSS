@@ -239,7 +239,7 @@ include('../scripts/sesion.php');
                                 <h5 class="title">Agregar Nuevo Cliente</h5>
                             </div>
                             <div class="card-body">
-                                <form action="../scripts/clientes_reg.php" method="post">
+                                <form action="../scripts/registro.php" method="post">
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
@@ -250,13 +250,21 @@ include('../scripts/sesion.php');
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Empresa</label>
-                                                <input type="string" class="form-control" placeholder="Ej: 0000" name="nombreCliente" required>
+                                                <input type="string" class="form-control" placeholder="Ej: VABAJA, S.A. de C.V." name="nombreCliente" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Contacto</label>
-                                                <input type="string" class="form-control" placeholder="Ej: 0000" name="contacto" required>
+                                                <input type="string" class="form-control" placeholder="Ej: Jorge Barrera" name="contacto" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Dispositivo</label>
+                                                <input type="string" class="form-control" placeholder="Ej: 123ABC" name="id_dispositivos">
                                             </div>
                                         </div>
                                     </div>
@@ -270,37 +278,17 @@ include('../scripts/sesion.php');
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Correo</label>
-                                                <input type="string" class="form-control" placeholder="Ej: nombre@dominio.com" name="correo" required>
+                                                <input type="string" class="form-control" placeholder="Ej: usuario@dominio.com" name="correo" required>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <!-- <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Usuario</label>
-                                                <input type="string" class="form-control" placeholder="Ej: jobarv" name="id_usuarios" required>
+                                                <input type="string" class="form-control" placeholder="Ej: jobarv" name="id_usuarios" >
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Dispositivo</label>
-                                                <input type="string" class="form-control" placeholder="Ej: 123" name="id_dispositivos" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Contenedor</label>
-                                                <input type="string" class="form-control" placeholder="Ej: El Uro" name="id_contenedores">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Ticket</label>
-                                                <input type="string" class="form-control" placeholder="Ej: 0000" name="id_tickets">
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
+                                    
                                     <div class="card-footer">
                                         <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarCliente">Agregar
                                             Cliente</button>
@@ -313,7 +301,7 @@ include('../scripts/sesion.php');
 
                 <!--Termina form para agregar Nuevo Dispositivo -->
 
-                <!-- TABLA Dispositivo -->
+                <!-- TABLA Clientes -->
 
                 <div class="row">
                     <div class="col-md-12">
@@ -366,8 +354,8 @@ include('../scripts/sesion.php');
                                         </thead>
                                         <tbody>
                                             <?php
-                                            include('../scripts/clientes_tab.php');
-                                            while ($fila = mysqli_fetch_array($resultado)) :
+                                            include('../scripts/registro_tab.php');
+                                            while ($fila = mysqli_fetch_array($resultado_clientes)) :
                                             ?>
                                                 <tr>
                                                     <td>

@@ -1,63 +1,62 @@
 <?php
-    include_once './scripts/database.php';
-    
-    session_start();
+include_once './scripts/database.php';
 
-    if(isset($_GET['cerrar_sesion'])){
-        session_unset(); 
+session_start();
 
-        // destroy the session 
-        session_destroy(); 
-    }
-    
-    if(isset($_SESSION['rol'])){
-        switch($_SESSION['rol']){
-            case 1:
-                header('location: ./dashboard.php');
+if (isset($_GET['cerrar_sesion'])) {
+    session_unset();
+
+    // destroy the session 
+    session_destroy();
+}
+
+if (isset($_SESSION['rol'])) {
+    switch ($_SESSION['rol']) {
+        case 1:
+            header('location: ./paginas/dashboard.php');
             break;
 
-            case 2:
+        case 2:
             header('location: ./cliente/dashboard.php');
             break;
 
-            default:
-        }
+        default:
     }
+}
 
-    if(isset($_POST['username']) && isset($_POST['password'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-        $db = new Database();
-        $query = $db->connect()->prepare('SELECT *FROM rolesdeusuario WHERE username = :username AND password = :password');
-        $query->execute(['username' => $username, 'password' => $password]);
+    $db = new Database();
+    $query = $db->connect()->prepare('SELECT *FROM rolesdeusuario WHERE username = :username AND password = :password');
+    $query->execute(['username' => $username, 'password' => $password]);
 
-        $row = $query->fetch(PDO::FETCH_NUM);
-        
-        if($row == true){
-            $rol = $row[3];
-            
-            $_SESSION['rol'] = $rol;
-            switch($rol){
-                case 1:
-                    header('location: ./paginas/dashboard.php');
+    $row = $query->fetch(PDO::FETCH_NUM);
+
+    if ($row == true) {
+        $rol = $row[3];
+
+        $_SESSION['rol'] = $rol;
+        switch ($rol) {
+            case 1:
+                header('location: ./paginas/dashboard.php');
                 break;
 
-                case 2:
+            case 2:
                 header('location: ./cliente/dashboard.php');
                 break;
 
-                default:
-            }
-        }else{
-            // no existe el usuario
-            echo "Nombre de usuario o contraseña incorrecto";
+            default:
         }
-        
-
+    } else {
+        // no existe el usuario
+        echo "Nombre de usuario o contraseña incorrecto";
     }
+}
 
-?>  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +74,7 @@
         <!-- Nucleo Icons -->
         <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
         <!-- CSS Files -->
-        <link href="./assets/css/black-dashboard.css" rel="stylesheet" />
+        <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
 
     </head>
     <main>
@@ -87,9 +86,7 @@
                 <div class="login-page">
                     <div class="card-login">
 
-
-                        <h1>Cliente</h1>
-
+                        <h1>Bienvenido</h1>
 
                     </div>
                     <?php
@@ -99,40 +96,45 @@
                         }
                     }
                     ?>
+                    <form action="#" method="POST">
 
-                    <form method="POST" action="">
                         <div class="row justify-content-center">
                             <div class="col-md-3">
                                 <label for="form-control" class="text-white form-label">Nombre de Usuario</label>
-                                <input type="string" class="form-control" name="username" placeholder="usuario">
+                                <input type="string" class="form-control" placeholder="usuario" name="username" value="" required>
                             </div>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-3">
-                                <label for="inputPassword" class="text-white form-label">Contraseña</label>
-                                <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Contraseña">
+                                <label for="form-control" class="text-white form-label">Contraseña</label>
+                                <input type="password" class="form-control" placeholder="Contraseña" name="password" value="" required>
                             </div>
                         </div>
                         <div class="row justify-content-center">
 
-                                <button  type="success" native-type="submit" class="btn btn-blue" size="col-md-3">
-                                    Iniciar Sesión
-                                </button>
-
-                        </div>
-                        <div class="btn pull-right">
-
-                            <a href="./paginas/admin.php" target="_self">Acceso Administrador</a>
-
+                            <button type="success" native-type="submit" class="btn btn-blue" size="col-md-3">
+                                Iniciar Sesión
+                            </button>
                         </div>
 
                     </form>
+
+                    <div class="pull-right">
+                        <div class="link footer-link">
+                            <h6>
+                                <a href="https://wa.me/+528115028945" target="_blank">
+
+                                    ¿Necesitas ayuda? Contacta a VABAJA
+
+                                </a>
+                            </h6>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-
-
 </body>
 
 </html>

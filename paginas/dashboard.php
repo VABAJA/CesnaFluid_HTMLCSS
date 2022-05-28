@@ -289,16 +289,16 @@ include('../scripts/sesion.php');
                           <?php echo $fila['nombreCliente']; ?>
                         </td>
                         <td class="text-center">
-                          <?php echo $fila['usuarios_id']; ?>
+                          <?php echo $fila['id_usuarios']; ?>
                         </td>
                         <td class="text-center">
-                          <?php echo $fila['dispositivos_id']; ?>
+                          <?php echo $fila['id_dispositivos']; ?>
                         </td>
                         <td class="text-center">
-                          <?php echo $fila['vehiculos_id']; ?>
+                          <?php echo $fila['id_vehiculos']; ?>
                         </td>
                         <td class="text-center">
-                          <?php echo $fila['tickets_id']; ?>
+                          <?php echo $fila['id_tickets']; ?>
                         </td>
                         <td class="td-actions text-right">
                           <button class="btn btn-link" type="button" title="Editar Cliente" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">

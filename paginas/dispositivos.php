@@ -239,18 +239,24 @@ include('../scripts/sesion.php');
                                 <h5 class="title">Agregar Nuevo Dispositivo</h5>
                             </div>
                             <div class="card-body">
-                                <form action="" method="post">
+                                <form action="../scripts/registro.php" method="post">
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>ID. Del Dispositivo</label>
-                                                <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
+                                                <label>Ubicación</label>
+                                                <input type="string" class="form-control" placeholder="Ej: Monterrey, N.L." name="locacion" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>PIN RFID</label>
-                                                <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
+                                                <input type="string" class="form-control" placeholder="Ej: ABC123" name="dispositivos_id" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Volúmen Acumulado</label>
+                                                <input type="string" class="form-control" placeholder="Ej: 0000" name="vacum" required>
                                             </div>
                                         </div>
                                     </div>
@@ -312,8 +318,8 @@ include('../scripts/sesion.php');
                                         </thead>
                                         <tbody>
                                             <?php
-                                            include('../scripts/dispositivos_tab.php');
-                                            while ($fila = mysqli_fetch_array($resultado)) : ?>
+                                            include('../scripts/registro_tab.php');
+                                            while ($fila = mysqli_fetch_array($resultado_dispositivos)) : ?>
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
@@ -483,7 +489,7 @@ include('../scripts/sesion.php');
                                             <td class="text-center">
                                                 <div class="form-check">
                                                     <label class="form-check-label">
-                                                    <?php echo $fila['usuario']; ?>
+                                                        <?php echo $fila['usuario']; ?>
                                                         <input class="form-check-input" type="checkbox" value="usuario">
                                                         <span class="form-check-sign">
                                                             <span class="check"></span>
@@ -494,7 +500,7 @@ include('../scripts/sesion.php');
                                             <td class="text-center">
                                                 <div class="form-check">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="pinusuario">
+                                                        <input class="form-check-input" type="checkbox" value="pinUsuario">
                                                         <span class="form-check-sign">
                                                             <span class="check"></span>
                                                         </span>
@@ -514,7 +520,7 @@ include('../scripts/sesion.php');
                                             <td class="text-center">
                                                 <div class="form-check">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="pinvehiculo">
+                                                        <input class="form-check-input" type="checkbox" value="pinVehiculo">
                                                         <span class="form-check-sign">
                                                             <span class="check"></span>
                                                         </span>
@@ -569,6 +575,9 @@ include('../scripts/sesion.php');
                                         </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
                             </div>
                         </div>
                     </div>
