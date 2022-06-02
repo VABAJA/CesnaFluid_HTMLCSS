@@ -272,8 +272,8 @@ include('../scripts/sesion.php');
                   </thead>
                   <tbody>
                     <?php
-                    include '../scripts/dashboard.php';
-                    while ($fila = mysqli_fetch_array($resultado)) : ?>
+                    include '../scripts/registro_tab.php';
+                    while ($fila = mysqli_fetch_array($resultado_clientes)) : ?>
                       <tr>
                         <td>
                           <div class="form-check">

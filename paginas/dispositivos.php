@@ -450,32 +450,33 @@ include('../scripts/sesion.php');
                             <h6 class="title d-inline">Configuración del Dispositivo</h6>
                         </div>
                         <div class="card-body ">
-                            <div class="table-full-width table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <th class="text-center"></th>
-                                        <th class="text-center">Usuario</th>
-                                        <th class="text-center">Pin del Usuario</th>
-                                        <th class="text-center">Vehículo</th>
-                                        <th class="text-center">Pin del Vehículo</th>
-                                        <th class="text-center">Kilometros</th>
-                                        <th class="text-center">Ticket</th>
-                                        <th class="text-center">Volúmen</th>
-                                        <th class="text-center">Impresora</th>
-                                        <th>
-                                            <div class="dropdown">
-                                                <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                                                    <i class="tim-icons icon-settings-gear-63"></i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                    <a class="dropdown-item" href="#pablo">Eliminar</a>
+                            <form action="../scripts/conf_dispositivo.php" method="post">
+                                <div class="table-full-width table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <th class="text-center"></th>
+                                            <th class="text-center">Usuario</th>
+                                            <th class="text-center">Pin del Usuario</th>
+                                            <th class="text-center">Vehículo</th>
+                                            <th class="text-center">Pin del Vehículo</th>
+                                            <th class="text-center">Kilometros</th>
+                                            <th class="text-center">Ticket</th>
+                                            <th class="text-center">Volúmen</th>
+                                            <th class="text-center">Impresora</th>
+                                            <th>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                                                        <i class="tim-icons icon-settings-gear-63"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" href="#pablo">Eliminar</a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <!-- <td class="text-center">
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <!-- <td class="text-center">
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="checkbox" value="">
@@ -485,100 +486,101 @@ include('../scripts/sesion.php');
                                                     </label>
                                                 </div>
                                             </td> -->
-                                            <td class="text-center"></td>
-                                            <td class="text-center">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <?php echo $fila['usuario']; ?>
-                                                        <input class="form-check-input" type="checkbox" value="usuario">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="pinUsuario">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="vehiculo">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="pinVehiculo">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="km">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="ticket">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="volumen">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="impresora">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                                                    <i class="tim-icons icon-simple-remove"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="card-footer">
-                                <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
-                            </div>
+                                                <td class="text-center"></td>
+                                                <td class="text-center">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <?php echo $fila['usuario']; ?>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice[]" value="usuario">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" name="confDevice[]" value="pinUsuario">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" name="confDevice[]" value="vehiculo">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" name="confDevice[]" value="pinVehiculo">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" name="confDevice[]" value="km">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" name="confDevice[]" value="ticket">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" name="confDevice[]" value="volumen">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" name="confDevice[]" value="impresora">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                        <i class="tim-icons icon-simple-remove"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
