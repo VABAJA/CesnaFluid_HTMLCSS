@@ -6,7 +6,7 @@ session_start();
 if (isset($_GET['cerrar_sesion'])) {
     session_unset();
 
-    // destroy the session 
+    // destroy the session
     session_destroy();
 }
 
@@ -84,24 +84,19 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             </div>
             <div class="container">
                 <div class="login-page">
-                    <div class="card-login">
+                    <div class="card-plain">
 
                         <h1>Bienvenido</h1>
 
                     </div>
-                    <?php
-                    if (isset($errors) && count($errors) > 0) {
-                        foreach ($errors as $error_msg) {
-                            echo '<div class="alert alert-danger">' . $error_msg . '</div>';
-                        }
-                    }
-                    ?>
+                    <div class="card-plain card-body">
+
                     <form action="#" method="POST">
 
                         <div class="row justify-content-center">
                             <div class="col-md-3">
                                 <label for="form-control" class="text-white form-label">Nombre de Usuario</label>
-                                <input type="string" class="form-control" placeholder="usuario" name="username" value="" required>
+                                <input type="string" class="form-control" placeholder="Usuario" name="username" value="" required>
                             </div>
                         </div>
                         <div class="row justify-content-center">
@@ -118,19 +113,24 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                         </div>
 
                     </form>
-
                     <div class="pull-right">
-                        <div class="link footer-link">
-                            <h6>
-                                <a href="https://wa.me/+528115028945" target="_blank">
+<div class="row">
+    <div class="col-12">
 
-                                    ¿Necesitas ayuda? Contacta a VABAJA
+            <div class="link footer-link">
+                <h6>
+                    <a href="https://wa.me/+528115028945" target="_blank">
 
-                                </a>
-                            </h6>
-                        </div>
+                        ¿Necesitas ayuda? Contacta a VABAJA
 
-                    </div>
+                    </a>
+                </h6>
+            </div>
+        </div>
+
+    </div>
+</div>
+                </div>
                 </div>
             </div>
         </section>
