@@ -2,35 +2,22 @@
 session_start();
 $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
 
-$resultado_config = mysqli_query($conectar, "SELECT * FROM configuracion");
 
-// if (isset($_SESSION['cliente'])) {
-//     if($_SESSION['cliente'] = $_POST['buscar']) { 
+/* if ($_POST['usuario'] === 1) {
 
-// $isValidAddress = 1;
-// if($isValidAddress)
-// {
-//    echo 'true is represented as ';
-//    echo ($isValidAddress);
-// }
-// else
-// {
-//    echo 'false is represented as ';
-//    echo ($isValidAddress);
-// }
-?>
-<?php 
-session_start();
-$conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+    $conf_Device = "UPDATE configuracion SET usuario = 0";
+} else {
+    $conf_Device = "UPDATE configuracion SET usuario = 1";
 
-$conf_Device="UPDATE configuracion SET usuario = 0 WHERE usuario = 1";
+} */
 
 if (mysqli_query($conectar, $conf_Device)) {
-    echo "<script> alert ('Configuración actualizada con éxito');window.location='../paginas/dispositivos.php'</script>";
-    } else {
+    echo "<script> alert ('Configuración actualizada con éxito');
+    window.location='../paginas/dispositivos.php'</script>";
+} else {
     echo "Error";
-    }
-    echo "<script> alert ('Ocurrió un error');window.location='../paginas/dispositivos.php'</script>";
-
+    echo "<script> alert ('Ocurrió un error');
+        window.location='../paginas/dispositivos.php'</script>";
+}
 
 ?>

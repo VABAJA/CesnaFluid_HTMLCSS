@@ -490,7 +490,6 @@ include('../scripts/sesion.php');
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <?php echo $fila['usuario']; ?>
                                                             <input class="form-check-input" type="checkbox" name="confDevice[]" value="usuario">
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
@@ -578,7 +577,7 @@ include('../scripts/sesion.php');
                                     </table>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
+                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarDispositivo">Guardar</button>
                                 </div>
                             </form>
                         </div>
