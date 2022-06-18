@@ -481,7 +481,7 @@ include('../scripts/sesion.php');
         </div>
 
         <!-- Termina edición de Usuario -->
-        <!-- Formulario de editar vehículo -->
+        <!-- Formulario de editar Usuario -->
 
         <div class="row">
           <div class="col-12 collapse" id="accordion">
@@ -661,11 +661,11 @@ include('../scripts/sesion.php');
           </div>
         </div>
       </div>
-      <!-- Termina formulario Editar Vehículo -->
+      <!-- Termina formulario Editar Usuario -->
 
 
     </div>
-    <!-- Termina tabla de horarios para Vehículos -->
+    
 
     <!-- Selector de colores-->
     <div class="fixed-plugin">

@@ -490,7 +490,7 @@ include('../scripts/sesion.php');
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice[]" value="usuario">
+                                                            <input class="form-check-input" type="checkbox" name="confDevice[]" value="usuario" <?php if($is_checked) echo "checked"; ?> >
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
