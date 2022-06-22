@@ -1,5 +1,5 @@
 <?php
-session_start();
+/* session_start();
 //variable de conexión
 $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
 
@@ -22,4 +22,4 @@ if (mysqli_connect_errno($conectar)) {
    }
   }
 } 
-
+ */

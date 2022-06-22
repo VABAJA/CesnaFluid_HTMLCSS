@@ -165,7 +165,7 @@ include ('../scripts/sesionCliente.php');
                 <!-- Tabla "Información del Cliente" -->
                 <div class="card">
                     <div class="card-body">
-                        <form>
+                        <form action="../scripts/dashboard.php">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="table-responsive">
@@ -182,16 +182,19 @@ include ('../scripts/sesionCliente.php');
                                             <tbody>
                                                 <tr>
                                                     <td class="text-center">
-                                                        <?php echo $fila['No.Cliente']; ?>
+                                                        <?php echo $fila['nombreCliente']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['clienteId']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['Contacto']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['Telefono']; ?>
+                                                        <?php echo $fila['telefono']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['Correo']; ?>
+                                                        <?php echo $fila['correo']; ?>
                                                     </td>
                                                 </tr>
                                             </tbody>

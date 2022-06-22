@@ -1,6 +1,7 @@
 <?php
 session_start();
 $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+$buscar = $_POST['buscar'];
 
 if (isset($_SESSION['cliente'])) {
     // echo $_SESSION['cliente'];
