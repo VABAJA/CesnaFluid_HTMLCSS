@@ -1,5 +1,5 @@
 <?php
-include('../scripts/sesion.php');
+include '../scripts/sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -198,8 +198,8 @@ include('../scripts/sesion.php');
                                             <tbody>
                                                 <tr>
                                                     <?php
-                                                    include('../scripts/buscador.php');
-                                                    while ($fila = mysqli_fetch_array($sql_query)) : ?>
+include '../scripts/buscador.php';
+while ($fila = mysqli_fetch_array($sql_query)): ?>
 
                                                         <td class="text-center">
                                                             <?php echo $fila['nombreCliente']; ?>
@@ -216,7 +216,7 @@ include('../scripts/sesion.php');
                                                         <td class="text-center">
                                                             <?php echo $fila['correo']; ?>
                                                         </td>
-                                                    <?php endwhile; ?>
+                                                    <?php endwhile;?>
                                                 </tr>
                                             </tbody>
 
@@ -318,8 +318,8 @@ include('../scripts/sesion.php');
                                         </thead>
                                         <tbody>
                                             <?php
-                                            include('../scripts/registro_tab.php');
-                                            while ($fila = mysqli_fetch_array($resultado_dispositivos)) : ?>
+include '../scripts/registro_tab.php';
+while ($fila = mysqli_fetch_array($resultado_dispositivos)): ?>
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
@@ -352,7 +352,7 @@ include('../scripts/sesion.php');
                                                             <i class="tim-icons icon-simple-remove"></i>
                                                         </button>
                                                     </td>
-                                                <?php endwhile; ?>
+                                                <?php endwhile;?>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -463,16 +463,7 @@ include('../scripts/sesion.php');
                                             <th class="text-center">Ticket</th>
                                             <th class="text-center">Volúmen</th>
                                             <th class="text-center">Impresora</th>
-                                            <th>
-                                                <div class="dropdown">
-                                                    <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                                                        <i class="tim-icons icon-settings-gear-63"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                        <a class="dropdown-item" href="#pablo">Eliminar</a>
-                                                    </div>
-                                                </div>
-                                            </th>
+
                                         </thead>
                                         <tbody>
                                             <tr>
@@ -490,18 +481,15 @@ include('../scripts/sesion.php');
                                                 <td class="text-center">
                                                     <?php
 
-                                                    
-                                                    $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
-                                                    $var = "SELECT * FROM configuracion";
-                                                    $vars = mysqli_query($conectar,$var);
-                                                    $varsh = mysqli_fetch_array($vars);
+$conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+$var = "SELECT * FROM configuracion";
+$vars = mysqli_query($conectar, $var);
+$varsh = mysqli_fetch_array($vars);
 
-                                                        
-
-                                                    ?>
+?>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice1" value="1" <?php if($varsh['usuario'] == 1){echo "checked";} ?> >
+                                                            <input class="form-check-input" type="checkbox" name="confDevice1" value="1" <?php if ($varsh['usuario'] == 1) {echo "checked";}?> >
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -511,7 +499,7 @@ include('../scripts/sesion.php');
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice2" value="1" <?php if($varsh['pinUsuario'] == 1){echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice2" value="1" <?php if ($varsh['pinUsuario'] == 1) {echo "checked";}?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -521,7 +509,7 @@ include('../scripts/sesion.php');
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice3" value="1" <?php if($varsh['vehiculo'] == 1){echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice3" value="1" <?php if ($varsh['vehiculo'] == 1) {echo "checked";}?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -531,7 +519,7 @@ include('../scripts/sesion.php');
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice4" value="1" <?php if($varsh['pinVehiculo'] == 1){echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice4" value="1" <?php if ($varsh['pinVehiculo'] == 1) {echo "checked";}?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -541,7 +529,7 @@ include('../scripts/sesion.php');
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice5" value="1" <?php if($varsh['km'] == 1){echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice5" value="1" <?php if ($varsh['km'] == 1) {echo "checked";}?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -551,7 +539,7 @@ include('../scripts/sesion.php');
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice6" value="1" <?php if($varsh['ticket'] == 1){echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice6" value="1" <?php if ($varsh['ticket'] == 1) {echo "checked";}?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -561,7 +549,7 @@ include('../scripts/sesion.php');
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice7" value="1" <?php if($varsh['volumen'] == 1){echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice7" value="1" <?php if ($varsh['volumen'] == 1) {echo "checked";}?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -571,17 +559,12 @@ include('../scripts/sesion.php');
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice8" value="1" <?php if($varsh['impresora'] == 1){echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice8" value="1" <?php if ($varsh['impresora'] == 1) {echo "checked";}?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
                                                         </label>
                                                     </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                                                        <i class="tim-icons icon-simple-remove"></i>
-                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -595,11 +578,7 @@ include('../scripts/sesion.php');
                     </div>
                 </div>
                 <!-- Termina Configuración del Dispositivo -->
-
-
             </div>
-
-
             <!-- Selector de Colores -->
             <div class="fixed-plugin">
                 <div class="dropdown show-dropdown">
