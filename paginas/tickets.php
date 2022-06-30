@@ -1,5 +1,5 @@
 <?php
-include ('../scripts/sesion.php');
+include '../scripts/sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -206,8 +206,8 @@ include ('../scripts/sesion.php');
                                             <tbody>
                                                 <tr>
                                                     <?php
-                                                    include '../scripts/buscador.php';
-                                                    while ($row = mysqli_fetch_array($sql_query)) : ?>
+include '../scripts/buscador.php';
+while ($row = mysqli_fetch_array($sql_query)): ?>
 
                                                         <td class="text-center">
                                                             <?php echo $row['nombreCliente']; ?>
@@ -224,7 +224,7 @@ include ('../scripts/sesion.php');
                                                         <td class="text-center">
                                                             <?php echo $row['correo']; ?>
                                                         </td>
-                                                    <?php endwhile; ?>
+                                                    <?php endwhile;?>
                                                 </tr>
                                             </tbody>
 
@@ -238,6 +238,97 @@ include ('../scripts/sesion.php');
                     </div>
                 </div>
                 <!-- Termina Buscar Cliente -->
+                <!-- Comienza Tabla de Tickets  -->
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="card-plain">
+
+                            <div class="card-header">
+                                <h4 class="title">Tickets</h4>
+                                <!-- <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
+                                    Agregar Nuevo Dispositivo
+                                </button> -->
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table tablesorter">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" value="">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </th>
+                                                <th class="text-center">No. De Ticket</th>
+                                                <th class="text-center">Fecha de Registro</th>
+                                                <th class="text-center">ID. De Ticket</th>
+                                                <th class="text-center"></th>
+                                                <th class="text-center">
+                                                    <div class="dropdown">
+                                                        <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                                                            <i class="tim-icons icon-settings-gear-63"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item" href="#pablo">Eliminar</a>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                include '../scripts/registro_tab.php';
+                                                while ($fila = mysqli_fetch_array($resultado_tickets)): ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="">
+                                                                <span class="form-check-sign">
+                                                                    <span class="check"></span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['tickets_id']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['_date']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['ticket_number']; ?>
+                                                    </td>
+
+                                                    <!-- <td class="text-center">
+                                                        <button class="btn btn-link" type="button" title="Editar Dispositivo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                                                            <i class="tim-icons icon-pencil"></i>
+
+                                                        </button>
+                                                    </td> -->
+                                                    <td class="text-center">
+                                                        <button type="button" title="Eliminar Dispositivo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                            <i class="tim-icons icon-simple-remove"></i>
+                                                        </button>
+                                                    </td>
+                                                <?php endwhile;?>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Termina tabla de Tickets  -->
+
             </div>
         </div>
         <div class="fixed-plugin">
@@ -280,8 +371,6 @@ include ('../scripts/sesion.php');
         <script src="../assets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
-        <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-        <script src="../assets/demo/demo.js"></script>
         <script>
             $(document).ready(function() {
                 $().ready(function() {

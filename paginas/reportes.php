@@ -1,5 +1,5 @@
 <?php
-include('../scripts/sesion.php');
+include '../scripts/sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +19,11 @@ include('../scripts/sesion.php');
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+
+    <!-- links para exportar a excel -->
+    <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
+    <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
 
 </head>
 
@@ -178,190 +183,135 @@ include('../scripts/sesion.php');
             <div class="content">
                 <!-- Busca Clientes -->
 
-                <div class="card">
-                    <div class="card-body">
-                        <form method="POST" action="./reportes.php">
-                            <div class="row">
-                                <div class="form-group col-md-4">
-                                    <label>Nombre del Cliente</label>
-                                    <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="table-responsive">
-                                        <table class="table tablesorter">
-                                            <thead class="text-primary">
-                                                <tr>
-                                                    <th class="text-center">Nombre del Cliente</th>
-                                                    <th class="text-center">No. Cliente</th>
-                                                    <th class="text-center">Contacto</th>
-                                                    <th class="text-center">Teléfono</th>
-                                                    <th class="text-center">Correo</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <?php
-                                                    include '../scripts/buscador.php';
-                                                    while ($row = mysqli_fetch_array($sql_query)) : ?>
-
-                                                        <td class="text-center">
-                                                            <?php echo $row['nombreCliente']; ?>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <?php echo $row['clienteId']; ?>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <?php echo $row['contacto']; ?>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <?php echo $row['telefono']; ?>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <?php echo $row['correo']; ?>
-                                                        </td>
-                                                    <?php endwhile; ?>
-                                                </tr>
-                                            </tbody>
-
-                                        </table>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-info">Buscar Cliente</button>
-                        </form>
-                    </div>
+        <div class="card">
+          <div class="card-body">
+            <form method="POST" action="./reportes.php">
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label>Nombre del Cliente</label>
+                  <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
                 </div>
-                <!-- Termina Buscar Cliente -->
+                <div class="col-md-8">
+                  <div class="table-responsive">
+                    <table class="table tablesorter">
+                      <thead class="text-primary">
+                        <tr>
+                          <th class="text-center">Nombre del Cliente</th>
+                          <th class="text-center">No. Cliente</th>
+                          <th class="text-center">Contacto</th>
+                          <th class="text-center">Teléfono</th>
+                          <th class="text-center">Correo</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <?php
+                          include '../scripts/buscador.php';
+                          while ($row = mysqli_fetch_array($sql_query)) : ?>
+
+                            <td class="text-center">
+                              <?php echo $row['nombreCliente']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $row['clienteId']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $row['contacto']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $row['telefono']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $row['correo']; ?>
+                            </td>
+                          <?php endwhile; ?>
+                        </tr>
+                      </tbody>
+
+                    </table>
+                  </div>
+
+                </div>
+              </div>
+              <button type="submit" class="btn btn-info">Buscar Cliente</button>
+            </form>
+          </div>
+        </div>
+        <!-- Termina Buscar Cliente -->
+
+                <!-- Tabla de Reportes  -->
 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card ">
                             <div class="card-header">
-                                <h4 class="card-title"> Simple Table</h4>
+                                <h4 class="card-title">Reporte</h4>
                             </div>
                             <div class="">
-                                <button type="submit" class="btn btn-info">Descarga Reporte</button>
+                                <button type="submit" id="btnExportar" class="col-6-md pull-right btn btn-fill btn-info">Descarga Reporte</button>
 
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table tablesorter " id="">
+                                    <table class="table tablesorter " id="tabla">
                                         <thead class=" text-primary">
                                             <tr>
-                                                <th>
-                                                    Name
-                                                </th>
-                                                <th>
-                                                    Country
-                                                </th>
-                                                <th>
-                                                    City
+                                                <th class="text-center">
+                                                    No. Del Cliente
                                                 </th>
                                                 <th class="text-center">
-                                                    Salary
+                                                    Nombre del Cliente
+                                                </th>
+                                                <th class="text-center">
+                                                    Usuarios
+                                                </th>
+                                                <th class="text-center">
+                                                    Dispositivos
+                                                </th>
+                                                <th class="text-center">
+                                                    Vehículos
+                                                </th>
+                                                <th class="text-center">
+                                                    Tickets
+                                                </th>
+                                                <th class="text-center">
+                                                    Contenedores
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>
-                                                    Dakota Rice
-                                                </td>
-                                                <td>
-                                                    Niger
-                                                </td>
-                                                <td>
-                                                    Oud-Turnhout
-                                                </td>
-                                                <td class="text-center">
-                                                    $36,738
-                                                </td>
+                                            <tbody>
+                                            <?php
+include '../scripts/registro_tab.php';
+while ($fila = mysqli_fetch_array($resultado_clientes)):
+?>
+                                                <tr>
+
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_cliente']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['nombreCliente']; ?>
+                                                    </td>
+
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_dispositivos']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_vehiculos']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_tickets']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_contenedores']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_usuarios']; ?>
+                                                    </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    Minerva Hooper
-                                                </td>
-                                                <td>
-                                                    Curaçao
-                                                </td>
-                                                <td>
-                                                    Sinaai-Waas
-                                                </td>
-                                                <td class="text-center">
-                                                    $23,789
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Sage Rodriguez
-                                                </td>
-                                                <td>
-                                                    Netherlands
-                                                </td>
-                                                <td>
-                                                    Baileux
-                                                </td>
-                                                <td class="text-center">
-                                                    $56,142
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Philip Chaney
-                                                </td>
-                                                <td>
-                                                    Korea, South
-                                                </td>
-                                                <td>
-                                                    Overland Park
-                                                </td>
-                                                <td class="text-center">
-                                                    $38,735
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Doris Greene
-                                                </td>
-                                                <td>
-                                                    Malawi
-                                                </td>
-                                                <td>
-                                                    Feldkirchen in Kärnten
-                                                </td>
-                                                <td class="text-center">
-                                                    $63,542
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Mason Porter
-                                                </td>
-                                                <td>
-                                                    Chile
-                                                </td>
-                                                <td>
-                                                    Gloucester
-                                                </td>
-                                                <td class="text-center">
-                                                    $78,615
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Jon Porter
-                                                </td>
-                                                <td>
-                                                    Portugal
-                                                </td>
-                                                <td>
-                                                    Gloucester
-                                                </td>
-                                                <td class="text-center">
-                                                    $98,615
-                                                </td>
-                                            </tr>
+                                            <?php endwhile;?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -404,17 +354,13 @@ include('../scripts/sesion.php');
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+   
     <!-- Chart JS -->
     <script src="../assets/js/plugins/chartjs.min.js"></script>
     <!--  Notifications Plugin    -->
     <script src="../assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
-    <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-    <script src="../assets/demo/demo.js"></script>
     <script>
         $(document).ready(function() {
             $().ready(function() {
@@ -541,6 +487,21 @@ include('../scripts/sesion.php');
                 application: "black-dashboard-free"
             });
     </script>
+    <script>
+    const $btnExportar = document.querySelector("#btnExportar"),
+        $tabla = document.querySelector("#tabla");
+
+    $btnExportar.addEventListener("click", function() {
+        let tableExport = new TableExport($tabla, {
+            exportButtons: false, // No queremos botones
+            filename: "Reporte_De_Cliente", //Nombre del archivo de Excel
+            sheetname: "Reporte", //Título de la hoja
+        });
+        let datos = tableExport.getExportData();
+        let preferenciasDocumento = datos.tabla.xlsx;
+        tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
+    });
+</script>
 </body>
 
 </html>
