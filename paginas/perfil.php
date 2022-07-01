@@ -188,33 +188,33 @@ include '../scripts/sesion.php';
                             <div class="card-body">
                                 <form>
                                     <div class="row">
-                                        <div class="col-md-5 pr-md-1">
+                                        <div class="col-md-6 pr-md-1">
                                             <div class="form-group">
                                                 <label>Empresa</label>
-                                                <input type="text" class="form-control" placeholder="Company"
-                                                    value="Creative Code Inc.">
+                                                <input type="text" class="form-control" placeholder="Nombre de la Empresa"
+                                                    value="">
                                             </div>
                                         </div>
-                                        <div class="col-md-3 px-md-1">
+                                        <div class="col-md-6 px-md-1">
                                             <div class="form-group">
                                                 <label>Nombre de Usuario</label>
-                                                <input type="text" class="form-control" placeholder="Username"
-                                                    value="michael23">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 pl-md-1">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Dirección de Correo</label>
-                                                <input type="email" class="form-control" placeholder="mike@email.com">
+                                                <input type="text" class="form-control" placeholder="Nombre de Usuario"
+                                                    value="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12 pr-md-1">
+                                        <div class="col-md-6 pl-md-1">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Dirección de Correo</label>
+                                                <input type="" class="form-control" placeholder="jorge@email.com">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pr-md-1">
                                             <div class="form-group">
                                                 <label>Nombre</label>
-                                                <input type="text" class="form-control" placeholder="Company"
-                                                    value="Mike">
+                                                <input type="text" class="form-control" placeholder="Nombre del Contacto"
+                                                    value="">
                                             </div>
                                         </div>
                                     </div>
@@ -222,8 +222,8 @@ include '../scripts/sesion.php';
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Dirección</label>
-                                                <input type="text" class="form-control" placeholder="Home Address"
-                                                    value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                                <input type="text" class="form-control" placeholder="Dirección de la Empresa"
+                                                    value="">
                                             </div>
                                         </div>
                                     </div>
@@ -231,20 +231,20 @@ include '../scripts/sesion.php';
                                         <div class="col-md-6 pr-md-1">
                                             <div class="form-group">
                                                 <label>Ciudad</label>
-                                                <input type="text" class="form-control" placeholder="City" value="Mike">
+                                                <input type="text" class="form-control" placeholder="Ciudad" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6 pl-md-1">
                                             <div class="form-group">
-                                                <label>Postal Code</label>
-                                                <input type="number" class="form-control" placeholder="ZIP Code">
+                                                <label>Código Postal</label>
+                                                <input type="number" class="form-control" placeholder="Código Postal">
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn pull-right btn-info">Save</button>
+                                <button type="submit" class="btn pull-right btn-info">Guardar</button>
                             </div>
                         </div>
                     </div>

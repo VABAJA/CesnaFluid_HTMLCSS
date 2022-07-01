@@ -1,5 +1,5 @@
 <?php
-include('../scripts/sesion.php');
+include '../scripts/sesion.php';
 ?>
 
 <!DOCTYPE html>
@@ -147,7 +147,7 @@ include('../scripts/sesion.php');
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Mi Perfil</a></li>
+                <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                   </li>
                   <li class="dropdown-divider"></li>
@@ -199,8 +199,8 @@ include('../scripts/sesion.php');
                       <tbody>
                         <tr>
                           <?php
-                          include '../scripts/buscador.php';
-                          while ($fila = mysqli_fetch_array($sql_query)) : ?>
+include '../scripts/buscador.php';
+while ($fila = mysqli_fetch_array($sql_query)): ?>
 
                             <td class="text-center">
                               <?php echo $fila['nombreCliente']; ?>
@@ -217,7 +217,7 @@ include('../scripts/sesion.php');
                             <td class="text-center">
                               <?php echo $fila['correo']; ?>
                             </td>
-                          <?php endwhile; ?>
+                          <?php endwhile;?>
                         </tr>
                       </tbody>
 
@@ -352,8 +352,8 @@ include('../scripts/sesion.php');
                         <tbody>
                           <?php
 
-                          include('../scripts/registro_tab.php');
-                          while ($fila = mysqli_fetch_array($resultado_usuarios)) : ?>
+include '../scripts/registro_tab.php';
+while ($fila = mysqli_fetch_array($resultado_usuarios)): ?>
 
                             <tr>
                               <td>
@@ -397,7 +397,7 @@ include('../scripts/sesion.php');
                               </td>
                             </tr>
 
-                          <?php endwhile; ?>
+                          <?php endwhile;?>
 
                         </tbody>
                     </table>
@@ -665,7 +665,7 @@ include('../scripts/sesion.php');
 
 
     </div>
-    
+
 
     <!-- Selector de colores-->
     <div class="fixed-plugin">

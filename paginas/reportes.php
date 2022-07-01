@@ -153,7 +153,7 @@ include '../scripts/sesion.php';
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-navbar">
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Mi
+                                    <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi
                                             Perfil</a></li>
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                                     </li>

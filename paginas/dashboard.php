@@ -142,7 +142,7 @@ include('../scripts/sesion.php');
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Mi Perfil</a></li>
+                  <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                   </li>
                   <li class="dropdown-divider"></li>
@@ -701,9 +701,9 @@ include('../scripts/sesion.php');
         <li class="adjustments-line">
           <a href="javascript:void(0)" class="switch-trigger background-color">
             <div class="badge-colors text-center">
-              <span class="badge filter badge-primary" data-color="primary"></span>
-              <span class="badge filter badge-info active" data-color="blue"></span>
-              <span class="badge filter badge-success" data-color="green"></span>
+              <span class="badge filter badge-primary" data-color="primary" id="ColorPrimary"></span>
+              <span class="badge filter badge-info active" data-color="blue" id="ColorBlue"></span>
+              <span class="badge filter badge-success" data-color="green" id="ColorGreen"></span>
             </div>
             <div class="clearfix"></div>
           </a>
@@ -719,6 +719,7 @@ include('../scripts/sesion.php');
   </div>
 
   <!-- Termina selecto de colores -->
+  
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -852,7 +853,7 @@ include('../scripts/sesion.php');
 
     });
   </script>
-
+<script src="../assets/js/main.js"></script>
 </body>
 
 </html>

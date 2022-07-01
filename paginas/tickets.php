@@ -113,12 +113,7 @@ include '../scripts/sesion.php';
                     </button>
                     <div class="collapse navbar-collapse" id="navigation">
                         <ul class="navbar-nav ml-auto">
-                            <!-- <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
-                    class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li> -->
+
                             <li class="dropdown nav-item">
                                 <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <div class="notification d-none d-lg-block d-xl-block"></div>
@@ -152,8 +147,7 @@ include '../scripts/sesion.php';
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-navbar">
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Mi
-                                            Perfil</a></li>
+                                <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
@@ -283,8 +277,8 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                         </thead>
                                         <tbody>
                                             <?php
-                                                include '../scripts/registro_tab.php';
-                                                while ($fila = mysqli_fetch_array($resultado_tickets)): ?>
+include '../scripts/registro_tab.php';
+while ($fila = mysqli_fetch_array($resultado_tickets)): ?>
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
