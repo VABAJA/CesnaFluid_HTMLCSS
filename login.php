@@ -1,5 +1,5 @@
 <?php
-include_once './scripts/database.php';
+include_once './scripts/conexion.php';
 
 session_start();
 
@@ -80,8 +80,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <main>
         <section>
             <img src=" ./assets/img/loginLogo.png" alt="loginLogo">
-            <div class="card-img-overlay">
-            </div>
+            <!-- <div class="card-img-overlay">
+            </div> -->
             <div class="container">
                 <div class="login-page">
                     <div class="card-plain">
