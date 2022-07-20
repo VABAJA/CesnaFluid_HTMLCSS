@@ -1,5 +1,5 @@
 <?php
-include('../scripts/sesion.php');
+include '../scripts/sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -197,8 +197,8 @@ include('../scripts/sesion.php');
                                             <tbody>
                                                 <tr>
                                                     <?php
-                                                    include('../scripts/buscador.php');
-                                                    while ($fila = mysqli_fetch_array($sql_query)) : ?>
+include '../scripts/buscador.php';
+while ($fila = mysqli_fetch_array($sql_query)): ?>
 
                                                         <td class="text-center">
                                                             <?php echo $fila['nombreCliente']; ?>
@@ -215,7 +215,7 @@ include('../scripts/sesion.php');
                                                         <td class="text-center">
                                                             <?php echo $fila['correo']; ?>
                                                         </td>
-                                                    <?php endwhile; ?>
+                                                    <?php endwhile;?>
                                                 </tr>
                                             </tbody>
 
@@ -229,187 +229,59 @@ include('../scripts/sesion.php');
                     </div>
                 </div>
                 <!-- Termina Buscar Cliente -->
-                <!-- Agregar Nuevo Cliente -->
+
+                <!-- Comienza Más Información-->
 
                 <div class="row">
-                    <div class="col-12 collapse" id="collapse">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="title">Agregar Nuevo Cliente</h5>
-                            </div>
-                            <div class="card-body">
-                                <form action="../scripts/registro.php" method="post">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>No. De Cliente</label>
-                                                <input type="number" class="form-control" placeholder="Ej: 123" name="clienteId" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Empresa</label>
-                                                <input type="string" class="form-control" placeholder="Ej: VABAJA, S.A. de C.V." name="nombreCliente" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Contacto</label>
-                                                <input type="string" class="form-control" placeholder="Ej: Jorge Barrera" name="contacto" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Dispositivo</label>
-                                                <input type="string" class="form-control" placeholder="Ej: 123ABC" name="id_dispositivos">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Teléfono</label>
-                                                <input type="number" class="form-control" placeholder="Ej: 8114020231" name="telefono" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Correo</label>
-                                                <input type="string" class="form-control" placeholder="Ej: usuario@dominio.com" name="correo" required>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Usuario</label>
-                                                <input type="string" class="form-control" placeholder="Ej: jobarv" name="id_usuarios" >
-                                            </div>
-                                        </div> -->
-                                    </div>
-                                    
-                                    <div class="card-footer">
-                                        <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarCliente">Agregar
-                                            Cliente</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Termina form para agregar Nuevo Dispositivo -->
-
-                <!-- TABLA Clientes -->
-
-                <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-12 collapse" id="collapse2">
 
                         <div class="card-plain">
 
                             <div class="card-header">
-                                <h4 class="title">Clientes</h4>
-                                <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
-                                    Agregar Nuevo Cliente
-                                </button>
+                                <h4>Más Información</h4>
                             </div>
                             <div class="card-body">
+                                <button class="col-6-md pull-right btn btn-fill btn-info" type="submit" title="Editar Cliente" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">Editar Cliente</button>
+
+                                <button type="submit" title="Eliminar Cliente" class="col-6-md pull-right btn btn-fill btn-info" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">Eliminar Cliente</button>
+
                                 <div class="table-responsive">
                                     <table class="table tablesorter">
                                         <thead class="text-primary">
                                             <tr>
-                                                <th>
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="">
-                                                            <span class="form-check-sign">
-                                                                <span class="check"></span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </th>
-                                                <th class="text-center">No. De Cliente</th>
-                                                <th class="text-center">Empresa</th>
-                                                <th class="text-center">Contacto</th>
-                                                <th class="text-center">Teléfono</th>
-                                                <th class="text-center">Correo</th>
-                                                <th class="text-center">Dispositivos</th>
-                                                <th class="text-center">Vehículos</th>
-                                                <th class="text-center">Tickets</th>
-                                                <th class="text-center">Contenedores</th>
-                                                <th class="text-center">Usuarios</th>
-                                                <th class="text-center"></th>
+
+                                                <th class="text-center">Razón Social</th>
+                                                <th class="text-center">Teléfono 2</th>
+                                                <th class="text-center">Correo electrónico 2</th>
+                                                <th class="text-center">Dirección</th>
                                                 <th class="text-center">
-                                                    <div class="dropdown">
-                                                        <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                                                            <i class="tim-icons icon-settings-gear-63"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                            <a class="dropdown-item" href="#pablo">Eliminar</a>
-                                                        </div>
-                                                    </div>
-                                                </th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            include('../scripts/registro_tab.php');
-                                            while ($fila = mysqli_fetch_array($resultado_clientes)) :
-                                            ?>
+include '../scripts/registro_tab.php';
+while ($fila = mysqli_fetch_array($resultado_clientes)):
+?>
                                                 <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="">
-                                                                <span class="form-check-sign">
-                                                                    <span class="check"></span>
-                                                                </span>
-                                                            </label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['id_cliente']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['nombreCliente']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['contacto']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['telefono']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['correo']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['id_dispositivos']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['id_vehiculos']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['id_tickets']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['id_contenedores']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['id_usuarios']; ?>
-                                                    </td>
 
                                                     <td class="text-center">
-                                                        <button class="btn btn-link" type="button" title="Editar Dispositivo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
-                                                            <i class="tim-icons icon-pencil"></i>
-
-                                                        </button>
+                                                        <?php echo $fila['razonSocial']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <button type="button" title="Eliminar Dispositivo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                                                            <i class="tim-icons icon-simple-remove"></i>
-                                                        </button>
                                                     </td>
-                                                <?php endwhile; ?>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['telefono2']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['correo2']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['direccion']; ?>
+                                                    </td>
+
+
+                                                <?php endwhile;?>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -419,7 +291,7 @@ include('../scripts/sesion.php');
                     </div>
                 </div>
 
-                <!-- Fin de Tabla Cliente -->
+                <!--Termina más Información -->
                 <!-- Formulario de editar Cliente -->
 
                 <div class="row">
@@ -445,45 +317,67 @@ include('../scripts/sesion.php');
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label>ID. Del Cliente</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
+                                                            <input type="number" class="form-control" placeholder="Ej: ABC123" name="clienteId" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>PIN RFID</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
+                                                            <label>Nombre del Cliente</label>
+                                                            <input type="string" class="form-control" placeholder="Ej: 0000" name="nombreCliente" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>Ciudad</label>
-                                                            <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                                                            <label>Contacto</label>
+                                                            <input type="string" class="form-control" placeholder="Ej: Monterrey" name="contacto">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>Nombre de la Empresa</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
+                                                            <label>Razón Social</label>
+                                                            <input type="string" class="form-control" placeholder="Ej: 135000" name="razonSocial" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-4">
+                                                    <div class="col-sm-8">
                                                         <div class="form-group">
                                                             <label>Dirección</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                                                            <input type="string" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <label>Correo Electrónico</label>
+                                                            <input type="string" class="form-control" placeholder="Ej: 1000" name="vacum" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>Dirección Email</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                                                            <label>Teléfono</label>
+                                                            <input type="number" class="form-control" placeholder="Ej: 1000" name="telefono" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <label>Correo Electrónico 2</label>
+                                                            <input type="string" class="form-control" placeholder="Ej: 1000" name="correo2" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>Ciudad</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                                                            <label>Teléfono 2</label>
+                                                            <input type="number" class="form-control" placeholder="Ej: 1000" name="telefono2" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <label>Contacto 2</label>
+                                                            <input type="string" class="form-control" placeholder="Ej: 1000" name="contacto2" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -607,6 +501,237 @@ include('../scripts/sesion.php');
                     </div>
                 </div>
                 <!-- Termina formulario Editar Cliente -->
+
+                <!-- Agregar Nuevo Cliente -->
+
+                <div class="row">
+                    <div class="col-12 collapse" id="collapse">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="title">Agregar Nuevo Cliente</h5>
+                            </div>
+                            <div class="card-body">
+                                <form action="../scripts/registro.php" method="post">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>No. De Cliente</label>
+                                                <input type="number" class="form-control" placeholder="Ej: 123" name="clienteId" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Empresa</label>
+                                                <input type="string" class="form-control" placeholder="Ej: VABAJA, S.A. de C.V." name="nombreCliente" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Contacto</label>
+                                                <input type="string" class="form-control" placeholder="Ej: Jorge Barrera" name="contacto" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Dispositivo</label>
+                                                <input type="string" class="form-control" placeholder="Ej: 123ABC" name="id_dispositivos">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Teléfono</label>
+                                                <input type="number" class="form-control" placeholder="Ej: 8114020231" name="telefono" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Correo</label>
+                                                <input type="string" class="form-control" placeholder="Ej: usuario@dominio.com" name="correo" required>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Usuario</label>
+                                                <input type="string" class="form-control" placeholder="Ej: jobarv" name="id_usuarios" >
+                                            </div>
+                                        </div> -->
+                                    </div>
+
+                                    <div class="card-footer">
+                                        <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarCliente">Agregar
+                                            Cliente</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Termina form para agregar Nuevo Cliente -->
+
+                <!-- TABLA Clientes -->
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="card-plain">
+
+                            <div class="card-header">
+                                <h4 class="title">Clientes</h4>
+                                <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    Más Información
+                                </button>
+                                <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
+                                    Agregar Nuevo Cliente
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table tablesorter">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" value="">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </th>
+                                                <th class="text-center">Usuarios</th>
+                                                <th class="text-center">Dispositivos</th>
+                                                <th class="text-center">Vehículos</th>
+                                                <th class="text-center">Tickets</th>
+                                                <th class="text-center">Contenedores</th>
+                                                <th class="text-center"></th>
+                                                <th class="text-center">
+                                                    <div class="dropdown">
+                                                        <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                                                            <i class="tim-icons icon-settings-gear-63"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item" href="#pablo">Eliminar</a>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                    include '../scripts/registro_tab.php';
+                    while ($fila = mysqli_fetch_array($resultado_clientes)):
+                        ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="">
+                                                                <span class="form-check-sign">
+                                                                    <span class="check"></span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_usuarios']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_dispositivos']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_vehiculos']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_tickets']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_contenedores']; ?>
+                                                    </td>
+
+                                                    <td class="text-center">
+                                                        <button class="btn btn-link" type="button" title="editar Productos" data-toggle="collapse" data-target="#editarProductos" aria-expanded="false" aria-controls="accordion">
+                                                            <i class="tim-icons icon-pencil"></i>
+
+                                                        </button>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <button type="button" title="Eliminar Dispositivo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                            <i class="tim-icons icon-simple-remove"></i>
+                                                        </button>
+                                                    </td>
+                                                <?php endwhile;?>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fin de Tabla Cliente -->
+                <!-- Formulario de editar Productos -->
+
+                <div class="row">
+                    <div class="col-12 collapse" id="editarProductos">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="title">Editar Producto</h5>
+                            </div>
+                            <div class="card-body">
+                                <form action="../scripts/registro.php" method="post">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Usuario</label>
+                                                <input type="string" class="form-control" placeholder="Ej: 123" name="usuario" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Dispositivo</label>
+                                                <input type="string" class="form-control" placeholder="Ej: VABAJA, S.A. de C.V." name="dispositivo" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Vehículo</label>
+                                                <input type="string" class="form-control" placeholder="Ej: Jorge Barrera" name="vehiculo" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Ticket</label>
+                                                <input type="string" class="form-control" placeholder="Ej: 123ABC" name="id_ticket">
+                                            </div>
+                                        </div>                                  
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Contenedor</label>
+                                                <input type="string" class="form-control" placeholder="Ej: El Uro 1" name="id_contenedor" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer">
+                                        <button type="submit" class="col-6-md pull-right btn btn-blue" name="actualizarProductos">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Termina formulario Editar Productos -->
+
             </div>
 
 
