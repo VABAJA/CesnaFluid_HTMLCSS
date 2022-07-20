@@ -249,7 +249,7 @@ include('../scripts/sesion.php');
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>Empresa</label>
+                                                <label>Cliente</label>
                                                 <input type="string" class="form-control" placeholder="Ej: VABAJA, S.A. de C.V." name="nombreCliente" required>
                                             </div>
                                         </div>
@@ -260,14 +260,7 @@ include('../scripts/sesion.php');
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Dispositivo</label>
-                                                <input type="string" class="form-control" placeholder="Ej: 123ABC" name="id_dispositivos">
-                                            </div>
-                                        </div>
-                                    </div>
+
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
@@ -281,12 +274,7 @@ include('../scripts/sesion.php');
                                                 <input type="string" class="form-control" placeholder="Ej: usuario@dominio.com" name="correo" required>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Usuario</label>
-                                                <input type="string" class="form-control" placeholder="Ej: jobarv" name="id_usuarios" >
-                                            </div>
-                                        </div> -->
+
                                     </div>
                                     
                                     <div class="card-footer">
