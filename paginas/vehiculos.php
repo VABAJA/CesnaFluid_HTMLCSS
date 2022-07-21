@@ -202,7 +202,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                               <?php echo $row['nombreCliente']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['clienteId']; ?>
+                              <?php echo $row['id']; ?>
                             </td>
                             <td class="text-center">
                               <?php echo $row['contacto']; ?>

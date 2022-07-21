@@ -50,15 +50,15 @@ if(isset($_POST["ingresarCliente"]))
 
 <?php
 $host_sql="localhost";
-$user_sql="root";
-$pass_sql="123456";
-$db_sql="tramex1";
+            $user_sql="root";
+            $pass_sql="123456";
+            $db_sql="tramex1";
 
 $usuario=$_POST['usuario'];
 $usuariopin=$_POST['usuariopin'];
 $nomusuario=$_POST['nomusuario'];
-$locacion=$_POST['locacion'];
-$usuarios_id=$_POST['usuarios_id'];
+$correoUsuario=$_POST['correoUsuario'];
+$fechareg=$_POST['fechareg'];
 
 
 $conexion=mysqli_connect($host_sql,$user_sql,$pass_sql);
@@ -75,8 +75,8 @@ mysqli_set_charset($conexion,"utf8");
 if(isset($_POST["ingresarUsuario"]))
 {
    
-    $registroUsuarios="INSERT INTO usuarios (usuario, usuariopin, nomusuario, locacion, usuarios_id)"
-    ."VALUES('".$usuario."','".$usuariopin."', '".$nomusuario."','".$locacion."','".$usuarios_id."')";  
+    $registroUsuarios="INSERT INTO usuarios (usuario, usuariopin, nomusuario, correoUsuario, fechareg)"
+    ."VALUES('".$usuario."','".$usuariopin."', '".$nomusuario."','".$correoUsuario."','".$fechareg."')";  
     
     
     if (mysqli_query($conexion, $registroUsuarios)) {

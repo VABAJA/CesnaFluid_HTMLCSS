@@ -213,7 +213,7 @@ include '../scripts/sesion.php';
                               <?php echo $row['nombreCliente']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['clienteId']; ?>
+                              <?php echo $row['id']; ?>
                             </td>
                             <td class="text-center">
                               <?php echo $row['contacto']; ?>

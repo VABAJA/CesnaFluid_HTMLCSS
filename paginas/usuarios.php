@@ -206,7 +206,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                               <?php echo $fila['nombreCliente']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $fila['clienteId']; ?>
+                              <?php echo $fila['id']; ?>
                             </td>
                             <td class="text-center">
                               <?php echo $fila['contacto']; ?>
@@ -245,59 +245,51 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>ID del Usuario</label>
-                        <input type="number" class="form-control" placeholder="Ej: 0001" name="usuario" required>
+                        <label>Nombre de Usuario</label>
+                        <input type="string" class="form-control" placeholder="Nombre de Usuario" name="usuario" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>PIN RFID</label>
-                        <input type="string" class="form-control" placeholder="Ej: 0000" name="usuariopin" required>
+                        <input type="string" class="form-control" placeholder="PIN RFID" name="usuariopin" required>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Nombre del Contacto</label>
-                        <input type="text" class="form-control" placeholder="Ej: Jorge Barrera" name="nomusuario" required>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Nombre de la Empresa</label>
-                        <input type="text" class="form-control" placeholder="Ej: Tramex">
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Dirección Email</label>
-                        <input type="string" class="form-control" placeholder="jorge@email.com">
+                        <input type="string" class="form-control" placeholder="Nombre del Contacto" name="nomusuario" required>
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-sm-12">
+                  <?php
+include '../scripts/buscador.php';
+while ($fila = mysqli_fetch_array($sql_query)): ?>
+                    <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Dirección</label>
-                        <input type="text" class="form-control" placeholder="Ej:Calle, Colonia">
+                        <label>Nombre de la Empresa</label>
+                        <input type="string" class="form-control" placeholder="<?php echo $fila['nombreCliente']; ?>"  disabled="">
+                      </div>
+                      <?php endwhile;?>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Dirección Email</label>
+                        <input type="string" class="form-control" placeholder="Dirección Email" name="correoUsuario" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Teléfono</label>
-                        <input type="number" class="form-control" placeholder="Ej: 8115028945">
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Ciudad</label>
-                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
+                        <label>Fecha de Registro</label>
+                        <input type="date" class="form-control" placeholder="Fecha de Registro" name="fechareg" required>
                       </div>
                     </div>
                   </div>
+                
+                  
                   <div class="card-footer">
-                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarUsuario">Agregar Usuario</button>
+                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarUsuario" <?php if(!isset($_SESSION['cliente'])) echo "disabled='disabled'"; ?>>Agregar Usuario</button>
                   </div>
                 </form>
               </div>
@@ -376,7 +368,7 @@ while ($fila = mysqli_fetch_array($resultado_usuarios)): ?>
                                 <?php echo $fila['nomusuario']; ?>
                               </td>
                               <td class="text-center">
-                                <?php echo $fila['locacion']; ?>
+                                <?php echo $fila['correoUsuario']; ?>
                               </td>
                               <td class="text-center">
                                 <?php echo $fila['fechareg']; ?>

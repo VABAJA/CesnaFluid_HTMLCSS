@@ -13,7 +13,7 @@ if (mysqli_connect_errno($conectar)) {
 // Busca al cliente y muestra solo los datos de ese cliente
     if (isset($_SESSION['cliente'])) {
 
-        $resultado_clientes = mysqli_query($conectar, "SELECT clienteId, nombreCliente, contacto, telefono, correo, id_cliente, id_dispositivos, id_vehiculos, id_tickets, id_contenedores, id_usuarios FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'");
+        $resultado_clientes = mysqli_query($conectar, "SELECT id, nombreCliente, contacto, telefono, correo, razonSocial, direccion, telefono2, correo2 FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'");
 
     } else {
 

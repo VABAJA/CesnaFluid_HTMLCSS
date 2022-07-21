@@ -204,7 +204,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                             <?php echo $fila['nombreCliente']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $fila['clienteId']; ?>
+                                                            <?php echo $fila['id']; ?>
                                                         </td>
                                                         <td class="text-center">
                                                             <?php echo $fila['contacto']; ?>
