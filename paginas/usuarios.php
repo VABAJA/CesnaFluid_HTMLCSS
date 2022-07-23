@@ -241,8 +241,18 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                 <h5 class="title">Agregar Nuevo Usuario</h5>
               </div>
               <div class="card-body">
-                <form action="../scripts/registro.php" method="post">
+                <form action="../scripts/registros/nuevoUsuario.php" method="post">
                   <div class="row">
+                  <div class="col-sm-4">
+                      <?php
+                      include '../scripts/buscador.php';
+                      while ($fila = mysqli_fetch_array($sql_query)): ?>
+                      <div class="form-group">
+                        <label>Nombre del Cliente</label>
+                        <input type="string" class="form-control" name="nombreCliente" value="<?php echo $fila['nombreCliente']; ?>" >
+                      </div>
+                      <?php endwhile;?>
+                    </div>
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Nombre de Usuario</label>
@@ -255,23 +265,13 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                         <input type="string" class="form-control" placeholder="PIN RFID" name="usuariopin" required>
                       </div>
                     </div>
-                    <div class="col-sm-4">
+                  </div>
+                  <div class="row">
+                  <div class="col-sm-4">
                       <div class="form-group">
                         <label>Nombre del Contacto</label>
                         <input type="string" class="form-control" placeholder="Nombre del Contacto" name="nomusuario" required>
                       </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                  <?php
-include '../scripts/buscador.php';
-while ($fila = mysqli_fetch_array($sql_query)): ?>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Nombre de la Empresa</label>
-                        <input type="string" class="form-control" placeholder="<?php echo $fila['nombreCliente']; ?>"  disabled="">
-                      </div>
-                      <?php endwhile;?>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
@@ -286,10 +286,15 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                       </div>
                     </div>
                   </div>
-                
-                  
+
                   <div class="card-footer">
-                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarUsuario" <?php if(!isset($_SESSION['cliente'])) echo "disabled='disabled'"; ?>>Agregar Usuario</button>
+                    <button type="submit" 
+                    class="col-6-md pull-right btn btn-blue" 
+                    name="ingresarUsuario" 
+                    <?php if (!isset($_SESSION['cliente']))
+                    { echo '<input type="submit" disabled>';
+                    }?>>
+                    Agregar Usuario</button>
                   </div>
                 </form>
               </div>
@@ -322,12 +327,11 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                 </label>
                               </div>
                             </th>
-                            <th class="text-center">ID. Del Usuario</th>
+                            <th class="text-center">Usuario</th>
                             <th class="text-center">PINRFID</th>
                             <th class="text-center">Nombre de Usuario</th>
-                            <th class="text-center">Locación</th>
+                            <th class="text-center">Correo del Usuario</th>
                             <th class="text-center">Fecha de Registro</th>
-                            <th class="text-center"></th>
                             <th class="text-center">
                               <div class="dropdown">
                                 <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
@@ -694,9 +698,7 @@ while ($fila = mysqli_fetch_array($resultado_usuarios)): ?>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
   <!-- Chart JS -->
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->

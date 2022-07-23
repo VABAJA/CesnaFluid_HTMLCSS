@@ -236,56 +236,59 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                 <h5 class="title">Agregar Nuevo Vehículo</h5>
               </div>
               <div class="card-body">
-                <form action="../scripts/registro.php" method="post">
+                <form action="../scripts/registros/nuevoVehiculo.php" method="post">
                   <div class="row">
+                    <div class="col-sm-4">
+                      <?php
+                        include '../scripts/buscador.php';
+                        while ($fila = mysqli_fetch_array($sql_query)): ?>
+                      <div class="form-group">
+                        <label>Nombre del Cliente</label>
+                        <input type="string" class="form-control" value="<?php echo $fila['nombreCliente']; ?>" name="nombreCliente" >
+                      </div>
+                      <?php endwhile;?>
+                    </div>
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>ID. Del Vehículo</label>
-                        <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
+                        <input type="string" class="form-control" placeholder="ID. Del Vehículo" name="vehiculo" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>PIN RFID</label>
-                        <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Ciudad</label>
-                        <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                        <input type="string" class="form-control" placeholder="PIN RFID" name="vehiculopin" required>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Kilometros</label>
-                        <input type="number" class="form-control" placeholder="Ej: 135000" name="km" required>
+                        <label>Kilometros Registrados</label>
+                        <input type="number" class="form-control" placeholder="Kilómetros Registrados" name="km" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Volúmen en L</label>
-                        <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                        <label>Volúmen en Litros</label>
+                        <input type="number" class="form-control" placeholder="Volúmen en Litros" name="volumen" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Volúmen Acumulado en L</label>
-                        <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                        <label>Volúmen Acumulado en Litros</label>
+                        <input type="number" class="form-control" placeholder="Volúmen Acumulado en Litros" name="vacum" required>
                       </div>
                     </div>
-                    <!-- <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>ID. Del Vehículo</label>
-                        <input type="string" class="form-control" placeholder="Ej: 1000" name="vehiculos_id" required>
-                      </div>
-                    </div> -->
                   </div>
                   <div class="card-footer">
-                    <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarVehiculo">Agregar
-                      Vehículo</button>
+                    <button type="submit" 
+                    class="col-6-md pull-right btn btn-blue" 
+                    name="ingresarVehiculo" 
+                    <?php if (!isset($_SESSION['cliente']))
+                    { echo '<input type="submit" disabled>';
+                    }?>>
+                    Agregar Vehículo</button>
                   </div>
                 </form>
               </div>
@@ -324,11 +327,9 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                         </th>
                         <th class="text-center">ID. Del Vehículo</th>
                         <th class="text-center">RFID del Vehículo</th>
-                        <th class="text-center">Ciudad</th>
                         <th class="text-center">Volúmen</th>
                         <th class="text-center">Kilometros</th>
                         <th class="text-center">Volúmen Acumulado</th>
-                        <th class="text-center">ID. Del Vehículo</th>
                         <th class="text-center"></th>
                         <th class="text-center">
                           <div class="dropdown">
@@ -364,9 +365,6 @@ while ($fila = mysqli_fetch_array($resultado_vehiculos)): ?>
                             <?php echo $fila['vehiculopin']; ?>
                           </td>
                           <td class="text-center">
-                            <?php echo $fila['locacion']; ?>
-                          </td>
-                          <td class="text-center">
                             <?php echo $fila['volumen']; ?>
                           </td>
                           <td class="text-center">
@@ -375,9 +373,7 @@ while ($fila = mysqli_fetch_array($resultado_vehiculos)): ?>
                           <td class="text-center">
                             <?php echo $fila['vacum']; ?>
                           </td>
-                          <td class="text-center">
-                            <?php echo $fila['vehiculos_id']; ?>
-                          </td>
+
 
                           <td class="text-center">
                             <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">

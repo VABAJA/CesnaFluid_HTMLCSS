@@ -1,4 +1,32 @@
-<!-- Búsqueda en DASHBOARD y CLIENTES  -->
+<!-- DASHBOARD  -->
+
+<?php
+session_start();
+//variable de conexión
+$conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+//verificación de conexión
+if (mysqli_connect_errno($conectar)) {
+  echo "Conexión Fallida" . mysqli_connect_error();
+} else {
+
+  if (isset($_SESSION['cliente'])) {
+
+   if($_SESSION['cliente'] = $_POST['buscar']) { 
+    
+     $resultadoDashboard = mysqli_query($conectar, "SELECT id_usuarios, id_dispositivos, id_vehiculos, id_tickets
+                                           FROM clientes Cli
+                                           INNER JOIN usuarios Usu ON Cli.id_usuarios = Usu.usuarios_id
+                                           INNER JOIN dispositivos Dis ON Cli.id_dispositivos = Dis.dispositivos_id
+                                           INNER JOIN vehiculos Veh ON Cli.id_vehiculos = Veh.vehiculos_id
+                                           INNER JOIN tickets Tic ON Cli.id_tickets = Tic.tickets_id");
+     $sql_query = mysqli_query($conectar,$resultadoDashboard);
+   }
+  }
+} 
+?>
+
+
+<!-- BÚSQUEDA DE CLIENTES  -->
 <?php
 session_start();
 //variable de conexión
@@ -48,7 +76,7 @@ if (isset($_SESSION['cliente'])) {
     $ide = $third['id_usuarios'];
 
     //die(print_r($ide));
-    $resultado_usuarios = mysqli_query($conectar, "SELECT usuario, usuariopin, nomusuario, locacion, fechareg, usuarios_id FROM usuarios WHERE usuarios_id = '$ide'");
+    $resultado_usuarios = mysqli_query($conectar, "SELECT usuario, usuariopin, nomusuario, correoUsuario, fechareg FROM usuarios WHERE usuarios_id = '$ide'");
 
 }
 ?>
@@ -82,7 +110,7 @@ if (isset($_SESSION['cliente'])) {
     $ide = $third['id_dispositivos'];
 
     //die(print_r($ide));
-    $resultado_dispositivos = mysqli_query($conectar, "SELECT locacion, vacum, cliente_id, dispositivos_id, id_configuracion FROM dispositivos WHERE dispositivos_id = '$ide'");
+    $resultado_dispositivos = mysqli_query($conectar, "SELECT pinRFID, ubicacion, vacum FROM dispositivos WHERE dispositivos_id = '$ide'");
 
 }
 ?>
@@ -111,7 +139,7 @@ if (isset($_SESSION['cliente'])) {
     $ide = $third['id_vehiculos'];
 
     //die(print_r($ide));
-    $resultado_vehiculos = mysqli_query($conectar, "SELECT vehiculo, vehiculopin, locacion, km, volumen, vehiculos_id FROM vehiculos WHERE vehiculos_id = '$ide'");
+    $resultado_vehiculos = mysqli_query($conectar, "SELECT nombreCliente, vehiculo, vehiculopin, km, volumen, vacum FROM vehiculos WHERE vehiculos_id = '$ide'");
 
 }
 ?>

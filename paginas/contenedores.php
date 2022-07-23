@@ -236,24 +236,39 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                 <h5 class="title">Agregar Nuevo Contenedor</h5>
                             </div>
                             <div class="card-body">
-                                <form action="" method="post">
+                                <form action="../../scripts/registros/nuevoContenedor.php" method="post">
                                     <div class="row">
+                                    <div class="col-sm-4">
+                      <?php
+                      include '../scripts/buscador.php';
+                      while ($fila = mysqli_fetch_array($sql_query)): ?>
+                      <div class="form-group">
+                        <label>Nombre del CLiente</label>
+                        <input type="string" class="form-control" value="<?php echo $fila['nombreCliente']; ?>"  >
+                      </div>
+                      <?php endwhile;?>
+                    </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>ID. Del Contenedor</label>
-                                                <input type="string" class="form-control" placeholder="Ej: ABC123" name="contenedor_id" required>
+                                                <input type="string" class="form-control" placeholder="ID. Del Contenedor" name="contenedor_id" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>Ciudad</label>
-                                                <input type="string" class="form-control" placeholder="Ej: El Cercado" name="contenedor_locacion" required>
+                                                <label>Ubicación del Contenedor</label>
+                                                <input type="string" class="form-control" placeholder="Ubicación del Contenedor" name="contenedorUbicacion" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarContenedor">Agregar
-                                            Contenedor</button>
+                                    <button type="submit" 
+                    class="col-6-md pull-right btn btn-blue" 
+                    name="ingresarContenedor" 
+                    <?php if (!isset($_SESSION['cliente']))
+                    { echo '<input type="submit" disabled>';
+                    }?>>
+                    Agregar Contenedor</button>
                                     </div>
                                 </form>
                             </div>
@@ -310,7 +325,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                         </thead>
                                         <tbody>
                                             <?php
-include '../scripts/registro_tab.php';
+include '../scripts/registros/nuevoContenedor.php';
 while ($fila = mysqli_fetch_array($resultado_contenedores)): ?>
                                                 <tr>
                                                     <td>

@@ -505,7 +505,7 @@ include '../scripts/sesion.php';
                                 <h4 class="title">Información Básica</h4>
                             </div>
                             <div class="card-body">
-                                <form action="../scripts/clientes_reg.php" method="post">
+                                <form action="../scripts/registros/nuevoCliente.php" method="post">
                                     <div class="row">
                                         
                                         <div class="col-sm-4">
