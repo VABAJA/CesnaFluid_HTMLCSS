@@ -144,7 +144,7 @@ include '../scripts/sesion.php';
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-navbar">
-                                    <<li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
+                                    <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
@@ -243,8 +243,6 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                             <div class="card-body">
                                 <button class="col-6-md pull-right btn btn-fill btn-info" type="submit" title="Editar Cliente" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">Editar Cliente</button>
 
-                                <button type="submit" title="Eliminar Cliente" class="col-6-md pull-right btn btn-fill btn-info" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">Eliminar Cliente</button>
-
                                 <div class="table-responsive">
                                     <table class="table tablesorter">
                                         <thead class="text-primary">
@@ -306,17 +304,17 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
                                     <div class="card-header" id="headingOne">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                Información Básica
+                                                Información Del Cliente
                                             </button>
                                         </h5>
                                     </div>
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                         <div class="card-body">
-                                            <form action="../scripts/vehiculos_req.php" method="post">
+                                            <form action="../scripts/clientes_req.php" method="post">
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>ID. Del Cliente</label>
+                                                            <label>No. Cliente</label>
                                                             <input type="number" class="form-control" placeholder="Ej: ABC123" name="clienteId" required>
                                                         </div>
                                                     </div>
@@ -389,11 +387,11 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
                                     </div>
                                 </div>
 
-                                <div class="card">
+                                <!-- <div class="card">
                                     <div class="card-header" id="headingTwo">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                Productos
+                                                Elementos
                                             </button>
                                         </h5>
                                     </div>
@@ -435,17 +433,17 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
                                         </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="card">
-                                    <div class="card-header" id="headingThree">
+                                    <div class="card-header" id="headingTwo">
                                         <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                                 Límites
                                             </button>
                                         </h5>
                                     </div>
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                         <div class="card-body">
 
                                             <form action="" method="post">
