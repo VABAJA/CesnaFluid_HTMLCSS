@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
 
     if(!isset($_SESSION['rol'])){
         header('location: ../login.php');

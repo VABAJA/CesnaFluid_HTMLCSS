@@ -175,7 +175,7 @@ include('../scripts/sesion.php');
 
         <div class="card">
           <div class="card-body">
-            <form method="POST" action="./dashboard.php">
+            <form method="POST" action="#">
               <div class="row">
                 <div class="form-group col-md-4">
                   <label>Nombre del Cliente</label>
@@ -252,7 +252,6 @@ include('../scripts/sesion.php');
                           </label>
                         </div>
                       </th>
-                      <th class="text-center">Cliente</th>
                       <th class="text-center">Usuarios</th>
                       <th class="text-center">Dispositivos</th>
                       <th class="text-center">Vehículos</th>
@@ -271,10 +270,10 @@ include('../scripts/sesion.php');
                     </tr>
                   </thead>
                   <tbody>
-                    <?php
-                    include '../scripts/registro_tab.php';
-                    while ($fila = mysqli_fetch_array($resultadoDashboard)) : ?>
                       <tr>
+                    <?php
+                    include '../scripts/registro_tab.php.php';
+                    while ($fila = mysqli_fetch_array($resultadoDashboard)) : ?>
                         <td>
                           <div class="form-check">
                             <label class="form-check-label">
@@ -284,9 +283,6 @@ include('../scripts/sesion.php');
                               </span>
                             </label>
                           </div>
-                        </td>
-                        <td class="text-center">
-                          <?php echo $fila['nombreCliente']; ?>
                         </td>
                         <td class="text-center">
                           <?php echo $fila['id_usuarios']; ?>
@@ -310,7 +306,7 @@ include('../scripts/sesion.php');
                             <i class="tim-icons icon-simple-remove"></i>
                           </button>
                         </td>
-                      <?php endwhile; ?>
+                        <?php endwhile; ?>
                       </tr>
                   </tbody>
                 </table>
@@ -719,7 +715,7 @@ include('../scripts/sesion.php');
   </div>
 
   <!-- Termina selecto de colores -->
-  
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -853,7 +849,7 @@ include('../scripts/sesion.php');
 
     });
   </script>
-<script src="../assets/js/main.js"></script>
+  <script src="../assets/js/main.js"></script>
 </body>
 
 </html>

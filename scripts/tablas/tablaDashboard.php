@@ -1,3 +1,5 @@
+<!-- DASHBOARD  -->
+
 <?php
 session_start();
 //variable de conexión
@@ -8,7 +10,7 @@ if (mysqli_connect_errno($conectar)) {
 } else {
   if (isset($_SESSION['cliente'])) {
    if($_SESSION['cliente'] = $_POST['buscar']) { 
-     $resultadoDashboard = mysqli_query($conectar, "SELECT nombreCliente, id_usuarios, id_dispositivos, id_vehiculos, id_tickets
+     $resultadoDashboard = mysqli_query($conectar, "SELECT id_usuarios, id_dispositivos, id_vehiculos, id_tickets
                                            FROM clientes Cli
                                            INNER JOIN usuarios Usu ON Cli.id_usuarios = Usu.usuarios_id
                                            INNER JOIN dispositivos Dis ON Cli.id_dispositivos = Dis.dispositivos_id
@@ -17,5 +19,6 @@ if (mysqli_connect_errno($conectar)) {
      $sql_query = mysqli_query($conectar,$resultadoDashboard);
    }
   }
-} 
+}
+
 ?>

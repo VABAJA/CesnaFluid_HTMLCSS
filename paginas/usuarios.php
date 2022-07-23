@@ -1,5 +1,5 @@
 <?php
-include '../scripts/sesion.php';
+include('../scripts/sesion.php');
 ?>
 
 <!DOCTYPE html>
@@ -178,7 +178,7 @@ include '../scripts/sesion.php';
 
         <div class="card">
           <div class="card-body">
-            <form method="POST" action="./usuarios.php">
+            <form method="POST" action="#">
               <div class="row">
                 <div class="form-group col-md-4">
                   <label>Nombre del Cliente</label>

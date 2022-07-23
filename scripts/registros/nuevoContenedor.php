@@ -8,7 +8,7 @@ $pass_sql = "123456";
 $db_sql = "tramex1";
 
 $nombreCliente = $_POST['nombreCliente'];
-$contenedor_id = $_POST['contenedor_id'];
+$contenedores_id = $_POST['contenedores_id'];
 $contenedorUbicacion = $_POST['contenedorUbicacion'];
 
 $conexion = mysqli_connect($host_sql, $user_sql, $pass_sql);
@@ -23,8 +23,8 @@ mysqli_set_charset($conexion, "utf8");
 
 if (isset($_POST["ingresarContenedor"])) {
 
-    $registroContenedor= "INSERT INTO contenedores (nombreCliente, contenedor_id, contenedorUbicacion)"
-        . "VALUES('" . $nombreCliente . "','" . $contenedor_id . "','" . $contenedorUbicacion . "')";
+    $registroContenedor= "INSERT INTO contenedores (nombreCliente, contenedores_id, contenedorUbicacion)"
+        . "VALUES('" . $nombreCliente . "','" . $contenedores_id . "','" . $contenedorUbicacion . "')";
 
     if (mysqli_query($conexion, $registroContenedor)) {
         echo "<script> alert ('Contenedor registrado con éxito');

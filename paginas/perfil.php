@@ -1,5 +1,5 @@
 <?php
-include '../scripts/sesion.php';
+include('../scripts/sesion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
