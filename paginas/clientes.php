@@ -197,14 +197,14 @@ include '../scripts/sesion.php';
                                             <tbody>
                                                 <tr>
                                                     <?php
-include '../scripts/buscador.php';
-while ($fila = mysqli_fetch_array($sql_query)): ?>
+                                                        include '../scripts/buscador.php';
+                                                        while ($fila = mysqli_fetch_array($sql_query)): ?>
 
                                                         <td class="text-center">
                                                             <?php echo $fila['nombreCliente']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $fila['clienteId']; ?>
+                                                            <?php echo $fila['id']; ?>
                                                         </td>
                                                         <td class="text-center">
                                                             <?php echo $fila['contacto']; ?>
@@ -258,15 +258,13 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                         </thead>
                                         <tbody>
                                             <?php
-include '../scripts/registro_tab.php';
-while ($fila = mysqli_fetch_array($resultado_clientes)):
-?>
+                                                include '../scripts/registro_tab.php';
+                                                while ($fila = mysqli_fetch_array($resultado_clientes)):
+                                                ?>
                                                 <tr>
 
                                                     <td class="text-center">
                                                         <?php echo $fila['razonSocial']; ?>
-                                                    </td>
-                                                    <td class="text-center">
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['telefono2']; ?>
@@ -310,6 +308,7 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
                                     </div>
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                         <div class="card-body">
+<<<<<<< HEAD
                                             <form action="../scripts/clientes_req.php" method="post">
                                                 <div class="row">
                                                     <div class="col-sm-4">
@@ -318,30 +317,27 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
                                                             <input type="number" class="form-control" placeholder="Ej: ABC123" name="clienteId" required>
                                                         </div>
                                                     </div>
+=======
+                                            <form action="../scripts/clientes_reg.php" method="post">
+                                                <div class="row">
+                                                    
+>>>>>>> 9fef924ebc79b8668881b6c5f30bfd3a194dc013
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label>Nombre del Cliente</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: 0000" name="nombreCliente" required>
+                                                            <input type="string" class="form-control" placeholder="Nombre del Cliente" name="nombreCliente" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label>Contacto</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: Monterrey" name="contacto">
+                                                            <input type="string" class="form-control" placeholder="Contacto" name="contacto">
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label>Razón Social</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: 135000" name="razonSocial" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-8">
-                                                        <div class="form-group">
-                                                            <label>Dirección</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: 900" name="volumen" required>
+                                                            <input type="string" class="form-control" placeholder="Razón Social" name="razonSocial" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -349,38 +345,46 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label>Correo Electrónico</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                                                            <input type="string" class="form-control" placeholder="Coreo Electrónico" name="vacum" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label>Teléfono</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 1000" name="telefono" required>
+                                                            <input type="number" class="form-control" placeholder="Teléfono" name="telefono" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group">
+                                                            <label>Dirección</label>
+                                                            <input type="string" class="form-control" placeholder="Dirección" name="volumen" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>Correo Electrónico 2</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: 1000" name="correo2" required>
+                                                            <label>Segundo Correo Electrónico</label>
+                                                            <input type="string" class="form-control" placeholder="Segundo Correo Eléctrónico" name="correo2">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>Teléfono 2</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 1000" name="telefono2" required>
+                                                            <label>Segundo Teléfono</label>
+                                                            <input type="number" class="form-control" placeholder="Ej: 1000" name="Segundo Teléfono">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>Contacto 2</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: 1000" name="contacto2" required>
+                                                            <label>Segundo Contacto</label>
+                                                            <input type="string" class="form-control" placeholder="Segundo Contacto" name="contacto2">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="card-footer">
-                                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
+                                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarCliente">Guardar</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -508,33 +512,23 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
                             <div class="card-header">
                                 <h5 class="title">Agregar Nuevo Cliente</h5>
                             </div>
+                            <div class="card-header">
+                                <h4 class="title">Información Básica</h4>
+                            </div>
                             <div class="card-body">
-                                <form action="../scripts/registro.php" method="post">
+                                <form action="../scripts/registros/nuevoCliente.php" method="post">
                                     <div class="row">
+                                        
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>No. De Cliente</label>
-                                                <input type="number" class="form-control" placeholder="Ej: 123" name="clienteId" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Empresa</label>
-                                                <input type="string" class="form-control" placeholder="Ej: VABAJA, S.A. de C.V." name="nombreCliente" required>
+                                                <label>Nombre del Cliente</label>
+                                                <input type="string" class="form-control" placeholder="Nombre del Cliente" name="nombreCliente" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Contacto</label>
-                                                <input type="string" class="form-control" placeholder="Ej: Jorge Barrera" name="contacto" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Dispositivo</label>
-                                                <input type="string" class="form-control" placeholder="Ej: 123ABC" name="id_dispositivos">
+                                                <input type="string" class="form-control" placeholder="Contacto" name="contacto" required>
                                             </div>
                                         </div>
                                     </div>
@@ -542,22 +536,49 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Teléfono</label>
-                                                <input type="number" class="form-control" placeholder="Ej: 8114020231" name="telefono" required>
+                                                <input type="string" class="form-control" placeholder="Teléfono" name="telefono" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Correo</label>
-                                                <input type="string" class="form-control" placeholder="Ej: usuario@dominio.com" name="correo" required>
+                                                <input type="string" class="form-control" placeholder="Correo" name="correo" required>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Usuario</label>
-                                                <input type="string" class="form-control" placeholder="Ej: jobarv" name="id_usuarios" >
-                                            </div>
-                                        </div> -->
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Razón Social</label>
+                                                <input type="string" class="form-control" placeholder="Razón Social" name="razonSocial">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="form-group">
+                                                <label>Dirección</label>
+                                                <input type="string" class="form-control" placeholder="Dirección" name="direccion" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card-header">
+                                        <h4 class="title">Información Adicional</h4>
+                                    </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Segundo Teléfono</label>
+                                                    <input type="string" class="form-control" placeholder="Segundo Teléfono" name="telefono2">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Segundo Correo</label>
+                                                    <input type="string" class="form-control" placeholder="Segundo Correo" name="correo2">
+                                                </div>
+                                            </div>                                           
+                                            
+                                        </div>
 
                                     <div class="card-footer">
                                         <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarCliente">Agregar
@@ -622,9 +643,9 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
                                         </thead>
                                         <tbody>
                                             <?php
-                    include '../scripts/registro_tab.php';
-                    while ($fila = mysqli_fetch_array($resultado_clientes)):
-                        ?>
+include '../scripts/registro_tab.php';
+while ($fila = mysqli_fetch_array($resultado_clientes)):
+?>
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
@@ -711,7 +732,7 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
                                                 <label>Ticket</label>
                                                 <input type="string" class="form-control" placeholder="Ej: 123ABC" name="id_ticket">
                                             </div>
-                                        </div>                                  
+                                        </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Contenedor</label>

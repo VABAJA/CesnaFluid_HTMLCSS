@@ -203,7 +203,7 @@ include('../scripts/sesion.php');
                               <?php echo $row['nombreCliente']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['clienteId']; ?>
+                              <?php echo $row['id']; ?>
                             </td>
                             <td class="text-center">
                               <?php echo $row['contacto']; ?>
@@ -273,7 +273,7 @@ include('../scripts/sesion.php');
                   <tbody>
                     <?php
                     include '../scripts/registro_tab.php';
-                    while ($fila = mysqli_fetch_array($resultado_clientes)) : ?>
+                    while ($fila = mysqli_fetch_array($resultadoDashboard)) : ?>
                       <tr>
                         <td>
                           <div class="form-check">

@@ -204,7 +204,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                             <?php echo $fila['nombreCliente']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $fila['clienteId']; ?>
+                                                            <?php echo $fila['id']; ?>
                                                         </td>
                                                         <td class="text-center">
                                                             <?php echo $fila['contacto']; ?>
@@ -238,30 +238,47 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                 <h5 class="title">Agregar Nuevo Dispositivo</h5>
                             </div>
                             <div class="card-body">
-                                <form action="../scripts/registro.php" method="post">
+                                <form action="../scripts/registros/nuevoDispositivo.php" method="post">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <?php
+                                            include '../scripts/buscador.php';
+                                            while ($fila = mysqli_fetch_array($sql_query)): ?>
+                                        <div class="form-group">
+                                            <label>Nombre del CLiente</label>
+                                            <input type="string" class="form-control" name="nombreCliente" value="<?php echo $fila['nombreCliente']; ?>"   >
+                                        </div>
+                                        <?php endwhile;?>
+                                    </div>
+                                </div>
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>Ubicación</label>
-                                                <input type="string" class="form-control" placeholder="Ej: Monterrey, N.L." name="locacion" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
                                                 <label>PIN RFID</label>
-                                                <input type="string" class="form-control" placeholder="Ej: ABC123" name="dispositivos_id" required>
+                                                <input type="string" class="form-control" placeholder="PIN RFID" name="pinRFID" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>Volúmen Acumulado</label>
-                                                <input type="string" class="form-control" placeholder="Ej: 0000" name="vacum" required>
+                                                <label>Ubicación del Dispositivo</label>
+                                                <input type="string" class="form-control" placeholder="Ubicación del Dispositivo" name="ubicacion" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Volúmen Acumulado en Litros</label>
+                                                <input type="number" class="form-control" placeholder="Volúmen Acumulado en Litros" name="vacum" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarDispositivo">Agregar
-                                            Dispositivo</button>
+                                    <button type="submit" 
+                    class="col-6-md pull-right btn btn-blue" 
+                    name="ingresarDispositivo" 
+                    <?php if (!isset($_SESSION['cliente']))
+                    { echo '<input type="submit" disabled>';
+                    }?>>
+                    Agregar Dispositivo</button>
                                     </div>
                                 </form>
                             </div>
@@ -299,9 +316,9 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                         </label>
                                                     </div>
                                                 </th>
-                                                <th class="text-center">ID. Del Dispositivo</th>
-                                                <th class="text-center">Ciudad</th>
-                                                <th class="text-center">Volúmen Acumulado</th>
+                                                <th class="text-center">PIN RFID</th>
+                                                <th class="text-center">Ubicación del Dispositivo</th>
+                                                <th class="text-center">Volúmen Acumulado en Litros</th>
                                                 <th class="text-center"></th>
                                                 <th class="text-center">
                                                     <div class="dropdown">
@@ -331,10 +348,10 @@ while ($fila = mysqli_fetch_array($resultado_dispositivos)): ?>
                                                         </div>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['dispositivos_id']; ?>
+                                                        <?php echo $fila['pinRFID']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['locacion']; ?>
+                                                        <?php echo $fila['ubicacion']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['vacum']; ?>

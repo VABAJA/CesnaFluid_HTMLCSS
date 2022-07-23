@@ -22,7 +22,7 @@ if (isset($_SESSION['cliente'])) {
                 $_SESSION['cliente'] = $_POST['buscar'];
                 unset($_SESSION['cliente']);
                 // echo $_SESSION['cliente'];
-                echo "Por favor, introduce el nombre de la empresa";
+                echo "Por favor, introduce el nombre del Cliente";
                 
             } else {
                 $buscar = $_POST['buscar'];
