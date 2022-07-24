@@ -147,7 +147,7 @@ include('../scripts/sesion.php');
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
+                  <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                   </li>
                   <li class="dropdown-divider"></li>
@@ -199,8 +199,8 @@ include('../scripts/sesion.php');
                       <tbody>
                         <tr>
                           <?php
-include '../scripts/buscador.php';
-while ($fila = mysqli_fetch_array($sql_query)): ?>
+                          include '../scripts/buscador.php';
+                          while ($fila = mysqli_fetch_array($sql_query)) : ?>
 
                             <td class="text-center">
                               <?php echo $fila['nombreCliente']; ?>
@@ -217,7 +217,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                             <td class="text-center">
                               <?php echo $fila['correo']; ?>
                             </td>
-                          <?php endwhile;?>
+                          <?php endwhile; ?>
                         </tr>
                       </tbody>
 
@@ -243,15 +243,15 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
               <div class="card-body">
                 <form action="../scripts/registros/nuevoUsuario.php" method="post">
                   <div class="row">
-                  <div class="col-sm-4">
+                    <div class="col-sm-4">
                       <?php
                       include '../scripts/buscador.php';
-                      while ($fila = mysqli_fetch_array($sql_query)): ?>
-                      <div class="form-group">
-                        <label>Nombre del Cliente</label>
-                        <input type="string" class="form-control" name="nombreCliente" value="<?php echo $fila['nombreCliente']; ?>" >
-                      </div>
-                      <?php endwhile;?>
+                      while ($fila = mysqli_fetch_array($sql_query)) : ?>
+                        <div class="form-group">
+                          <label>Nombre del Cliente</label>
+                          <input type="string" class="form-control" name="nombreCliente" value="<?php echo $fila['nombreCliente']; ?>">
+                        </div>
+                      <?php endwhile; ?>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
@@ -267,7 +267,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                     </div>
                   </div>
                   <div class="row">
-                  <div class="col-sm-4">
+                    <div class="col-sm-4">
                       <div class="form-group">
                         <label>Nombre del Contacto</label>
                         <input type="string" class="form-control" placeholder="Nombre del Contacto" name="nomusuario" required>
@@ -288,13 +288,10 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                   </div>
 
                   <div class="card-footer">
-                    <button type="submit" 
-                    class="col-6-md pull-right btn btn-blue" 
-                    name="ingresarUsuario" 
-                    <?php if (!isset($_SESSION['cliente']))
-                    { echo '<input type="submit" disabled>';
-                    }?>>
-                    Agregar Usuario</button>
+                    <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarUsuario" <?php if (!isset($_SESSION['cliente'])) {
+                                                                                                            echo '<input type="submit" disabled>';
+                                                                                                          } ?>>
+                      Agregar Usuario</button>
                   </div>
                 </form>
               </div>
@@ -346,12 +343,10 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                           </tr>
                         </thead>
                         <tbody>
-                          <?php
-
-include '../scripts/registro_tab.php';
-while ($fila = mysqli_fetch_array($resultado_usuarios)): ?>
-
-                            <tr>
+                          <tr>
+                            <?php
+                            include '../scripts/tablas/tablaUsuarios.php';
+                            while ($fila = mysqli_fetch_array($resultado_usuarios)) : ?>
                               <td>
                                 <div class="form-check">
                                   <label class="form-check-label">
@@ -391,10 +386,8 @@ while ($fila = mysqli_fetch_array($resultado_usuarios)): ?>
                                   </a>
                                 </button>
                               </td>
-                            </tr>
-
-                          <?php endwhile;?>
-
+                            <?php endwhile; ?>
+                          </tr>
                         </tbody>
                     </table>
                   </div>
@@ -698,7 +691,6 @@ while ($fila = mysqli_fetch_array($resultado_usuarios)): ?>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-
   <!-- Chart JS -->
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->

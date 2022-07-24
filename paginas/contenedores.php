@@ -1,5 +1,5 @@
 <?php
-include ('../scripts/sesion.php');
+include('../scripts/sesion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -142,7 +142,7 @@ include ('../scripts/sesion.php');
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-navbar">
-                                <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
+                                    <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
@@ -194,8 +194,8 @@ include ('../scripts/sesion.php');
                                             <tbody>
                                                 <tr>
                                                     <?php
-include '../scripts/buscador.php';
-while ($row = mysqli_fetch_array($sql_query)): ?>
+                                                    include '../scripts/buscador.php';
+                                                    while ($row = mysqli_fetch_array($sql_query)) : ?>
 
                                                         <td class="text-center">
                                                             <?php echo $row['nombreCliente']; ?>
@@ -212,7 +212,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                                         <td class="text-center">
                                                             <?php echo $row['correo']; ?>
                                                         </td>
-                                                    <?php endwhile;?>
+                                                    <?php endwhile; ?>
                                                 </tr>
                                             </tbody>
 
@@ -238,16 +238,16 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                             <div class="card-body">
                                 <form action="../scripts/registros/nuevoContenedor.php" method="post">
                                     <div class="row">
-                                    <div class="col-sm-4">
-                      <?php
-                      include '../scripts/buscador.php';
-                      while ($fila = mysqli_fetch_array($sql_query)): ?>
-                      <div class="form-group">
-                        <label>Nombre del CLiente</label>
-                        <input type="string" class="form-control" name="nombreCliente" value="<?php echo $fila['nombreCliente']; ?>"  >
-                      </div>
-                      <?php endwhile;?>
-                    </div>
+                                        <div class="col-sm-4">
+                                            <?php
+                                            include '../scripts/buscador.php';
+                                            while ($fila = mysqli_fetch_array($sql_query)) : ?>
+                                                <div class="form-group">
+                                                    <label>Nombre del CLiente</label>
+                                                    <input type="string" class="form-control" name="nombreCliente" value="<?php echo $fila['nombreCliente']; ?>">
+                                                </div>
+                                            <?php endwhile; ?>
+                                        </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>ID. Del Contenedor</label>
@@ -262,13 +262,10 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                    <button type="submit" 
-                    class="col-6-md pull-right btn btn-blue" 
-                    name="ingresarContenedor" 
-                    <?php if (!isset($_SESSION['cliente']))
-                    { echo '<input type="submit" disabled>';
-                    }?>>
-                    Agregar Contenedor</button>
+                                        <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarContenedor" <?php if (!isset($_SESSION['cliente'])) {
+                                                                                                                                        echo '<input type="submit" disabled>';
+                                                                                                                                    } ?>>
+                                            Agregar Contenedor</button>
                                     </div>
                                 </form>
                             </div>
@@ -307,9 +304,9 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                                     </div>
                                                 </th>
                                                 <th class="text-center">ID. Del Contenedor</th>
-                                                <th class="text-center">Ciudad</th>
-                                                <th class="text-center">Volúmen</th>
-                                                <th class="text-center">Volúmen Acumulado</th>
+                                                <th class="text-center">Ubicación del Contenedor</th>
+                                                <th class="text-center">Capacidad en Litros</th>
+                                                <th class="text-center">Volúmen Acumulado en Litros</th>
                                                 <th class="text-center"></th>
                                                 <th class="text-center">
                                                     <div class="dropdown">
@@ -324,10 +321,10 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-include '../scripts/registros/nuevoContenedor.php';
-while ($fila = mysqli_fetch_array($resultado_contenedores)): ?>
-                                                <tr>
+                                            <tr>
+                                                <?php
+                                                include '../scripts/tablas/tablaContenedores.php';
+                                                while ($fila = mysqli_fetch_array($resultado_contenedores)) : ?>
                                                     <td>
                                                         <div class="form-check">
                                                             <label class="form-check-label">
@@ -339,10 +336,10 @@ while ($fila = mysqli_fetch_array($resultado_contenedores)): ?>
                                                         </div>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['contenedor_id']; ?>
+                                                        <?php echo $fila['contenedores_id']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['locacion']; ?>
+                                                        <?php echo $fila['contenedorUbicacion']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['volumen']; ?>
@@ -362,8 +359,8 @@ while ($fila = mysqli_fetch_array($resultado_contenedores)): ?>
                                                             <i class="tim-icons icon-simple-remove"></i>
                                                         </button>
                                                     </td>
-                                                <?php endwhile;?>
-                                                </tr>
+                                                <?php endwhile; ?>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -583,17 +580,12 @@ while ($fila = mysqli_fetch_array($resultado_contenedores)): ?>
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Chart JS -->
     <script src="../assets/js/plugins/chartjs.min.js"></script>
     <!--  Notifications Plugin    -->
     <script src="../assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
-    <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-    <script src="../assets/demo/demo.js"></script>
     <script>
         $(document).ready(function() {
             $().ready(function() {

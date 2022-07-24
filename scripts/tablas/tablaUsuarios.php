@@ -11,8 +11,6 @@ if (mysqli_connect_errno($conectar)) {
 }
 if (isset($_SESSION['cliente'])) {
 
-    $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
-
     $first = "SELECT id_usuarios FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
 
     $second = mysqli_query($conectar, $first);
@@ -22,6 +20,6 @@ if (isset($_SESSION['cliente'])) {
     $ide = $third['id_usuarios'];
 
     //die(print_r($ide));
-    $resultado_usuarios = mysqli_query($conectar, "SELECT usuario, usuariopin, nomusuario, correoUsuario, fechareg FROM usuarios WHERE usuarios_id = '$ide'");
+    $resultado_usuarios = mysqli_query($conectar, "SELECT usuario, usuariopin, nomusuario, correoUsuario, fechareg, usuarios_id FROM usuarios WHERE usuarios_id = '$ide'");
 }
 ?>

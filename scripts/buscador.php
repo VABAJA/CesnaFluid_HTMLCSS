@@ -34,5 +34,5 @@ if (isset($_SESSION['cliente'])) {
             }
         }
         
-        
+?>
         

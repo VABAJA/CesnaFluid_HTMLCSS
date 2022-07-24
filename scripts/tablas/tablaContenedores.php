@@ -10,8 +10,6 @@ if (mysqli_connect_errno($conectar)) {
 }
 if (isset($_SESSION['cliente'])) {
 
-    $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
-
     $first = "SELECT id_contenedores FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
 
     $second = mysqli_query($conectar, $first);
@@ -21,6 +19,6 @@ if (isset($_SESSION['cliente'])) {
     $ide = $third['id_contenedores'];
 
     //die(print_r($ide));
-    $resultado_contenedores = mysqli_query($conectar, "SELECT contenedor_id FROM contenedores WHERE contenedor_id = '$ide'");
+    $resultado_contenedores = mysqli_query($conectar, "SELECT nombreCliente, contenedores_id, contenedorUbicacion, vacum, volumen FROM contenedores WHERE contenedores_id = '$ide'");
 }
 ?>

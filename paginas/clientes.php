@@ -258,11 +258,11 @@ include('../scripts/sesion.php');
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <tr>
-                                            <?php
-                                            include '../scripts/tablas/masInfo.php';
-                                            while ($fila = mysqli_fetch_array($resultado_info)) :
-                                            ?>
+                                            <tr>
+                                                <?php
+                                                include '../scripts/tablas/masInfo.php';
+                                                while ($fila = mysqli_fetch_array($resultado_info)) :
+                                                ?>
 
                                                     <td class="text-center">
                                                         <?php echo $fila['razonSocial']; ?>
@@ -279,7 +279,7 @@ include('../scripts/sesion.php');
 
 
                                                 <?php endwhile; ?>
-                                                </tr>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -521,18 +521,10 @@ include('../scripts/sesion.php');
                                                 <input type="string" class="form-control" placeholder="Contacto" name="contacto" required>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Teléfono</label>
                                                 <input type="string" class="form-control" placeholder="Teléfono" name="telefono" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Correo</label>
-                                                <input type="string" class="form-control" placeholder="Correo" name="correo" required>
                                             </div>
                                         </div>
                                     </div>
@@ -547,6 +539,14 @@ include('../scripts/sesion.php');
                                             <div class="form-group">
                                                 <label>Dirección</label>
                                                 <input type="string" class="form-control" placeholder="Dirección" name="direccion" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Correo</label>
+                                                <input type="string" class="form-control" placeholder="Correo" name="correo" required>
                                             </div>
                                         </div>
                                     </div>
@@ -634,8 +634,8 @@ include('../scripts/sesion.php');
                                         <tbody>
                                             <tr>
                                                 <?php
-                                                include '../scripts/registro_tab.php';
-                                                while ($fila = mysqli_fetch_array($resultado_clientes)) :
+                                                include '../scripts/tablas/tablaClientes.php';
+                                                while ($fila = mysqli_fetch_array($tablaClientes)) :
                                                 ?>
                                                     <td>
                                                         <div class="form-check">
@@ -779,17 +779,12 @@ include('../scripts/sesion.php');
         <script src="../assets/js/core/popper.min.js"></script>
         <script src="../assets/js/core/bootstrap.min.js"></script>
         <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-        <!--  Google Maps Plugin    -->
-        <!-- Place this tag in your head or just before your close body tag. -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
         <!-- Chart JS -->
         <script src="../assets/js/plugins/chartjs.min.js"></script>
         <!--  Notifications Plugin    -->
         <script src="../assets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
-        <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-        <script src="../assets/demo/demo.js"></script>
         <script>
             $(document).ready(function() {
                 $().ready(function() {

@@ -21,6 +21,6 @@ if (isset($_SESSION['cliente'])) {
     $ide = $third['id_vehiculos'];
 
     //die(print_r($ide));
-    $resultado_vehiculos = mysqli_query($conectar, "SELECT nombreCliente, vehiculo, vehiculopin, km, volumen, vacum FROM vehiculos WHERE vehiculos_id = '$ide'");
+    $resultado_vehiculos = mysqli_query($conectar, "SELECT nombreCliente, vehiculo, vehiculopin, km, volumen, vacum, vehiculos_id FROM vehiculos WHERE vehiculos_id = '$ide'");
 }
 ?>

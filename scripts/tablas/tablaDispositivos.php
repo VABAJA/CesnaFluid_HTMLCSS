@@ -16,7 +16,7 @@ $resultado_dispositivos = mysqli_query($conectar, "SELECT locacion, vacum, clien
 } */
 if (isset($_SESSION['cliente'])) {
 
-    $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+    // $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
 
     $first = "SELECT id_dispositivos FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
 

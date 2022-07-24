@@ -11,6 +11,7 @@ $vehiculopin = $_POST['vehiculopin'];
 $km = $_POST['km'];
 $volumen = $_POST['volumen'];
 $vacum = $_POST['vacum'];
+$vehiculos_id = $_POST['vehiculos_id'];
 
 $conexion = mysqli_connect($host_sql, $user_sql, $pass_sql);
 if (mysqli_connect_errno()) {
@@ -24,8 +25,8 @@ mysqli_set_charset($conexion, "utf8");
 
 if (isset($_POST["ingresarVehiculo"])) {
 
-    $registroVehiculos = "INSERT INTO vehiculos (nombreCliente, vehiculo, vehiculopin, km, volumen, vacum)"
-        . "VALUES('" . $nombreCliente . "','" . $vehiculo . "','" . $vehiculopin . "','" . $km . "','" . $volumen . "','" . $vacum . "')";
+    $registroVehiculos = "INSERT INTO vehiculos (nombreCliente, vehiculo, vehiculopin, km, volumen, vacum, vehiculos_id)"
+        . "VALUES('" . $nombreCliente . "','" . $vehiculo . "','" . $vehiculopin . "','" . $km . "','" . $volumen . "','" . $vacum . "','" . $vehiculos_id . "')";
 
     if (mysqli_query($conexion, $registroVehiculos)) {
         echo "<script> alert ('Vehículo registrado con éxito');
