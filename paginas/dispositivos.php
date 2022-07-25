@@ -487,7 +487,7 @@ include('../scripts/sesion.php');
                                 <div class="table-full-width table-responsive">
                                     <table class="table">
                                         <thead>
-                                            <th class="text-center"></th>
+                                            <th class="text-center">Nombre del Dispositivo</th>
                                             <th class="text-center">Usuario</th>
                                             <th class="text-center">Pin del Usuario</th>
                                             <th class="text-center">Vehículo</th>
@@ -500,17 +500,10 @@ include('../scripts/sesion.php');
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <!-- <td class="text-center">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </td> -->
+                                            
                                                 <td class="text-center"></td>
+
+                                                
                                                 <td class="text-center">
                                                     <?php
 
@@ -535,8 +528,8 @@ include('../scripts/sesion.php');
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox" name="confDevice2" value="1" <?php if ($varsh['pinUsuario'] == 1) {
-                                                                                                                                                echo "checked";
-                                                                                                                                            } ?>>
+                                                                echo "checked";
+                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -615,12 +608,15 @@ include('../scripts/sesion.php');
                                                         </label>
                                                     </div>
                                                 </td>
+                                                
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarDispositivo">Guardar</button>
+                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarDispositivo" <?php if (!isset($_SESSION['cliente'])) {
+    echo '<input type="submit" disabled>';
+}?>>Guardar</button>
                                 </div>
                             </form>
                         </div>

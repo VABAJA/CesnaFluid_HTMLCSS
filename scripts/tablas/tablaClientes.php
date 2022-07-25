@@ -10,22 +10,19 @@ if (mysqli_connect_errno($conectar)) {
     echo "Conexión Fallida" . mysqli_connect_error();
 } else {
     // Busca al cliente y muestra solo los datos de ese cliente
-    if($_SESSION['cliente']) { 
+    if (isset($_SESSION['cliente'])) {
 
-               
-            $first = "SELECT id FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
-        
-            $second = mysqli_query($conectar, $first);
-        
-            $third = mysqli_fetch_array($second);
-        
-            $ide = $third['id'];
-        
-            //die(print_r($ide));
-            $resultadoCliente = mysqli_query($conectar, "SELECT usuario, nombreDispositivo, vehiculo, registroTicket, nombreContenedor
-                                                        FROM usuarios, dispositivos, vehiculos, tickets, contenedores
-                                                        WHERE usuarios_id = '$ide'");
-        }
+        $first = "SELECT id_usuarios FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
+    
+        $second = mysqli_query($conectar, $first);
+    
+        $third = mysqli_fetch_array($second);
+    
+        $ide = $third['id_usuarios'];
+    
+        //die(print_r($ide));
+        $resultadoCliente = mysqli_query($conectar, "SELECT usuario, usuariopin, nomContacto, correoContacto, fechareg, usuarios_id FROM usuarios WHERE usuarios_id = '$ide'");
+    }
     } 
 
 ?>

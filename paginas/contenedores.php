@@ -1,5 +1,5 @@
 <?php
-include('../scripts/sesion.php');
+include '../scripts/sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -194,8 +194,8 @@ include('../scripts/sesion.php');
                                             <tbody>
                                                 <tr>
                                                     <?php
-                                                    include '../scripts/buscador.php';
-                                                    while ($row = mysqli_fetch_array($sql_query)) : ?>
+include '../scripts/buscador.php';
+while ($row = mysqli_fetch_array($sql_query)): ?>
 
                                                         <td class="text-center">
                                                             <?php echo $row['nombreCliente']; ?>
@@ -212,7 +212,7 @@ include('../scripts/sesion.php');
                                                         <td class="text-center">
                                                             <?php echo $row['correo']; ?>
                                                         </td>
-                                                    <?php endwhile; ?>
+                                                    <?php endwhile;?>
                                                 </tr>
                                             </tbody>
 
@@ -240,23 +240,23 @@ include('../scripts/sesion.php');
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <?php
-                                            include '../scripts/buscador.php';
-                                            while ($fila = mysqli_fetch_array($sql_query)) : ?>
+include '../scripts/buscador.php';
+while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                 <div class="form-group">
                                                     <label>Nombre del CLiente</label>
                                                     <input type="string" class="form-control" name="nombreCliente" value="<?php echo $fila['nombreCliente']; ?>">
                                                 </div>
-                                            <?php endwhile; ?>
+                                            <?php endwhile;?>
                                         </div>
                                         <div class="col-sm-4">
                                             <?php
-                                            include '../scripts/buscador.php';
-                                            while ($fila = mysqli_fetch_array($sql_query)) : ?>
+include '../scripts/buscador.php';
+while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                 <div class="form-group">
                                                     <label>No. De Cliente</label>
                                                     <input type="string" class="form-control" value="<?php echo $fila['id']; ?>" name="contenedores_id">
                                                 </div>
-                                            <?php endwhile; ?>
+                                            <?php endwhile;?>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
@@ -286,8 +286,8 @@ include('../scripts/sesion.php');
                                         </div>
                                         <div class="card-footer">
                                             <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarContenedor" <?php if (!isset($_SESSION['cliente'])) {
-                                                                                                                                            echo '<input type="submit" disabled>';
-                                                                                                                                        } ?>>
+    echo '<input type="submit" disabled>';
+}?>>
                                                 Agregar Contenedor</button>
                                         </div>
                                     </div>
@@ -346,8 +346,8 @@ include('../scripts/sesion.php');
                                         </thead>
                                         <tbody>
                                             <?php
-                                            include '../scripts/tablas/tablaContenedores.php';
-                                            while ($fila = mysqli_fetch_array($resultado_contenedores)) : ?>
+include '../scripts/tablas/tablaContenedores.php';
+while ($fila = mysqli_fetch_array($resultado_contenedores)): ?>
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
@@ -384,7 +384,7 @@ include('../scripts/sesion.php');
                                                         </button>
                                                     </td>
                                                 </tr>
-                                            <?php endwhile; ?>
+                                            <?php endwhile;?>
                                         </tbody>
                                     </table>
                                 </div>
