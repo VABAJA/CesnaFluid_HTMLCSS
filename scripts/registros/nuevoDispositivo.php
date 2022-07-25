@@ -7,10 +7,11 @@ $pass_sql = "123456";
 $db_sql = "tramex1";
 
 
-$nombreCliente = $_POST['nombreCliente'];
+$nombreDispositivo = $_POST['nombreDispositivo'];
 $pinRFID = $_POST['pinRFID'];
 $ubicacion = $_POST['ubicacion'];
 $vacum = $_POST['vacum'];
+$dispositivos_id = $_POST['dispositivos_id'];
 
 $conexion = mysqli_connect($host_sql, $user_sql, $pass_sql);
 if (mysqli_connect_errno()) {
@@ -24,8 +25,8 @@ mysqli_set_charset($conexion, "utf8");
 
 if (isset($_POST["ingresarDispositivo"])) {
 
-    $registroDispositivos = "INSERT INTO dispositivos (nombreCliente, pinRFID, ubicacion, vacum)"
-        . "VALUES('" . $nombreCliente . "','" . $pinRFID . "','" . $ubicacion . "','" . $vacum . "')";
+    $registroDispositivos = "INSERT INTO dispositivos (nombreDispositivo, pinRFID, ubicacion, vacum, dispositivos_id)"
+        . "VALUES('" . $nombreDispositivo . "','" . $pinRFID . "','" . $ubicacion . "','" . $vacum . "','" . $dispositivos_id . "')";
 
     if (mysqli_query($conexion, $registroDispositivos)) {
         echo "<script> alert ('Dispositivo registrado con éxito');
@@ -35,11 +36,8 @@ if (isset($_POST["ingresarDispositivo"])) {
         echo "<script> alert ('Error de registro');
         window.location='../../paginas/dispositivos.php'</script>";
     }
-    $AsignaVarDispositivo = "UPDATE clientes SET id_dispositivos=id WHERE id_dispositivos=0";
-    $sql_query = mysqli_query($conexion, $AsignaVarDispositivo);
 }
 
 //$querty=mysqli_query($conexion,$querty);
 
 ?>
-

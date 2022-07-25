@@ -249,23 +249,47 @@ include('../scripts/sesion.php');
                                             <?php endwhile; ?>
                                         </div>
                                         <div class="col-sm-4">
+                                            <?php
+                                            include '../scripts/buscador.php';
+                                            while ($fila = mysqli_fetch_array($sql_query)) : ?>
+                                                <div class="form-group">
+                                                    <label>No. De Cliente</label>
+                                                    <input type="string" class="form-control" value="<?php echo $fila['id']; ?>" name="contenedores_id">
+                                                </div>
+                                            <?php endwhile; ?>
+                                        </div>
+                                        <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>ID. Del Contenedor</label>
-                                                <input type="string" class="form-control" placeholder="ID. Del Contenedor" name="contenedores_id" required>
+                                                <label>Nombre del Contenedor</label>
+                                                <input type="string" class="form-control" placeholder="Nombre del Contenedor" name="nombreContenedor">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Ubicación del Contenedor</label>
                                                 <input type="string" class="form-control" placeholder="Ubicación del Contenedor" name="contenedorUbicacion" required>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarContenedor" <?php if (!isset($_SESSION['cliente'])) {
-                                                                                                                                        echo '<input type="submit" disabled>';
-                                                                                                                                    } ?>>
-                                            Agregar Contenedor</button>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Volúmen en Litros</label>
+                                                <input type="string" class="form-control" placeholder="Volúmenn en Litros" name="volumen" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Volúmen acumulado en Litros</label>
+                                                <input type="string" class="form-control" placeholder="Volúmen acumulado en Litros" name="vacum" required>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarContenedor" <?php if (!isset($_SESSION['cliente'])) {
+                                                                                                                                            echo '<input type="submit" disabled>';
+                                                                                                                                        } ?>>
+                                                Agregar Contenedor</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -303,7 +327,7 @@ include('../scripts/sesion.php');
                                                         </label>
                                                     </div>
                                                 </th>
-                                                <th class="text-center">ID. Del Contenedor</th>
+                                                <th class="text-center">Nombre del Contenedor</th>
                                                 <th class="text-center">Ubicación del Contenedor</th>
                                                 <th class="text-center">Capacidad en Litros</th>
                                                 <th class="text-center">Volúmen Acumulado en Litros</th>
@@ -321,10 +345,10 @@ include('../scripts/sesion.php');
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <?php
-                                                include '../scripts/tablas/tablaContenedores.php';
-                                                while ($fila = mysqli_fetch_array($resultado_contenedores)) : ?>
+                                            <?php
+                                            include '../scripts/tablas/tablaContenedores.php';
+                                            while ($fila = mysqli_fetch_array($resultado_contenedores)) : ?>
+                                                <tr>
                                                     <td>
                                                         <div class="form-check">
                                                             <label class="form-check-label">
@@ -336,7 +360,7 @@ include('../scripts/sesion.php');
                                                         </div>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['contenedores_id']; ?>
+                                                        <?php echo $fila['nombreContenedor']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['contenedorUbicacion']; ?>
@@ -359,8 +383,8 @@ include('../scripts/sesion.php');
                                                             <i class="tim-icons icon-simple-remove"></i>
                                                         </button>
                                                     </td>
-                                                <?php endwhile; ?>
-                                            </tr>
+                                                </tr>
+                                            <?php endwhile; ?>
                                         </tbody>
                                     </table>
                                 </div>

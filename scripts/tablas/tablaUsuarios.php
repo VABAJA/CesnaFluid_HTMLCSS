@@ -20,6 +20,6 @@ if (isset($_SESSION['cliente'])) {
     $ide = $third['id_usuarios'];
 
     //die(print_r($ide));
-    $resultado_usuarios = mysqli_query($conectar, "SELECT usuario, usuariopin, nomusuario, correoUsuario, fechareg, usuarios_id FROM usuarios WHERE usuarios_id = '$ide'");
+    $resultado_usuarios = mysqli_query($conectar, "SELECT usuario, usuariopin, nomContacto, correoContacto, fechareg, usuarios_id FROM usuarios WHERE usuarios_id = '$ide'");
 }
 ?>

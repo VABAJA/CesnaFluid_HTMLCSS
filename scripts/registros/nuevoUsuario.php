@@ -10,9 +10,10 @@ $db_sql = "tramex1";
 $nombreCliente = $_POST['nombreCliente'];
 $usuario = $_POST['usuario'];
 $usuariopin = $_POST['usuariopin'];
-$nomusuario = $_POST['nomusuario'];
-$correoUsuario = $_POST['correoUsuario'];
+$nomContacto = $_POST['nomContacto'];
+$correoContacto = $_POST['correoContacto'];
 $fechareg = $_POST['fechareg'];
+$usuarios_id = $_POST['usuarios_id'];
 
 $conexion = mysqli_connect($host_sql, $user_sql, $pass_sql);
 if (mysqli_connect_errno()) {
@@ -26,8 +27,8 @@ mysqli_set_charset($conexion, "utf8");
 
 if (isset($_POST["ingresarUsuario"])) {
 
-    $registroUsuarios = "INSERT INTO usuarios (nombreCliente, usuario, usuariopin, nomusuario, correoUsuario, fechareg)"
-        . "VALUES('" . $nombreCliente . "','" . $usuario . "','" . $usuariopin . "', '" . $nomusuario . "','" . $correoUsuario . "','" . $fechareg . "')";
+    $registroUsuarios = "INSERT INTO usuarios (nombreCliente, usuario, usuariopin, nomContacto, correoContacto, fechareg, usuarios_id)"
+        . "VALUES('" . $nombreCliente . "','" . $usuario . "','" . $usuariopin . "', '" . $nomContacto . "','" . $correoContacto . "','" . $fechareg . "','" . $usuarios_id . "')";
 
     if (mysqli_query($conexion, $registroUsuarios)) {
         echo "<script> alert ('Usuario registrado con éxito');
@@ -37,9 +38,7 @@ if (isset($_POST["ingresarUsuario"])) {
         echo "<script> alert ('Error de registro');
         window.location='../../paginas/usuarios.php'</script>";
     }
-   /*  $AsignaID = "UPDATE usuarios SET usuarios.usuarios_id = clientes.id_usuarios INNER JOIN clientes WHERE usuarios.usuarios_id=0";
 
-    $sql_query = mysqli_query($conexion, $AsignaID); */
 }
 
 //$querty=mysqli_query($conexion,$querty);

@@ -515,6 +515,19 @@ include('../scripts/sesion.php');
                                                 <input type="string" class="form-control" placeholder="Nombre del Cliente" name="nombreCliente" required>
                                             </div>
                                         </div>
+
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Usuario para la Plataforma</label>
+                                                <input type="string" class="form-control" placeholder="Usuario para la Plataforma" name="username" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Contraseña</label>
+                                                <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" required>
+                                            </div>
+                                        </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Contacto</label>
@@ -632,11 +645,11 @@ include('../scripts/sesion.php');
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <?php
-                                                include '../scripts/tablas/tablaClientes.php';
-                                                while ($fila = mysqli_fetch_array($tablaClientes)) :
-                                                ?>
+                                            <?php
+                                            include '../scripts/tablas/tablaClientes.php';
+                                            while ($fila = mysqli_fetch_array($resultadoCliente)) :
+                                            ?>
+                                                <tr>
                                                     <td>
                                                         <div class="form-check">
                                                             <label class="form-check-label">
@@ -649,19 +662,19 @@ include('../scripts/sesion.php');
                                                     </td>
 
                                                     <td class="text-center">
-                                                        <?php echo $fila['id_usuarios']; ?>
+                                                        <?php echo $fila['usuario']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['id_dispositivos']; ?>
+                                                        <?php echo $fila['nombreDispositivo']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['id_vehiculos']; ?>
+                                                        <?php echo $fila['vehiculo']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['id_tickets']; ?>
+                                                        <?php echo $fila['registroTicket']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['id_contenedores']; ?>
+                                                        <?php echo $fila['nombreContenedor']; ?>
                                                     </td>
 
                                                     <td class="text-center">
@@ -675,8 +688,8 @@ include('../scripts/sesion.php');
                                                             <i class="tim-icons icon-simple-remove"></i>
                                                         </button>
                                                     </td>
-                                                <?php endwhile; ?>
-                                            </tr>
+                                                </tr>
+                                            <?php endwhile; ?>
                                         </tbody>
                                     </table>
                                 </div>

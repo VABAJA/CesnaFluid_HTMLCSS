@@ -36,8 +36,7 @@ if (isset($_POST["ingresarVehiculo"])) {
         echo "<script> alert ('Error de registro');
         window.location='../../paginas/vehiculos.php'</script>";
     }
-    $AsignaVarVehiculos = "UPDATE clientes SET id_vehiculos=id WHERE id_vehiculos=0";
-    $sql_query = mysqli_query($conexion, $AsignaVarVehiculos);
+
 }
 
 //$querty=mysqli_query($conexion,$querty);

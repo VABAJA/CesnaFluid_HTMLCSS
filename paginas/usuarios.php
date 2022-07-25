@@ -253,13 +253,23 @@ include('../scripts/sesion.php');
                         </div>
                       <?php endwhile; ?>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
+                      <?php
+                      include '../scripts/buscador.php';
+                      while ($fila = mysqli_fetch_array($sql_query)) : ?>
+                        <div class="form-group">
+                          <label>No. De Cliente</label>
+                          <input type="string" class="form-control" value="<?php echo $fila['id']; ?>" name="usuarios_id">
+                        </div>
+                      <?php endwhile; ?>
+                    </div>
+                    <div class="col-sm-3">
                       <div class="form-group">
                         <label>Nombre de Usuario</label>
                         <input type="string" class="form-control" placeholder="Nombre de Usuario" name="usuario" required>
                       </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                       <div class="form-group">
                         <label>PIN RFID</label>
                         <input type="string" class="form-control" placeholder="PIN RFID" name="usuariopin" required>
@@ -270,13 +280,13 @@ include('../scripts/sesion.php');
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Nombre del Contacto</label>
-                        <input type="string" class="form-control" placeholder="Nombre del Contacto" name="nomusuario" required>
+                        <input type="string" class="form-control" placeholder="Nombre del Contacto" name="nomContacto" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Dirección Email</label>
-                        <input type="string" class="form-control" placeholder="Dirección Email" name="correoUsuario" required>
+                        <input type="string" class="form-control" placeholder="Dirección Email" name="correoContacto" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -311,10 +321,43 @@ include('../scripts/sesion.php');
                 <div class="card-body">
                   <div class="table-responsive">
                     <table class="table tablesorter">
-                      <div class="table tablesorter">
-                        <thead class="text-primary">
+
+                      <thead class="text-primary">
+                        <tr>
+                          <th>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <span class="form-check-sign">
+                                  <span class="check"></span>
+                                </span>
+                              </label>
+                            </div>
+                          </th>
+                          <th class="text-center">Usuario</th>
+                          <th class="text-center">PINRFID</th>
+                          <th class="text-center">Nombre del Contacto</th>
+                          <th class="text-center">Correo del Contacto</th>
+                          <th class="text-center">Fecha de Registro</th>
+                          <th class="text-center">
+                            <div class="dropdown">
+                              <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                                <i class="tim-icons icon-settings-gear-63"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#pablo">Eliminar</a>
+                              </div>
+                            </div>
+                          </th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        include '../scripts/tablas/tablaUsuarios.php';
+                        while ($fila = mysqli_fetch_array($resultado_usuarios)) : ?>
                           <tr>
-                            <th>
+                            <td>
                               <div class="form-check">
                                 <label class="form-check-label">
                                   <input class="form-check-input" type="checkbox" value="">
@@ -323,72 +366,39 @@ include('../scripts/sesion.php');
                                   </span>
                                 </label>
                               </div>
-                            </th>
-                            <th class="text-center">Usuario</th>
-                            <th class="text-center">PINRFID</th>
-                            <th class="text-center">Nombre de Usuario</th>
-                            <th class="text-center">Correo del Usuario</th>
-                            <th class="text-center">Fecha de Registro</th>
-                            <th class="text-center">
-                              <div class="dropdown">
-                                <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                                  <i class="tim-icons icon-settings-gear-63"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                  <a class="dropdown-item" href="#pablo">Eliminar</a>
-                                </div>
-                              </div>
-                            </th>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $fila['usuario']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $fila['usuariopin']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $fila['nomContacto']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $fila['correoContacto']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $fila['fechareg']; ?>
+                            </td>
 
+                            <td class="text-center">
+                              <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                                <i class="tim-icons icon-pencil"></i>
+
+                              </button>
+                            </td>
+                            <td class="text-center">
+                              <button type="button" title="Eliminar Usuario" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                <a href="../scripts/elimina_elemento.php">
+                                  <i class="tim-icons icon-simple-remove"></i>
+                                </a>
+                              </button>
+                            </td>
                           </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <?php
-                            include '../scripts/tablas/tablaUsuarios.php';
-                            while ($fila = mysqli_fetch_array($resultado_usuarios)) : ?>
-                              <td>
-                                <div class="form-check">
-                                  <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" value="">
-                                    <span class="form-check-sign">
-                                      <span class="check"></span>
-                                    </span>
-                                  </label>
-                                </div>
-                              </td>
-                              <td class="text-center">
-                                <?php echo $fila['usuario']; ?>
-                              </td>
-                              <td class="text-center">
-                                <?php echo $fila['usuariopin']; ?>
-                              </td>
-                              <td class="text-center">
-                                <?php echo $fila['nomusuario']; ?>
-                              </td>
-                              <td class="text-center">
-                                <?php echo $fila['correoUsuario']; ?>
-                              </td>
-                              <td class="text-center">
-                                <?php echo $fila['fechareg']; ?>
-                              </td>
-
-                              <td class="text-center">
-                                <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
-                                  <i class="tim-icons icon-pencil"></i>
-
-                                </button>
-                              </td>
-                              <td class="text-center">
-                                <button type="button" title="Eliminar Usuario" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                                  <a href="../scripts/elimina_elemento.php">
-                                    <i class="tim-icons icon-simple-remove"></i>
-                                  </a>
-                                </button>
-                              </td>
-                            <?php endwhile; ?>
-                          </tr>
-                        </tbody>
+                        <?php endwhile; ?>
+                      </tbody>
                     </table>
                   </div>
                 </div>

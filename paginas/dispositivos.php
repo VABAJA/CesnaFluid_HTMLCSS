@@ -144,7 +144,7 @@ include('../scripts/sesion.php');
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-navbar">
-                                <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
+                                    <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
@@ -197,8 +197,8 @@ include('../scripts/sesion.php');
                                             <tbody>
                                                 <tr>
                                                     <?php
-include '../scripts/buscador.php';
-while ($fila = mysqli_fetch_array($sql_query)): ?>
+                                                    include '../scripts/buscador.php';
+                                                    while ($fila = mysqli_fetch_array($sql_query)) : ?>
 
                                                         <td class="text-center">
                                                             <?php echo $fila['nombreCliente']; ?>
@@ -215,7 +215,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                         <td class="text-center">
                                                             <?php echo $fila['correo']; ?>
                                                         </td>
-                                                    <?php endwhile;?>
+                                                    <?php endwhile; ?>
                                                 </tr>
                                             </tbody>
 
@@ -239,18 +239,34 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                             </div>
                             <div class="card-body">
                                 <form action="../scripts/registros/nuevoDispositivo.php" method="post">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <?php
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <?php
                                             include '../scripts/buscador.php';
-                                            while ($fila = mysqli_fetch_array($sql_query)): ?>
-                                        <div class="form-group">
-                                            <label>Nombre del CLiente</label>
-                                            <input type="string" class="form-control" name="nombreCliente" value="<?php echo $fila['nombreCliente']; ?>"   >
+                                            while ($fila = mysqli_fetch_array($sql_query)) : ?>
+                                                <div class="form-group">
+                                                    <label>Nombre del CLiente</label>
+                                                    <input type="string" class="form-control" name="nombreCliente" value="<?php echo $fila['nombreCliente']; ?>">
+                                                </div>
+                                            <?php endwhile; ?>
                                         </div>
-                                        <?php endwhile;?>
+                                        <div class="col-sm-4">
+                                            <?php
+                                            include '../scripts/buscador.php';
+                                            while ($fila = mysqli_fetch_array($sql_query)) : ?>
+                                                <div class="form-group">
+                                                    <label>No. De Cliente</label>
+                                                    <input type="string" class="form-control" value="<?php echo $fila['id']; ?>" name="dispositivos_id">
+                                                </div>
+                                            <?php endwhile; ?>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Nombre del Dispositivo</label>
+                                                <input type="string" class="form-control" placeholder="Nombre del Dispositivo" name="nombreDispositivo">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
@@ -272,13 +288,10 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                    <button type="submit" 
-                    class="col-6-md pull-right btn btn-blue" 
-                    name="ingresarDispositivo" 
-                    <?php if (!isset($_SESSION['cliente']))
-                    { echo '<input type="submit" disabled>';
-                    }?>>
-                    Agregar Dispositivo</button>
+                                        <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarDispositivo" <?php if (!isset($_SESSION['cliente'])) {
+                                                                                                                                        echo '<input type="submit" disabled>';
+                                                                                                                                    } ?>>
+                                            Agregar Dispositivo</button>
                                     </div>
                                 </form>
                             </div>
@@ -316,6 +329,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                         </label>
                                                     </div>
                                                 </th>
+                                                <th class="text-center">Nombre del Dispositivo</th>
                                                 <th class="text-center">PIN RFID</th>
                                                 <th class="text-center">Ubicación del Dispositivo</th>
                                                 <th class="text-center">Volúmen Acumulado en Litros</th>
@@ -334,8 +348,8 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                         </thead>
                                         <tbody>
                                             <?php
-include '../scripts/tablas/tablaDispositivos.php';
-while ($fila = mysqli_fetch_array($resultado_dispositivos)): ?>
+                                            include '../scripts/tablas/tablaDispositivos.php';
+                                            while ($fila = mysqli_fetch_array($resultado_dispositivos)) : ?>
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
@@ -346,6 +360,9 @@ while ($fila = mysqli_fetch_array($resultado_dispositivos)): ?>
                                                                 </span>
                                                             </label>
                                                         </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['nombreDispositivo']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['pinRFID']; ?>
@@ -368,8 +385,8 @@ while ($fila = mysqli_fetch_array($resultado_dispositivos)): ?>
                                                             <i class="tim-icons icon-simple-remove"></i>
                                                         </button>
                                                     </td>
-                                                <?php endwhile;?>
                                                 </tr>
+                                            <?php endwhile; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -493,19 +510,21 @@ while ($fila = mysqli_fetch_array($resultado_dispositivos)): ?>
                                                     </label>
                                                 </div>
                                             </td> -->
-                                            <td class="text-center"></td>
+                                                <td class="text-center"></td>
                                                 <td class="text-center">
                                                     <?php
 
-$conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
-$var = "SELECT * FROM configuracion";
-$vars = mysqli_query($conectar, $var);
-$varsh = mysqli_fetch_array($vars);
+                                                    $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+                                                    $var = "SELECT * FROM configuracion";
+                                                    $vars = mysqli_query($conectar, $var);
+                                                    $varsh = mysqli_fetch_array($vars);
 
-?>
+                                                    ?>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice1" value="1" <?php if ($varsh['usuario'] == 1) {echo "checked";}?> >
+                                                            <input class="form-check-input" type="checkbox" name="confDevice1" value="1" <?php if ($varsh['usuario'] == 1) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -515,7 +534,9 @@ $varsh = mysqli_fetch_array($vars);
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice2" value="1" <?php if ($varsh['pinUsuario'] == 1) {echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice2" value="1" <?php if ($varsh['pinUsuario'] == 1) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -525,7 +546,9 @@ $varsh = mysqli_fetch_array($vars);
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice3" value="1" <?php if ($varsh['vehiculo'] == 1) {echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice3" value="1" <?php if ($varsh['vehiculo'] == 1) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -535,7 +558,9 @@ $varsh = mysqli_fetch_array($vars);
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice4" value="1" <?php if ($varsh['pinVehiculo'] == 1) {echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice4" value="1" <?php if ($varsh['pinVehiculo'] == 1) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -545,7 +570,9 @@ $varsh = mysqli_fetch_array($vars);
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice5" value="1" <?php if ($varsh['km'] == 1) {echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice5" value="1" <?php if ($varsh['km'] == 1) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -555,7 +582,9 @@ $varsh = mysqli_fetch_array($vars);
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice6" value="1" <?php if ($varsh['ticket'] == 1) {echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice6" value="1" <?php if ($varsh['ticket'] == 1) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -565,7 +594,9 @@ $varsh = mysqli_fetch_array($vars);
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice7" value="1" <?php if ($varsh['volumen'] == 1) {echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice7" value="1" <?php if ($varsh['volumen'] == 1) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -575,7 +606,9 @@ $varsh = mysqli_fetch_array($vars);
                                                 <td class="text-center">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" name="confDevice8" value="1" <?php if ($varsh['impresora'] == 1) {echo "checked";}?>>
+                                                            <input class="form-check-input" type="checkbox" name="confDevice8" value="1" <?php if ($varsh['impresora'] == 1) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>

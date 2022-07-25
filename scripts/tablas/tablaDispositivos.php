@@ -27,6 +27,6 @@ if (isset($_SESSION['cliente'])) {
     $ide = $third['id_dispositivos'];
 
     //die(print_r($ide));
-    $resultado_dispositivos = mysqli_query($conectar, "SELECT nombreCliente, pinRFID, ubicacion, vacum FROM dispositivos WHERE dispositivos_id = '$ide'");
+    $resultado_dispositivos = mysqli_query($conectar, "SELECT nombreDispositivo, pinRFID, ubicacion, vacum FROM dispositivos WHERE dispositivos_id = '$ide'");
 }
 ?>

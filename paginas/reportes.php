@@ -183,61 +183,61 @@ include('../scripts/sesion.php');
             <div class="content">
                 <!-- Busca Clientes -->
 
-        <div class="card">
-          <div class="card-body">
-            <form method="POST" action="#">
-              <div class="row">
-                <div class="form-group col-md-4">
-                  <label>Nombre del Cliente</label>
-                  <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action="#">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Nombre del Cliente</label>
+                                    <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="table-responsive">
+                                        <table class="table tablesorter">
+                                            <thead class="text-primary">
+                                                <tr>
+                                                    <th class="text-center">Nombre del Cliente</th>
+                                                    <th class="text-center">No. Cliente</th>
+                                                    <th class="text-center">Contacto</th>
+                                                    <th class="text-center">Teléfono</th>
+                                                    <th class="text-center">Correo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <?php
+                                                    include '../scripts/buscador.php';
+                                                    while ($row = mysqli_fetch_array($sql_query)) : ?>
+
+                                                        <td class="text-center">
+                                                            <?php echo $row['nombreCliente']; ?>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <?php echo $row['id']; ?>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <?php echo $row['contacto']; ?>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <?php echo $row['telefono']; ?>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <?php echo $row['correo']; ?>
+                                                        </td>
+                                                    <?php endwhile; ?>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-info">Buscar Cliente</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                  <div class="table-responsive">
-                    <table class="table tablesorter">
-                      <thead class="text-primary">
-                        <tr>
-                          <th class="text-center">Nombre del Cliente</th>
-                          <th class="text-center">No. Cliente</th>
-                          <th class="text-center">Contacto</th>
-                          <th class="text-center">Teléfono</th>
-                          <th class="text-center">Correo</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <?php
-                          include '../scripts/buscador.php';
-                          while ($row = mysqli_fetch_array($sql_query)) : ?>
-
-                            <td class="text-center">
-                              <?php echo $row['nombreCliente']; ?>
-                            </td>
-                            <td class="text-center">
-                              <?php echo $row['id']; ?>
-                            </td>
-                            <td class="text-center">
-                              <?php echo $row['contacto']; ?>
-                            </td>
-                            <td class="text-center">
-                              <?php echo $row['telefono']; ?>
-                            </td>
-                            <td class="text-center">
-                              <?php echo $row['correo']; ?>
-                            </td>
-                          <?php endwhile; ?>
-                        </tr>
-                      </tbody>
-
-                    </table>
-                  </div>
-
-                </div>
-              </div>
-              <button type="submit" class="btn btn-info">Buscar Cliente</button>
-            </form>
-          </div>
-        </div>
-        <!-- Termina Buscar Cliente -->
+                <!-- Termina Buscar Cliente -->
 
                 <!-- Tabla de Reportes  -->
 
@@ -257,7 +257,7 @@ include('../scripts/sesion.php');
                                         <thead class=" text-primary">
                                             <tr>
                                                 <th class="text-center">
-                                                    No. Del Cliente
+                                                    No. De Cliente
                                                 </th>
                                                 <th class="text-center">
                                                     Nombre del Cliente
@@ -281,15 +281,15 @@ include('../scripts/sesion.php');
                                         </thead>
                                         <tbody>
                                             <tr>
-                                            <tbody>
+                                        <tbody>
                                             <?php
-include '../scripts/registro_tab.php';
-while ($fila = mysqli_fetch_array($resultado_clientes)):
-?>
+                                            include '../scripts/registro_tab.php';
+                                            while ($fila = mysqli_fetch_array($resultado_clientes)) :
+                                            ?>
                                                 <tr>
 
                                                     <td class="text-center">
-                                                        <?php echo $fila['id_cliente']; ?>
+                                                        <?php echo $fila['id']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreCliente']; ?>
@@ -310,8 +310,8 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
                                                     <td class="text-center">
                                                         <?php echo $fila['id_usuarios']; ?>
                                                     </td>
-                                            </tr>
-                                            <?php endwhile;?>
+                                                </tr>
+                                            <?php endwhile; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -354,7 +354,7 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-   
+
     <!-- Chart JS -->
     <script src="../assets/js/plugins/chartjs.min.js"></script>
     <!--  Notifications Plugin    -->
@@ -488,20 +488,20 @@ while ($fila = mysqli_fetch_array($resultado_clientes)):
             });
     </script>
     <script>
-    const $btnExportar = document.querySelector("#btnExportar"),
-        $tabla = document.querySelector("#tabla");
+        const $btnExportar = document.querySelector("#btnExportar"),
+            $tabla = document.querySelector("#tabla");
 
-    $btnExportar.addEventListener("click", function() {
-        let tableExport = new TableExport($tabla, {
-            exportButtons: false, // No queremos botones
-            filename: "Reporte_De_Cliente", //Nombre del archivo de Excel
-            sheetname: "Reporte", //Título de la hoja
+        $btnExportar.addEventListener("click", function() {
+            let tableExport = new TableExport($tabla, {
+                exportButtons: false, // No queremos botones
+                filename: "Reporte_De_Cliente", //Nombre del archivo de Excel
+                sheetname: "Reporte", //Título de la hoja
+            });
+            let datos = tableExport.getExportData();
+            let preferenciasDocumento = datos.tabla.xlsx;
+            tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
         });
-        let datos = tableExport.getExportData();
-        let preferenciasDocumento = datos.tabla.xlsx;
-        tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
-    });
-</script>
+    </script>
 </body>
 
 </html>

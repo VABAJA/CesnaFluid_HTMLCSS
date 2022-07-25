@@ -1,5 +1,4 @@
-
-<!-- REGISTRO DE USUARIO NUEVO -->
+<!-- REGISTRO DE CONTENEDOR NUEVO -->
 
 <?php
 $host_sql = "localhost";
@@ -7,9 +6,11 @@ $user_sql = "root";
 $pass_sql = "123456";
 $db_sql = "tramex1";
 
-$nombreCliente = $_POST['nombreCliente'];
-$contenedores_id = $_POST['contenedores_id'];
+$nombreContenedor = $_POST['nombreContenedor'];
 $contenedorUbicacion = $_POST['contenedorUbicacion'];
+$volumen = $_POST['volumen'];
+$vacum = $_POST['vacum'];
+$contenedores_id = $_POST['contenedores_id'];
 
 $conexion = mysqli_connect($host_sql, $user_sql, $pass_sql);
 if (mysqli_connect_errno()) {
@@ -23,8 +24,8 @@ mysqli_set_charset($conexion, "utf8");
 
 if (isset($_POST["ingresarContenedor"])) {
 
-    $registroContenedor= "INSERT INTO contenedores (nombreCliente, contenedores_id, contenedorUbicacion)"
-        . "VALUES('" . $nombreCliente . "','" . $contenedores_id . "','" . $contenedorUbicacion . "')";
+    $registroContenedor = "INSERT INTO contenedores (nombreContenedor, contenedorUbicacion, volumen, vacum, contenedores_id)"
+        . "VALUES('" . $nombreContenedor . "','" . $contenedorUbicacion . "','" . $volumen . "','" . $vacum . "','" . $contenedores_id . "')";
 
     if (mysqli_query($conexion, $registroContenedor)) {
         echo "<script> alert ('Contenedor registrado con éxito');
@@ -34,8 +35,6 @@ if (isset($_POST["ingresarContenedor"])) {
         echo "<script> alert ('Error de registro');
         window.location='../../paginas/contenedores.php'</script>";
     }
-    $AsignarVarContenedor = "UPDATE clientes SET id_contenedores=id WHERE id_contenedores=0";
-    $sql_query = mysqli_query($conexion,$AsignarVarContenedor);
 }
 
 //$querty=mysqli_query($conexion,$querty);

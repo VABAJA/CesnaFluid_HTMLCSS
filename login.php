@@ -24,13 +24,13 @@ if (isset($_SESSION['rol'])) {
     }
 }
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
+if (isset($_POST['username']) && isset($_POST['contrasena'])) {
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $contrasena = $_POST['contrasena'];
 
     $db = new Database();
-    $query = $db->connect()->prepare('SELECT *FROM rolesdeusuario WHERE username = :username AND password = :password');
-    $query->execute(['username' => $username, 'password' => $password]);
+    $query = $db->connect()->prepare('SELECT *FROM rolesdeusuario WHERE username = :username AND contrasena = :contrasena');
+    $query->execute(['username' => $username, 'contrasena' => $contrasena]);
 
     $row = $query->fetch(PDO::FETCH_NUM);
 
@@ -102,7 +102,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                         <div class="row justify-content-center">
                             <div class="col-md-3">
                                 <label for="form-control" class="text-white form-label">Contraseña</label>
-                                <input type="password" class="form-control" placeholder="Contraseña" name="password" value="" required>
+                                <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" value="" required>
                             </div>
                         </div>
                         <div class="row justify-content-center">

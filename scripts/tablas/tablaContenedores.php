@@ -19,6 +19,6 @@ if (isset($_SESSION['cliente'])) {
     $ide = $third['id_contenedores'];
 
     //die(print_r($ide));
-    $resultado_contenedores = mysqli_query($conectar, "SELECT nombreCliente, contenedores_id, contenedorUbicacion, vacum, volumen FROM contenedores WHERE contenedores_id = '$ide'");
+    $resultado_contenedores = mysqli_query($conectar, "SELECT nombreContenedor, contenedores_id, contenedorUbicacion, vacum, volumen FROM contenedores WHERE contenedores_id = '$ide'");
 }
 ?>
