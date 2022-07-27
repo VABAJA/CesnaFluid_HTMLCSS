@@ -12,18 +12,20 @@ if (mysqli_connect_errno($conectar)) {
     // Busca al cliente y muestra solo los datos de ese cliente
     if (isset($_SESSION['cliente'])) {
 
-        $first = "SELECT id_usuarios FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
-    
+        $first = "SELECT id_usuarios, id_dispositivos, id_vehiculos, id_contenedores, id_tickets FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
+
         $second = mysqli_query($conectar, $first);
-    
+
         $third = mysqli_fetch_array($second);
-    
+
         $ide = $third['id_usuarios'];
-    
+
         //die(print_r($ide));
-        $resultadoCliente = mysqli_query($conectar, "SELECT usuario, usuariopin, nomContacto, correoContacto, fechareg, usuarios_id FROM usuarios WHERE usuarios_id = '$ide'");
+        $resultadoCliente = mysqli_query($conectar, "SELECT usuario, nombreDispositivo, vehiculo, nombreContenedor, registroTicket FROM usuarios, dispositivos, vehiculos, contenedores, tickets WHERE dispositivos_id = '$ide'");
+
+
     }
-    } 
+}
 
 ?>
 

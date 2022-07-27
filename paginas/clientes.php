@@ -1,5 +1,5 @@
 <?php
-include('../scripts/sesion.php');
+include '../scripts/sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -198,8 +198,8 @@ include('../scripts/sesion.php');
                                             <tbody>
                                                 <tr>
                                                     <?php
-                                                    include '../scripts/buscador.php';
-                                                    while ($fila = mysqli_fetch_array($sql_query)) : ?>
+include '../scripts/buscador.php';
+while ($fila = mysqli_fetch_array($sql_query)): ?>
 
                                                         <td class="text-center">
                                                             <?php echo $fila['nombreCliente']; ?>
@@ -216,7 +216,7 @@ include('../scripts/sesion.php');
                                                         <td class="text-center">
                                                             <?php echo $fila['correo']; ?>
                                                         </td>
-                                                    <?php endwhile; ?>
+                                                    <?php endwhile;?>
                                                 </tr>
                                             </tbody>
 
@@ -260,9 +260,9 @@ include('../scripts/sesion.php');
                                         <tbody>
                                             <tr>
                                                 <?php
-                                                include '../scripts/tablas/masInfo.php';
-                                                while ($fila = mysqli_fetch_array($resultado_info)) :
-                                                ?>
+include '../scripts/tablas/masInfo.php';
+while ($fila = mysqli_fetch_array($resultado_info)):
+?>
 
                                                     <td class="text-center">
                                                         <?php echo $fila['razonSocial']; ?>
@@ -278,7 +278,7 @@ include('../scripts/sesion.php');
                                                     </td>
 
 
-                                                <?php endwhile; ?>
+                                                <?php endwhile;?>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -646,9 +646,9 @@ include('../scripts/sesion.php');
                                         </thead>
                                         <tbody>
                                             <?php
-                                            include '../scripts/tablas/tablaClientes.php';
-                                            while ($fila = mysqli_fetch_array($resultadoCliente)) :
-                                            ?>
+include '../scripts/tablas/tablaClientes.php';
+while ($fila = mysqli_fetch_array($resultadoCliente)):
+?>
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
@@ -664,6 +664,8 @@ include('../scripts/sesion.php');
                                                     <td class="text-center">
                                                         <?php echo $fila['usuario']; ?>
                                                     </td>
+
+
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreDispositivo']; ?>
                                                     </td>
@@ -689,8 +691,8 @@ include('../scripts/sesion.php');
                                                         </button>
                                                     </td>
                                                 </tr>
-                                            <?php endwhile; ?>
-                                        </tbody>
+                                                <?php endwhile;?>
+                                            </tbody>
                                     </table>
                                 </div>
                             </div>

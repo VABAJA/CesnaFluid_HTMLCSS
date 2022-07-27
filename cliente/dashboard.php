@@ -165,7 +165,7 @@ include ('../scripts/sesionCliente.php');
                 <!-- Tabla "Información del Cliente" -->
                 <div class="card">
                     <div class="card-body">
-                        <form action="../scripts/dashboard.php">
+                        <!-- <form action="../scripts/masInfo.php"> -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="table-responsive">
@@ -180,6 +180,10 @@ include ('../scripts/sesionCliente.php');
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            <?php
+include '../scripts/clientes/dashboard.php';
+while ($fila = mysqli_fetch_array($clienteDashboard)): ?>
+
                                                 <tr>
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreCliente']; ?>
@@ -188,7 +192,7 @@ include ('../scripts/sesionCliente.php');
                                                         <?php echo $fila['clienteId']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['Contacto']; ?>
+                                                        <?php echo $fila['contacto']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['telefono']; ?>
@@ -197,6 +201,7 @@ include ('../scripts/sesionCliente.php');
                                                         <?php echo $fila['correo']; ?>
                                                     </td>
                                                 </tr>
+                                                <?php endwhile;?>
                                             </tbody>
 
                                         </table>
@@ -205,7 +210,7 @@ include ('../scripts/sesionCliente.php');
                                 </div>
                             </div>
 
-                        </form>
+                        <!-- </form> -->
                     </div>
                 </div>
                 <!-- Termina tabla "Información del cliente" -->
@@ -400,9 +405,7 @@ include ('../scripts/sesionCliente.php');
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
     <!-- Chart JS -->
     <script src="../assets/js/plugins/chartjs.min.js"></script>
     <!--  Notifications Plugin    -->
