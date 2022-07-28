@@ -297,12 +297,12 @@ include('../scripts/sesion.php');
                           <?php echo $fila['id_tickets']; ?>
                         </td>
                         <td class="td-actions text-right">
-                          <button class="btn btn-link" type="button" title="Editar Cliente" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                          <button class="btn btn-link" type="button" title="Editar Elemento" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
                             <i class="tim-icons icon-pencil"></i>
                           </button>
                         </td>
                         <td class="text-center">
-                          <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                          <button type="button" title="Eliminar Elemento" name="btbBorrar" lass="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
                             <i class="tim-icons icon-simple-remove"></i>
                           </button>
                         </td>

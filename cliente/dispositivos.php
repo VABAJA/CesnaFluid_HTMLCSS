@@ -1,5 +1,5 @@
 <?php
-include ('../scripts/sesionCliente.php');
+include('../scripts/sesionCliente.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -246,7 +246,9 @@ include ('../scripts/sesionCliente.php');
 
                 <div class="row">
                     <div class="col-md-12">
+
                         <div class="card-plain">
+
                             <div class="card-header">
                                 <h4 class="title">Dispositivos</h4>
                                 <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
@@ -268,12 +270,10 @@ include ('../scripts/sesionCliente.php');
                                                         </label>
                                                     </div>
                                                 </th>
-                                                <th class="text-center">ID. Del Dispositivo</th>
-                                                <th class="text-center">RFID del Dispositivo</th>
-                                                <th class="text-center">Ciudad</th>
-                                                <th class="text-center">Volúmen</th>
-                                                <th class="text-center">Kilometros</th>
-                                                <th class="text-center">Volúmen Acumulado</th>
+                                                <th class="text-center">Nombre del Dispositivo</th>
+                                                <th class="text-center">PIN RFID</th>
+                                                <th class="text-center">Ubicación del Dispositivo</th>
+                                                <th class="text-center">Volúmen Acumulado en Litros</th>
                                                 <th class="text-center"></th>
                                                 <th class="text-center">
                                                     <div class="dropdown">
@@ -288,50 +288,46 @@ include ('../scripts/sesionCliente.php');
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                            include '../scripts/tablas/tablaDispositivos.php';
+                                            while ($fila = mysqli_fetch_array($resultado_dispositivos)) : ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="">
+                                                                <span class="form-check-sign">
+                                                                    <span class="check"></span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['nombreDispositivo']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['pinRFID']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['ubicacion']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['vacum']; ?>
+                                                    </td>
 
-                                            <tr>
-                                                <td>
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="">
-                                                            <span class="form-check-sign">
-                                                                <span class="check"></span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    12234
-                                                </td>
-                                                <td class="text-center">
-                                                    12345
-                                                </td>
-                                                <td class="text-center">
-                                                    Monterrey
-                                                </td>
-                                                <td class="text-center">
-                                                    1245 L
-                                                </td>
-                                                <td class="text-center">
-                                                    123456 km
-                                                </td>
-                                                <td class="text-center">
-                                                    1234455 L
-                                                </td>
+                                                    <td class="text-center">
+                                                        <button class="btn btn-link" type="button" title="Editar Dispositivo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                                                            <i class="tim-icons icon-pencil"></i>
 
-                                                <td class="text-center">
-                                                    <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
-                                                        <i class="tim-icons icon-pencil"></i>
-
-                                                    </button>
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                                                        <i class="tim-icons icon-simple-remove"></i>
-                                                    </button>
-                                                </td>
-
-                                            </tr>
+                                                        </button>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <button type="button" title="Eliminar Dispositivo" name="borraDispositivo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                            <i class="tim-icons icon-simple-remove"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            <?php endwhile; ?>
                                         </tbody>
                                     </table>
                                 </div>

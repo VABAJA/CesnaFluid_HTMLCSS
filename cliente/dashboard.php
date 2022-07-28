@@ -1,5 +1,5 @@
 <?php
-include ('../scripts/sesionCliente.php');
+include('../scripts/sesionCliente.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -165,31 +165,29 @@ include ('../scripts/sesionCliente.php');
                 <!-- Tabla "Información del Cliente" -->
                 <div class="card">
                     <div class="card-body">
-                        <!-- <form action="../scripts/masInfo.php"> -->
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="table-responsive">
-                                        <table class="table tablesorter">
-                                            <thead class="text-primary">
-                                                <tr>
-                                                    <th class="text-center">Nombre del Cliente</th>
-                                                    <th class="text-center">No. Cliente</th>
-                                                    <th class="text-center">Contacto</th>
-                                                    <th class="text-center">Teléfono</th>
-                                                    <th class="text-center">Correo</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            <?php
-include '../scripts/clientes/dashboard.php';
-while ($fila = mysqli_fetch_array($clienteDashboard)): ?>
-
-                                                <tr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table tablesorter">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th class="text-center">Nombre del Cliente</th>
+                                                <th class="text-center">No. Cliente</th>
+                                                <th class="text-center">Contacto</th>
+                                                <th class="text-center">Teléfono</th>
+                                                <th class="text-center">Correo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <?php
+                                                include '../scripts/clientes/dashboard.php';
+                                                while ($fila = mysqli_fetch_array($clienteDashboard)) : ?>
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreCliente']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['clienteId']; ?>
+                                                        <?php echo $fila['id']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['contacto']; ?>
@@ -200,17 +198,15 @@ while ($fila = mysqli_fetch_array($clienteDashboard)): ?>
                                                     <td class="text-center">
                                                         <?php echo $fila['correo']; ?>
                                                     </td>
-                                                </tr>
-                                                <?php endwhile;?>
-                                            </tbody>
+                                                <?php endwhile; ?>
+                                            </tr>
+                                        </tbody>
 
-                                        </table>
-                                    </div>
-
+                                    </table>
                                 </div>
-                            </div>
 
-                        <!-- </form> -->
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Termina tabla "Información del cliente" -->

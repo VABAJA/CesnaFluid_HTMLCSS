@@ -1,21 +1,29 @@
+<!-- ELIMINA DISPOSITIVO -->
 <?php
 session_start();
+
+//variable de conexión
 $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
 
-    $id = $_POST["id"];
+//verificación de conexión
+if (mysqli_connect_errno($conectar)) {
+    echo "Conexión Fallida" . mysqli_connect_error();
+}
 
-    $eliminar = "DELETE 'id' FROM usuarios WHERE id = '$id'";
+if (isset($_SESSION['cliente'])) {
 
-    // $resultado = mysqli_query($conectar, $eliminar);
+    if (isset($_POST['borraDispositivo'])) {
+        
+        $first = "SELECT id_dispositivos FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
 
-    // if(!$resultado){
+        $second = mysqli_query($conectar, $first);
 
-    //     echo 'Error al eliminar el producto';
+        $third = mysqli_fetch_array($second);
 
-    // } else{
+        $ide = $third['id_dispositivos'];
 
-    //     echo 'Producto eliminado con éxito';
-
-    // }
-
-mysqli_close($conectar);
+        //die(print_r($ide));
+        $borraDispositivo = mysqli_query($conectar, "DELETE FROM dispositivos WHERE dispositivos_id = '$ide'");
+    }
+}
+?>

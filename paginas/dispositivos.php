@@ -381,7 +381,7 @@ include('../scripts/sesion.php');
                                                         </button>
                                                     </td>
                                                     <td class="text-center">
-                                                        <button type="button" title="Eliminar Dispositivo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                        <button type="button" title="Eliminar Dispositivo" name="borraDispositivo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
                                                             <i class="tim-icons icon-simple-remove"></i>
                                                         </button>
                                                     </td>
