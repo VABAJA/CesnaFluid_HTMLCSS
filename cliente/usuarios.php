@@ -177,48 +177,52 @@ $resultado = mysqli_query($conectar, "SELECT * FROM usuarios");
       <div class="content">
         <!-- Tabla "Información del Cliente" -->
         <div class="card">
-          <div class="card-body">
-            <form>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="table-responsive">
-                    <table class="table tablesorter">
-                      <thead class="text-primary">
-                        <tr>
-                          <th class="text-center">Nombre del Cliente</th>
-                          <th class="text-center">No. Cliente</th>
-                          <th class="text-center">Contacto</th>
-                          <th class="text-center">Teléfono</th>
-                          <th class="text-center">Correo</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="text-center">
-                            <?php echo $fila['No.Cliente']; ?>
-                          </td>
-                          <td class="text-center">
-                            <?php echo $fila['Contacto']; ?>
-                          </td>
-                          <td class="text-center">
-                            <?php echo $fila['Telefono']; ?>
-                          </td>
-                          <td class="text-center">
-                            <?php echo $fila['Correo']; ?>
-                          </td>
-                        </tr>
-                      </tbody>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table tablesorter">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th class="text-center">Nombre del Cliente</th>
+                                                <th class="text-center">No. Cliente</th>
+                                                <th class="text-center">Contacto</th>
+                                                <th class="text-center">Teléfono</th>
+                                                <th class="text-center">Correo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <?php
+                                                include '../scripts/clientes/dashboard.php';
+                                                while ($fila = mysqli_fetch_array($clienteDashboard)) : ?>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['nombreCliente']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['contacto']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['telefono']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['correo']; ?>
+                                                    </td>
+                                                <?php endwhile; ?>
+                                            </tr>
+                                        </tbody>
 
-                    </table>
-                  </div>
+                                    </table>
+                                </div>
 
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-            </form>
-          </div>
-        </div>
-        <!-- Termina tabla "Información del cliente" -->
+                <!-- Termina tabla "Información del cliente" -->
 
         <!-- Agregar Nuevo Usuario -->
 

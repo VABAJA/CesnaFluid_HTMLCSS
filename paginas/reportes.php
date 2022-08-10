@@ -283,8 +283,8 @@ include('../scripts/sesion.php');
                                             <tr>
                                         <tbody>
                                             <?php
-                                            include '../scripts/registro_tab.php';
-                                            while ($fila = mysqli_fetch_array($resultado_clientes)) :
+                                            include '../scripts/tablas/masInfo.php';
+                                            while ($fila = mysqli_fetch_array($resultado_info)) :
                                             ?>
                                                 <tr>
 
@@ -487,7 +487,8 @@ include('../scripts/sesion.php');
                 application: "black-dashboard-free"
             });
     </script>
-    <script>
+
+<script>
         const $btnExportar = document.querySelector("#btnExportar"),
             $tabla = document.querySelector("#tabla");
 

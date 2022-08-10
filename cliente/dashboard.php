@@ -300,12 +300,12 @@ include('../scripts/sesionCliente.php');
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label>Descripción</label>
-                                            <input type="text" class="form-control" placeholder="Tarea..." name="task" required>
+                                            <input id="addTxt" type="text" class="form-control" placeholder="Tarea..." name="task" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6-md pull-right">
-                                    <button type="submit" class="btn btn-info">Agregar Tarea</button>
+                                    <button type="submit" class="btn btn-info" id="addButton">Agregar Tarea</button>
                                 </div>
                             </div>
                         </div>
@@ -527,7 +527,7 @@ include('../scripts/sesionCliente.php');
 
         });
     </script>
-
+<script src="../assets/js/main.js"></script>
 </body>
 
 </html>

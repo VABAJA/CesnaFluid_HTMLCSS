@@ -166,301 +166,124 @@ include ('../scripts/sesionCliente.php');
                 <!-- Tabla "Información del Cliente" -->
                 <div class="card">
                     <div class="card-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="table-responsive">
-                                        <table class="table tablesorter">
-                                            <thead class="text-primary">
-                                                <tr>
-                                                    <th class="text-center">Nombre del Cliente</th>
-                                                    <th class="text-center">No. Cliente</th>
-                                                    <th class="text-center">Contacto</th>
-                                                    <th class="text-center">Teléfono</th>
-                                                    <th class="text-center">Correo</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table tablesorter">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th class="text-center">Nombre del Cliente</th>
+                                                <th class="text-center">No. Cliente</th>
+                                                <th class="text-center">Contacto</th>
+                                                <th class="text-center">Teléfono</th>
+                                                <th class="text-center">Correo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <?php
+                                                include '../scripts/clientes/dashboard.php';
+                                                while ($fila = mysqli_fetch_array($clienteDashboard)) : ?>
                                                     <td class="text-center">
-                                                        <?php echo $fila['No.Cliente']; ?>
+                                                        <?php echo $fila['nombreCliente']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['Contacto']; ?>
+                                                        <?php echo $fila['id']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['Telefono']; ?>
+                                                        <?php echo $fila['contacto']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['Correo']; ?>
+                                                        <?php echo $fila['telefono']; ?>
                                                     </td>
-                                                </tr>
-                                            </tbody>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['correo']; ?>
+                                                    </td>
+                                                <?php endwhile; ?>
+                                            </tr>
+                                        </tbody>
 
-                                        </table>
-                                    </div>
-
+                                    </table>
                                 </div>
-                            </div>
 
-                        </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Termina tabla "Información del cliente" -->
+
+                <!-- TABLA DE REPORTES  -->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card ">
                             <div class="card-header">
-                                <h4 class="card-title"> Simple Table</h4>
+                                <h4 class="card-title">Reporte</h4>
+                            </div>
+                            <div class="">
+                                <button type="submit" id="btnExportar" class="col-6-md pull-right btn btn-fill btn-info">Descarga Reporte</button>
+
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table tablesorter " id="">
+                                    <table class="table tablesorter " id="tabla">
                                         <thead class=" text-primary">
                                             <tr>
-                                                <th>
-                                                    Name
-                                                </th>
-                                                <th>
-                                                    Country
-                                                </th>
-                                                <th>
-                                                    City
+                                                <th class="text-center">
+                                                    No. De Cliente
                                                 </th>
                                                 <th class="text-center">
-                                                    Salary
+                                                    Nombre del Cliente
+                                                </th>
+                                                <th class="text-center">
+                                                    Usuarios
+                                                </th>
+                                                <th class="text-center">
+                                                    Dispositivos
+                                                </th>
+                                                <th class="text-center">
+                                                    Vehículos
+                                                </th>
+                                                <th class="text-center">
+                                                    Tickets
+                                                </th>
+                                                <th class="text-center">
+                                                    Contenedores
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>
-                                                    Dakota Rice
-                                                </td>
-                                                <td>
-                                                    Niger
-                                                </td>
-                                                <td>
-                                                    Oud-Turnhout
-                                                </td>
-                                                <td class="text-center">
-                                                    $36,738
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Minerva Hooper
-                                                </td>
-                                                <td>
-                                                    Curaçao
-                                                </td>
-                                                <td>
-                                                    Sinaai-Waas
-                                                </td>
-                                                <td class="text-center">
-                                                    $23,789
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Sage Rodriguez
-                                                </td>
-                                                <td>
-                                                    Netherlands
-                                                </td>
-                                                <td>
-                                                    Baileux
-                                                </td>
-                                                <td class="text-center">
-                                                    $56,142
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Philip Chaney
-                                                </td>
-                                                <td>
-                                                    Korea, South
-                                                </td>
-                                                <td>
-                                                    Overland Park
-                                                </td>
-                                                <td class="text-center">
-                                                    $38,735
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Doris Greene
-                                                </td>
-                                                <td>
-                                                    Malawi
-                                                </td>
-                                                <td>
-                                                    Feldkirchen in Kärnten
-                                                </td>
-                                                <td class="text-center">
-                                                    $63,542
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Mason Porter
-                                                </td>
-                                                <td>
-                                                    Chile
-                                                </td>
-                                                <td>
-                                                    Gloucester
-                                                </td>
-                                                <td class="text-center">
-                                                    $78,615
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Jon Porter
-                                                </td>
-                                                <td>
-                                                    Portugal
-                                                </td>
-                                                <td>
-                                                    Gloucester
-                                                </td>
-                                                <td class="text-center">
-                                                    $98,615
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="card  card-plain">
-                            <div class="card-header">
-                                <h4 class="card-title"> Table on Plain Background</h4>
-                                <p class="category"> Here is a subtitle for this table</p>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table tablesorter " id="">
-                                        <thead class=" text-primary">
-                                            <tr>
-                                                <th>
-                                                    Name
-                                                </th>
-                                                <th>
-                                                    Country
-                                                </th>
-                                                <th>
-                                                    City
-                                                </th>
-                                                <th class="text-center">
-                                                    Salary
-                                                </th>
-                                            </tr>
-                                        </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    Dakota Rice
-                                                </td>
-                                                <td>
-                                                    Niger
-                                                </td>
-                                                <td>
-                                                    Oud-Turnhout
-                                                </td>
-                                                <td class="text-center">
-                                                    $36,738
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Minerva Hooper
-                                                </td>
-                                                <td>
-                                                    Curaçao
-                                                </td>
-                                                <td>
-                                                    Sinaai-Waas
-                                                </td>
-                                                <td class="text-center">
-                                                    $23,789
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Sage Rodriguez
-                                                </td>
-                                                <td>
-                                                    Netherlands
-                                                </td>
-                                                <td>
-                                                    Baileux
-                                                </td>
-                                                <td class="text-center">
-                                                    $56,142
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Philip Chaney
-                                                </td>
-                                                <td>
-                                                    Korea, South
-                                                </td>
-                                                <td>
-                                                    Overland Park
-                                                </td>
-                                                <td class="text-center">
-                                                    $38,735
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Doris Greene
-                                                </td>
-                                                <td>
-                                                    Malawi
-                                                </td>
-                                                <td>
-                                                    Feldkirchen in Kärnten
-                                                </td>
-                                                <td class="text-center">
-                                                    $63,542
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Mason Porter
-                                                </td>
-                                                <td>
-                                                    Chile
-                                                </td>
-                                                <td>
-                                                    Gloucester
-                                                </td>
-                                                <td class="text-center">
-                                                    $78,615
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Jon Porter
-                                                </td>
-                                                <td>
-                                                    Portugal
-                                                </td>
-                                                <td>
-                                                    Gloucester
-                                                </td>
-                                                <td class="text-center">
-                                                    $98,615
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            include '../scripts/registro_tab.php';
+                                            while ($fila = mysqli_fetch_array($resultado_clientes)) :
+                                            ?>
+                                                <tr>
+
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['nombreCliente']; ?>
+                                                    </td>
+
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_dispositivos']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_vehiculos']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_tickets']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_contenedores']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_usuarios']; ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endwhile; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -468,6 +291,7 @@ include ('../scripts/sesionCliente.php');
                         </div>
                     </div>
                 </div>
+                <!-- TERMINA TABLA DE REPORTES  -->
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <?php
-include('../scripts/sesion.php');
+include '../scripts/sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -196,8 +196,8 @@ include('../scripts/sesion.php');
                       <tbody>
                         <tr>
                           <?php
-                          include '../scripts/buscador.php';
-                          while ($row = mysqli_fetch_array($sql_query)) : ?>
+include '../scripts/buscador.php';
+while ($row = mysqli_fetch_array($sql_query)): ?>
 
                             <td class="text-center">
                               <?php echo $row['nombreCliente']; ?>
@@ -214,7 +214,7 @@ include('../scripts/sesion.php');
                             <td class="text-center">
                               <?php echo $row['correo']; ?>
                             </td>
-                          <?php endwhile; ?>
+                          <?php endwhile;?>
                         </tr>
                       </tbody>
 
@@ -272,8 +272,8 @@ include('../scripts/sesion.php');
                   <tbody>
                       <tr>
                     <?php
-                    include '../scripts/registro_tab.php.php';
-                    while ($fila = mysqli_fetch_array($resultadoDashboard)) : ?>
+include '../scripts/registro_tab.php.php';
+while ($fila = mysqli_fetch_array($resultadoDashboard)): ?>
                         <td>
                           <div class="form-check">
                             <label class="form-check-label">
@@ -306,7 +306,7 @@ include('../scripts/sesion.php');
                             <i class="tim-icons icon-simple-remove"></i>
                           </button>
                         </td>
-                        <?php endwhile; ?>
+                        <?php endwhile;?>
                       </tr>
                   </tbody>
                 </table>
@@ -584,9 +584,10 @@ include('../scripts/sesion.php');
                         <p class="title text-center">11-03-2022</p>
                       </td>
                       <td>
-                        <p class="title text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                          explicabo sit ipsa est, repudiandae modi cupiditate eligendi architecto adipisci labore
-                          quisquam aspernatur, deleniti reprehenderit, quis a laborum. Hic, maiores nostrum?</p>
+                        <div id="notes" class="row container-fluid">
+
+
+                        </div>
                       </td>
                       <td class="td-actions text-left">
                         <button class="btn btn-link" type="button" title="Editar Tarea" data-toggle="collapse" data-target="#editTask" aria-expanded="false" aria-controls="editTask">
@@ -619,12 +620,12 @@ include('../scripts/sesion.php');
                   <div class="col-sm-3">
                     <div class="form-group">
                       <label>Descripción</label>
-                      <input type="text" class="form-control" placeholder="Tarea..." name="task" required>
+                      <input id="addTxt" type="text" class="form-control" placeholder="Tarea..." name="task" required>
                     </div>
                   </div>
                 </div>
                 <div class="col-6-md pull-right">
-                  <button type="submit" class="btn btn-info">Agregar Tarea</button>
+                  <button id="addBtn" type="submit" class="btn btn-info">Agregar Tarea</button>
                 </div>
               </div>
             </div>
