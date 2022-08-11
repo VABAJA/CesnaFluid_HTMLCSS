@@ -550,8 +550,8 @@ while ($fila = mysqli_fetch_array($resultadoDashboard)): ?>
                         </label>
                       </div>
                     </th>
-                    <th class="text-center">Fecha de Inicio</th>
-                    <th class="text-center">Fecha de Termino</th>
+                    <!-- <th class="text-center">Fecha de Inicio</th>
+                    <th class="text-center">Fecha de Termino</th> -->
                     <th class="text-center">Descripción</th>
                     <th class="text-center"></th>
                     <th>
@@ -577,35 +577,35 @@ while ($fila = mysqli_fetch_array($resultadoDashboard)): ?>
                           </label>
                         </div>
                       </td>
-                      <td>
+<!--                       <td>
                         <p class="title text-center">11-02-2022</p>
                       </td>
                       <td>
                         <p class="title text-center">11-03-2022</p>
-                      </td>
+                      </td> -->
                       <td>
-                        <div id="notes" class="row container-fluid">
+                        <div id="notes" class="title text-center">
 
 
                         </div>
                       </td>
-                      <td class="td-actions text-left">
+<!--                       <td class="td-actions text-left">
                         <button class="btn btn-link" type="button" title="Editar Tarea" data-toggle="collapse" data-target="#editTask" aria-expanded="false" aria-controls="editTask">
                           <i class="tim-icons icon-pencil"></i>
                         </button>
                       </td>
                       <td class="text-center">
-                        <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                        <button id="${index}"onclick="deleteNote(this.id)" type="button" title="Eliminar Tarea" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
                           <i class="tim-icons icon-simple-remove"></i>
                         </button>
-                      </td>
+                      </td> -->
                     </tr>
                   </tbody>
                 </table>
               </div>
               <div class="card-footer">
                 <div class="row">
-                  <div class="col-sm-3">
+                  <!-- <div class="col-sm-3">
                     <div class="form-group">
                       <label>Fecha de Inicio</label>
                       <input type="date" class="form-control" name="startDate" required>
@@ -616,8 +616,8 @@ while ($fila = mysqli_fetch_array($resultadoDashboard)): ?>
                       <label>Fecha de Término</label>
                       <input type="date" class="form-control" name="endDate" required>
                     </div>
-                  </div>
-                  <div class="col-sm-3">
+                  </div> -->
+                  <div class="col-sm-12">
                     <div class="form-group">
                       <label>Descripción</label>
                       <input id="addTxt" type="text" class="form-control" placeholder="Tarea..." name="task" required>
@@ -633,7 +633,7 @@ while ($fila = mysqli_fetch_array($resultadoDashboard)): ?>
         </div>
         <!-- Termina Lista de Tareas -->
         <!-- Editar tareas -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-12 collapse" id="editTask">
             <div class="card">
               <div class="card-header">
@@ -670,7 +670,7 @@ while ($fila = mysqli_fetch_array($resultadoDashboard)): ?>
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- Termina Editar tareas -->
         <footer class="footer">
           <div class="container-fluid">
@@ -732,7 +732,7 @@ while ($fila = mysqli_fetch_array($resultadoDashboard)): ?>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
 
-  <script>
+  <!-- <script>
     $(document).ready(function() {
       $().ready(function() {
         $sidebar = $('.sidebar');
@@ -842,14 +842,14 @@ while ($fila = mysqli_fetch_array($resultadoDashboard)): ?>
         });
       });
     });
-  </script>
-  <script>
+  </script> -->
+  <!-- <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       demo.initDashboardPageCharts();
 
     });
-  </script>
+  </script> -->
   <script src="../assets/js/main.js"></script>
 </body>
 

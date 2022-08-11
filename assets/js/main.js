@@ -1,101 +1,206 @@
-// SESION DE USUARIO 
 
-const { parse } = require("path");
+//TAREAS EN DASHBOARD
 
-//BOTONES DE COLORES
+showNotes();
 
-/* document.getElementById("ColorPrimary").addEventListener("click", Primary);
-document.getElementById("ColorBlue").addEventListener("click", Blue);
-document.getElementById("ColorGreen").addEventListener("click", Green);
+// GUARDA LAS TAREAS EN localStorage
+let addBtn = document.getElementById("addBtn");
+addBtn.addEventListener("click", function (e) {
+  let addTxt = document.getElementById("addTxt");
+  let notes = localStorage.getItem("notes");
+  if (notes == null) {
+    notesObj = [];
+  } else {
+    notesObj = JSON.parse(notes);
+  }
+  notesObj.push(addTxt.value);
+  localStorage.setItem("notes", JSON.stringify(notesObj));
+  addTxt.value = "";
+  showNotes();
+});
 
-
-function Primary() {
-    sessionStorage.setItem("ColorPrimary");
+// MUESTRA LAS TAREAS
+function showNotes() {
+  let notes = localStorage.getItem("notes");
+  if (notes == null) {
+    notesObj = [];
+  } else {
+    notesObj = JSON.parse(notes);
+  }
+  let html = "";
+  notesObj.forEach(function (element, index) {
+    html += `
+    <div class="row">
+      <div>
+      <tbody>
+      <tr>
+        <td>
+          <p class="text-center"> ${element}</p>
+        </td>
+        <td class="text-center">
+          <button class="btn btn-link" type="button" title="Editar Tarea" data-toggle="collapse" data-target="#editTask" aria-expanded="false" aria-controls="editTask">
+            <i class="tim-icons icon-pencil"></i>
+          </button>
+        </td>
+        <td class="text-center">
+          <button id="${index}"onclick="deleteNote(this.id)" type="button" title="Eliminar Tarea" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+        </td> 
+        </div>
+        </tr>
+        </tbody>
+    </div>
+`;
+  });
+  let notesElm = document.getElementById("notes");
+  if (notesObj.length != 0) {
+    notesElm.innerHTML = html;
+  } else {
+    notesElm.innerHTML = `¡Nada para mostrar! Crea una tarea aquí`;
+  }
 }
-function Blue() {
-    sessionStorage.setItem("ColorBlue");
+
+// BORRA LA TAREA
+function deleteNote(index) {
+  let notes = localStorage.getItem("notes");
+  if (notes == null) {
+    notesObj = [];
+  } else {
+    notesObj = JSON.parse(notes);
+  }
+
+  notesObj.splice(index, 1);
+  localStorage.setItem("notes", JSON.stringify(notesObj));
+  showNotes();
 }
-function Green() {
-    sessionStorage.setItem("ColorGreen");
-} */
+
+// FRONT END 
+$(document).ready(function () {
+  $().ready(function () {
+    $sidebar = $('.sidebar');
+    $navbar = $('.navbar');
+    $main_panel = $('.main-panel');
+
+    $full_page = $('.full-page');
+
+    $sidebar_responsive = $('body > .navbar-collapse');
+    sidebar_mini_active = true;
+    white_color = false;
+
+    window_width = $(window).width();
+
+    fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+
+
+    $('.fixed-plugin a').click(function (event) {
+      if ($(this).hasClass('switch-trigger')) {
+        if (event.stopPropagation) {
+          event.stopPropagation();
+        } else if (window.event) {
+          window.event.cancelBubble = true;
+        }
+      }
+    });
+
+    $('.fixed-plugin .background-color span').click(function () {
+      $(this).siblings().removeClass('active');
+      $(this).addClass('active');
+
+      var new_color = $(this).data('color');
+
+      if ($sidebar.length != 0) {
+        $sidebar.attr('data', new_color);
+      }
+
+      if ($main_panel.length != 0) {
+        $main_panel.attr('data', new_color);
+      }
+
+      if ($full_page.length != 0) {
+        $full_page.attr('filter-color', new_color);
+      }
+
+      if ($sidebar_responsive.length != 0) {
+        $sidebar_responsive.attr('data', new_color);
+      }
+    });
+
+    $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+      var $btn = $(this);
+
+      if (sidebar_mini_active == true) {
+        $('body').removeClass('sidebar-mini');
+        sidebar_mini_active = false;
+        blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+      } else {
+        $('body').addClass('sidebar-mini');
+        sidebar_mini_active = true;
+        blackDashboard.showSidebarMessage('Sidebar mini activated...');
+      }
+
+      // we simulate the window Resize so the charts will get updated in realtime.
+      var simulateWindowResize = setInterval(function () {
+        window.dispatchEvent(new Event('resize'));
+      }, 180);
+
+      // we stop the simulation of Window Resize after the animations are completed
+      setTimeout(function () {
+        clearInterval(simulateWindowResize);
+      }, 1000);
+    });
+
+    $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
+      var $btn = $(this);
+
+      if (white_color == true) {
+
+        $('body').addClass('change-background');
+        setTimeout(function () {
+          $('body').removeClass('change-background');
+          $('body').removeClass('white-content');
+        }, 900);
+        white_color = false;
+      } else {
+
+        $('body').addClass('change-background');
+        setTimeout(function () {
+          $('body').removeClass('change-background');
+          $('body').addClass('white-content');
+        }, 900);
+
+        white_color = true;
+      }
+
+
+    });
+
+    $('.light-badge').click(function () {
+      $('body').addClass('white-content');
+    });
+
+    $('.dark-badge').click(function () {
+      $('body').removeClass('white-content');
+    });
+  });
+});
 
 // REPORTES 
 
 const $btnExportar = document.querySelector("#btnExportar"),
-    $tabla = document.querySelector("#tabla");
+  $tabla = document.querySelector("#tabla");
 
 $btnExportar.addEventListener("click", function () {
-    let tableExport = new TableExport($tabla, {
-        exportButtons: false, // Exporta sin botones
-        filename: "Reporte_De_Cliente", //Nombre del archivo de Excel
-        sheetname: "Reporte", //Título de la hoja
-    });
-    let datos = tableExport.getExportData();
-    let preferenciasDocumento = datos.tabla.xlsx;
-    tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
+  let tableExport = new TableExport($tabla, {
+    exportButtons: false, // Exporta sin botones
+    filename: "Reporte_De_Cliente", //Nombre del archivo de Excel
+    sheetname: "Reporte", //Título de la hoja
+  });
+  let datos = tableExport.getExportData();
+  let preferenciasDocumento = datos.tabla.xlsx;
+  tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
 });
 
-//TAREAS EN DASHBOARD
 
-//Crea una nueva Tarea
-//Si el usuario agrega una tarea, se salva en el localStorage
-let addBtn = document.getElementById("addBtn");
-addBtn.addEventListener("click", function (e) {
 
-    let addTxt = document.getElementById("addTxt");
-    let notes = localStorage.getItem("notes");
-
-    if (notes == null) {
-        notes0bj = [];
-    } else {
-        notesObj = JSON.parse(notes);
-    }
-    notesObj.push(addTxt.value);
-    localStorage.setItem("notes", JSON.stringify(notesObj));
-    addTxt.value = "";
-    showNotes();
-});
-
-//Muestra las tareas
-
-function showNotes() {
-    let notes = localStorage.getItem("notes");
-    if (notes == null) {
-        notesObj = [];
-    } else {
-        notesObj = JSON.parse(notes);
-    }
-    let html = "";
-    notesObj.foreach(function (element, index) {
-        html += `
-        <div class=noteCard my-2 mx-2 card" style="width: 18rem;">
-            <div class=card-body">
-                <h5 class="card-title">Note ${index + 1} </h5>
-                    <p class="card-text"> ${element}</p>
-                    <button id="${index}"onClick="deleteNote(this.id)"
-                    class="btn btn-danger">Eliminar Nota</button>
-            </div>
-        </div>`;
-
-    });
-    let notesElm = document.getElementById("notes");
-    if (notesObj.length != 0) {
-        notesElm.innerHTML = html;
-    } else {
-        notesElm.innerHTML = '¡Nada para mostrar! Crea tu primera Tarea'
-    }
-}
-
-// Borra las Tareas 
-function deleteNote(index) {
-    let notes = localStorage.getItem("notes");
-    if(notes == null ) {
-        notesObj = [];
-    } else {
-        notes0bj = JSON.parse(notes);
-    }
-
-    notesObj.splice(index, 1);
-    localStorage.setItem("notes", JSON.stringify(notesObj));
-    showNotes();
-}

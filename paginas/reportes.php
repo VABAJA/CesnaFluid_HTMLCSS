@@ -361,7 +361,7 @@ include('../scripts/sesion.php');
     <script src="../assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             $().ready(function() {
                 $sidebar = $('.sidebar');
@@ -471,24 +471,24 @@ include('../scripts/sesion.php');
                 });
             });
         });
-    </script>
-    <script>
+    </script> -->
+    <!-- <script>
         $(document).ready(function() {
             // Javascript method's body can be found in assets/js/demos.js
             demo.initDashboardPageCharts();
 
         });
-    </script>
-    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    </script> -->
+    <!-- <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
     <script>
         window.TrackJS &&
             TrackJS.install({
                 token: "ee6fab19c5a04ac1a32a645abde4613a",
                 application: "black-dashboard-free"
             });
-    </script>
+    </script> -->
 
-<script>
+<!-- <script>
         const $btnExportar = document.querySelector("#btnExportar"),
             $tabla = document.querySelector("#tabla");
 
@@ -502,7 +502,8 @@ include('../scripts/sesion.php');
             let preferenciasDocumento = datos.tabla.xlsx;
             tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
         });
-    </script>
+    </script> -->
+    <script src="../assets/js/main.js"></script>
 </body>
 
 </html>
