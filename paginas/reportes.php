@@ -1,5 +1,5 @@
 <?php
-include('../scripts/sesion.php');
+include '../scripts/sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -206,8 +206,8 @@ include('../scripts/sesion.php');
                                             <tbody>
                                                 <tr>
                                                     <?php
-                                                    include '../scripts/buscador.php';
-                                                    while ($row = mysqli_fetch_array($sql_query)) : ?>
+include '../scripts/buscador.php';
+while ($row = mysqli_fetch_array($sql_query)): ?>
 
                                                         <td class="text-center">
                                                             <?php echo $row['nombreCliente']; ?>
@@ -224,7 +224,7 @@ include('../scripts/sesion.php');
                                                         <td class="text-center">
                                                             <?php echo $row['correo']; ?>
                                                         </td>
-                                                    <?php endwhile; ?>
+                                                    <?php endwhile;?>
                                                 </tr>
                                             </tbody>
 
@@ -283,9 +283,9 @@ include('../scripts/sesion.php');
                                             <tr>
                                         <tbody>
                                             <?php
-                                            include '../scripts/tablas/masInfo.php';
-                                            while ($fila = mysqli_fetch_array($resultado_info)) :
-                                            ?>
+include '../scripts/tablas/masInfo.php';
+while ($fila = mysqli_fetch_array($resultado_info)):
+?>
                                                 <tr>
 
                                                     <td class="text-center">
@@ -311,7 +311,7 @@ include('../scripts/sesion.php');
                                                         <?php echo $fila['id_usuarios']; ?>
                                                     </td>
                                                 </tr>
-                                            <?php endwhile; ?>
+                                            <?php endwhile;?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -361,148 +361,25 @@ include('../scripts/sesion.php');
     <script src="../assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
-    <!-- <script>
-        $(document).ready(function() {
-            $().ready(function() {
-                $sidebar = $('.sidebar');
-                $navbar = $('.navbar');
-                $main_panel = $('.main-panel');
 
-                $full_page = $('.full-page');
-
-                $sidebar_responsive = $('body > .navbar-collapse');
-                sidebar_mini_active = true;
-                white_color = false;
-
-                window_width = $(window).width();
-
-                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-
-
-                $('.fixed-plugin a').click(function(event) {
-                    if ($(this).hasClass('switch-trigger')) {
-                        if (event.stopPropagation) {
-                            event.stopPropagation();
-                        } else if (window.event) {
-                            window.event.cancelBubble = true;
-                        }
-                    }
-                });
-
-                $('.fixed-plugin .background-color span').click(function() {
-                    $(this).siblings().removeClass('active');
-                    $(this).addClass('active');
-
-                    var new_color = $(this).data('color');
-
-                    if ($sidebar.length != 0) {
-                        $sidebar.attr('data', new_color);
-                    }
-
-                    if ($main_panel.length != 0) {
-                        $main_panel.attr('data', new_color);
-                    }
-
-                    if ($full_page.length != 0) {
-                        $full_page.attr('filter-color', new_color);
-                    }
-
-                    if ($sidebar_responsive.length != 0) {
-                        $sidebar_responsive.attr('data', new_color);
-                    }
-                });
-
-                $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
-                    var $btn = $(this);
-
-                    if (sidebar_mini_active == true) {
-                        $('body').removeClass('sidebar-mini');
-                        sidebar_mini_active = false;
-                        blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
-                    } else {
-                        $('body').addClass('sidebar-mini');
-                        sidebar_mini_active = true;
-                        blackDashboard.showSidebarMessage('Sidebar mini activated...');
-                    }
-
-                    // we simulate the window Resize so the charts will get updated in realtime.
-                    var simulateWindowResize = setInterval(function() {
-                        window.dispatchEvent(new Event('resize'));
-                    }, 180);
-
-                    // we stop the simulation of Window Resize after the animations are completed
-                    setTimeout(function() {
-                        clearInterval(simulateWindowResize);
-                    }, 1000);
-                });
-
-                $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
-                    var $btn = $(this);
-
-                    if (white_color == true) {
-
-                        $('body').addClass('change-background');
-                        setTimeout(function() {
-                            $('body').removeClass('change-background');
-                            $('body').removeClass('white-content');
-                        }, 900);
-                        white_color = false;
-                    } else {
-
-                        $('body').addClass('change-background');
-                        setTimeout(function() {
-                            $('body').removeClass('change-background');
-                            $('body').addClass('white-content');
-                        }, 900);
-
-                        white_color = true;
-                    }
-
-
-                });
-
-                $('.light-badge').click(function() {
-                    $('body').addClass('white-content');
-                });
-
-                $('.dark-badge').click(function() {
-                    $('body').removeClass('white-content');
-                });
-            });
-        });
-    </script> -->
-    <!-- <script>
-        $(document).ready(function() {
-            // Javascript method's body can be found in assets/js/demos.js
-            demo.initDashboardPageCharts();
-
-        });
-    </script> -->
-    <!-- <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <!-- REPORTES -->
     <script>
-        window.TrackJS &&
-            TrackJS.install({
-                token: "ee6fab19c5a04ac1a32a645abde4613a",
-                application: "black-dashboard-free"
-            });
-    </script> -->
 
-<!-- <script>
-        const $btnExportar = document.querySelector("#btnExportar"),
-            $tabla = document.querySelector("#tabla");
+const $btnExportar = document.querySelector("#btnExportar"),
+  $tabla = document.querySelector("#tabla");
 
-        $btnExportar.addEventListener("click", function() {
-            let tableExport = new TableExport($tabla, {
-                exportButtons: false, // No queremos botones
-                filename: "Reporte_De_Cliente", //Nombre del archivo de Excel
-                sheetname: "Reporte", //Título de la hoja
-            });
-            let datos = tableExport.getExportData();
-            let preferenciasDocumento = datos.tabla.xlsx;
-            tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
-        });
-    </script> -->
+$btnExportar.addEventListener("click", function () {
+  let tableExport = new TableExport($tabla, {
+    exportButtons: false, // Exporta sin botones
+    filename: "Reporte_De_Cliente", //Nombre del archivo de Excel
+    sheetname: "Reporte", //Título de la hoja
+  });
+  let datos = tableExport.getExportData();
+  let preferenciasDocumento = datos.tabla.xlsx;
+  tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
+});
+</script>
+    
     <script src="../assets/js/main.js"></script>
 </body>
 
