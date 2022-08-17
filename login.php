@@ -95,8 +95,8 @@ if (isset($_POST['username']) && isset($_POST['contrasena'])) {
 
                         <div class="row justify-content-center">
                             <div class="col-md-3">
-                                <label for="form-control" class="text-white form-label">Nombre de Usuario</label>
-                                <input type="string" class="form-control" placeholder="Usuario" name="username" value="" required>
+                                <label for="form-control" class="text-white form-label">Correo de Usuario</label>
+                                <input type="string" class="form-control" placeholder="Correo de Usuario" name="username" value="" required>
                             </div>
                         </div>
                         <div class="row justify-content-center">

@@ -416,55 +416,37 @@ include('../scripts/sesion.php');
                                     </div>
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                         <div class="card-body">
-                                            <form action="../scripts/vehiculos_req.php" method="post">
+                                            <form action="../scripts/editarDispositivo.php" method="post">
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>ID. Del Dispositivo</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
+                                                            <label>Nombre del Dispositivo</label>
+                                                            <input type="string" class="form-control" placeholder="Nombre del Dispositivo" name="nombreDispositivo" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label>PIN RFID</label>
-                                                            <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
+                                                            <input type="string" class="form-control" placeholder="PIN RFID" name="pinRFID" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>Ciudad</label>
-                                                            <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                                                            <label>Volúmen Acumulado en Litros</label>
+                                                            <input type="number" class="form-control" placeholder="Volúmen Acumulado en Litros" name="vacum" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-sm-4">
+                                                    <div class="col-sm-12">
                                                         <div class="form-group">
-                                                            <label>Nombre de la Empresa</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <label>Dirección</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <label>Dirección Email</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <label>Ciudad</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                                                            <label>Ubicación del Dispositivo</label>
+                                                            <input type="text" class="form-control" placeholder="Ubicación del Dispositivo" name="ubicacion">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="card-footer">
-                                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
+                                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarDispositivo">Guardar</button>
                                                 </div>
                                             </form>
                                         </div>
