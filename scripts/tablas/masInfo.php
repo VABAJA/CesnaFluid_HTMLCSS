@@ -2,7 +2,8 @@
 <?php
 session_start();
 //variable de conexión
-$conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+include_once '../../config/Conexion.php';
+// $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
 
 //verificación de conexión
 
@@ -12,7 +13,7 @@ if (mysqli_connect_errno($conectar)) {
     // Busca al cliente y muestra solo los datos de ese cliente
     if (isset($_SESSION['cliente'])) {
 
-        $resultado_info = mysqli_query($conectar, "SELECT id, nombreCliente, contacto, telefono, correo, razonSocial, direccion, telefono2, correo2 FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'");
+        $resultado_info = mysqli_query($conectar, "SELECT id_cli, nombreCliente, contacto, telefono, correo, razonSocial, direccion, telefono2, correo2 FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'");
     } else {
 
         // echo "No hay sesión";

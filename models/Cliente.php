@@ -11,28 +11,28 @@ Class Cliente
 	}
 
 	//Implementamos un método para insertar registros
-	public function insertar($nombreCliente,$contacto, $telefono, $correo, $razonSocial, $direccion, $telefono2, $correo2, '1')
+	public function insertar($nombreCliente, $contacto, $telefono, $correo, $razonSocial, $direccion, $telefono2, $correo2)
 	{
-		$sql="INSERT INTO clientes (nombreCliente, contacto, telefono, correo, razonSocial, direccion, telefono2, correo2)
-		VALUES ('$nombreCliente','$contacto','$telefono','$correo','$razonSocial','$direccion','$telefono2','$correo2')";
+		$sql="INSERT INTO clientes (nombreCliente, contacto, telefono, correo, razonSocial, direccion, telefono2, correo2, condicion)
+		VALUES ('$nombreCliente','$contacto','$telefono','$correo','$razonSocial','$direccion','$telefono2','$correo2', '1')";
 		return ejecutarConsulta($sql);
 	}
 
 	//Implementamos un método para editar registros
-	public function editar($id_cli,$nombreCliente,$contacto, $telefono, $correo, $razonSocial, $direccion, $telefono2, $correo2)
+	public function editar($id_cli, $nombreCliente, $contacto, $telefono, $correo, $razonSocial, $direccion, $telefono2, $correo2)
 	{
 		$sql="UPDATE cliente SET nombreCliente='$nombreCliente', contacto='$contacto', telefono='$telefono', correo='$correo', razonSocial='$razonSocial', 'direccion=$direccion', telefono2='$telefono2', correo2='$correo2' WHERE id_cli='$id_cli'";
 		return ejecutarConsulta($sql);
 	}
 
-	//Implementamos un método para desactivar categorías
+	//Implementamos un método para desactivar clientes
 	public function desactivar($id_cli)
 	{
 		$sql="UPDATE clientes SET condicion='0' WHERE id_cli='$id_cli'";
 		return ejecutarConsulta($sql);
 	}
 
-	//Implementamos un método para activar categorías
+	//Implementamos un método para activar clientes
 	public function activar($id_cli)
 	{
 		$sql="UPDATE clientes SET condicion='1' WHERE id_cli='$id_cli'";
@@ -50,7 +50,7 @@ Class Cliente
 	public function listar()
 	{
 		$sql="SELECT * FROM clientes";
-		return ejecutarConsulta($sql);		
+		return ejecutarConsulta($sql);
 	}
 }
 
