@@ -189,6 +189,3 @@ function deleteNote(index) {
 
 
 
-
-
-

@@ -203,7 +203,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                               <?php echo $row['nombreCliente']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['id']; ?>
+                              <?php echo $row['id_cli']; ?>
                             </td>
                             <td class="text-center">
                               <?php echo $row['contacto']; ?>
@@ -232,84 +232,45 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
         <!-- Tabla Clientes -->
 
         <div class="row">
-          <div class="col-12 card-plain">
-            <div class="card-header">
-              <h4 class="title d-inline">Clientes</h4>
-            </div>
-            <div class="card-body">
-              <div class="table-full-width table-responsive">
-                <table class="table tablesorter">
-                  <thead class="text-primary">
-                    <th></th>
-                    <tr>
-                      <th>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </th>
-                      <th class="text-center">Usuarios</th>
-                      <th class="text-center">Dispositivos</th>
-                      <th class="text-center">Vehículos</th>
-                      <th class="text-center">Tickets</th>
-                      <th class="text-center"></th>
-                      <th class="text-center">
-                        <div class="dropdown">
-                          <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                            <i class="tim-icons icon-settings-gear-63"></i>
-                          </button>
-                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#pablo">Eliminar</a>
-                          </div>
-                        </div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                    <?php
-include '../scripts/registro_tab.php.php';
-while ($fila = mysqli_fetch_array($resultadoDashboard)): ?>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td class="text-center">
-                          <?php echo $fila['id_usuarios']; ?>
-                        </td>
-                        <td class="text-center">
-                          <?php echo $fila['id_dispositivos']; ?>
-                        </td>
-                        <td class="text-center">
-                          <?php echo $fila['id_vehiculos']; ?>
-                        </td>
-                        <td class="text-center">
-                          <?php echo $fila['id_tickets']; ?>
-                        </td>
-                        <td class="td-actions text-right">
-                          <button class="btn btn-link" type="button" title="Editar Elemento" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
-                            <i class="tim-icons icon-pencil"></i>
-                          </button>
-                        </td>
-                        <td class="text-center">
-                          <button type="button" title="Eliminar Elemento" name="btbBorrar" lass="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                            <i class="tim-icons icon-simple-remove"></i>
-                          </button>
-                        </td>
-                        <?php endwhile;?>
-                      </tr>
-                  </tbody>
-                </table>
+          <div class="col-12">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <!-- <h5 class="card-category">Consumos Totales</h5> -->
+                    <h2 class="card-title">Historial de Consumo</h2>
+                  </div>
+                  <!-- <div class="col-sm-6">
+                    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                      <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                        <input type="radio" name="options" checked>
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Accounts</span>
+                        <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-single-02"></i>
+                        </span>
+                      </label>
+                      <label class="btn btn-sm btn-primary btn-simple" id="1">
+                        <input type="radio" class="d-none d-sm-none" name="options">
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Purchases</span>
+                        <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-gift-2"></i>
+                        </span>
+                      </label>
+                      <label class="btn btn-sm btn-primary btn-simple" id="2">
+                        <input type="radio" class="d-none" name="options">
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Sessions</span>
+                        <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-tap-02"></i>
+                        </span>
+                      </label>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+              <div class="card-body">
+                  <canvas id="myChart" style="width: 1120px; height: 220px;">
+
+                  </canvas>
               </div>
             </div>
           </div>
@@ -715,20 +676,21 @@ while ($fila = mysqli_fetch_array($resultadoDashboard)): ?>
 
   <!-- Termina selecto de colores -->
 
+  <!-- Chart JS -->
+  <!-- <script src="../assets/js/plugins/chartjs.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- GRÁFICAS  -->
+<script src="../assets/js/charts.js"></script>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
+
   <!--  Notifications Plugin    -->
   <script src="../assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
+  <!-- <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script> -->
 
   <script src="../assets/js/main.js"></script>
 </body>
