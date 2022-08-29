@@ -482,7 +482,7 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                                     </div>
                                                 </div>
                                                 <div class="card-footer">
-                                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
+                                                    <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarCliente">Guardar</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -506,7 +506,7 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                 <h4 class="title">Información Básica</h4>
                             </div>
                             <div class="card-body">
-                                <form action="../scripts/registros/nuevoCliente.php" method="post">
+                                <form action="../scripts/Cliente.php" method="POST">
                                     <div class="row">
 
                                         <div class="col-sm-4">
@@ -518,7 +518,7 @@ while ($fila = mysqli_fetch_array($resultado_info)):
 
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>Usuario para la Plataforma</label>
+                                                <label>Correo para la Plataforma</label>
                                                 <input type="string" class="form-control" placeholder="Usuario para la Plataforma" name="username" required>
                                             </div>
                                         </div>
