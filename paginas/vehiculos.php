@@ -202,7 +202,7 @@ include('../scripts/sesion.php');
                               <?php echo $row['nombreCliente']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['id']; ?>
+                              <?php echo $row['id_cli']; ?>
                             </td>
                             <td class="text-center">
                               <?php echo $row['contacto']; ?>
@@ -254,7 +254,7 @@ include('../scripts/sesion.php');
                       while ($fila = mysqli_fetch_array($sql_query)) : ?>
                         <div class="form-group">
                           <label>No. De Cliente</label>
-                          <input type="string" class="form-control" value="<?php echo $fila['id']; ?>" name="vehiculos_id">
+                          <input type="string" class="form-control" value="<?php echo $fila['id_cli']; ?>" name="vehiculos_id">
                         </div>
                       <?php endwhile; ?>
                     </div>
@@ -338,7 +338,7 @@ include('../scripts/sesion.php');
                         <th class="text-center">Kilometros</th>
                         <th class="text-center">Volúmen Acumulado</th>
                         <th class="text-center"></th>
-                        <th class="text-center">
+                        <!-- <th class="text-center">
                           <div class="dropdown">
                             <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                               <i class="tim-icons icon-settings-gear-63"></i>
@@ -347,12 +347,12 @@ include('../scripts/sesion.php');
                               <a class="dropdown-item" href="#pablo">Eliminar</a>
                             </div>
                           </div>
-                        </th>
+                        </th> -->
                       </tr>
                     </thead>
                     <tbody>
                       <?php
-                      include '../scripts/tablas/tablaVehiculos.php';
+                      include '../scripts/Vehiculo.php';
                       while ($fila = mysqli_fetch_array($resultado_vehiculos)) : ?>
                         <tr>
                           <td>

@@ -22,6 +22,24 @@ mysqli_select_db($conexion, $db_sql);
 //or die ("No se encuentra la base de datos");
 mysqli_set_charset($conexion, "utf8");
 
+// TABLA DE CONTENEDORES
+
+if (isset($_SESSION['cliente'])) {
+
+    $first = "SELECT id_contenedores FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
+
+    $second = mysqli_query($conectar, $first);
+
+    $third = mysqli_fetch_array($second);
+
+    $ide = $third['id_contenedores'];
+
+    //die(print_r($ide));
+    $resultado_contenedores = mysqli_query($conectar, "SELECT nombreContenedor, contenedores_id, contenedorUbicacion, vacum, volumen FROM contenedores WHERE contenedores_id = '$ide'");
+}
+
+// NUEVO REGISTRO DE CONTENEDOR
+
 if (isset($_POST["ingresarContenedor"])) {
 
     $registroContenedor = "INSERT INTO contenedores (nombreContenedor, contenedorUbicacion, volumen, vacum, contenedores_id)"
@@ -29,14 +47,16 @@ if (isset($_POST["ingresarContenedor"])) {
 
     if (mysqli_query($conexion, $registroContenedor)) {
         echo "<script> alert ('Contenedor registrado con éxito');
-        window.location='../../paginas/contenedores.php'</script>";
+        window.location='../paginas/contenedores.php'</script>";
     } else {
         echo "Error";
         echo "<script> alert ('Error de registro');
-        window.location='../../paginas/contenedores.php'</script>";
+        window.location='../paginas/contenedores.php'</script>";
     }
 }
 
-//$querty=mysqli_query($conexion,$querty);
+$AsignaID = "UPDATE contenedores SET contenedores_id='$id_cli' WHERE rol=0";
+
+$sql_query = mysqli_query($conexion, $AsignaID);
 
 ?>

@@ -213,7 +213,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                                             <?php echo $row['nombreCliente']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $row['id']; ?>
+                                                            <?php echo $row['id_cli']; ?>
                                                         </td>
                                                         <td class="text-center">
                                                             <?php echo $row['contacto']; ?>
@@ -283,13 +283,13 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                             <tr>
                                         <tbody>
                                             <?php
-include '../scripts/tablas/masInfo.php';
+include '../scripts/masInfo.php';
 while ($fila = mysqli_fetch_array($resultado_info)):
 ?>
                                                 <tr>
 
                                                     <td class="text-center">
-                                                        <?php echo $fila['id']; ?>
+                                                        <?php echo $fila['id_cli']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreCliente']; ?>

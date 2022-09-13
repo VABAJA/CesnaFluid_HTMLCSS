@@ -201,7 +201,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                                             <?php echo $row['nombreCliente']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $row['id']; ?>
+                                                            <?php echo $row['id_cli']; ?>
                                                         </td>
                                                         <td class="text-center">
                                                             <?php echo $row['contacto']; ?>
@@ -254,7 +254,7 @@ include '../scripts/buscador.php';
 while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                 <div class="form-group">
                                                     <label>No. De Cliente</label>
-                                                    <input type="string" class="form-control" value="<?php echo $fila['id']; ?>" name="contenedores_id">
+                                                    <input type="string" class="form-control" value="<?php echo $fila['id_cli']; ?>" name="contenedores_id">
                                                 </div>
                                             <?php endwhile;?>
                                         </div>
@@ -332,7 +332,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                 <th class="text-center">Capacidad en Litros</th>
                                                 <th class="text-center">Volúmen Acumulado en Litros</th>
                                                 <th class="text-center"></th>
-                                                <th class="text-center">
+                                                <!-- <th class="text-center">
                                                     <div class="dropdown">
                                                         <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                                                             <i class="tim-icons icon-settings-gear-63"></i>
@@ -341,12 +341,12 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                             <a class="dropdown-item" href="#pablo">Eliminar</a>
                                                         </div>
                                                     </div>
-                                                </th>
+                                                </th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-include '../scripts/tablas/tablaContenedores.php';
+include '../scripts/Contenedor.php';
 while ($fila = mysqli_fetch_array($resultado_contenedores)): ?>
                                                 <tr>
                                                     <td>

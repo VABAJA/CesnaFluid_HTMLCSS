@@ -207,7 +207,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                                             <?php echo $row['nombreCliente']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $row['id']; ?>
+                                                            <?php echo $row['id_cli']; ?>
                                                         </td>
                                                         <td class="text-center">
                                                             <?php echo $row['contacto']; ?>
@@ -263,7 +263,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                                 <th class="text-center">Fecha de Registro</th>
                                                 <th class="text-center">ID. De Ticket</th>
                                                 <th class="text-center"></th>
-                                                <th class="text-center">
+                                                <!-- <th class="text-center">
                                                     <div class="dropdown">
                                                         <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                                                             <i class="tim-icons icon-settings-gear-63"></i>
@@ -272,12 +272,12 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                                             <a class="dropdown-item" href="#pablo">Eliminar</a>
                                                         </div>
                                                     </div>
-                                                </th>
+                                                </th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-include '../scripts/registro_tab.php';
+include '../scripts/masInfo.php';
 while ($fila = mysqli_fetch_array($resultado_tickets)): ?>
                                                 <tr>
                                                     <td>
@@ -291,13 +291,13 @@ while ($fila = mysqli_fetch_array($resultado_tickets)): ?>
                                                         </div>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['tickets_id']; ?>
+                                                        <?php echo $fila['registroTicket']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['_date']; ?>
+                                                        <?php echo $fila['fechareg']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['ticket_number']; ?>
+                                                        <?php echo $fila['id_tick']; ?>
                                                     </td>
 
                                                     <!-- <td class="text-center">

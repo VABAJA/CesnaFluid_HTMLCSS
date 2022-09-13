@@ -205,7 +205,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                             <?php echo $fila['nombreCliente']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $fila['id']; ?>
+                                                            <?php echo $fila['id_cli']; ?>
                                                         </td>
                                                         <td class="text-center">
                                                             <?php echo $fila['contacto']; ?>
@@ -250,8 +250,9 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                             <tr>
 
                                                 <th class="text-center">Razón Social</th>
-                                                <th class="text-center">Teléfono 2</th>
-                                                <th class="text-center">Correo electrónico 2</th>
+                                                <th class="text-center">Segundo Teléfono</th>
+                                                <th class="text-center">Segundo Correo Electrónico</th>
+                                                <th class="text-center">Segundo Contacto</th>
                                                 <th class="text-center">Dirección</th>
                                                 <th class="text-center">
 
@@ -260,7 +261,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                         <tbody>
                                             <tr>
                                                 <?php
-include '../scripts/tablas/masInfo.php';
+include '../scripts/masInfo.php';
 while ($fila = mysqli_fetch_array($resultado_info)):
 ?>
 
@@ -272,6 +273,9 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['correo2']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['contacto2']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['direccion']; ?>
@@ -309,13 +313,36 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                     </div>
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                         <div class="card-body">
-                                            <form action="../scripts/clientes_reg.php" method="post">
+                                            <form action="../scripts/Cliente.php" method="POST">
                                                 <div class="row">
-
+                                                    <div class="col-sm-4">
+                                                        <?php include '../scripts/buscador.php';
+while ($fila = mysqli_fetch_array($sql_query)): ?>
+                                                        <div class="form-group">
+                                                            <label>No. De Cliente</label>
+                                                            <input name="id_cli" type="number" class="form-control" value="<?php echo $fila['id_cli']; ?>" required>
+                                                        </div>
+                                                    <?php endwhile;?>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                            <!-- <div class="form-group">
+                                                <label>Correo para la Plataforma</label>
+                                                <input type="string" class="form-control" placeholder="Correo para la Plataforma" name="username" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Contraseña</label>
+                                                <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" required>
+                                            </div> -->
+                                        </div>
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label>Nombre del Cliente</label>
                                                             <input type="string" class="form-control" placeholder="Nombre del Cliente" name="nombreCliente" required>
+
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
@@ -335,7 +362,7 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label>Correo Electrónico</label>
-                                                            <input type="string" class="form-control" placeholder="Coreo Electrónico" name="vacum" required>
+                                                            <input type="string" class="form-control" placeholder="Coreo Electrónico" name="correo" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
@@ -349,7 +376,7 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                                     <div class="col-sm-8">
                                                         <div class="form-group">
                                                             <label>Dirección</label>
-                                                            <input type="string" class="form-control" placeholder="Dirección" name="volumen" required>
+                                                            <input type="string" class="form-control" placeholder="Dirección" name="direccion" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -363,7 +390,7 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label>Segundo Teléfono</label>
-                                                            <input type="number" class="form-control" placeholder="Ej: 1000" name="Segundo Teléfono">
+                                                            <input type="number" class="form-control" placeholder="Segundo Teléfono" name="telefono2">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
@@ -381,7 +408,7 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                     </div>
                                 </div>
 
-                                <div class="card">
+                                <!-- <div class="card">
                                     <div class="card-header" id="headingTwo">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -427,9 +454,9 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                         </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="card">
+                                <!-- <div class="card">
                                     <div class="card-header" id="headingThree">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -487,7 +514,7 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                             </form>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -519,7 +546,7 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Correo para la Plataforma</label>
-                                                <input type="string" class="form-control" placeholder="Usuario para la Plataforma" name="username" required>
+                                                <input type="string" class="form-control" placeholder="Correo para la Plataforma" name="username" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -580,6 +607,12 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                                 <input type="string" class="form-control" placeholder="Segundo Correo" name="correo2">
                                             </div>
                                         </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Segundo Contacto</label>
+                                                <input type="string" class="form-control" placeholder="Segundo Contacto" name="contacto2">
+                                            </div>
+                                        </div>
 
                                     </div>
 
@@ -626,13 +659,14 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                                         </label>
                                                     </div>
                                                 </th>
+                                                <th class="text-center">Cliente</th>
                                                 <th class="text-center">Usuarios</th>
                                                 <th class="text-center">Dispositivos</th>
                                                 <th class="text-center">Vehículos</th>
                                                 <th class="text-center">Tickets</th>
                                                 <th class="text-center">Contenedores</th>
                                                 <th class="text-center"></th>
-                                                <th class="text-center">
+                                                <!-- <th class="text-center">
                                                     <div class="dropdown">
                                                         <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                                                             <i class="tim-icons icon-settings-gear-63"></i>
@@ -641,13 +675,13 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                                             <a class="dropdown-item" href="#pablo">Eliminar</a>
                                                         </div>
                                                     </div>
-                                                </th>
+                                                </th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-include '../scripts/tablas/tablaClientes.php';
-while ($fila = mysqli_fetch_array($resultadoCliente)):
+include '../scripts/Cliente.php';
+while ($fila = mysqli_fetch_array($lista_clientes)):
 ?>
                                                 <tr>
                                                     <td>
@@ -662,10 +696,11 @@ while ($fila = mysqli_fetch_array($resultadoCliente)):
                                                     </td>
 
                                                     <td class="text-center">
+                                                        <?php echo $fila['nombreCliente']; ?>
+                                                    </td>
+                                                    <td class="text-center">
                                                         <?php echo $fila['usuario']; ?>
                                                     </td>
-
-
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreDispositivo']; ?>
                                                     </td>

@@ -1,10 +1,12 @@
 <?php
-//Incluímos inicialmente la conexión a la base de datos
+//CONEXIÓN A BASE DE DATOS Y DECLARACIÓN DE VARIABLES
 
 $host_sql = "localhost";
 $user_sql = "root";
 $pass_sql = "123456";
 $db_sql = "tramex1";
+
+$id_cli = $_POST['id_cli'];
 
 $nombreCliente = $_POST['nombreCliente'];
 $contacto = $_POST['contacto'];
@@ -14,6 +16,7 @@ $razonSocial = $_POST['razonSocial'];
 $direccion = $_POST['direccion'];
 $telefono2 = $_POST['telefono2'];
 $correo2 = $_POST['correo2'];
+$contacto2 = $_POST['contacto2'];
 
 $username = $_POST['username'];
 $contrasena = $_POST['contrasena'];
@@ -28,60 +31,67 @@ mysqli_select_db($conexion, $db_sql);
 // or die ("No se encuentra la base de datos");
 mysqli_set_charset($conexion, "utf8");
 
-//Implementamos un método para insertar registros
+
+//LISTA REGISTRO DE CLIENTES
+$all = "clientes.id_cli, clientes.nombreCliente, usuarios.usuario, dispositivos.nombreDispositivo, vehiculos.vehiculo, tickets.registroTicket, contenedores.nombreContenedor, clientes.id_usuarios, usuarios.usuarios_id, clientes.id_dispositivos, dispositivos.dispositivos_id, clientes.id_vehiculos, vehiculos.vehiculos_id, clientes.id_tickets, tickets.tickets_id, clientes.id_contenedores, contenedores.contenedores_id";
+
+$tablaClientes = "SELECT $all FROM clientes 
+
+INNER JOIN usuarios ON usuarios.usuarios_id = clientes.id_usuarios
+INNER JOIN dispositivos ON dispositivos.dispositivos_id = clientes.id_dispositivos
+INNER JOIN vehiculos ON vehiculos.vehiculos_id = clientes.id_vehiculos
+INNER JOIN tickets ON tickets.tickets_id = clientes.id_tickets
+INNER JOIN contenedores ON contenedores.contenedores_id = clientes.id_contenedores
+";
+
+if(!isset($_SESSION['cliente'])) {
+
+    $lista_clientes = mysqli_query($conexion, $tablaClientes);
+}
+
+// session_start();
+
+// Busca al cliente y muestra solo los datos de ese cliente
+
+// MÉTODO PARA INSTERTAR REGISTROS (AÑADIR USUARIO NUEVO, CON PERMISOS DE CLIENTE)
 
 if (isset($_POST["ingresarCliente"])) {
 
-    $registroClientes = "INSERT INTO clientes (nombreCliente, contacto, telefono, correo, razonSocial, direccion, telefono2, correo2)"
-        . "VALUES('" . $nombreCliente . "','" . $contacto . "','" . $telefono . "','" . $correo . "','" . $razonSocial . "','" . $direccion . "','" . $telefono2 . "','" . $correo2 . "')";
+    $registroClientes = "INSERT INTO clientes (nombreCliente, contacto, telefono, correo, razonSocial, direccion, telefono2, correo2, contacto2)"
+        . "VALUES('" . $nombreCliente . "','" . $contacto . "','" . $telefono . "','" . $correo . "','" . $razonSocial . "','" . $direccion . "','" . $telefono2 . "','" . $correo2 . "','" . $contacto2 . "')";
 
-    $registroUsuarioPlataforma = "INSERT INTO rolesdeusuario (username, contrasena)" . "VALUES ('" . $username . "', '" . $contrasena . "')";
+    $UsuarioPlataforma = "INSERT INTO rolesdeusuario (username, contrasena)" . "VALUES('" . $username . "', '" . $contrasena . "')";
 
-    if (mysqli_query($conexion, $registroClientes) && mysqli_query($conexion, $registroUsuarioPlataforma)) {
+    if (mysqli_query($conexion, $registroClientes) && mysqli_query($conexion, $UsuarioPlataforma)) {
 
         echo "<script> alert ('Cliente registrado con éxito');
-            window.location='../paginas/clientes.php'</script>";
+        window.location='../paginas/clientes.php'</script>";
     } else {
         echo "<script> alert ('Error de registro');
-            window.location='../paginas/clientes.php'</script>";
+        window.location='../paginas/clientes.php'</script>";
     }
     $AsignaID = "UPDATE rolesdeusuario SET rol=2 WHERE rol=0";
 
     $sql_query = mysqli_query($conexion, $AsignaID);
 }
+
+//MÉTODO PARA EDITAR UN REGISTRO EXISTENTE
+
+if (isset($_POST["editarCliente"])) {
+
+    $editarCliente = "UPDATE clientes SET nombreCliente='$nombreCliente', contacto='$contacto', razonSocial='$razonSocial', correo='$correo', telefono='$telefono', direccion='$direccion', correo2='$correo2', telefono2='$telefono2', contacto2='$contacto2' WHERE id_cli='$id_cli'";
+
+    if (mysqli_query($conexion, $editarCliente)) {
+
+        echo "<script> alert ('Datos del Cliente actualizados con éxito');
+        window.location='../paginas/clientes.php'</script>";
+    } else {
+        echo "<script> alert ('Error de actualización');
+        window.location='../paginas/clientes.php'</script>";
+    }
+}
+
+
+
+
 ?>
-//Implementamos un método para editar registros
-//     public function editar($idcategoria,$nombre,$descripcion)
-//     {
-//         $sql="UPDATE categoria SET nombre='$nombre',descripcion='$descripcion' WHERE idcategoria='$idcategoria'";
-//         return ejecutarConsulta($sql);
-//     }
-
-//     //Implementamos un método para desactivar categorías
-//     public function desactivar($idcategoria)
-//     {
-//         $sql="UPDATE categoria SET condicion='0' WHERE idcategoria='$idcategoria'";
-//         return ejecutarConsulta($sql);
-//     }
-
-//     //Implementamos un método para activar categorías
-//     public function activar($idcategoria)
-//     {
-//         $sql="UPDATE categoria SET condicion='1' WHERE idcategoria='$idcategoria'";
-//         return ejecutarConsulta($sql);
-//     }
-
-//     //Implementar un método para mostrar los datos de un registro a modificar
-//     public function mostrar($idcategoria)
-//     {
-//         $sql="SELECT * FROM categoria WHERE idcategoria='$idcategoria'";
-//         return ejecutarConsultaSimpleFila($sql);
-//     }
-
-//     //Implementar un método para listar los registros
-//     public function listar()
-//     {
-//         $sql="SELECT * FROM categoria";
-//         return ejecutarConsulta($sql);
-//     }
-// }

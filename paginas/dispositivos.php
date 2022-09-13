@@ -204,7 +204,7 @@ include('../scripts/sesion.php');
                                                             <?php echo $fila['nombreCliente']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $fila['id']; ?>
+                                                            <?php echo $fila['id_cli']; ?>
                                                         </td>
                                                         <td class="text-center">
                                                             <?php echo $fila['contacto']; ?>
@@ -238,7 +238,7 @@ include('../scripts/sesion.php');
                                 <h5 class="title">Agregar Nuevo Dispositivo</h5>
                             </div>
                             <div class="card-body">
-                                <form action="../scripts/registros/nuevoDispositivo.php" method="post">
+                                <form action="../scripts/Dispositivo.php" method="post">
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <?php
@@ -256,7 +256,7 @@ include('../scripts/sesion.php');
                                             while ($fila = mysqli_fetch_array($sql_query)) : ?>
                                                 <div class="form-group">
                                                     <label>No. De Cliente</label>
-                                                    <input type="string" class="form-control" value="<?php echo $fila['id']; ?>" name="dispositivos_id">
+                                                    <input type="string" class="form-control" value="<?php echo $fila['id_cli']; ?>" name="dispositivos_id">
                                                 </div>
                                             <?php endwhile; ?>
                                         </div>
@@ -334,7 +334,7 @@ include('../scripts/sesion.php');
                                                 <th class="text-center">Ubicación del Dispositivo</th>
                                                 <th class="text-center">Volúmen Acumulado en Litros</th>
                                                 <th class="text-center"></th>
-                                                <th class="text-center">
+                                                <!-- <th class="text-center">
                                                     <div class="dropdown">
                                                         <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                                                             <i class="tim-icons icon-settings-gear-63"></i>
@@ -343,12 +343,12 @@ include('../scripts/sesion.php');
                                                             <a class="dropdown-item" href="#pablo">Eliminar</a>
                                                         </div>
                                                     </div>
-                                                </th>
+                                                </th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            include '../scripts/tablas/tablaDispositivos.php';
+                                            include '../scripts/Dispositivo.php';
                                             while ($fila = mysqli_fetch_array($resultado_dispositivos)) : ?>
                                                 <tr>
                                                     <td>

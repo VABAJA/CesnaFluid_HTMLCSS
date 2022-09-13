@@ -182,7 +182,7 @@ include '../scripts/sesion.php';
               <div class="row">
                 <div class="form-group col-md-4">
                   <label>Nombre del Cliente</label>
-                  <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
+                  <input type="string" class="form-control" name="buscar" placeholder="Nombre del Cliente">
                 </div>
                 <div class="col-md-8">
                   <div class="table-responsive">
@@ -206,7 +206,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                               <?php echo $fila['nombreCliente']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $fila['id']; ?>
+                              <?php echo $fila['id_cli']; ?>
                             </td>
                             <td class="text-center">
                               <?php echo $fila['contacto']; ?>
@@ -339,7 +339,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                           <th class="text-center">Nombre del Contacto</th>
                           <th class="text-center">Correo del Contacto</th>
                           <th class="text-center">Fecha de Registro</th>
-                          <th class="text-center">
+                          <!-- <th class="text-center">
                             <div class="dropdown">
                               <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                                 <i class="tim-icons icon-settings-gear-63"></i>
@@ -348,13 +348,13 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                 <a class="dropdown-item" href="#pablo">Eliminar</a>
                               </div>
                             </div>
-                          </th>
+                          </th> -->
 
                         </tr>
                       </thead>
                       <tbody>
                         <?php
-include '../scripts/tablas/tablaUsuarios.php';
+include '../scripts/Usuario.php';
 while ($fila = mysqli_fetch_array($resultado_usuarios)): ?>
                           <tr>
                             <td>
