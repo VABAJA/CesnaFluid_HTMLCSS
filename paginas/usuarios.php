@@ -241,7 +241,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                 <h5 class="title">Agregar Nuevo Usuario</h5>
               </div>
               <div class="card-body">
-                <form action="../scripts/registros/nuevoUsuario.php" method="post">
+                <form action="../scripts/Usuario.php" method="post">
                   <div class="row">
                     <div class="col-sm-4">
                       <?php
@@ -355,7 +355,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                       <tbody>
                         <?php
 include '../scripts/Usuario.php';
-while ($fila = mysqli_fetch_array($resultado_usuarios)): ?>
+while ($fila = mysqli_fetch_array($lista_usuarios)): ?>
                           <tr>
                             <td>
                               <div class="form-check">

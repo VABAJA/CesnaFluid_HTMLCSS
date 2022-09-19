@@ -28,18 +28,23 @@ mysqli_set_charset($conexion, "utf8");
 
 // TABLA DE REGISTROS 
 
-if (isset($_SESSION['cliente'])) {
+$tablaUsuarios = "SELECT * FROM usuarios";
 
-    $first = "SELECT id_usuarios FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
+$usuarioDefinido = "SELECT * FROM usuarios
+INNER JOIN clientes ON usuarios.usuarios_id=clientes.id_usuarios
+AND clientes.nombreCliente
+LIKE '%" . $_SESSION['cliente'] . "%'";
 
-    $second = mysqli_query($conectar, $first);
+if (!isset($_SESSION['cliente'])) {
 
-    $third = mysqli_fetch_array($second);
+    $lista_usuarios = mysqli_query($conexion, $tablaUsuarios);
+    
+} else {
+    $lista_usuarios = mysqli_query($conexion, $usuarioDefinido);
 
-    $ide = $third['id_usuarios'];
+/*     //die(print_r($ide));
+    $resultado_usuarios = mysqli_query($conectar, "SELECT usuario, usuariopin, nomContacto, correoContacto, fechareg, usuarios_id FROM usuarios WHERE usuarios_id = '$ide'"); */
 
-    //die(print_r($ide));
-    $resultado_usuarios = mysqli_query($conectar, "SELECT usuario, usuariopin, nomContacto, correoContacto, fechareg, usuarios_id FROM usuarios WHERE usuarios_id = '$ide'");
 }
 
 
