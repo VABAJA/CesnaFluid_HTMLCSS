@@ -6,7 +6,7 @@ $user_sql = "root";
 $pass_sql = "123456";
 $db_sql = "tramex1";
 
-// $id_cli = $_POST['id_cli'];
+$id_cli = $_POST['id_cli'];
 
 $nombreCliente = $_POST['nombreCliente'];
 $contacto = $_POST['contacto'];
@@ -20,8 +20,6 @@ $contacto2 = $_POST['contacto2'];
 
 $username = $_POST['username'];
 $contrasena = $_POST['contrasena'];
-
-$props = "id_usuarios, id_dispositivos, id_tickets, id_vehiculos, id_contenedores, id_configuracion";
 
 $conexion = mysqli_connect($host_sql, $user_sql, $pass_sql);
 if (mysqli_connect_errno()) {
@@ -50,7 +48,8 @@ INNER JOIN vehiculos ON vehiculos.vehiculos_id = clientes.id_vehiculos
 INNER JOIN tickets ON tickets.tickets_id = clientes.id_tickets
 INNER JOIN contenedores ON contenedores.contenedores_id = clientes.id_contenedores
 
- AND clientes.nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
+ AND clientes.nombreCliente 
+ LIKE '%" . $_SESSION['cliente'] . "%'";
 
 if (!isset($_SESSION['cliente'])) {
 
@@ -59,9 +58,6 @@ if (!isset($_SESSION['cliente'])) {
 
     $lista_clientes = mysqli_query($conexion, $clienteDefinido);
 }
-
-
-// Busca al cliente y muestra solo los datos de ese cliente
 
 // MÉTODO PARA INSTERTAR REGISTROS (AÑADIR USUARIO NUEVO, CON PERMISOS DE CLIENTE)
 
@@ -91,7 +87,6 @@ if (isset($_POST["ingresarCliente"])) {
     $AsignaRol = "UPDATE rolesdeusuario SET rol=2 WHERE rol=0";
     $sql_query = mysqli_query($conexion, $AsignaRol);
 
-    // $sql_query = mysqli_query($conexion, $AsignaID);
 }
 
 //MÉTODO PARA EDITAR UN REGISTRO EXISTENTE
@@ -109,3 +104,4 @@ if (isset($_POST["editarCliente"])) {
         window.location='../paginas/clientes.php'</script>";
     }
 }
+?>

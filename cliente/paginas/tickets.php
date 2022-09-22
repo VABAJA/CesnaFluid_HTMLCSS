@@ -1,5 +1,5 @@
 <?php
-include '../scripts/sesion.php';
+include('../scripts/sesion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,17 +19,16 @@ include '../scripts/sesion.php';
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-
-    <!-- links para exportar a excel -->
-    <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
-    <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
-    <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
-
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
     <div class="wrapper">
         <div class="sidebar" data="blue">
+            <!--
+            Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+        -->
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="./dashboard.php" class="simple-text logo-mini">
@@ -105,7 +104,7 @@ include '../scripts/sesion.php';
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:void(0)">Reportes</a>
+                        <a class="navbar-brand" href="javascript:void(0)">Tickets</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -114,12 +113,7 @@ include '../scripts/sesion.php';
                     </button>
                     <div class="collapse navbar-collapse" id="navigation">
                         <ul class="navbar-nav ml-auto">
-                            <!-- <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
-                    class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li> -->
+
                             <li class="dropdown nav-item">
                                 <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <div class="notification d-none d-lg-block d-xl-block"></div>
@@ -153,8 +147,7 @@ include '../scripts/sesion.php';
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-navbar">
-                                    <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi
-                                            Perfil</a></li>
+                                <li class="nav-link"><a href="./perfil.php" class="nav-item dropdown-item">Mi Perfil</a></li>
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configuración</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
@@ -181,6 +174,7 @@ include '../scripts/sesion.php';
             </div>
             <!-- End Navbar -->
             <div class="content">
+
                 <!-- Busca Clientes -->
 
                 <div class="card">
@@ -189,7 +183,7 @@ include '../scripts/sesion.php';
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label>Nombre del Cliente</label>
-                                    <input type="string" class="form-control" name="buscar" placeholder="Nombre del Cliente">
+                                    <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="table-responsive">
@@ -238,147 +232,265 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                     </div>
                 </div>
                 <!-- Termina Buscar Cliente -->
-
-                <!-- Tabla de Reportes  -->
-
+                <!-- Comienza Tabla de Tickets  -->
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card ">
-                            <div class="card-header">
-                                <h4 class="card-title">Reporte</h4>
-                            </div>
-                            <div class="">
-                                <button type="submit" id="btnExportar" class="col-6-md pull-right btn btn-fill btn-info">Descarga Reporte</button>
 
+                        <div class="card-plain">
+
+                            <div class="card-header">
+                                <h4 class="title">Tickets</h4>
+                                <!-- <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
+                                    Agregar Nuevo Dispositivo
+                                </button> -->
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table tablesorter " id="tabla">
-                                        <thead class=" text-primary">
+                                    <table class="table tablesorter">
+                                        <thead class="text-primary">
                                             <tr>
-                                                <th class="text-center">
-                                                    No. De Cliente
+                                                <th>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" value="">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
                                                 </th>
-                                                <th class="text-center">
-                                                    Nombre del Cliente
-                                                </th>
-                                                <th class="text-center">
-                                                    Usuarios
-                                                </th>
-                                                <th class="text-center">
-                                                    Dispositivos
-                                                </th>
-                                                <th class="text-center">
-                                                    Vehículos
-                                                </th>
-                                                <th class="text-center">
-                                                    Tickets
-                                                </th>
-                                                <th class="text-center">
-                                                    Contenedores
-                                                </th>
+                                                <th class="text-center">No. De Ticket</th>
+                                                <th class="text-center">Fecha de Registro</th>
+                                                <th class="text-center">ID. De Ticket</th>
+                                                <th class="text-center"></th>
+                                                <!-- <th class="text-center">
+                                                    <div class="dropdown">
+                                                        <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                                                            <i class="tim-icons icon-settings-gear-63"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item" href="#pablo">Eliminar</a>
+                                                        </div>
+                                                    </div>
+                                                </th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
 include '../scripts/masInfo.php';
-while ($fila = mysqli_fetch_array($lista_reportes)):
-?>
+while ($fila = mysqli_fetch_array($resultado_tickets)): ?>
                                                 <tr>
-
-                                                    <td class="text-center">
-                                                        <?php echo $fila['id_cli']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['nombreCliente']; ?>
-                                                    </td>
-
-                                                    <td class="text-center">
-                                                        <?php echo $fila['usuario']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['nombreDispositivo']; ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php echo $fila['vehiculo']; ?>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="">
+                                                                <span class="form-check-sign">
+                                                                    <span class="check"></span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['registroTicket']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['nombreContenedor']; ?>
+                                                        <?php echo $fila['fechareg']; ?>
                                                     </td>
-                                                </tr>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_tick']; ?>
+                                                    </td>
+
+                                                    <!-- <td class="text-center">
+                                                        <button class="btn btn-link" type="button" title="Editar Dispositivo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                                                            <i class="tim-icons icon-pencil"></i>
+
+                                                        </button>
+                                                    </td> -->
+                                                    <td class="text-center">
+                                                        <button type="button" title="Eliminar Dispositivo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                            <i class="tim-icons icon-simple-remove"></i>
+                                                        </button>
+                                                    </td>
                                                 <?php endwhile;?>
-                                            </tbody>
+                                                </tr>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Termina tabla de Tickets  -->
+
             </div>
-
         </div>
-    </div>
-    <div class="fixed-plugin">
-        <div class="dropdown show-dropdown">
-            <a href="#" data-toggle="dropdown">
-                <i class="fa fa-cog fa-2x"> </i>
-            </a>
-            <ul class="dropdown-menu">
-                <li class="header-title"> Colores de Interfaz</li>
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger background-color">
-                        <div class="badge-colors text-center">
-                            <span class="badge filter badge-primary" data-color="primary"></span>
-                            <span class="badge filter badge-info active" data-color="blue"></span>
-                            <span class="badge filter badge-success" data-color="green"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-                <li class="adjustments-line text-center color-change">
-                    <span class="color-label">Modo Claro</span>
-                    <span class="badge light-badge mr-2"></span>
-                    <span class="badge dark-badge ml-2"></span>
-                    <span class="color-label">Modo Obscuro</span>
-                </li>
-            </ul>
+        <div class="fixed-plugin">
+            <div class="dropdown show-dropdown">
+                <a href="#" data-toggle="dropdown">
+                    <i class="fa fa-cog fa-2x"> </i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="header-title"> Colores de Interfaz</li>
+                    <li class="adjustments-line">
+                        <a href="javascript:void(0)" class="switch-trigger background-color">
+                            <div class="badge-colors text-center">
+                                <span class="badge filter badge-primary" data-color="primary"></span>
+                                <span class="badge filter badge-info active" data-color="blue"></span>
+                                <span class="badge filter badge-success" data-color="green"></span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </li>
+                    <li class="adjustments-line text-center color-change">
+                        <span class="color-label">Modo Claro</span>
+                        <span class="badge light-badge mr-2"></span>
+                        <span class="badge dark-badge ml-2"></span>
+                        <span class="color-label">Modo Obscuro</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <!--   Core JS Files   -->
+        <script src="../assets/js/core/jquery.min.js"></script>
+        <script src="../assets/js/core/popper.min.js"></script>
+        <script src="../assets/js/core/bootstrap.min.js"></script>
+        <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <!--  Google Maps Plugin    -->
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+        <!-- Chart JS -->
+        <script src="../assets/js/plugins/chartjs.min.js"></script>
+        <!--  Notifications Plugin    -->
+        <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+        <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
+        <script>
+            $(document).ready(function() {
+                $().ready(function() {
+                    $sidebar = $('.sidebar');
+                    $navbar = $('.navbar');
+                    $main_panel = $('.main-panel');
 
-    <!-- Chart JS -->
-    <script src="../assets/js/plugins/chartjs.min.js"></script>
-    <!--  Notifications Plugin    -->
-    <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-    <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
+                    $full_page = $('.full-page');
 
-    <!-- REPORTES -->
-    <script>
+                    $sidebar_responsive = $('body > .navbar-collapse');
+                    sidebar_mini_active = true;
+                    white_color = false;
 
-const $btnExportar = document.querySelector("#btnExportar"),
-  $tabla = document.querySelector("#tabla");
+                    window_width = $(window).width();
 
-$btnExportar.addEventListener("click", function () {
-  let tableExport = new TableExport($tabla, {
-    exportButtons: false, // Exporta sin botones
-    filename: "Reporte_De_Cliente", //Nombre del archivo de Excel
-    sheetname: "Reporte", //Título de la hoja
-  });
-  let datos = tableExport.getExportData();
-  let preferenciasDocumento = datos.tabla.xlsx;
-  tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
-});
-</script>
+                    fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
-    <script src="../assets/js/main.js"></script>
+
+
+                    $('.fixed-plugin a').click(function(event) {
+                        if ($(this).hasClass('switch-trigger')) {
+                            if (event.stopPropagation) {
+                                event.stopPropagation();
+                            } else if (window.event) {
+                                window.event.cancelBubble = true;
+                            }
+                        }
+                    });
+
+                    $('.fixed-plugin .background-color span').click(function() {
+                        $(this).siblings().removeClass('active');
+                        $(this).addClass('active');
+
+                        var new_color = $(this).data('color');
+
+                        if ($sidebar.length != 0) {
+                            $sidebar.attr('data', new_color);
+                        }
+
+                        if ($main_panel.length != 0) {
+                            $main_panel.attr('data', new_color);
+                        }
+
+                        if ($full_page.length != 0) {
+                            $full_page.attr('filter-color', new_color);
+                        }
+
+                        if ($sidebar_responsive.length != 0) {
+                            $sidebar_responsive.attr('data', new_color);
+                        }
+                    });
+
+                    $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+                        var $btn = $(this);
+
+                        if (sidebar_mini_active == true) {
+                            $('body').removeClass('sidebar-mini');
+                            sidebar_mini_active = false;
+                            blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+                        } else {
+                            $('body').addClass('sidebar-mini');
+                            sidebar_mini_active = true;
+                            blackDashboard.showSidebarMessage('Sidebar mini activated...');
+                        }
+
+                        // we simulate the window Resize so the charts will get updated in realtime.
+                        var simulateWindowResize = setInterval(function() {
+                            window.dispatchEvent(new Event('resize'));
+                        }, 180);
+
+                        // we stop the simulation of Window Resize after the animations are completed
+                        setTimeout(function() {
+                            clearInterval(simulateWindowResize);
+                        }, 1000);
+                    });
+
+                    $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+                        var $btn = $(this);
+
+                        if (white_color == true) {
+
+                            $('body').addClass('change-background');
+                            setTimeout(function() {
+                                $('body').removeClass('change-background');
+                                $('body').removeClass('white-content');
+                            }, 900);
+                            white_color = false;
+                        } else {
+
+                            $('body').addClass('change-background');
+                            setTimeout(function() {
+                                $('body').removeClass('change-background');
+                                $('body').addClass('white-content');
+                            }, 900);
+
+                            white_color = true;
+                        }
+
+
+                    });
+
+                    $('.light-badge').click(function() {
+                        $('body').addClass('white-content');
+                    });
+
+                    $('.dark-badge').click(function() {
+                        $('body').removeClass('white-content');
+                    });
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                // Javascript method's body can be found in assets/js/demos.js
+                demo.initDashboardPageCharts();
+
+            });
+        </script>
+        <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+        <script>
+            window.TrackJS &&
+                TrackJS.install({
+                    token: "ee6fab19c5a04ac1a32a645abde4613a",
+                    application: "black-dashboard-free"
+                });
+        </script>
 </body>
 
 </html>

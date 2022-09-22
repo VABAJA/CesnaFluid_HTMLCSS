@@ -25,21 +25,22 @@ mysqli_select_db($conexion, $db_sql);
 //or die ("No se encuentra la base de datos");
 mysqli_set_charset($conexion, "utf8");
 
-// TABLA DE DISPOSITIVOS 
-if (isset($_SESSION['cliente'])) {
+// TABLA DE DISPOSITIVOS
 
-    // $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+$tablaDispositivo = "SELECT * FROM dispositivos";
 
-    $first = "SELECT id_dispositivos FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
+$dispositivoDefinido = "SELECT * FROM dispositivos
+INNER JOIN clientes ON dispositivos.dispositivos_id=clientes.id_dispositivos
+AND clientes.nombreCliente
+LIKE '%" . $_SESSION['cliente'] . "%'";
 
-    $second = mysqli_query($conectar, $first);
+if (!isset($_SESSION['cliente'])) {
 
-    $third = mysqli_fetch_array($second);
+    $lista_dispositivos = mysqli_query($conexion, $tablaDispositivo);
+    
+} else {
+    $lista_dispositivos = mysqli_query($conexion, $dispositivoDefinido);
 
-    $ide = $third['id_dispositivos'];
-
-    //die(print_r($ide));
-    $resultado_dispositivos = mysqli_query($conectar, "SELECT nombreDispositivo, pinRFID, ubicacion, vacum FROM dispositivos WHERE dispositivos_id = '$ide'");
 }
 
 // NUEVO REGISTRO DISPOSITIVOS 
@@ -58,7 +59,7 @@ if (isset($_POST["ingresarDispositivo"])) {
     }
 }
 
-$AsignaID = "UPDATE dispositivos SET dispositivos_id='$id_cli' WHERE rol=0";
+$AsignaID = "UPDATE dispositivos SET dispositivos_id='$id_cli' WHERE dispositivos_id=0";
 
     $sql_query = mysqli_query($conexion, $AsignaID);
 

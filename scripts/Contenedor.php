@@ -24,39 +24,43 @@ mysqli_set_charset($conexion, "utf8");
 
 // TABLA DE CONTENEDORES
 
-if (isset($_SESSION['cliente'])) {
+$tablaContenedor = "SELECT * FROM contenedores";
 
-    $first = "SELECT id_contenedores FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
+$contenedorDefinido = "SELECT * FROM contenedores
+INNER JOIN clientes ON contenedores.contenedores_id=clientes.id_contenedores
+AND clientes.nombreCliente
+LIKE '%" . $_SESSION['cliente'] . "%'";
 
-    $second = mysqli_query($conectar, $first);
+if (!isset($_SESSION['cliente'])) {
 
-    $third = mysqli_fetch_array($second);
+    $lista_contenedores = mysqli_query($conexion, $tablaContenedor);
+    
+} else {
+    $lista_contenedores = mysqli_query($conexion, $contenedorDefinido);
 
-    $ide = $third['id_contenedores'];
+/*     //die(print_r($ide));
+    $resultado_usuarios = mysqli_query($conectar, "SELECT usuario, usuariopin, nomContacto, correoContacto, fechareg, usuarios_id FROM usuarios WHERE usuarios_id = '$ide'"); */
 
-    //die(print_r($ide));
-    $resultado_contenedores = mysqli_query($conectar, "SELECT nombreContenedor, contenedores_id, contenedorUbicacion, vacum, volumen FROM contenedores WHERE contenedores_id = '$ide'");
 }
 
-// NUEVO REGISTRO DE CONTENEDOR
-
+// NUEVO REGISTRO DISPOSITIVOS 
 if (isset($_POST["ingresarContenedor"])) {
 
-    $registroContenedor = "INSERT INTO contenedores (nombreContenedor, contenedorUbicacion, volumen, vacum, contenedores_id)"
-        . "VALUES('" . $nombreContenedor . "','" . $contenedorUbicacion . "','" . $volumen . "','" . $vacum . "','" . $contenedores_id . "')";
+    $registroContenedores = "INSERT INTO contenedores (nombreContenedor, contenedorUbicacion, vacum, volumen, contenedores_id)"
+        . "VALUES('" . $nombreContenedor . "','" . $contenedorUbicacion . "','" . $vacum . "','" . $volumen . "','" . $contenedores_id . "')";
 
-    if (mysqli_query($conexion, $registroContenedor)) {
-        echo "<script> alert ('Contenedor registrado con éxito');
-        window.location='../paginas/contenedores.php'</script>";
+    if (mysqli_query($conexion, $registroContenedores)) {
+        echo "<script> alert ('Dispositivo registrado con éxito');
+        window.location='../paginas/dispositivos.php'</script>";
     } else {
         echo "Error";
         echo "<script> alert ('Error de registro');
-        window.location='../paginas/contenedores.php'</script>";
+        window.location='../paginas/dispositivos.php'</script>";
     }
 }
 
-$AsignaID = "UPDATE contenedores SET contenedores_id='$id_cli' WHERE rol=0";
+$AsignaID = "UPDATE contenedores SET contenedores_id='$id_cli' WHERE contenedores_id=0";
 
-$sql_query = mysqli_query($conexion, $AsignaID);
+    $sql_query = mysqli_query($conexion, $AsignaID);
 
 ?>

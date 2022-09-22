@@ -63,7 +63,7 @@ if (isset($_POST["ingresarUsuario"])) {
         echo "<script> alert ('Error de registro');
         window.location='../paginas/usuarios.php'</script>";
     }
-    $AsignaID = "UPDATE usuarios SET usuarios_id='$id_cli' WHERE rol=0";
+    $AsignaID = "UPDATE usuarios SET usuarios_id='$id_cli' WHERE usuarios_id=0";
 
     $sql_query = mysqli_query($conexion, $AsignaID);
 

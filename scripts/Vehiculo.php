@@ -1,9 +1,12 @@
-<!-- REGISTRO DE VEHÍCULO NUEVO -->
 <?php
+//CONEXIÓN A BASE DE DATOS Y DECLARACIÓN DE VARIABLES
+
 $host_sql = "localhost";
 $user_sql = "root";
 $pass_sql = "123456";
 $db_sql = "tramex1";
+
+$id_cli = $_POST['id_cli'];
 
 $nombreCliente = $_POST['nombreCliente'];
 $vehiculo = $_POST['vehiculo'];
@@ -24,21 +27,24 @@ mysqli_select_db($conexion, $db_sql);
 mysqli_set_charset($conexion, "utf8");
 
 // TABLA VEHICULOS
-if (isset($_SESSION['cliente'])) {
 
-    $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+$tablaVehiculos = "SELECT * FROM vehiculos";
 
-    $first = "SELECT id_vehiculos FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
+$vehiculoDefinido = "SELECT * FROM vehiculos
+INNER JOIN clientes ON vehiculos.vehiculos_id=clientes.id_vehiculos
+AND clientes.nombreCliente
+LIKE '%" . $_SESSION['cliente'] . "%'";
 
-    $second = mysqli_query($conectar, $first);
+if (!isset($_SESSION['cliente'])) {
 
-    $third = mysqli_fetch_array($second);
+    $lista_vehiculos = mysqli_query($conexion, $tablaVehiculos);
+    
+} else {
+    $lista_vehiculos = mysqli_query($conexion, $vehiculoDefinido);
 
-    $ide = $third['id_vehiculos'];
 
-    //die(print_r($ide));
-    $resultado_vehiculos = mysqli_query($conectar, "SELECT nombreCliente, vehiculo, vehiculopin, km, volumen, vacum, vehiculos_id FROM vehiculos WHERE vehiculos_id = '$ide'");
 }
+
 
 // NUEVO REGISTRO VEHICULOS
 
@@ -58,9 +64,8 @@ if (isset($_POST["ingresarVehiculo"])) {
 
 }
 
-$AsignaID = "UPDATE vehiculos SET vehiculos_id='$id_cli' WHERE rol=0";
+$AsignaID = "UPDATE vehiculos SET vehiculos_id='$id_cli' WHERE vehiculos_id=0";
 
 $sql_query = mysqli_query($conexion, $AsignaID);
 
 ?>
-
