@@ -181,7 +181,7 @@ include '../scripts/sesion.php';
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label>Nombre del Cliente</label>
-                                    <input type="string" class="form-control" name="buscar" placeholder="Nombre del Cliente">
+                                    <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="table-responsive">
@@ -193,13 +193,14 @@ include '../scripts/sesion.php';
                                                     <th class="text-center">Contacto</th>
                                                     <th class="text-center">Teléfono</th>
                                                     <th class="text-center">Correo</th>
-                                                
+                                                </tr>
                                             </thead>
                                             <tbody>
-                                                
+                                                <tr>
                                                     <?php
 include '../scripts/buscador.php';
 while ($fila = mysqli_fetch_array($sql_query)): ?>
+
                                                         <td class="text-center">
                                                             <?php echo $fila['nombreCliente']; ?>
                                                         </td>
@@ -703,12 +704,12 @@ while ($fila = mysqli_fetch_array($lista_clientes)):
                                                         <?php echo $fila['nombreContenedor']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <button type="button" title="Eliminar Cliente" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                        <button type="button" title="Eliminar Dispositivo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
                                                             <i class="tim-icons icon-simple-remove"></i>
                                                         </button>
                                                     </td>
-                                                    <?php endwhile;?>
                                                 </tr>
+                                                <?php endwhile;?>
                                             </tbody>
                                     </table>
                                 </div>
@@ -716,8 +717,64 @@ while ($fila = mysqli_fetch_array($lista_clientes)):
                         </div>
                     </div>
                 </div>
+
+                <!-- Fin de Tabla Cliente -->
+                <!-- Formulario de editar Productos -->
+
+                <!-- <div class="row">
+                    <div class="col-12 collapse" id="editarProductos">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="title">Editar Cliente</h5>
+                            </div>
+                            <div class="card-body">
+                                <form action="../scripts/registro.php" method="post">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Usuario</label>
+                                                <input type="string" class="form-control" placeholder="Ej: 123" name="usuario" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Dispositivo</label>
+                                                <input type="string" class="form-control" placeholder="Ej: VABAJA, S.A. de C.V." name="dispositivo" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Vehículo</label>
+                                                <input type="string" class="form-control" placeholder="Ej: Jorge Barrera" name="vehiculo" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Ticket</label>
+                                                <input type="string" class="form-control" placeholder="Ej: 123ABC" name="id_ticket">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Contenedor</label>
+                                                <input type="string" class="form-control" placeholder="Ej: El Uro 1" name="id_contenedor" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer">
+                                        <button type="submit" class="col-6-md pull-right btn btn-blue" name="actualizarProductos">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- Termina formulario Editar Productos -->
+
             </div>
-            <!-- Fin de Tabla Cliente -->
 
 
             <!-- Selector de Colores -->

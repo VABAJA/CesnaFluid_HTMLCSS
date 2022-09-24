@@ -101,7 +101,7 @@ include '../scripts/sesion.php';
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Vehículos</a>
+            <a class="navbar-brand" href="javascript:void(0)">Usuarios</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -110,6 +110,12 @@ include '../scripts/sesion.php';
           </button>
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
+              <!-- <li class="search-bar input-group">
+                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
+                    class="tim-icons icon-zoom-split"></i>
+                  <span class="d-lg-none d-md-block">Search</span>
+                </button>
+              </li> -->
               <li class="dropdown nav-item">
                 <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="notification d-none d-lg-block d-xl-block"></div>
@@ -119,8 +125,7 @@ include '../scripts/sesion.php';
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                  <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your
-                      email</a>
+                  <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a>
                   </li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more
                       tasks</a></li>
@@ -128,8 +133,7 @@ include '../scripts/sesion.php';
                       is in town</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another
                       notification</a></li>
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a>
-                  </li>
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
                 </ul>
               </li>
               <li class="dropdown nav-item">
@@ -196,22 +200,22 @@ include '../scripts/sesion.php';
                         <tr>
                           <?php
 include '../scripts/buscador.php';
-while ($row = mysqli_fetch_array($sql_query)): ?>
+while ($fila = mysqli_fetch_array($sql_query)): ?>
 
                             <td class="text-center">
-                              <?php echo $row['nombreCliente']; ?>
+                              <?php echo $fila['nombreCliente']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['id_cli']; ?>
+                              <?php echo $fila['id_cli']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['contacto']; ?>
+                              <?php echo $fila['contacto']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['telefono']; ?>
+                              <?php echo $fila['telefono']; ?>
                             </td>
                             <td class="text-center">
-                              <?php echo $row['correo']; ?>
+                              <?php echo $fila['correo']; ?>
                             </td>
                           <?php endwhile;?>
                         </tr>
@@ -227,16 +231,17 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
           </div>
         </div>
         <!-- Termina Buscar Cliente -->
-        <!-- Agregar Nuevo Vehículo -->
-        <div class="row">
 
+        <!-- Agregar Nuevo Usuario -->
+
+        <div class="row">
           <div class="col-12 collapse" id="collapse">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Agregar Nuevo Vehículo</h5>
+                <h5 class="title">Agregar Nuevo Usuario</h5>
               </div>
               <div class="card-body">
-                <form action="../scripts/Vehiculo.php" method="post">
+                <form action="../scripts/Usuario.php" method="post">
                   <div class="row">
                     <div class="col-sm-4">
                       <?php
@@ -244,119 +249,82 @@ include '../scripts/buscador.php';
 while ($fila = mysqli_fetch_array($sql_query)): ?>
                         <div class="form-group">
                           <label>Nombre del Cliente</label>
-                          <input type="string" class="form-control" value="<?php echo $fila['nombreCliente']; ?>" name="nombreCliente">
+                          <input type="string" class="form-control" name="nombreCliente" value="<?php echo $fila['nombreCliente']; ?>">
                         </div>
                       <?php endwhile;?>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
                       <?php
 include '../scripts/buscador.php';
 while ($fila = mysqli_fetch_array($sql_query)): ?>
                         <div class="form-group">
                           <label>No. De Cliente</label>
-                          <input type="string" class="form-control" value="<?php echo $fila['id_cli']; ?>" name="vehiculos_id">
+                          <input type="string" class="form-control" value="<?php echo $fila['id_cli']; ?>" name="usuarios_id">
                         </div>
                       <?php endwhile;?>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                       <div class="form-group">
-                        <label>ID. Del Vehículo</label>
-                        <input type="string" class="form-control" placeholder="ID. Del Vehículo" name="vehiculo" required>
+                        <label>Nombre de Usuario</label>
+                        <input type="string" class="form-control" placeholder="Nombre de Usuario" name="usuario" required>
                       </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                       <div class="form-group">
                         <label>PIN RFID</label>
-                        <input type="string" class="form-control" placeholder="PIN RFID" name="vehiculopin" required>
+                        <input type="string" class="form-control" placeholder="PIN RFID" name="usuariopin" required>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Kilometros Registrados</label>
-                        <input type="number" class="form-control" placeholder="Kilómetros Registrados" name="km" required>
+                        <label>Nombre del Contacto</label>
+                        <input type="string" class="form-control" placeholder="Nombre del Contacto" name="nomContacto" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Volúmen en Litros</label>
-                        <input type="number" class="form-control" placeholder="Volúmen en Litros" name="volumen" required>
+                        <label>Dirección Email</label>
+                        <input type="string" class="form-control" placeholder="Dirección Email" name="correoContacto" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Volúmen Acumulado en Litros</label>
-                        <input type="number" class="form-control" placeholder="Volúmen Acumulado en Litros" name="vacum" required>
+                        <label>Fecha de Registro</label>
+                        <input type="date" class="form-control" placeholder="Fecha de Registro" name="fechareg" required>
                       </div>
                     </div>
                   </div>
+
                   <div class="card-footer">
-                    <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarVehiculo" <?php if (!isset($_SESSION['cliente'])) {
+                    <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarUsuario" <?php if (!isset($_SESSION['cliente'])) {
     echo '<input type="submit" disabled>';
 }?>>
-                      Agregar Vehículo</button>
+                      Agregar Usuario</button>
                   </div>
                 </form>
               </div>
             </div>
           </div>
         </div>
-
-        <!--Termina form para agregar Nuevo Vehículo -->
-        <!-- TABLA Vehiculo -->
-
+        <!-- Termina agregar nuevo usuario -->
+        <!-- TABLA Usuarios -->
         <div class="row">
           <div class="col-md-12">
-
             <div class="card-plain">
-
               <div class="card-header">
-                <h4 class="title">Vehículos</h4>
+                <h4 class="card-title">Usuarios</h4>
                 <button class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
-                  Agregar Nuevo Vehículo
+                  Agregar Nuevo Usuario
                 </button>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table tablesorter">
-                    <thead class="text-primary">
-                      <tr>
-                        <th>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </th>
-                        <th class="text-center">Nombre del Cliente</th>
-                        <th class="text-center">ID. Del Vehículo</th>
-                        <th class="text-center">RFID del Vehículo</th>
-                        <th class="text-center">Volúmen</th>
-                        <th class="text-center">Kilometros</th>
-                        <th class="text-center">Volúmen Acumulado</th>
-                        <th class="text-center"></th>
-                        <!-- <th class="text-center">
-                          <div class="dropdown">
-                            <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                              <i class="tim-icons icon-settings-gear-63"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href="#pablo">Eliminar</a>
-                            </div>
-                          </div>
-                        </th> -->
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-include '../scripts/Vehiculo.php';
-while ($fila = mysqli_fetch_array($lista_vehiculos)): ?>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table tablesorter">
+
+                      <thead class="text-primary">
                         <tr>
-                          <td>
+                          <th>
                             <div class="form-check">
                               <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" value="">
@@ -365,57 +333,164 @@ while ($fila = mysqli_fetch_array($lista_vehiculos)): ?>
                                 </span>
                               </label>
                             </div>
-                          </td>
-                          <td class="text-center">
+                          </th>
+                          <th class="text-center">Nombre del Cliente</th>
+                          <th class="text-center">Usuario</th>
+                          <th class="text-center">PINRFID</th>
+                          <th class="text-center">Nombre del Contacto</th>
+                          <th class="text-center">Correo del Contacto</th>
+                          <th class="text-center">Fecha de Registro</th>
+                          <!-- <th class="text-center">
+                            <div class="dropdown">
+                              <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                                <i class="tim-icons icon-settings-gear-63"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#pablo">Eliminar</a>
+                              </div>
+                            </div>
+                          </th> -->
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+include '../scripts/Usuario.php';
+while ($fila = mysqli_fetch_array($lista_usuarios)): ?>
+                          <tr>
+                            <td>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" value="">
+                                  <span class="form-check-sign">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                            </td>
+                            <td class="text-center">
                                                         <?php echo $fila['nombreCliente']; ?>
                                                     </td>
-                          <td class="text-center">
-                            <?php echo $fila['vehiculo']; ?>
-                          </td>
-                          <td class="text-center">
-                            <?php echo $fila['vehiculopin']; ?>
-                          </td>
-                          <td class="text-center">
-                            <?php echo $fila['volumen']; ?>
-                          </td>
-                          <td class="text-center">
-                            <?php echo $fila['km']; ?>
-                          </td>
-                          <td class="text-center">
-                            <?php echo $fila['vacum']; ?>
-                          </td>
+                            <td class="text-center">
+                              <?php echo $fila['usuario']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $fila['usuariopin']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $fila['nomContacto']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $fila['correoContacto']; ?>
+                            </td>
+                            <td class="text-center">
+                              <?php echo $fila['fechareg']; ?>
+                            </td>
 
+                            <td class="text-center">
+                              <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                                <i class="tim-icons icon-pencil"></i>
 
-                          <td class="text-center">
-                            <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
-                              <i class="tim-icons icon-pencil"></i>
-
-                            </button>
-                          </td>
-                          <td class="text-center">
-                            <button type="button" title="Eliminar Vehículo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                              <i class="tim-icons icon-simple-remove"></i>
-                            </button>
-                          </td>
+                              </button>
+                            </td>
+                            <td class="text-center">
+                              <button type="button" title="Eliminar Usuario" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                <a href="../scripts/elimina_elemento.php">
+                                  <i class="tim-icons icon-simple-remove"></i>
+                                </a>
+                              </button>
+                            </td>
+                          </tr>
                         <?php endwhile;?>
-                        </tr>
-                    </tbody>
-                  </table>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- Termina tabla de Usuarios -->
+              <!-- Edita Usuario -->
+              <div class="row">
+                <div class="col-12 collapse" id="collapseEdit">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="title">Editar Cliente</h5>
+                    </div>
+                    <div class="card-body">
+                      <form action="../scripts/usuarios_reg.php" method="post">
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>ID del Usuario</label>
+                              <input type="number" class="form-control" placeholder="Ej: 0001" name="usuario" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>PIN RFID</label>
+                              <input type="string" class="form-control" placeholder="Ej: 0000" name="usuariopin" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Nombre del Contacto</label>
+                              <input type="text" class="form-control" placeholder="Ej: Jorge Barrera" name="nomusuario" required>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Nombre de la Empresa</label>
+                              <input type="text" class="form-control" placeholder="Ej: Tramex">
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Dirección Email</label>
+                              <input type="string" class="form-control" placeholder="jorge@email.com">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                              <label>Dirección</label>
+                              <input type="text" class="form-control" placeholder="Ej:Calle, Colonia">
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label>Teléfono</label>
+                              <input type="number" class="form-control" placeholder="Ej: 8115028945">
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Ciudad</label>
+                              <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarUsuario">Guardar</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Fin de Tabla Vehículo -->
-
-        <!-- Formulario de editar vehículo -->
+        <!-- Termina edición de Usuario -->
+        <!-- Formulario de editar Usuario -->
 
         <div class="row">
           <div class="col-12 collapse" id="accordion">
             <div class="card card-plain">
               <div class="card-header">
-                <h5 class="title">Editar Vehículo</h5>
+                <h5 class="title">Editar Usuario</h5>
               </div>
 
               <div class="card-body">
@@ -588,129 +663,12 @@ while ($fila = mysqli_fetch_array($lista_vehiculos)): ?>
             </div>
           </div>
         </div>
-        <!-- Termina formulario Editar Vehículo -->
-
-
-        <!-- Tabla de horarios para vehículo -->
-        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#horarios" aria-expanded="false" aria-controls="horarios">
-          Horarios
-        </button>
-
-        <div class="row">
-          <div class="col-12 collapse" id="horarios">
-
-            <div class="card">
-
-              <div class="card-header">
-                <h4 class="card-title">"Nombre del Cliente"</h4>
-              </div>
-
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table tablesorter">
-                    <thead class="text-primary">
-                      <tr>
-                        <th class="text-center">ID. Del Vehículo</th>
-                        <th class="text-center">Lunes</th>
-                        <th class="text-center">Martes</th>
-                        <th class="text-center">Miércoles</th>
-                        <th class="text-center">Jueves</th>
-                        <th class="text-center">Viernes</th>
-                        <th class="text-center">Sábado</th>
-                        <th class="text-center">Domingo</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="text-center">
-                          123ABC
-                        </td>
-                        <td class="text-center">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td class="text-center">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td class="text-center">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td class="text-center">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td class="text-center">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td class="text-center">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td class="text-center">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="VariablebackEnd">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="card-footer">
-                <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="#">Guardar</button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-      <!-- Termina tabla de horarios para Vehículos -->
+      <!-- Termina formulario Editar Usuario -->
+
 
     </div>
-    <!--Termina Main Content-->
+
 
     <!-- Selector de colores-->
     <div class="fixed-plugin">
@@ -753,6 +711,7 @@ while ($fila = mysqli_fetch_array($lista_vehiculos)): ?>
   <script src="../assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script>
+
   <script>
     $(document).ready(function() {
       $().ready(function() {

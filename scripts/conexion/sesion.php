@@ -4,10 +4,10 @@ session_start();
 $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
 
     if(!isset($_SESSION['rol'])){
-        header('location: ../login.php');
+        header('location: ../../login.php');
     }else{
         if($_SESSION['rol'] != 1){
-            header('location: ../login.php');
+            header('location: ../../login.php');
         }
     }
 
@@ -19,7 +19,7 @@ $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
         $sessionTTL = time() - $_SESSION["timeout"];
         if($sessionTTL > $inactividad){
             session_destroy();
-            header('Location: ../login.php');
+            header('Location: ../../login.php');
         }
     }
     // El siguiente key se crea cuando se inicia sesión

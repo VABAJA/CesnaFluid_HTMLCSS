@@ -1,5 +1,5 @@
 <?php
-include_once './scripts/conexion.php';
+include_once './scripts/conexion/conexion.php';
 
 session_start();
 

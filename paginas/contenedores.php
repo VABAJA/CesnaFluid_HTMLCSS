@@ -177,7 +177,7 @@ include '../scripts/sesion.php';
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label>Nombre del Cliente</label>
-                                    <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
+                                    <input type="string" class="form-control" name="buscar" placeholder="Nombre del Cliente">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="table-responsive">
@@ -201,7 +201,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                                             <?php echo $row['nombreCliente']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $row['id']; ?>
+                                                            <?php echo $row['id_cli']; ?>
                                                         </td>
                                                         <td class="text-center">
                                                             <?php echo $row['contacto']; ?>
@@ -236,7 +236,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                 <h5 class="title">Agregar Nuevo Contenedor</h5>
                             </div>
                             <div class="card-body">
-                                <form action="../scripts/registros/nuevoContenedor.php" method="post">
+                                <form action="../scripts/Contenedor.php" method="post">
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <?php
@@ -254,7 +254,7 @@ include '../scripts/buscador.php';
 while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                 <div class="form-group">
                                                     <label>No. De Cliente</label>
-                                                    <input type="string" class="form-control" value="<?php echo $fila['id']; ?>" name="contenedores_id">
+                                                    <input type="string" class="form-control" value="<?php echo $fila['id_cli']; ?>" name="contenedores_id">
                                                 </div>
                                             <?php endwhile;?>
                                         </div>
@@ -327,12 +327,13 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                         </label>
                                                     </div>
                                                 </th>
+                                                <th class="text-center">Nombre del Cliente</th>
                                                 <th class="text-center">Nombre del Contenedor</th>
                                                 <th class="text-center">Ubicación del Contenedor</th>
                                                 <th class="text-center">Capacidad en Litros</th>
                                                 <th class="text-center">Volúmen Acumulado en Litros</th>
                                                 <th class="text-center"></th>
-                                                <th class="text-center">
+                                                <!-- <th class="text-center">
                                                     <div class="dropdown">
                                                         <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                                                             <i class="tim-icons icon-settings-gear-63"></i>
@@ -341,13 +342,13 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                             <a class="dropdown-item" href="#pablo">Eliminar</a>
                                                         </div>
                                                     </div>
-                                                </th>
+                                                </th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-include '../scripts/tablas/tablaContenedores.php';
-while ($fila = mysqli_fetch_array($resultado_contenedores)): ?>
+include '../scripts/Contenedor.php';
+while ($fila = mysqli_fetch_array($lista_contenedores)): ?>
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
@@ -358,6 +359,9 @@ while ($fila = mysqli_fetch_array($resultado_contenedores)): ?>
                                                                 </span>
                                                             </label>
                                                         </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['nombreCliente']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreContenedor']; ?>

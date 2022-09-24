@@ -179,7 +179,7 @@ include '../scripts/sesion.php';
               <div class="row">
                 <div class="form-group col-md-4">
                   <label>Nombre del Cliente</label>
-                  <input type="string" class="form-control" name="buscar" placeholder="Nombre del Cliente">
+                  <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
                 </div>
                 <div class="col-md-8">
                   <div class="table-responsive">
@@ -229,17 +229,42 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
         </div>
         <!-- Termina Buscar Cliente -->
 
-        <!-- Gráfica de Consumo -->
+        <!-- Tabla Clientes -->
 
-        <!-- <div class="row">
+        <div class="row">
           <div class="col-12">
             <div class="card card-chart">
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-6 text-left">
+                    <!-- <h5 class="card-category">Consumos Totales</h5> -->
                     <h2 class="card-title">Historial de Consumo</h2>
                   </div>
-                  
+                  <!-- <div class="col-sm-6">
+                    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                      <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                        <input type="radio" name="options" checked>
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Accounts</span>
+                        <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-single-02"></i>
+                        </span>
+                      </label>
+                      <label class="btn btn-sm btn-primary btn-simple" id="1">
+                        <input type="radio" class="d-none d-sm-none" name="options">
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Purchases</span>
+                        <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-gift-2"></i>
+                        </span>
+                      </label>
+                      <label class="btn btn-sm btn-primary btn-simple" id="2">
+                        <input type="radio" class="d-none" name="options">
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Sessions</span>
+                        <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-tap-02"></i>
+                        </span>
+                      </label>
+                    </div>
+                  </div> -->
                 </div>
               </div>
               <div class="card-body">
@@ -249,8 +274,8 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
               </div>
             </div>
           </div>
-        </div> -->
-        <!-- Termina Gráfica de Consumo -->
+        </div>
+        <!-- Termina tabla Clientes -->
         <!-- Formulario de editar Cliente -->
         <div class="row">
           <div class="col-12 collapse" id="accordion">

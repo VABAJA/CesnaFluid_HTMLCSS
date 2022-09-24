@@ -183,7 +183,7 @@ include('../scripts/sesion.php');
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label>Nombre del Cliente</label>
-                                    <input type="string" class="form-control" name="buscar" placeholder="Nombre del Cliente">
+                                    <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="table-responsive">

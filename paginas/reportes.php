@@ -189,7 +189,7 @@ include '../scripts/sesion.php';
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label>Nombre del Cliente</label>
-                                    <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
+                                    <input type="string" class="form-control" name="buscar" placeholder="Nombre del Cliente">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="table-responsive">
@@ -213,7 +213,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                                             <?php echo $row['nombreCliente']; ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php echo $row['id']; ?>
+                                                            <?php echo $row['id_cli']; ?>
                                                         </td>
                                                         <td class="text-center">
                                                             <?php echo $row['contacto']; ?>
@@ -280,39 +280,37 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                        <tbody>
                                             <?php
-include '../scripts/tablas/masInfo.php';
-while ($fila = mysqli_fetch_array($resultado_info)):
+include '../scripts/masInfo.php';
+while ($fila = mysqli_fetch_array($lista_reportes)):
 ?>
                                                 <tr>
 
                                                     <td class="text-center">
-                                                        <?php echo $fila['id']; ?>
+                                                        <?php echo $fila['id_cli']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreCliente']; ?>
                                                     </td>
 
                                                     <td class="text-center">
-                                                        <?php echo $fila['id_dispositivos']; ?>
+                                                        <?php echo $fila['usuario']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['id_vehiculos']; ?>
+                                                        <?php echo $fila['nombreDispositivo']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['id_tickets']; ?>
+                                                        <?php echo $fila['vehiculo']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['id_contenedores']; ?>
+                                                        <?php echo $fila['registroTicket']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <?php echo $fila['id_usuarios']; ?>
+                                                        <?php echo $fila['nombreContenedor']; ?>
                                                     </td>
                                                 </tr>
-                                            <?php endwhile;?>
-                                        </tbody>
+                                                <?php endwhile;?>
+                                            </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -379,7 +377,7 @@ $btnExportar.addEventListener("click", function () {
   tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
 });
 </script>
-    
+
     <script src="../assets/js/main.js"></script>
 </body>
 
