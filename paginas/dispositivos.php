@@ -374,7 +374,7 @@ while ($fila = mysqli_fetch_array($lista_dispositivos)): ?>
                                                     <td class="text-center">
                                                         <?php echo $fila['ubicacion']; ?>
                                                     </td>
-                                                    <td class="text-center">
+                                                    <td class="text-center" id="vacum">
                                                         <?php echo $fila['vacum']; ?>
                                                     </td>
 
@@ -492,11 +492,13 @@ while ($fila = mysqli_fetch_array($lista_dispositivos)): ?>
 
                                                 <td class="text-center">
                                                     <?php
+if (isset($_SESSION['cliente'])) {
 
-$conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
-$var = "SELECT * FROM configuracion";
-$vars = mysqli_query($conectar, $var);
-$varsh = mysqli_fetch_array($vars);
+    $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+    $var = "SELECT * FROM configuracion";
+    $vars = mysqli_query($conectar, $var);
+    $varsh = mysqli_fetch_array($vars);
+}
 
 ?>
                                                     <div class="form-check">
@@ -646,7 +648,8 @@ $varsh = mysqli_fetch_array($vars);
         <script src="../assets/js/core/bootstrap.min.js"></script>
         <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
         <!-- Chart JS -->
-        <script src="../assets/js/plugins/chartjs.min.js"></script>
+        <!-- <script src="../assets/js/plugins/chartjs.min.js"></script> -->
+        <script src="../assets/js/charts.js"></script>
         <!--  Notifications Plugin    -->
         <script src="../assets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->

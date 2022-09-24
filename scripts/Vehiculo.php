@@ -8,7 +8,6 @@ $db_sql = "tramex1";
 
 $id_cli = $_POST['id_cli'];
 
-$nombreCliente = $_POST['nombreCliente'];
 $vehiculo = $_POST['vehiculo'];
 $vehiculopin = $_POST['vehiculopin'];
 $km = $_POST['km'];
@@ -28,10 +27,12 @@ mysqli_set_charset($conexion, "utf8");
 
 // TABLA VEHICULOS
 
-$tablaVehiculos = "SELECT * FROM vehiculos";
+$tablaVehiculos = "SELECT * FROM clientes
+INNER JOIN vehiculos
+ON vehiculos.vehiculos_id=clientes.id_vehiculos";
 
-$vehiculoDefinido = "SELECT * FROM vehiculos
-INNER JOIN clientes ON vehiculos.vehiculos_id=clientes.id_vehiculos
+$vehiculoDefinido = "SELECT * FROM clientes
+INNER JOIN vehiculos ON vehiculos.vehiculos_id=clientes.id_vehiculos
 AND clientes.nombreCliente
 LIKE '%" . $_SESSION['cliente'] . "%'";
 
@@ -50,8 +51,8 @@ if (!isset($_SESSION['cliente'])) {
 
 if (isset($_POST["ingresarVehiculo"])) {
 
-    $registroVehiculos = "INSERT INTO vehiculos (nombreCliente, vehiculo, vehiculopin, km, volumen, vacum, vehiculos_id)"
-        . "VALUES('" . $nombreCliente . "','" . $vehiculo . "','" . $vehiculopin . "','" . $km . "','" . $volumen . "','" . $vacum . "','" . $vehiculos_id . "')";
+    $registroVehiculos = "INSERT INTO vehiculos (vehiculo, vehiculopin, km, volumen, vacum, vehiculos_id)"
+        . "VALUES('" . $vehiculo . "','" . $vehiculopin . "','" . $km . "','" . $volumen . "','" . $vacum . "','" . $vehiculos_id . "')";
 
     if (mysqli_query($conexion, $registroVehiculos)) {
         echo "<script> alert ('Vehículo registrado con éxito');

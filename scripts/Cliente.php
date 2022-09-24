@@ -21,6 +21,7 @@ $contacto2 = $_POST['contacto2'];
 $username = $_POST['username'];
 $contrasena = $_POST['contrasena'];
 
+
 $conexion = mysqli_connect($host_sql, $user_sql, $pass_sql);
 if (mysqli_connect_errno()) {
     // echo "Fallo en la conexión";

@@ -703,12 +703,12 @@ while ($fila = mysqli_fetch_array($lista_clientes)):
                                                         <?php echo $fila['nombreContenedor']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <button type="button" title="Eliminar Dispositivo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                        <button type="button" title="Eliminar Cliente" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
                                                             <i class="tim-icons icon-simple-remove"></i>
                                                         </button>
                                                     </td>
+                                                    <?php endwhile;?>
                                                 </tr>
-                                                <?php endwhile;?>
                                             </tbody>
                                     </table>
                                 </div>

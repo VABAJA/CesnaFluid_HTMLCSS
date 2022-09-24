@@ -369,8 +369,8 @@ while ($fila = mysqli_fetch_array($lista_usuarios)): ?>
                               </div>
                             </td>
                             <td class="text-center">
-                                                        <?php echo $fila['nombreCliente']; ?>
-                                                    </td>
+                              <?php echo $fila['nombreCliente']; ?>
+                            </td>
                             <td class="text-center">
                               <?php echo $fila['usuario']; ?>
                             </td>
@@ -388,7 +388,7 @@ while ($fila = mysqli_fetch_array($lista_usuarios)): ?>
                             </td>
 
                             <td class="text-center">
-                              <button class="btn btn-link" type="button" title="Editar Vehículo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
+                              <button class="btn btn-link" type="button" title="Editar Usuario" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
                                 <i class="tim-icons icon-pencil"></i>
 
                               </button>
@@ -408,82 +408,9 @@ while ($fila = mysqli_fetch_array($lista_usuarios)): ?>
                 </div>
               </div>
               <!-- Termina tabla de Usuarios -->
-              <!-- Edita Usuario -->
-              <div class="row">
-                <div class="col-12 collapse" id="collapseEdit">
-                  <div class="card">
-                    <div class="card-header">
-                      <h5 class="title">Editar Cliente</h5>
-                    </div>
-                    <div class="card-body">
-                      <form action="../scripts/usuarios_reg.php" method="post">
-                        <div class="row">
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                              <label>ID del Usuario</label>
-                              <input type="number" class="form-control" placeholder="Ej: 0001" name="usuario" required>
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                              <label>PIN RFID</label>
-                              <input type="string" class="form-control" placeholder="Ej: 0000" name="usuariopin" required>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                              <label>Nombre del Contacto</label>
-                              <input type="text" class="form-control" placeholder="Ej: Jorge Barrera" name="nomusuario" required>
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                              <label>Nombre de la Empresa</label>
-                              <input type="text" class="form-control" placeholder="Ej: Tramex">
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Dirección Email</label>
-                              <input type="string" class="form-control" placeholder="jorge@email.com">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <div class="form-group">
-                              <label>Dirección</label>
-                              <input type="text" class="form-control" placeholder="Ej:Calle, Colonia">
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                              <label>Teléfono</label>
-                              <input type="number" class="form-control" placeholder="Ej: 8115028945">
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Ciudad</label>
-                              <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion" required>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="ingresarUsuario">Guardar</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-
-        <!-- Termina edición de Usuario -->
         <!-- Formulario de editar Usuario -->
 
         <div class="row">
@@ -492,7 +419,6 @@ while ($fila = mysqli_fetch_array($lista_usuarios)): ?>
               <div class="card-header">
                 <h5 class="title">Editar Usuario</h5>
               </div>
-
               <div class="card-body">
                 <div class="card">
                   <div class="card-header" id="headingOne">
@@ -504,56 +430,50 @@ while ($fila = mysqli_fetch_array($lista_usuarios)): ?>
                   </div>
                   <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
-                      <form action="../scripts/vehiculos_req.php" method="post">
+                      <form action="../scripts/Usuario.php" method="post">
                         <div class="row">
                           <div class="col-sm-4">
                             <div class="form-group">
-                              <label>ID. Del Vehículo</label>
-                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="vehiculo" required>
+                              <label>Nombre de Usuario</label>
+                              <input type="string" class="form-control" placeholder="Ej: ABC123" name="usuario" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
-                              <label>PIN RFID</label>
-                              <input type="string" class="form-control" placeholder="Ej: 0000" name="vehiculopin" required>
+                              <label>PINRFID</label>
+                              <input type="string" class="form-control" placeholder="Ej: 0000" name="usuariopin" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
-                              <label>Ciudad</label>
-                              <input type="text" class="form-control" placeholder="Ej: Monterrey" name="locacion">
+                              <label>Nombre del Contacto</label>
+                              <input type="string" class="form-control" placeholder="Ej: Monterrey" name="nomContacto">
                             </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-sm-4">
                             <div class="form-group">
-                              <label>Kilometros</label>
-                              <input type="number" class="form-control" placeholder="Ej: 135000" name="kilometros" required>
+                              <label>Correo del Contacto</label>
+                              <input type="string" class="form-control" placeholder="Ej: 135000" name="correoContacto" required>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
-                              <label>Volúmen en L</label>
-                              <input type="number" class="form-control" placeholder="Ej: 900" name="volumen" required>
-                            </div>
-                          </div>
-                          <div class="col-sm-4">
-                            <div class="form-group">
-                              <label>Volúmen Acumulado en L</label>
-                              <input type="number" class="form-control" placeholder="Ej: 1000" name="vacum" required>
+                              <label>Fecha de Registro</label>
+                              <input type="date" class="form-control" placeholder="Ej: 900" name="fechareg" required>
                             </div>
                           </div>
                         </div>
                         <div class="card-footer">
-                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarVehiculo">Guardar</button>
+                          <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editar_usuario">Guardar</button>
                         </div>
                       </form>
                     </div>
                   </div>
                 </div>
 
-                <div class="card">
+                <!-- <div class="card">
                   <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -598,9 +518,9 @@ while ($fila = mysqli_fetch_array($lista_usuarios)): ?>
                     </div>
                     </form>
                   </div>
-                </div>
+                </div> -->
 
-                <div class="card">
+                <!-- <div class="card">
                   <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -658,7 +578,7 @@ while ($fila = mysqli_fetch_array($lista_usuarios)): ?>
                       </form>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

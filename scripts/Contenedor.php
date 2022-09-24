@@ -24,10 +24,12 @@ mysqli_set_charset($conexion, "utf8");
 
 // TABLA DE CONTENEDORES
 
-$tablaContenedor = "SELECT * FROM contenedores";
+$tablaContenedor = "SELECT * FROM clientes
+INNER JOIN contenedores
+ON contenedores.contenedores_id=clientes.id_contenedores";
 
-$contenedorDefinido = "SELECT * FROM contenedores
-INNER JOIN clientes ON contenedores.contenedores_id=clientes.id_contenedores
+$contenedorDefinido = "SELECT * FROM clientes
+INNER JOIN contenedores ON contenedores.contenedores_id=clientes.id_contenedores
 AND clientes.nombreCliente
 LIKE '%" . $_SESSION['cliente'] . "%'";
 

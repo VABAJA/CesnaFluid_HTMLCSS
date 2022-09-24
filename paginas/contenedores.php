@@ -177,7 +177,7 @@ include '../scripts/sesion.php';
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label>Nombre del Cliente</label>
-                                    <input type="string" class="form-control" name="buscar" placeholder="Ej. TRAMEX">
+                                    <input type="string" class="form-control" name="buscar" placeholder="Nombre del Cliente">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="table-responsive">
@@ -327,6 +327,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                         </label>
                                                     </div>
                                                 </th>
+                                                <th class="text-center">Nombre del Cliente</th>
                                                 <th class="text-center">Nombre del Contenedor</th>
                                                 <th class="text-center">Ubicación del Contenedor</th>
                                                 <th class="text-center">Capacidad en Litros</th>
@@ -358,6 +359,9 @@ while ($fila = mysqli_fetch_array($lista_contenedores)): ?>
                                                                 </span>
                                                             </label>
                                                         </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['nombreCliente']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreContenedor']; ?>

@@ -28,10 +28,12 @@ mysqli_set_charset($conexion, "utf8");
 
 // TABLA DE REGISTROS 
 
-$tablaUsuarios = "SELECT * FROM usuarios";
+$tablaUsuarios = "SELECT * FROM clientes
+INNER JOIN usuarios
+ON usuarios.usuarios_id=clientes.id_usuarios";
 
-$usuarioDefinido = "SELECT * FROM usuarios
-INNER JOIN clientes ON usuarios.usuarios_id=clientes.id_usuarios
+$usuarioDefinido = "SELECT * FROM clientes
+INNER JOIN usuarios ON usuarios.usuarios_id=clientes.id_usuarios
 AND clientes.nombreCliente
 LIKE '%" . $_SESSION['cliente'] . "%'";
 
@@ -69,5 +71,19 @@ if (isset($_POST["ingresarUsuario"])) {
 
 }
 
+//MÉTODO PARA EDITAR UN USUARIO EXISTENTE
+if (isset($_POST["editarUsuario"])) {
+
+    $editar_usuario = "UPDATE usuarios SET usuario='$usuario', usuariopin='$usuariopin', nomContacto='$nomContacto', correoContacto='$correoContacto', fechareg='$fechareg' WHERE id_cli='$id_cli'";
+
+    if (mysqli_query($conexion, $editar_usuario)) {
+
+        echo "<script> alert ('Datos del Usuario actualizados con éxito');
+        window.location='../paginas/usuarios.php'</script>";
+    } else {
+        echo "<script> alert ('Error de actualización');
+        window.location='../paginas/usuarios.php'</script>";
+    }
+}
 
 ?>

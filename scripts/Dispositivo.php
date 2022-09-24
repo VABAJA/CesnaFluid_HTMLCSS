@@ -27,10 +27,12 @@ mysqli_set_charset($conexion, "utf8");
 
 // TABLA DE DISPOSITIVOS
 
-$tablaDispositivo = "SELECT * FROM dispositivos";
+$tablaDispositivo = "SELECT * FROM clientes
+INNER JOIN dispositivos
+ON dispositivos.dispositivos_id=clientes.id_dispositivos";
 
-$dispositivoDefinido = "SELECT * FROM dispositivos
-INNER JOIN clientes ON dispositivos.dispositivos_id=clientes.id_dispositivos
+$dispositivoDefinido = "SELECT * FROM clientes
+INNER JOIN dispositivos ON dispositivos.dispositivos_id=clientes.id_dispositivos
 AND clientes.nombreCliente
 LIKE '%" . $_SESSION['cliente'] . "%'";
 
