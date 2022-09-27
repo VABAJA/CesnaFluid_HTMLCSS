@@ -3,27 +3,43 @@
 session_start();
 
 //variable de conexión
-$conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+$conexion = mysqli_connect('localhost', 'root', '123456', 'tramex1');
 
 //verificación de conexión
-if (mysqli_connect_errno($conectar)) {
+if (mysqli_connect_errno($conexion)) {
     echo "Conexión Fallida" . mysqli_connect_error();
 }
 
-if (isset($_SESSION['cliente'])) {
+// BORRA UN REGISTRO DE LA TABLA
+$id_cli = $_GET['id_cli'];
+// $id_cli = $_POST['id_cli'];
 
-    if (isset($_POST['borraDispositivo'])) {
-        
-        $first = "SELECT id_dispositivos FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
+$elimina_registro = "DELETE FROM clientes
+    -- INNER JOIN usuarios ON usuarios.usuarios_id = clientes.id_usuarios
+    -- INNER JOIN dispositivos ON dispositivos.dispositivos_id = clientes.id_dispositivos
+    -- INNER JOIN vehiculos ON vehiculos.vehiculos_id = clientes.id_vehiculos
+    -- INNER JOIN contenedores ON contenedores.contenedores_id = clientes.id_contenedores
+    -- INNER JOIN configuracion ON configuracion.configuracion_id = clientes.id_configuracion
+    WHERE clientes.id_cli = '$id_cli'";
 
-        $second = mysqli_query($conectar, $first);
+$elimina = mysqli_query($conexion, $elimina_registro);
 
-        $third = mysqli_fetch_array($second);
+if (mysqli_query($conexion, $elimina)) {
+    $elimina_props = "DELETE FROM usuarios, dispositivos, vehiculos, contenedores, configuracion
+    INNER JOIN usuarios ON usuarios.usuarios_id = clientes.id_usuarios
+    INNER JOIN dispositivos ON dispositivos.dispositivos_id = clientes.id_dispositivos
+    INNER JOIN vehiculos ON vehiculos.vehiculos_id = clientes.id_vehiculos
+    INNER JOIN contenedores ON contenedores.contenedores_id = clientes.id_contenedores
+    INNER JOIN configuracion ON configuracion.configuracion_id = clientes.id_configuracion
+    WHERE clientes.id_cli = '$id_cli'";
+}
+if ((mysqli_query($conexion, $elimina)) & (mysqli_query($conexion, $elimina_props))) {
 
-        $ide = $third['id_dispositivos'];
-
-        //die(print_r($ide));
-        $borraDispositivo = mysqli_query($conectar, "DELETE FROM dispositivos WHERE dispositivos_id = '$ide'");
-    }
+    echo "<script> alert ('Cliente eliminado con éxito');
+    window.location='../paginas/clientes.php'</script>";
+} else {
+    echo "Error";
+    echo "<script> alert ('Error de registro');
+        window.location='../paginas/clientes.php'</script>";
 }
 ?>

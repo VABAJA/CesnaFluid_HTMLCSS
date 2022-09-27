@@ -193,29 +193,29 @@ include '../scripts/sesion.php';
                                                     <th class="text-center">Contacto</th>
                                                     <th class="text-center">Teléfono</th>
                                                     <th class="text-center">Correo</th>
-                                                
+
                                             </thead>
                                             <tbody>
-                                                
-                                                    <?php
-include '../scripts/buscador.php';
-while ($fila = mysqli_fetch_array($sql_query)): ?>
-                                                        <td class="text-center">
-                                                            <?php echo $fila['nombreCliente']; ?>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <?php echo $fila['id_cli']; ?>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <?php echo $fila['contacto']; ?>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <?php echo $fila['telefono']; ?>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <?php echo $fila['correo']; ?>
-                                                        </td>
-                                                    <?php endwhile;?>
+
+                                                <?php
+                                                include '../scripts/buscador.php';
+                                                while ($fila = mysqli_fetch_array($sql_query)) : ?>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['nombreCliente']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['id_cli']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['contacto']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['telefono']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $fila['correo']; ?>
+                                                    </td>
+                                                <?php endwhile; ?>
                                                 </tr>
                                             </tbody>
 
@@ -260,9 +260,9 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                         <tbody>
                                             <tr>
                                                 <?php
-include '../scripts/masInfo.php';
-while ($fila = mysqli_fetch_array($resultado_info)):
-?>
+                                                include '../scripts/masInfo.php';
+                                                while ($fila = mysqli_fetch_array($resultado_info)) :
+                                                ?>
 
                                                     <td class="text-center">
                                                         <?php echo $fila['razonSocial']; ?>
@@ -281,7 +281,7 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                                     </td>
 
 
-                                                <?php endwhile;?>
+                                                <?php endwhile; ?>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -316,15 +316,15 @@ while ($fila = mysqli_fetch_array($resultado_info)):
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <?php include '../scripts/buscador.php';
-while ($fila = mysqli_fetch_array($sql_query)): ?>
-                                                        <div class="form-group">
-                                                            <label>No. De Cliente</label>
-                                                            <input name="id_cli" type="number" class="form-control" value="<?php echo $fila['id_cli']; ?>" required>
-                                                        </div>
-                                                    <?php endwhile;?>
+                                                        while ($fila = mysqli_fetch_array($sql_query)) : ?>
+                                                            <div class="form-group">
+                                                                <label>No. De Cliente</label>
+                                                                <input name="id_cli" type="number" class="form-control" value="<?php echo $fila['id_cli']; ?>" required>
+                                                            </div>
+                                                        <?php endwhile; ?>
                                                     </div>
                                                     <div class="col-sm-4">
-                                            <!-- <div class="form-group">
+                                                        <!-- <div class="form-group">
                                                 <label>Correo para la Plataforma</label>
                                                 <input type="string" class="form-control" placeholder="Correo para la Plataforma" name="username" required>
                                             </div>
@@ -334,7 +334,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                 <label>Contraseña</label>
                                                 <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" required>
                                             </div> -->
-                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-4">
@@ -648,7 +648,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                     <table class="table tablesorter">
                                         <thead class="text-primary">
                                             <tr>
-                                                <th>
+                                                <!-- <th>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox" value="">
@@ -657,7 +657,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                             </span>
                                                         </label>
                                                     </div>
-                                                </th>
+                                                </th> -->
                                                 <th class="text-center">Cliente</th>
                                                 <th class="text-center">Usuarios</th>
                                                 <th class="text-center">Dispositivos</th>
@@ -665,24 +665,34 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                 <th class="text-center">Tickets</th>
                                                 <th class="text-center">Contenedores</th>
                                                 <th class="text-center"></th>
+                                                <th class="text-center">
+                                                    <!-- <div class="dropdown">
+                                                        <button type="button" name="borrarCliente" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                                                            <i class="tim-icons icon-settings-gear-63"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item" href="#">Eliminar</a>
+                                                        </div>
+                                                    </div> -->
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-include '../scripts/Cliente.php';
-while ($fila = mysqli_fetch_array($lista_clientes)):
-?>
+                                            include '../scripts/Cliente.php';
+                                            while ($fila = mysqli_fetch_array($lista_clientes)) :
+                                            ?>
                                                 <tr>
-                                                    <td>
+                                                    <!--  <td>
                                                         <div class="form-check">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" value="">
+                                                                <input class="form-check-input" type="checkbox" name="check_list[]" value="checked">
                                                                 <span class="form-check-sign">
                                                                     <span class="check"></span>
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                    </td>
+                                                    </td> -->
 
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreCliente']; ?>
@@ -703,13 +713,14 @@ while ($fila = mysqli_fetch_array($lista_clientes)):
                                                         <?php echo $fila['nombreContenedor']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <button type="button" title="Eliminar Cliente" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
+                                                        <a href="../scripts/elimina_elemento.php?id_cli=<?php echo $fila['id_cli'];?>" >
+                                                            <!-- <button type="button" name="borrarCliente" title="Eliminar Cliente" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls=""></button> -->
                                                             <i class="tim-icons icon-simple-remove"></i>
-                                                        </button>
+                                                        </a>
                                                     </td>
-                                                    <?php endwhile;?>
+                                                <?php endwhile; ?>
                                                 </tr>
-                                            </tbody>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>

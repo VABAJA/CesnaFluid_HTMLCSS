@@ -8,7 +8,6 @@ $db_sql = "tramex1";
 
 $id_cli = $_POST['id_cli'];
 
-$nombreCliente = $_POST['nombreCliente'];
 $usuario = $_POST['usuario'];
 $usuariopin = $_POST['usuariopin'];
 $nomContacto = $_POST['nomContacto'];
@@ -44,8 +43,6 @@ if (!isset($_SESSION['cliente'])) {
 } else {
     $lista_usuarios = mysqli_query($conexion, $usuarioDefinido);
 
-/*     //die(print_r($ide));
-    $resultado_usuarios = mysqli_query($conectar, "SELECT usuario, usuariopin, nomContacto, correoContacto, fechareg, usuarios_id FROM usuarios WHERE usuarios_id = '$ide'"); */
 
 }
 
@@ -54,8 +51,8 @@ if (!isset($_SESSION['cliente'])) {
 
 if (isset($_POST["ingresarUsuario"])) {
 
-    $registroUsuarios = "INSERT INTO usuarios (nombreCliente, usuario, usuariopin, nomContacto, correoContacto, fechareg, usuarios_id)"
-        . "VALUES('" . $nombreCliente . "','" . $usuario . "','" . $usuariopin . "', '" . $nomContacto . "','" . $correoContacto . "','" . $fechareg . "','" . $usuarios_id . "')";
+    $registroUsuarios = "INSERT INTO usuarios (usuario, usuariopin, nomContacto, correoContacto, fechareg, usuarios_id)"
+        . "VALUES('" . $usuario . "','" . $usuariopin . "', '" . $nomContacto . "','" . $correoContacto . "','" . $fechareg . "','" . $usuarios_id . "')";
 
     if (mysqli_query($conexion, $registroUsuarios)) {
         echo "<script> alert ('Usuario registrado con éxito');

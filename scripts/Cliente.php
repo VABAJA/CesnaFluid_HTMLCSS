@@ -59,7 +59,6 @@ if (!isset($_SESSION['cliente'])) {
 
     $lista_clientes = mysqli_query($conexion, $clienteDefinido);
 }
-
 // MÉTODO PARA INSTERTAR REGISTROS (AÑADIR USUARIO NUEVO, CON PERMISOS DE CLIENTE)
 
 if (isset($_POST["ingresarCliente"])) {
@@ -86,7 +85,7 @@ if (isset($_POST["ingresarCliente"])) {
         window.location='../paginas/clientes.php'</script>";
     }
     $AsignaRol = "UPDATE rolesdeusuario SET rol=2 WHERE rol=0";
-    $sql_query = mysqli_query($conexion, $AsignaRol);
+    $Asigna = mysqli_query($conexion, $AsignaRol);
 
 }
 
