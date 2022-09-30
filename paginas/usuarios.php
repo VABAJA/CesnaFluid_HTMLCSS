@@ -1,7 +1,6 @@
 <?php
 include '../scripts/sesion.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -394,11 +393,12 @@ while ($fila = mysqli_fetch_array($lista_usuarios)): ?>
                               </button>
                             </td>
                             <td class="text-center">
-                              <button type="button" title="Eliminar Usuario" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                                <a href="../scripts/elimina_elemento.php">
-                                  <i class="tim-icons icon-simple-remove"></i>
-                                </a>
-                              </button>
+                              <form method="POST" action="../scripts/elimina_elemento.php">
+                                <input type="hidden" name="usuarios_id" value="<?php echo $fila['usuarios_id']; ?>">
+                                <button type="submit" title="Eliminar Usuario" class="btn btn-link">
+                                    <i class="tim-icons icon-simple-remove"></i>
+                                </button>
+                              </form>
                             </td>
                           </tr>
                         <?php endwhile;?>

@@ -713,10 +713,12 @@ include '../scripts/sesion.php';
                                                         <?php echo $fila['nombreContenedor']; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="../scripts/elimina_elemento.php?id_cli=<?php echo $fila['id_cli'];?>" >
-                                                            <!-- <button type="button" name="borrarCliente" title="Eliminar Cliente" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls=""></button> -->
-                                                            <i class="tim-icons icon-simple-remove"></i>
-                                                        </a>
+                                                        <form method="POST" action="../scripts/elimina_elemento.php">
+                                                            <input type="hidden" name="id_cli" value="<?php echo $fila['id_cli']; ?>">
+                                                            <button type="submit" title="Eliminar Cliente" class="btn btn-link">
+                                                                <i class="tim-icons icon-simple-remove"></i>
+                                                            </button>
+                                                        </form>
                                                     </td>
                                                 <?php endwhile; ?>
                                                 </tr>
