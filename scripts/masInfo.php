@@ -58,20 +58,23 @@ if (isset($_SESSION['cliente'])) {
 }
 
 // REGISTRO DE TICKETS
-/* if (isset($_SESSION['cliente'])) {
+$tablaTickets = "SELECT * FROM clientes
+INNER JOIN tickets
+ON tickets.tickets_id=clientes.id_tickets";
 
-$conexion = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+$ticketDefinido = "SELECT * FROM clientes
+INNER JOIN tickets 
+ON tickets.tickets_id=clientes.id_tickets
+AND clientes.nombreCliente
+LIKE '%" . $_SESSION['cliente'] . "%'";
 
-$first = "SELECT id_tickets FROM clientes WHERE nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
+if (!isset($_SESSION['cliente'])) {
 
-$second = mysqli_query($conexion, $first);
+    $lista_tickets = mysqli_query($conexion, $tablaTickets);
+    
+} else {
+    $lista_tickets = mysqli_query($conexion, $ticketDefinido);
 
-$third = mysqli_fetch_array($second);
 
-$ide = $third['id_tickets'];
-
-//die(print_r($ide));
-$resultado_tickets = mysqli_query($conexion, "SELECT registroTicket, fechareg, id_tick FROM tickets WHERE tickets_id = '$ide'");
 }
- */
 ?>

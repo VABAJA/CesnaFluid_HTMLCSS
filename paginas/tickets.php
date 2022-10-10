@@ -278,7 +278,7 @@ while ($row = mysqli_fetch_array($sql_query)): ?>
                                         <tbody>
                                             <?php
 include '../scripts/masInfo.php';
-while ($fila = mysqli_fetch_array($resultado_tickets)): ?>
+while ($fila = mysqli_fetch_array($lista_tickets)): ?>
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
@@ -299,13 +299,6 @@ while ($fila = mysqli_fetch_array($resultado_tickets)): ?>
                                                     <td class="text-center">
                                                         <?php echo $fila['id_tick']; ?>
                                                     </td>
-
-                                                    <!-- <td class="text-center">
-                                                        <button class="btn btn-link" type="button" title="Editar Dispositivo" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="accordion">
-                                                            <i class="tim-icons icon-pencil"></i>
-
-                                                        </button>
-                                                    </td> -->
                                                     <td class="text-center">
                                                         <button type="button" title="Eliminar Dispositivo" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
                                                             <i class="tim-icons icon-simple-remove"></i>

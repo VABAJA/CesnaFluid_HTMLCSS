@@ -26,4 +26,4 @@ $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
     $_SESSION["timeout"] = time();
 
     
-  
+  ?>

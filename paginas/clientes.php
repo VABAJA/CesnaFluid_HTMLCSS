@@ -683,17 +683,6 @@ include '../scripts/sesion.php';
                                             while ($fila = mysqli_fetch_array($lista_clientes)) :
                                             ?>
                                                 <tr>
-                                                    <!--  <td>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" name="check_list[]" value="checked">
-                                                                <span class="form-check-sign">
-                                                                    <span class="check"></span>
-                                                                </span>
-                                                            </label>
-                                                        </div>
-                                                    </td> -->
-
                                                     <td class="text-center">
                                                         <?php echo $fila['nombreCliente']; ?>
                                                     </td>
