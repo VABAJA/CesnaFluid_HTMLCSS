@@ -395,9 +395,10 @@ while ($fila = mysqli_fetch_array($lista_usuarios)): ?>
                             </td>
                             <td class="text-center">
                               <button type="button" title="Eliminar Usuario" class="btn btn-link" data-toggle="" data-target="#" aria-expanded="false" aria-controls="">
-                                <a href="../scripts/elimina_elemento.php">
-                                  <i class="tim-icons icon-simple-remove"></i>
-                                </a>
+                              <a href="../scripts/elimina_elemento.php?usuarios_id=<?php echo $fila['usuarios_id']; ?>" >
+
+                                                            <i class="tim-icons icon-simple-remove"></i>
+                                                        </a>
                               </button>
                             </td>
                           </tr>

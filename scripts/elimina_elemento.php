@@ -10,36 +10,47 @@ if (mysqli_connect_errno($conexion)) {
     echo "Conexión Fallida" . mysqli_connect_error();
 }
 
-// BORRA UN REGISTRO DE LA TABLA
 $id_cli = $_GET['id_cli'];
-// $id_cli = $_POST['id_cli'];
+// // BORRA UN CLIENTE DE LA TABLA
+// $borraCliente = "DELETE FROM clientes WHERE clientes.id_cli = '$id_cli'";
 
-$elimina_registro = "DELETE FROM clientes
-    -- INNER JOIN usuarios ON usuarios.usuarios_id = clientes.id_usuarios
-    -- INNER JOIN dispositivos ON dispositivos.dispositivos_id = clientes.id_dispositivos
-    -- INNER JOIN vehiculos ON vehiculos.vehiculos_id = clientes.id_vehiculos
-    -- INNER JOIN contenedores ON contenedores.contenedores_id = clientes.id_contenedores
-    -- INNER JOIN configuracion ON configuracion.configuracion_id = clientes.id_configuracion
-    WHERE clientes.id_cli = '$id_cli'";
+// if (isset($id_cli)){
 
-$elimina = mysqli_query($conexion, $elimina_registro);
+//     // $elimina_cliente = mysqli_query($conexion, $borraCliente);
+//     echo "<script> alert ('Cliente eliminado con éxito');
+//     window.location='../paginas/clientes.php'</script>";
+// }
+// if($_POST['$id_cli'])($conexion, $elimina_cliente)); 
 
-if (mysqli_query($conexion, $elimina)) {
-    $elimina_props = "DELETE FROM usuarios, dispositivos, vehiculos, contenedores, configuracion
-    INNER JOIN usuarios ON usuarios.usuarios_id = clientes.id_usuarios
-    INNER JOIN dispositivos ON dispositivos.dispositivos_id = clientes.id_dispositivos
-    INNER JOIN vehiculos ON vehiculos.vehiculos_id = clientes.id_vehiculos
-    INNER JOIN contenedores ON contenedores.contenedores_id = clientes.id_contenedores
-    INNER JOIN configuracion ON configuracion.configuracion_id = clientes.id_configuracion
-    WHERE clientes.id_cli = '$id_cli'";
-}
-if ((mysqli_query($conexion, $elimina)) & (mysqli_query($conexion, $elimina_props))) {
+    
 
-    echo "<script> alert ('Cliente eliminado con éxito');
-    window.location='../paginas/clientes.php'</script>";
-} else {
-    echo "Error";
-    echo "<script> alert ('Error de registro');
-        window.location='../paginas/clientes.php'</script>";
-}
+// BORRA UN USUARIO DE LA TABLA
+
+$borraUsuario = "DELETE FROM usuarios WHERE usuarios_id = '$id_cli'";
+$elimina_usuario = mysqli_query($conexion, $borraUsuario);
+
+
+
+if ($conexion->query($elimina_cliente) === TRUE) {
+    echo "<script> alert ('Usuario eliminado con éxito');
+    window.location='../paginas/usuarios.php'</script>";
+  } else {
+    echo "<script> alert ('Error borrando al Usuario');
+    window.location='../paginas/usuarios.php'</script>";
+
+    echo "Error deleting record: " . $conexion->error;
+  }
+  
+  $conexion->close();
+
+
+
+// if(mysqli_query($conexion, $elimina_cliente)); {
+
+//     $elimina_usuario = mysqli_query($conexion, $borraUsuario);
+    
+//     echo "<script> alert ('Usuario eliminado con éxito');
+//     window.location='../paginas/usuarios.php'</script>";
+// }
+
 ?>

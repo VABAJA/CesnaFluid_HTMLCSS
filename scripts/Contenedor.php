@@ -52,12 +52,12 @@ if (isset($_POST["ingresarContenedor"])) {
         . "VALUES('" . $nombreContenedor . "','" . $contenedorUbicacion . "','" . $vacum . "','" . $volumen . "','" . $contenedores_id . "')";
 
     if (mysqli_query($conexion, $registroContenedores)) {
-        echo "<script> alert ('Dispositivo registrado con éxito');
-        window.location='../paginas/dispositivos.php'</script>";
+        echo "<script> alert ('Contenedor registrado con éxito');
+        window.location='../paginas/contenedores.php'</script>";
     } else {
         echo "Error";
         echo "<script> alert ('Error de registro');
-        window.location='../paginas/dispositivos.php'</script>";
+        window.location='../paginas/contenedores.php'</script>";
     }
 }
 
