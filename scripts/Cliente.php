@@ -47,7 +47,7 @@ INNER JOIN usuarios ON usuarios.usuarios_id=clientes.id_usuarios
 INNER JOIN dispositivos ON dispositivos.dispositivos_id = clientes.id_dispositivos
 INNER JOIN vehiculos ON vehiculos.vehiculos_id = clientes.id_vehiculos
 INNER JOIN tickets ON tickets.tickets_id = clientes.id_tickets
-INNER JOIN contenedores ON contenedores.contenedores_id = clientes.id_contenedores
+INNER JOIN con tenedores ON contenedores.contenedores_id = clientes.id_contenedores
 
  AND clientes.nombreCliente 
  LIKE '%" . $_SESSION['cliente'] . "%'";

@@ -494,6 +494,9 @@ while ($fila = mysqli_fetch_array($lista_dispositivos)): ?>
                                                     <?php
 if (isset($_SESSION['cliente'])) {
 
+      $SQL_READ = "SELECT * FROM clientes WHERE nombreCliente LIKE '%".$_SESSION['cliente']."%'";
+      $sql_query = mysqli_query($conectar,$SQL_READ);
+
     $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
     $var = "SELECT * FROM configuracion";
     $vars = mysqli_query($conectar, $var);
