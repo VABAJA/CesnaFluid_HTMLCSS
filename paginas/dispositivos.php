@@ -197,8 +197,8 @@ include '../scripts/sesion.php';
                                             <tbody>
                                                 <tr>
                                                     <?php
-include '../scripts/buscador.php';
-while ($fila = mysqli_fetch_array($sql_query)): ?>
+                                                    include '../scripts/buscador.php';
+                                                    while ($fila = mysqli_fetch_array($sql_query)) : ?>
 
                                                         <td class="text-center">
                                                             <?php echo $fila['nombreCliente']; ?>
@@ -215,7 +215,7 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                                         <td class="text-center">
                                                             <?php echo $fila['correo']; ?>
                                                         </td>
-                                                    <?php endwhile;?>
+                                                    <?php endwhile; ?>
                                                 </tr>
                                             </tbody>
 
@@ -242,23 +242,23 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <?php
-include '../scripts/buscador.php';
-while ($fila = mysqli_fetch_array($sql_query)): ?>
+                                            include '../scripts/buscador.php';
+                                            while ($fila = mysqli_fetch_array($sql_query)) : ?>
                                                 <div class="form-group">
                                                     <label>Nombre del CLiente</label>
                                                     <input type="string" class="form-control" name="nombreCliente" value="<?php echo $fila['nombreCliente']; ?>">
                                                 </div>
-                                            <?php endwhile;?>
+                                            <?php endwhile; ?>
                                         </div>
                                         <div class="col-sm-4">
                                             <?php
-include '../scripts/buscador.php';
-while ($fila = mysqli_fetch_array($sql_query)): ?>
+                                            include '../scripts/buscador.php';
+                                            while ($fila = mysqli_fetch_array($sql_query)) : ?>
                                                 <div class="form-group">
                                                     <label>No. De Cliente</label>
                                                     <input type="string" class="form-control" value="<?php echo $fila['id_cli']; ?>" name="dispositivos_id">
                                                 </div>
-                                            <?php endwhile;?>
+                                            <?php endwhile; ?>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
@@ -289,8 +289,8 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                     </div>
                                     <div class="card-footer">
                                         <button type="submit" class="col-6-md pull-right btn btn-blue" name="ingresarDispositivo" <?php if (!isset($_SESSION['cliente'])) {
-    echo '<input type="submit" disabled>';
-}?>>
+                                                                                                                                        echo '<input type="submit" disabled>';
+                                                                                                                                    } ?>>
                                             Agregar Dispositivo</button>
                                     </div>
                                 </form>
@@ -349,8 +349,8 @@ while ($fila = mysqli_fetch_array($sql_query)): ?>
                                         </thead>
                                         <tbody>
                                             <?php
-include '../scripts/Dispositivo.php';
-while ($fila = mysqli_fetch_array($lista_dispositivos)): ?>
+                                            include '../scripts/Dispositivo.php';
+                                            while ($fila = mysqli_fetch_array($lista_dispositivos)) : ?>
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
@@ -390,7 +390,7 @@ while ($fila = mysqli_fetch_array($lista_dispositivos)): ?>
                                                         </button>
                                                     </td>
                                                 </tr>
-                                            <?php endwhile;?>
+                                            <?php endwhile; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -492,23 +492,21 @@ while ($fila = mysqli_fetch_array($lista_dispositivos)): ?>
 
                                                 <td class="text-center">
                                                     <?php
-if (isset($_SESSION['cliente'])) {
+                                                    session_start();
+                                                    if (isset($_SESSION['cliente'])) {
 
-      $SQL_READ = "SELECT * FROM clientes WHERE nombreCliente LIKE '%".$_SESSION['cliente']."%'";
-      $sql_query = mysqli_query($conectar,$SQL_READ);
+                                                        $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
+                                                        $var = "SELECT * FROM configuracion INNER JOIN clientes ON configuracion.configuracion_id=clientes.id_configuracion WHERE clientes.nombreCliente LIKE '%".$_SESSION['cliente']."%'";
+                                                        $vars = mysqli_query($conectar, $var);
+                                                        $varsh = mysqli_fetch_array($vars);
+                                                    }
 
-    $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
-    $var = "SELECT * FROM configuracion";
-    $vars = mysqli_query($conectar, $var);
-    $varsh = mysqli_fetch_array($vars);
-}
-
-?>
+                                                    ?>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox" name="confDevice1" value="1" <?php if ($varsh['usuario'] == 1) {
-    echo "checked";
-}?>>
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -519,8 +517,8 @@ if (isset($_SESSION['cliente'])) {
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox" name="confDevice2" value="1" <?php if ($varsh['pinUsuario'] == 1) {
-    echo "checked";
-}?>>
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -531,8 +529,8 @@ if (isset($_SESSION['cliente'])) {
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox" name="confDevice3" value="1" <?php if ($varsh['vehiculo'] == 1) {
-    echo "checked";
-}?>>
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -543,8 +541,8 @@ if (isset($_SESSION['cliente'])) {
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox" name="confDevice4" value="1" <?php if ($varsh['pinVehiculo'] == 1) {
-    echo "checked";
-}?>>
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -555,8 +553,8 @@ if (isset($_SESSION['cliente'])) {
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox" name="confDevice5" value="1" <?php if ($varsh['km'] == 1) {
-    echo "checked";
-}?>>
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -567,8 +565,8 @@ if (isset($_SESSION['cliente'])) {
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox" name="confDevice6" value="1" <?php if ($varsh['ticket'] == 1) {
-    echo "checked";
-}?>>
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -579,8 +577,8 @@ if (isset($_SESSION['cliente'])) {
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox" name="confDevice7" value="1" <?php if ($varsh['volumen'] == 1) {
-    echo "checked";
-}?>>
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -591,8 +589,8 @@ if (isset($_SESSION['cliente'])) {
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox" name="confDevice8" value="1" <?php if ($varsh['impresora'] == 1) {
-    echo "checked";
-}?>>
+                                                                                                                                                echo "checked";
+                                                                                                                                            } ?>>
                                                             <span class="form-check-sign">
                                                                 <span class="check"></span>
                                                             </span>
@@ -606,8 +604,8 @@ if (isset($_SESSION['cliente'])) {
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="col-6-md pull-right btn btn-fill btn-blue" name="editarDispositivo" <?php if (!isset($_SESSION['cliente'])) {
-    echo '<input type="submit" disabled>';
-}?>>Guardar</button>
+                                                                                                                                            echo '<input type="submit" disabled>';
+                                                                                                                                        } ?>>Guardar</button>
                                 </div>
                             </form>
                         </div>
