@@ -45,18 +45,13 @@ if(isset($_POST['confDevice8']) && $_POST['confDevice8'] == "1"){
 }
 
 
-if (isset($_SESSION['cliente'])) {
+// if (isset($_SESSION['cliente'])) {
 
 /* $tablaConfiguracion = "SELECT * FROM clientes INNER JOIN
 configuracion ON clientes.id_configuracion=configuracion.configuracion_id"; */
 
 
-    
-    $conf_Device = "UPDATE configuracion SET usuario = '$conf1', pinUsuario = '$conf2', vehiculo = '$conf3', pinVehiculo = '$conf4', km = '$conf5', ticket = '$conf6', volumen = '$conf7', impresora = '$conf8' WHERE conmfconfiguracion_id='$id_cli'";
-
-
-
-
+    $conf_Device = "UPDATE configuracion SET usuario = '$conf1', pinUsuario = '$conf2', vehiculo = '$conf3', pinVehiculo = '$conf4', km = '$conf5', ticket = '$conf6', volumen = '$conf7', impresora = '$conf8' WHERE nombreCliente LIKE '%".$_SESSION['cliente']."%'";
 
 if (mysqli_query($conectar, $conf_Device)) {
     echo "<script> alert ('Configuración actualizada con éxito');
@@ -66,5 +61,4 @@ if (mysqli_query($conectar, $conf_Device)) {
     echo "<script> alert ('Ocurrió un error');
         window.location='../paginas/dispositivos.php'</script>";
 }
-}
-?>
+// }

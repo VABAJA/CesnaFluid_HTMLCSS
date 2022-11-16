@@ -486,9 +486,17 @@ include '../scripts/sesion.php';
                                         </thead>
                                         <tbody>
                                             <tr>
-
-                                                <td class="text-center"></td>
-
+                                                <td class="text-center">
+                                                    <?php
+                                                    include '../scripts/Dispositivo.php';
+                                                    while ($fila = mysqli_fetch_array($lista_dispositivos)) :
+                                                    ?>
+                                                        <?php
+                                                        if (isset($_SESSION['cliente'])) {
+                                                            echo $fila['nombreDispositivo'];
+                                                        } ?>
+                                                    <?php endwhile; ?>
+                                                </td>
 
                                                 <td class="text-center">
                                                     <?php
@@ -496,7 +504,7 @@ include '../scripts/sesion.php';
                                                     if (isset($_SESSION['cliente'])) {
 
                                                         $conectar = mysqli_connect('localhost', 'root', '123456', 'tramex1');
-                                                        $var = "SELECT * FROM configuracion INNER JOIN clientes ON configuracion.configuracion_id=clientes.id_configuracion WHERE clientes.nombreCliente LIKE '%".$_SESSION['cliente']."%'";
+                                                        $var = "SELECT * FROM configuracion INNER JOIN clientes ON configuracion.configuracion_id=clientes.id_configuracion WHERE clientes.nombreCliente LIKE '%" . $_SESSION['cliente'] . "%'";
                                                         $vars = mysqli_query($conectar, $var);
                                                         $varsh = mysqli_fetch_array($vars);
                                                     }
