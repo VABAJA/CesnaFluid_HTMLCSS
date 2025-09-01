@@ -113,8 +113,6 @@ Existen dos niveles principales de acceso:
 ## 6. Futuras Extensiones  
 - Integración con facturación electrónica.  
 - Reportes automáticos enviados por correo.  
-- Dashboard móvil.  
-- IA para detección de consumos anómalos.  
 
 ---
 
